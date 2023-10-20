@@ -1,0 +1,30 @@
+@extends('layouts.app')
+
+
+@section('navegador')
+    @include('template.nav-visitador')
+@endsection
+
+
+@section('header')
+    <header class="header-course-fondo" id="header-home">
+       
+
+        <div class="contenedor">
+            {{-- COMPONENTE LIVEWIRE BUSCADOR --}}
+            @livewire('search')
+        </div>
+    </header>
+@endsection
+
+
+@section('main')
+    <section id="ultimos-cursos" class="text-center">
+        <h3 class="ultimos-cursos-titulo color-general">Ultimos cursos</h3>
+        <p class="ultimos-cursos-parrafo color-general">no hay limites para aprender, eso está en ti</p>
+        <div class="contenedor">
+            {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
+            <x-course-card :courses="$courses"></x-course-card>
+        </div>
+    </section>
+@endsection

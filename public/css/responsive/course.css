@@ -1,0 +1,73 @@
+@media only screen and (max-width: 600px) {
+    /* Estilos específicos para dispositivos móviles */
+    .header-home-fondo {
+        height: 42vh !important;
+        padding: 18px !important;
+    }
+
+    #header-home .header-titulo {
+        margin-top: 60px !important;
+       font-size: 24px;
+    }
+
+    #header-home .header-parrafo {
+       font-size: 15px !important;
+       margin-top: 20px;
+    }
+
+
+
+
+
+    #curso-elegir {
+        background-color: var(--azul);
+        padding: 15px !important;
+    }
+
+    #curso-elegir .curso-elegir-titulo {
+        font-size: 22px !important;
+    }
+
+
+
+    #curso-show {padding: 15px !important;}
+    #curso-show .container {padding-top: 65px !important;}
+    #curso-show img {
+        height: 100% !important ;
+    }
+
+    #curso-show .curso-show-titulo {
+       font-size: 15px;
+    }
+    
+    #curso-show .curso-show-subtitulo {
+       font-size: 14px;
+    }
+
+
+
+    .header-course-fondo {
+        padding-top: 60px !important;
+        height: 20vh !important;
+    }
+
+
+    .header-list-fondo {
+        padding-top: 66px !important;
+        height: 21vh !important;
+    }
+
+    #header-list h3 {font-size: 30px !important;}
+    #header-list p {font-size: 17px !important;}
+
+
+
+    .header-pago-fondo {
+        padding-top: 71px !important;
+        height: 24vh !important;
+    }
+
+    #header-pago h3 {font-size: 20px !important;}
+    #header-pago p {font-size: 17px !important;}
+    #pago-curso p{ font-size: 15px !important;}
+}

@@ -1,0 +1,37 @@
+#header-home{
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.header-home-fondo {
+   background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(../../img/visitador/home/header.jpg);
+   height: 56vh;  
+   padding: 3.3rem;
+}
+
+#header-home .header-titulo {
+    margin-top: 95px;
+    color: var(--blanco);
+    font-weight: 600;
+    justify-content: center;
+}
+
+#header-home .header-parrafo {
+    color: var(--blanco);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#contenido .contenido-titulo { margin-top: 65px; margin-bottom: 35px;}
+
+
+#curso-elegir {background-color: var(--general); margin-top: 65px;}
+#curso-elegir .curso-elegir-titulo{ color: var(--blanco); font-size: 36px;} 
+#curso-elegir .curso-elegir-parrafo{ color: var(--blanco); font-size: 20px;} 
+
+#ultimos-cursos img {width: 100%;height: 220px;  object-fit: cover; }
+#ultimos-cursos .ultimos-cursos-titulo {margin-top: 65px;}
+#ultimos-cursos .ultimos-cursos-parrafo {padding-bottom: 35px;}
+#ultimos-cursos .ultimos-cursos-card-titulo { font-size: 18px;}
+#ultimos-cursos .ultimos-cursos-card-parrafo { font-size: 14px; text-align: justify; font-weight: 600;} 
