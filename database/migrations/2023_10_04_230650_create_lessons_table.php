@@ -18,6 +18,7 @@ class CreateLessonsTable extends Migration
             $table->string('name');
             $table->string('url');
             $table->text('iframe');
+            $table->string('video_id')->nullable();
 
             $table->unsignedBigInteger('platform_id')->nullable();
             $table->unsignedBigInteger('section_id');

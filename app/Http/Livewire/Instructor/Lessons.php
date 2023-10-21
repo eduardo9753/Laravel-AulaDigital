@@ -144,7 +144,10 @@ class Lessons extends Component
             preg_match($pattern, $url, $matches);
             $videoId = $matches[1] ?? '';
 
-            return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $videoId . '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            // Modificar la URL del iframe para agregar autoplay, quitar el banner de videos relacionados y reducir el branding
+            $iframeUrl = 'https://www.youtube.com/embed/' . $videoId . '?autoplay=1&rel=0&modestbranding=1';
+
+            return '<iframe width="560" height="315" src="' . $iframeUrl . '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         } elseif ($platform_id == 2) {
             // Para Vimeo
             $pattern = '/\/\/(www\.)?vimeo.com\/(\d+)($|\/)/';
@@ -152,6 +155,21 @@ class Lessons extends Component
             $videoId = $matches[2] ?? '';
 
             return '<iframe src="https://player.vimeo.com/video/' . $videoId . '" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+        }
+        return ''; // En caso de no ser una plataforma compatible
+    }
+
+
+    public function generateIdVideo($url, $platform_id)
+    {
+        if ($platform_id == 1) {
+            $pattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com(?:\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)))?([\w-]{10,12})/';
+            preg_match($pattern, $url, $matches);
+            return $matches[1] ?? null;
+        } elseif ($platform_id == 2) {
+            $pattern = '/(?:https?:\/\/)?(?:www\.)?(?:vimeo\.com\/(?:video\/)?)(\d+)/';
+            preg_match($pattern, $url, $matches);
+            return $matches[1] ?? null;
         }
         return ''; // En caso de no ser una plataforma compatible
     }

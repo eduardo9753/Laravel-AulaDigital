@@ -10,7 +10,7 @@
 
                     <div class="card-body">
                         <h4 class="ultimos-cursos-card-titulo">{{ $course->title }}</h4>
-                        <p class="ultimos-cursos-card-parrafo">{{ Str::limit($course->description, 40) }}</p>
+                        <p class="ultimos-cursos-card-parrafo">{!! Str::limit($course->description, 40) !!}</p>
                         <p class="ultimos-cursos-card-parrafo mt-3">Colaborador: {{ $course->teacher->name }}</p>
 
                         <div class="d-flex justify-content-between">

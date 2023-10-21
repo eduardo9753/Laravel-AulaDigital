@@ -42,7 +42,7 @@
   border: none;
   color: var(--blanco);
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 16px !important;
   margin: 4px 2px;
   border-radius: 8px;
   transition: 0.3s;
