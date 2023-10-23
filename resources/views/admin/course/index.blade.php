@@ -35,21 +35,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($courses as $course)
-                                    <tr>
-                                        <td>{{ $course->id }}</td>
-                                        <td>{{ $course->title }}</td>
-                                        <td>{{ $course->category->name }}</td>
-                                        <td>
-                                            <a class="mi-boton azul"
-                                                href="{{ route('admin.courses.show', ['course' => $course]) }}">Revisar</a>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td>Sin cursos por revisar</td>
-                                    </tr>
-                                @endforelse
+                                @foreach ($collection as $item)
+                                <tr>
+                                    <td>{{ $course->id }}</td>
+                                    <td>{{ $course->title }}</td>
+                                    <td>{{ $course->category->name }}</td>
+                                    <td>
+                                        <a class="mi-boton azul"
+                                            href="{{ route('admin.courses.show', ['course' => $course]) }}">Revisar</a>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -97,89 +97,25 @@
     <section class="" id="contenido-bloques">
         <div class="contenedor">
             <div class="row">
-                <div class="col-md-3 mb-3">
-                    <div class="mi-card">
-                        <div class="mi-card-content">
-                            <h2 class="contenido-bloques-titulo">Geometría</h2>
-                            <div class="text-center">
-                                <img src="https://media.istockphoto.com/id/1430005833/es/foto/juego-de-%C3%BAtiles-para-matem%C3%A1ticas-y-para-la-escuela-fracciones-reglas-l%C3%A1pices-bloc-de-notas.webp?s=1024x1024&w=is&k=20&c=_-Et2qYN_rIItpm5xLDbSiSkr2iPGK4r0DCG-wd4HDk="
-                                    class="card-img-top" alt="...">
-                            </div>
-                            <p class="contenido-bloques-parrafo mt-3">
-                                {{ Str::limit(
-                                    ' La geometría es una rama de las matemáticas que se ocupa del estudio de las propiedades, las dimensiones, las relaciones y las medidas de los objetos y las figuras en el espacio. En otras palabras, la geometría se centra en la descripción y el análisis de las formas y las estructuras que se encuentran en el espacio bidimensional y tridimensional.',
-                                    80,
-                                ) }}
-                            </p>
+                @foreach ($contenidos as $contenido)
+                    <div class="col-md-3 mb-3">
+                        <div class="mi-card">
+                            <div class="mi-card-content">
+                                <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
+                                <div class="text-center">
+                                    <img src="https://media.istockphoto.com/id/1430005833/es/foto/juego-de-%C3%BAtiles-para-matem%C3%A1ticas-y-para-la-escuela-fracciones-reglas-l%C3%A1pices-bloc-de-notas.webp?s=1024x1024&w=is&k=20&c=_-Et2qYN_rIItpm5xLDbSiSkr2iPGK4r0DCG-wd4HDk="
+                                        class="card-img-top" alt="...">
+                                </div>
+                                <p class="contenido-bloques-parrafo mt-3">
+                                    {{ Str::limit($contenido->url, 80) }}
+                                </p>
 
-                            <a href="#" class="mi-boton general mt-2 w-100">Detalles</a>
+                                <a href="{{ route('visitador.contenido', ['course' => $contenido]) }}"
+                                    class="mi-boton general mt-2 w-100">Detalles</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <div class="mi-card">
-                        <div class="mi-card-content">
-                            <h2 class="contenido-bloques-titulo">Trigonometría</h2>
-                            <div class="text-center">
-                                <img src="https://media.istockphoto.com/id/1430005833/es/foto/juego-de-%C3%BAtiles-para-matem%C3%A1ticas-y-para-la-escuela-fracciones-reglas-l%C3%A1pices-bloc-de-notas.webp?s=1024x1024&w=is&k=20&c=_-Et2qYN_rIItpm5xLDbSiSkr2iPGK4r0DCG-wd4HDk="
-                                    class="card-img-top" alt="...">
-                            </div>
-                            <p class="contenido-bloques-parrafo mt-3">
-                                {{ Str::limit(
-                                    ' La trigonometría es una rama de las matemáticas que se ocupa de las relaciones y propiedades de los triángulos, así como de las funciones trigonométricas, que son funciones matemáticas asociadas con ángulos. Su estudio abarca las medidas de los ángulos, las razones trigonométricas (seno, coseno, tangente, cotangente, secante y cosecante) y las aplicaciones prácticas de estas funciones en diversas áreas.',
-                                    80,
-                                ) }}
-                            </p>
-
-                            <a href="#" class="mi-boton general mt-2 w-100">Detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <div class="mi-card">
-                        <div class="mi-card-content">
-                            <h2 class="contenido-bloques-titulo">Álgebra</h2>
-                            <div class="text-center">
-                                <img src="https://media.istockphoto.com/id/1430005833/es/foto/juego-de-%C3%BAtiles-para-matem%C3%A1ticas-y-para-la-escuela-fracciones-reglas-l%C3%A1pices-bloc-de-notas.webp?s=1024x1024&w=is&k=20&c=_-Et2qYN_rIItpm5xLDbSiSkr2iPGK4r0DCG-wd4HDk="
-                                    class="card-img-top" alt="...">
-                            </div>
-                            <p class="contenido-bloques-parrafo mt-3">
-                                {{ Str::limit(
-                                    ' El álgebra es una rama de las matemáticas que estudia las estructuras, las relaciones y las cantidades, y la manera en que se expresan mediante símbolos y letras. A diferencia de la aritmética, que se ocupa principalmente de las operaciones básicas y propiedades numéricas, el álgebra generaliza estas operaciones para trabajar con variables y expresiones algebraicas.',
-                                    80,
-                                ) }}
-                            </p>
-
-                            <a href="#" class="mi-boton general mt-2 w-100">Detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <div class="mi-card">
-                        <div class="mi-card-content">
-                            <h2 class="contenido-bloques-titulo">Aritmética</h2>
-                            <div class="text-center">
-                                <img src="https://media.istockphoto.com/id/1430005833/es/foto/juego-de-%C3%BAtiles-para-matem%C3%A1ticas-y-para-la-escuela-fracciones-reglas-l%C3%A1pices-bloc-de-notas.webp?s=1024x1024&w=is&k=20&c=_-Et2qYN_rIItpm5xLDbSiSkr2iPGK4r0DCG-wd4HDk="
-                                    class="card-img-top" alt="...">
-                            </div>
-                            <p class="contenido-bloques-parrafo mt-3">
-                                {{ Str::limit(
-                                    ' La aritmética es una rama de las matemáticas que se
-                                                                                                                                                                ocupa de las propiedades y las relaciones de los números, especialmente en lo que respecta a
-                                                                                                                                                                las operaciones fundamentales como la adición, la sustracción, la multiplicación y la
-                                                                                                                                                                división. La aritmética es fundamental para el estudio y la comprensión de conceptos
-                                                                                                                                                                matemático.',
-                                    80,
-                                ) }}
-                            </p>
-
-                            <a href="#" class="mi-boton general mt-2 w-100">Detalles</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

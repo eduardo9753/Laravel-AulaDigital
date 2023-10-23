@@ -8,8 +8,6 @@
 
 @section('header')
     <header class="header-course-fondo" id="header-home">
-       
-
         <div class="contenedor">
             {{-- COMPONENTE LIVEWIRE BUSCADOR --}}
             @livewire('search')

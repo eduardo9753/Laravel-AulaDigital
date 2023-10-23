@@ -26,6 +26,8 @@ use App\Http\Livewire\CourseStatus;
 
 /*RUTAS DEL VISITADOR "ESCOLARES" */
 Route::get('/', [HomeController::class, 'index'])->name('visitador.home.index');
+Route::get('/contenido/{course:title}', [HomeController::class , 'contenido'])->name('visitador.contenido');
+
 
 
 //LOGIN Y REGISTER
