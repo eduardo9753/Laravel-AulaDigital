@@ -45,6 +45,7 @@ class Resources extends Component
         ]);
 
         $this->reload();
+        $this->resetInputFields();
     }
 
     public function edit($id)
