@@ -12,7 +12,7 @@ class Resources extends Component
 
     public $resource_id;
     public $url;
-    public $resourceable_id; //id de la tabla que se enlaza
+    public $resourceable_id; //id de la tabla que se enlaza "courses"
     public $resourceable_type; //MODELOS DE LA TABLA
 
     public $courses;
@@ -21,6 +21,7 @@ class Resources extends Component
     {
         $this->courses = Course::all();
         $this->resources = Resource::all();
+        $this->resourceable_id = Course::pluck('id')->first();
         //@dump($url, $resourceable_id)
     }
 
@@ -81,6 +82,7 @@ class Resources extends Component
 
     public function reload()
     {
+        $this->courses = Course::all();
         $this->resources = Resource::all();
     }
 
