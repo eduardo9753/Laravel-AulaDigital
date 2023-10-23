@@ -22,7 +22,7 @@
         <div class="" id="contenido-bloques">
             <div class="contenedor">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Videos!</h2>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Recursos!</h2>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Cotinuidad!</h2>
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Acceso a lectura!</h2>

@@ -10,6 +10,7 @@
                     <li class="item"><a href="{{ route('admin.prices.index') }}">Precios</a></li>
                     <li class="item"><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
                     <li class="item"><a href="{{ route('admin.levels.index') }}">Niveles</a></li>
+                    <li class="item"><a href="{{ route('admin.resources.index') }}">Contenidos</a></li>
                     <li class="item"><a href="">Bienvenido: {{ auth()->user()->name }}</a></li>
                    
                     <li class="item">

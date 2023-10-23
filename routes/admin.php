@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\category\CategoryController;
 use App\Http\Controllers\admin\course\CourseController;
 use App\Http\Controllers\admin\level\LevelController;
 use App\Http\Controllers\admin\price\PriceController;
+use App\Http\Controllers\admin\resource\ResourceController;
 use App\Http\Controllers\admin\role\RoleController;
 use App\Http\Controllers\admin\user\UserController;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,4 @@ Route::post('/admin/course/approved/{course:slug}', [CourseController::class, 'a
 Route::get('/admin/price/index', [PriceController::class , 'index'])->name('admin.prices.index');
 Route::get('/admin/category/index', [CategoryController::class, 'index'])->name('admin.categories.index');
 Route::get('/admin/level/index',[LevelController::class, 'index'])->name('admin.levels.index');
+Route::get('/admin/resource/index', [ResourceController::class , 'index'])->name('admin.resources.index');
