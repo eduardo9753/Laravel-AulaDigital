@@ -1,3 +1,4 @@
+/*ESTILOS HEADER HOME*/
 #header-home{
    background-position: center center;
    background-repeat: no-repeat;
@@ -23,10 +24,40 @@
     font-weight: 500;
 }
 
-#contenido .contenido-titulo { margin-top: 65px; margin-bottom: 35px;}
+
+/*ESTILOS DE CURSO-BLOQUES*/
+#contenido-bloques {background-color: var(--gris); padding-top: 65px; padding-bottom: 65px;}
+#contenido-bloques .mi-card {
+    width: 100%;
+    height: auto;
+    background-color: var(--blanco);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+  }
+
+  #contenido-bloques .mi-card-content {
+    padding: 20px;
+  }
+
+  #contenido-bloques .mi-card:hover {
+    transform: scale(1.1);
+  }
 
 
-#curso-elegir {background-color: var(--general); margin-top: 65px;}
+  #contenido-bloques .contenido-bloques-titulo {
+    font-size: 23px;
+    text-align: center;
+    color: var(--general);
+  }
+  #contenido-bloques .imagen{ width: 40px; height: 40px; margin: 15px 0px 15px 0px;}
+  #contenido-bloques .curso-bloques-parrafo { text-align: justify; font-size: 12px;}
+
+
+
+/*ESTILOS DE CATALOGO DE CURSOS*/
+#curso-elegir {background-color: var(--general);}
 #curso-elegir .curso-elegir-titulo{ color: var(--blanco); font-size: 36px;} 
 #curso-elegir .curso-elegir-parrafo{ color: var(--blanco); font-size: 20px;} 
 

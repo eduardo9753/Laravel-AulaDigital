@@ -10,6 +10,9 @@
   background-color: var(--general);
   padding: 30px;
 }
+ 
+.curso-shoe-columna-ocho { background-color: var(--gris);}
+
 #curso-show .curso-show-descripcion {
   display: flex;
   align-items: center;
@@ -61,16 +64,25 @@
 .cursor-show:hover { cursor: pointer;  opacity: 1}
 
 
+
+
+
+
+/*ESTILOS DE MIS CURSOS DONDE ESTOY MATRICULADO*/
 .header-list-fondo {
   padding-top: 90px;
   background-color: var(--general);
   height: 35vh;
 }
+
 #header-list h3 {font-size: 35px;}
 #header-list p {font-size: 30px;}
 
 
 
+
+
+/*ESTILOS DEL CHECKOUT PARA PAGAR UN CURSO*/
 .header-pago-fondo{
   padding-top: 90px;
   background-color: var(--general);
