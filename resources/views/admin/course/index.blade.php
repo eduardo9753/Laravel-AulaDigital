@@ -35,7 +35,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($collection as $item)
+                                @foreach ($courses as $course)
                                 <tr>
                                     <td>{{ $course->id }}</td>
                                     <td>{{ $course->title }}</td>

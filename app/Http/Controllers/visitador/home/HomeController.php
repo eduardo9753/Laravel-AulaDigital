@@ -14,12 +14,9 @@ class HomeController extends Controller
     {
 
         //PARA EL CONTENIDO
-        $resourceIds = Resource::whereIn('resourceable_id', [12, 13, 14, 15])->pluck('id');
+        $courseIds = [12, 13, 14, 15];
 
-        $contenidos = Course::join('resources', 'courses.id', '=', 'resources.resourceable_id')
-            ->select('courses.title', 'resources.url')
-            ->whereIn('courses.id', $resourceIds)
-            ->get();
+        $contenidos =  Resource::whereIn('resourceable_id', $courseIds)->get();
 
         //para mostrarlo de forma ascendente "de las mas actualizada y que me traiga solo 8"
         $courses = Course::where('status', '=', 3)->latest('id')->take(8)->get();
@@ -29,11 +26,11 @@ class HomeController extends Controller
         ]);
     }
 
-    public function contenido(Course $course)
+    public function contenido(Resource $resource)
     {
-        $contenido = Resource::find($course->id);
-        return view('visitador.contenido.index',[
-            'contenido' => $contenido,
+        $course = Course::find($resource->resourceable_id);
+        return view('visitador.contenido.index', [
+            'contenido' => $resource,
             'course' => $course
         ]);
     }

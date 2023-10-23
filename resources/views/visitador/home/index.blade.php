@@ -110,7 +110,7 @@
                                     {{ Str::limit($contenido->url, 80) }}
                                 </p>
 
-                                <a href="{{ route('visitador.contenido', ['course' => $contenido]) }}"
+                                <a href="{{ route('visitador.contenido', ['resource' => $contenido]) }}"
                                     class="mi-boton general mt-2 w-100">Detalles</a>
                             </div>
                         </div>

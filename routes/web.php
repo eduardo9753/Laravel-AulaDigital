@@ -25,8 +25,9 @@ use App\Http\Livewire\CourseStatus;
 */
 
 /*RUTAS DEL VISITADOR "ESCOLARES" */
+
 Route::get('/', [HomeController::class, 'index'])->name('visitador.home.index');
-Route::get('/contenido/{course:title}', [HomeController::class , 'contenido'])->name('visitador.contenido');
+Route::get('/contenido/{resource}', [HomeController::class, 'contenido'])->name('visitador.contenido');
 
 
 
@@ -48,7 +49,7 @@ Route::get('/course/show/{course:slug}', [CourseController::class, 'show'])->nam
 //PERSONAS MATRICULADAS AL CURSO Y SEGUIMIENTO DEL CURSO
 Route::post('/course/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('visitador.course.enrolled');
 Route::get('/course-status/{course:slug}', [CourseController::class, 'status'])->middleware('auth')->name('visitador.course.status');
-Route::get('/list/course/student', [CourseController::class , 'courses'])->middleware('auth')->name('visitador.course.list');
+Route::get('/list/course/student', [CourseController::class, 'courses'])->middleware('auth')->name('visitador.course.list');
 
 
 
