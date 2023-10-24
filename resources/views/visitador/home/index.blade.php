@@ -105,15 +105,12 @@
                                 <div class="text-center">
                                     {{-- VALIDA SI EXISTE LA VARIABLE CURSO --}}
                                     <figure>
-                                        {{-- VALIDA SI EXISTE LA VARIABLE CURSO --}}
-                                        @isset($contenido)
-                                            @if ($contenido->image)
-                                                <img src="{{ $contenido->image->url }}" class="" alt="...">
-                                            @endif
+                                        @if ($contenido->image)
+                                            <img src="{{ $contenido->image->url }}" class="" alt="...">
                                         @else
                                             <img src="https://images.pexels.com/photos/7509366/pexels-photo-7509366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                                 class="" alt="...">
-                                        @endisset
+                                        @endif
                                     </figure>
                                 </div>
                                 <p class="contenido-bloques-parrafo mt-3">
