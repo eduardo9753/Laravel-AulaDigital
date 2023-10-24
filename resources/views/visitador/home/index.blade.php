@@ -103,14 +103,14 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
                                 <div class="text-center">
-                                    {{-- VALIDA SI EXISTE LA VARIABLE CURSO --}}
-                                    {{ $contenido->image }}
                                     <figure>
                                         @if ($contenido->image)
-                                            <img src="{{ $contenido->image->url }}" class="" alt="Imagen del curso">
+                                            <img class="imagen" src="{{ $contenido->image->url }}" class=""
+                                                alt="Imagen del curso">
                                         @else
-                                            <img src="https://cdn-icons-png.flaticon.com/512/647/647855.png"
-                                                class="" alt="...">
+                                            <img class="imagen"
+                                                src="https://cdn-icons-png.flaticon.com/512/2436/2436648.png" class=""
+                                                alt="...">
                                         @endif
                                     </figure>
                                 </div>

@@ -51,7 +51,7 @@
     text-align: center;
     color: var(--general);
   }
-  #contenido-bloques .imagen{ width: 40px; height: 40px; margin: 15px 0px 15px 0px;}
+  #contenido-bloques .imagen{ width: 100px; height: 100px; margin: 15px 0px 15px 0px;}
   #contenido-bloques .curso-bloques-parrafo { text-align: justify !important; font-size: 12.5px;}
 
 
