@@ -104,12 +104,12 @@
                                 <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
                                 <div class="text-center">
                                     {{-- VALIDA SI EXISTE LA VARIABLE CURSO --}}
-                                    {{ $contenido->image->url }}
+                                    {{ $contenido->image }}
                                     <figure>
                                         @if ($contenido->image)
                                             <img src="{{ $contenido->image->url }}" class="" alt="Imagen del curso">
                                         @else
-                                            <img src="https://images.pexels.com/photos/7509366/pexels-photo-7509366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                            <img src="https://cdn-icons-png.flaticon.com/512/647/647855.png"
                                                 class="" alt="...">
                                         @endif
                                     </figure>
