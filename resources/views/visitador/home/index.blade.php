@@ -103,7 +103,16 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
                                 <div class="text-center">
-                                    <img src="{{ $contenido->image->url }}" class="" alt="Imagen del Curso - Historia">
+                                    {{-- VALIDA SI EXISTE LA VARIABLE CURSO --}}
+                                    {{ $contenido->image->url }}
+                                    <figure>
+                                        @if ($contenido->image)
+                                            <img src="{{ $contenido->image->url }}" class="" alt="Imagen del curso">
+                                        @else
+                                            <img src="https://images.pexels.com/photos/7509366/pexels-photo-7509366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                                class="" alt="...">
+                                        @endif
+                                    </figure>
                                 </div>
                                 <p class="contenido-bloques-parrafo mt-3">
                                     {{ Str::limit($contenido->url, 80) }}
