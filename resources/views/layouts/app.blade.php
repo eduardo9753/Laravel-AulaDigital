@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('lib/owl/dist/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('lib/owl/dist/assets/owl.theme.default.min.css') }}">
+
+
     {{-- links css generales --}}
     <link rel="stylesheet" href="{{ asset('css/generales.css') }}">
     <link rel="stylesheet" href="{{ asset('css/colores.css') }}">
@@ -102,8 +107,14 @@
     <script src="{{ asset('lib/datatable/dataTables.min.js') }}"></script>
 
 
+    <!-- javascript OWL CAROUSEL LIB-->
+    <script src="{{ asset('lib/owl/dist/owl.carousel.js') }}"></script>
+    <script src="{{ asset('lib/owl/dist/owl.carousel.min.js') }}"></script>
+
     <!--SCCRIPT GENERALES-->
     <script src="{{ asset('js/dataTables.js') }}"></script>
+
+    <script src="{{ asset('js/owl.js') }}"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

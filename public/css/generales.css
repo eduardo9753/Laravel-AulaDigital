@@ -73,3 +73,15 @@ p { margin-bottom: 0px !important;}
 
 .fondo-general {background-color: var(--general) !important; color: var(--blanco);}
 .color-general { color: var(--general);}
+
+
+#owl-demo .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#owl-demo .owl-parrafo{
+    font-size: 24px;
+    padding-top: 13px;
+}

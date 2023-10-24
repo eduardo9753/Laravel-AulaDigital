@@ -121,6 +121,37 @@
     </section>
 
 
+    <section>
+        <!--  OWLCOURRESL Demos -->
+        <div id="owl-demo" class="owl-carousel owl-theme fondo-general">
+
+            <div class="item text-center">
+                <p class="owl-parrafo">El éxito es la suma de pequeños esfuerzos repetidos día tras día.</p>
+            </div>
+            <div class="item text-center">
+                <p class="owl-parrafo">No te preocupes por los errores y fracasos. Son parte del viaje hacia el éxito.</p>
+            </div>
+
+            <div class="item text-center">
+                <p class="owl-parrafo">Cada día es una nueva oportunidad para aprender y crecer.</p>
+            </div>
+
+            <div class="item text-center">
+                <p class="owl-parrafo">Cada logro comienza con la decisión de intentarlo.</p>
+            </div>
+
+            <div class="item text-center">
+                <p class="owl-parrafo">La mente es como un paracaídas, solo funciona cuando está abierta.</p>
+            </div>
+
+            <div class="item text-center">
+                <p class="owl-parrafo">No hay atajos para ningún lugar que valga la pena.</p>
+            </div>
+
+        </div>
+        <!--OWLCOURRESL-->
+    </section>
+
 
     <section id="ultimos-cursos" class="text-center">
         <h3 class="ultimos-cursos-titulo color-general">Ultimos cursos</h3>

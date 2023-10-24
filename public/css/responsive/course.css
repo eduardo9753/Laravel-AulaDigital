@@ -70,4 +70,11 @@
     #header-pago h3 {font-size: 20px !important;}
     #header-pago p {font-size: 17px !important;}
     #pago-curso p{ font-size: 15px !important;}
+
+
+    /*ESTILOS QWL SLIDER*/
+    #owl-demo .owl-parrafo{
+        font-size: 14px;
+    }
+
 }
