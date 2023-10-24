@@ -103,8 +103,18 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
                                 <div class="text-center">
-                                    <img src="https://media.istockphoto.com/id/1430005833/es/foto/juego-de-%C3%BAtiles-para-matem%C3%A1ticas-y-para-la-escuela-fracciones-reglas-l%C3%A1pices-bloc-de-notas.webp?s=1024x1024&w=is&k=20&c=_-Et2qYN_rIItpm5xLDbSiSkr2iPGK4r0DCG-wd4HDk="
-                                        class="card-img-top" alt="...">
+                                    {{-- VALIDA SI EXISTE LA VARIABLE CURSO --}}
+                                    <figure>
+                                        {{-- VALIDA SI EXISTE LA VARIABLE CURSO --}}
+                                        @isset($contenido)
+                                            @if ($contenido->image)
+                                                <img src="{{ $contenido->image->url }}" class="" alt="...">
+                                            @endif
+                                        @else
+                                            <img src="https://images.pexels.com/photos/7509366/pexels-photo-7509366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                                class="" alt="...">
+                                        @endisset
+                                    </figure>
                                 </div>
                                 <p class="contenido-bloques-parrafo mt-3">
                                     {{ Str::limit($contenido->url, 80) }}
