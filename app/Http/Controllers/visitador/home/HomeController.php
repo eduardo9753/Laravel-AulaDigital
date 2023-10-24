@@ -16,7 +16,12 @@ class HomeController extends Controller
         //PARA EL CONTENIDO
         $courseIds = [12, 13, 14, 15];
 
-        $contenidos =  Resource::whereIn('resourceable_id', $courseIds)->get();
+        //$contenidos =  Resource::whereIn('resourceable_id', $courseIds)->get();
+
+        $contenidos = Course::join('resources', 'courses.id', '=', 'resources.resourceable_id')
+            ->select('courses.*', 'resources.*')
+            ->whereIn('resourceable_id', $courseIds)
+            ->get();
 
         //para mostrarlo de forma ascendente "de las mas actualizada y que me traiga solo 8"
         $courses = Course::where('status', '=', 3)->latest('id')->take(8)->get();

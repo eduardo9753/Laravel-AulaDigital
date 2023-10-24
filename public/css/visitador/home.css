@@ -52,7 +52,7 @@
     color: var(--general);
   }
   #contenido-bloques .imagen{ width: 40px; height: 40px; margin: 15px 0px 15px 0px;}
-  #contenido-bloques .curso-bloques-parrafo { text-align: justify; font-size: 12px;}
+  #contenido-bloques .curso-bloques-parrafo { text-align: justify !important; font-size: 12.5px;}
 
 
 
@@ -61,8 +61,8 @@
 #curso-elegir .curso-elegir-titulo{ color: var(--blanco); font-size: 36px;} 
 #curso-elegir .curso-elegir-parrafo{ color: var(--blanco); font-size: 20px;} 
 
+
+
 #ultimos-cursos img {width: 100%;height: 220px;  object-fit: cover; }
 #ultimos-cursos .ultimos-cursos-titulo {margin-top: 65px;}
 #ultimos-cursos .ultimos-cursos-parrafo {padding-bottom: 35px;}
-#ultimos-cursos .ultimos-cursos-card-titulo { font-size: 18px;}
-#ultimos-cursos .ultimos-cursos-card-parrafo { font-size: 14px; text-align: justify; font-weight: 600;} 

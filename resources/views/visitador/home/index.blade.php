@@ -156,7 +156,7 @@
     <section id="ultimos-cursos" class="text-center">
         <h3 class="ultimos-cursos-titulo color-general">Ultimos cursos</h3>
         <p class="ultimos-cursos-parrafo color-general">no hay limites para aprender, eso está en ti</p>
-        <div class="contenedor">
+        <div>
             {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
             <x-course-card :courses="$courses"></x-course-card>
         </div>
