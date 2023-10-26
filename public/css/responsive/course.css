@@ -33,10 +33,12 @@
     #curso-show {padding: 15px !important;}
     #curso-show .container {padding-top: 65px !important;}
     #curso-show img {
-        height: 100% !important ;
+       width: 200px !important;
+       height: 200px !important;
     }
 
     #curso-show .curso-show-titulo {
+       margin-top: 20px;
        font-size: 15px;
     }
     

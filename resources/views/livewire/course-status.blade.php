@@ -9,7 +9,7 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h1 class="color-general">{{ $current->name }}</h1>
-                        <p>{{ $current->url }}</p>
+        
                         {{-- DESCRIPCION DE LA LECCION --}}
                         @if ($current->decription)
                             <div>

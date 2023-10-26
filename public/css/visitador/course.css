@@ -22,7 +22,8 @@
 #curso-show .curso-show-subtitulo {color: var(--blanco); margin-bottom: 30px;}
 #curso-show p{ color: var(--blanco);}
 #curso-show .container {padding-top: 90px;}
-#curso-show img { height: 380px;}
+#curso-show img {width: 350px; height: 350px;}
+figure {text-align: center;}
 
 
 .embed-responsive {

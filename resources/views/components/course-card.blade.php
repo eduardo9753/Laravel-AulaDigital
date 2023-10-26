@@ -9,14 +9,13 @@
                                 <h2 class="contenido-bloques-titulo">{{ $course->title }}</h2>
                                 <div class="text-center">
                                     <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
-                                        <img src="{{ $course->image->url }}" class="card-img-top" alt="...">
+                                        <img class="imagen" src="{{ $course->image->url }}" alt="">
                                     </a>
                                 </div>
 
                                 <p class="contenido-bloques-parrafo mt-3">
                                     {{ Str::limit($course->description, 30) }}
                                 </p>
-
 
                                 <div class="d-flex justify-content-between">
                                     <p>Matriculados({{ $course->students_count }})</p>
@@ -48,7 +47,6 @@
                                         {{ $course->price->value }}
                                         S/.</p>
                                 @endif
-
 
                                 <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
                                     class="mi-boton general mt-2 w-100">Detalles</a>

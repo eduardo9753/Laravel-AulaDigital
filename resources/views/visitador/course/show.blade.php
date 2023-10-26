@@ -119,10 +119,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="mb-3 color-general">Descripción</h3>
-                                <div class="">
-                                    <p class=""><i class='bx bxs-hand-right'
-                                            style='color:#4b22f4;margin-right: 3px'></i>{!! $course->description !!}
-                                    </p>
+                                <div class="d-flex align-items-center">
+                                    <i class='bx bxs-hand-right' style='color:#4b22f4;margin-right: 3px'></i>
+                                    <p class="">{!! $course->description !!}</p>
                                 </div>
                             </div>
                         </div>
