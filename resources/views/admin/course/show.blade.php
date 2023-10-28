@@ -34,125 +34,127 @@
     {{-- DESCRIPCION DEL CURSO Y SUS CARACTERISTICAS --}}
 
 
-    <div class="container">
-        <div class="row">
-            {{-- COLUMNA IZQUIERDA --}}
-            <div class="col-md-8 mt-3">
-                {{-- INPRIMIENDO LAS METAS --}}
-                <section class="">
-                    @if (session('info'))
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>Mensaje!</strong>{{ session('info') }}.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-                    <div class="card sombra">
-                        <div class="card-body">
-                            <h3>Lo que aprenderás</h3>
-                            <ul class="row">
-                                @foreach ($course->goals as $goal)
-                                    <div class="col-md-6">
-                                        <div class="d-flex align-items-center">
-                                            <i class='bx bx-bullseye' style='color:#0d6efd;margin-right: 3px'></i>
-                                            <li class="">{{ $goal->name }}</li>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-                {{-- INPRIMIENDO LAS METAS --}}
-
-                {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
-                <section>
-                    <h3 class="mt-4 mb-3">Temario</h3>
-                    @foreach ($course->sections as $section)
-                        <div class="card sombra mt-2">
+    <div class="curso-shoe-columna-ocho">
+        <div class="contenedor">
+            <div class="row">
+                {{-- COLUMNA IZQUIERDA --}}
+                <div class="col-md-8 mt-3">
+                    {{-- INPRIMIENDO LAS METAS --}}
+                    <section class="">
+                        <div class="card">
                             <div class="card-body">
-                                {{-- PARA QUE EL PRIMER SECTION ESTE ABIERTO --}}
-                                <article
-                                    @if ($loop->first) x-data="{ open: true }"
+                                <h3 class="color-general">Lo que aprenderás</h3>
+                                <ul class="row">
+                                    @foreach ($course->goals as $goal)
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center">
+                                                <i class='bx bx-bullseye' style='color:#0d6efd;margin-right: 3px'></i>
+                                                <li class="">{{ $goal->name }}</li>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    {{-- INPRIMIENDO LAS METAS --}}
+
+
+                    {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
+                    <section>
+                        <h3 class="mt-4 mb-3 color-general">Temario</h3>
+                        @foreach ($course->sections as $section)
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    {{-- PARA QUE EL PRIMER SECTION ESTE ABIERTO --}}
+                                    <article
+                                        @if ($loop->first) x-data="{ open: true }"
                                 @else
                                 x-data="{ open: false }" @endif>
-                                    <header class="link-primary" x-on:click="open= !open">
-                                        <h4 class="lead cursor-show"> <i class="bx bx-chevron-down bx-flip-"></i>
-                                            {{ $section->name }}</h4>
-                                    </header>
-                                    {{-- INPRIMIENDO LAS LECCIONES DE DE CADA SECCION --}}
-                                    <div class="bg-white py-2 px-4" x-show="open">
-                                        <ul>
-                                            @foreach ($section->lessons as $lesson)
-                                                <li class="d-flex align-items-center my-1">
-                                                    <i class='bx bx-circle'
-                                                        style='color:rgb(52, 152, 219) ; font-size: 22px'></i>
-                                                    <p>{{ $lesson->name }}</p>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                    {{-- INPRIMIENDO LAS LECCIONES DE DE CADA SECCION --}}
-                                </article>
-                            </div>
-                        </div>
-                    @endforeach
-                </section>
-                {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
-
-
-                {{-- INPRIMIENDO LOS REQUERIMIENTOS --}}
-                <section>
-                    <h3 class="mt-4 mb-3">Requisitos</h3>
-                    <ul>
-                        @foreach ($course->requirements as $requirement)
-                            <div class="d-flex align-items-center">
-                                <i class='bx bx-check-square' style='color:#0d6efd;margin-right: 3px'></i>
-                                <li>{{ $requirement->name }}</li>
-                            </div>
-                        @endforeach
-                    </ul>
-                </section>
-                {{-- INPRIMIENDO LOS REQUERIMIENTOS --}}
-
-
-                {{-- INPRIMIENDO LA DESCRIPCION DEL CURSO --}}
-                <section>
-                    <h3 class="mt-4 mb-3">Descripción</h3>
-                    <div class="">
-
-                        <p class=""><i class='bx bxs-hand-right'
-                                style='color:#0d6efd;margin-right: 3px'></i>{!! $course->description !!}
-                        </p>
-                    </div>
-                </section>
-                {{-- INPRIMIENDO LA DESCRIPCION DEL CURSO --}}
-            </div>
-            {{-- COLUMNA IZQUIERDA --}}
-
-
-
-            {{-- COLUMNA DERECHA --}}
-            <div class="col-md-4 mt-3">
-                <section>
-                    <div class="card sombra">
-                        <div class="card-body">
-                            <div class="d-flex item-center">
-                                <img src="{{ $course->teacher->profile_photo_url }}" alt="">
-                                <div>
-                                    <p>Calaborador:{{ $course->teacher->name }}</p>
-                                    <a href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
+                                        <header class="link-primary" x-on:click="open= !open">
+                                            <h4 class="lead cursor-show"> <i class="bx bx-chevron-down bx-flip-"></i>
+                                                {{ $section->name }}</h4>
+                                        </header>
+                                        {{-- INPRIMIENDO LAS LECCIONES DE CADA SECCION --}}
+                                        <div class="bg-white py-2 px-4" x-show="open">
+                                            <ul>
+                                                @foreach ($section->lessons as $lesson)
+                                                    <li class="d-flex align-items-center my-1">
+                                                        <i class='bx bx-circle' style='color:#4b22f4 ; font-size: 22px'></i>
+                                                        <p>{{ $lesson->name }}</p>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        {{-- INPRIMIENDO LAS LECCIONES DE CADA SECCION --}}
+                                    </article>
                                 </div>
                             </div>
+                        @endforeach
+                    </section>
+                    {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
 
-                            <form action="{{ route('admin.courses.approved', ['course' => $course]) }}" method="POST">
-                                @csrf
-                                <button class="mi-boton rojo mt-3 w-100" type="submit">Aprobar este curso</button>
-                            </form>
+
+                    {{-- INPRIMIENDO LOS REQUERIMIENTOS --}}
+                    <section class="mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="mb-3 color-general">Requisitos</h3>
+                                <ul>
+                                    @foreach ($course->requirements as $requirement)
+                                        <div class="d-flex align-items-center">
+                                            <i class='bx bx-check-square' style='color:#4b22f4;margin-right: 3px'></i>
+                                            <li>{{ $requirement->name }}</li>
+                                        </div>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                    {{-- INPRIMIENDO LOS REQUERIMIENTOS --}}
+
+
+                    {{-- INPRIMIENDO LA DESCRIPCION DEL CURSO --}}
+                    <section class="mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="mb-3 color-general">Descripción</h3>
+                                <div class="d-flex align-items-center">
+                                    <i class='bx bxs-hand-right' style='color:#4b22f4;margin-right: 3px'></i>
+                                    <p class="">{!! $course->description !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    {{-- INPRIMIENDO LA DESCRIPCION DEL CURSO --}}
+                </div>
+                {{-- COLUMNA IZQUIERDA --}}
+
+
+
+                {{-- COLUMNA DERECHA --}}
+                <div class="col-md-4 mt-3">
+                    <section>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex item-center">
+                                    <img src="{{ $course->teacher->profile_photo_url }}" alt="">
+                                    <div>
+                                        <p>Calaborador:{{ $course->teacher->name }}</p>
+                                        <a href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
+                                    </div>
+                                </div>
+
+                                <form action="{{ route('admin.courses.approved', ['course' => $course]) }}" method="POST">
+                                    @csrf
+                                    <button class="mi-boton rojo mt-3 w-100" type="submit">Aprobar este curso</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                {{-- COLUMNA DERECHA --}}
             </div>
-            {{-- COLUMNA DERECHA --}}
         </div>
     </div>
 @endsection
