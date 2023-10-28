@@ -9,13 +9,7 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h1 class="color-general">{{ $current->name }}</h1>
-        
-                        {{-- DESCRIPCION DE LA LECCION --}}
-                        @if ($current->decription)
-                            <div>
-                                <p>{{ $current->description->name }}</p>
-                            </div>
-                        @endif
+
 
                         {{-- MARCAR COMO CULMINADA LA LECCION --}}
                         <div class="d-flex align-items-center cursor" wire:click="completed">
@@ -28,6 +22,7 @@
                             @endif
                         </div>
                         {{-- MARCAR COMO CULMINADA LA LECCION --}}
+
 
                         {{-- NAVEGACONDE LECCIONES --}}
                         <div class="card mt-3">
@@ -48,6 +43,34 @@
                             </div>
                         </div>
                         {{-- NAVEGACONDE LECCIONES --}}
+
+
+                        {{-- DESCRIPCION DE LA LECCION --}}
+                        <div class="card">
+                            <div class="card-body">
+                                @if ($current->description)
+                                    <p>Material extraído. Fuente: <cite><a target="_blank"
+                                                href="{{ $current->description->name }}">{{ $current->description->name }}</a></cite>
+                                    </p>
+                                @else
+                                    sin datos por ahora
+                                @endif
+                            </div>
+                        </div>
+                        {{-- DESCRIPCION DE LA LECCION --}}
+
+
+                        {{-- RECURSOS DE LA LECCION --}}
+                        <div class="card">
+                            <div class="card-body">
+                                @if ($current->resource)
+                                    <iframe style="width: 100%;height: 550px;" src="{{ $current->resource->url }}"
+                                        title="W3Schools Free Online Web Tutorials">
+                                    </iframe>
+                                @endif
+                            </div>
+                        </div>
+                        {{-- RECURSOS DE LA LECCION --}}
                     </div>
                 </div>
             </div>
@@ -128,7 +151,7 @@
                             @endforeach
                         </ul>
                         {{-- SECCIONES DEL CURSO --}}
-                        
+
                         <script src="{{ asset('js/youtube.js') }}"></script>
                     </div>
                 </div>

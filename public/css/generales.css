@@ -54,20 +54,20 @@ p { margin-bottom: 0px !important;}
     font-weight: 500;
 }
 
-.azul {background-color: white; border: 2px solid var(--azul); color: var(--azul);} 
-.azul:hover {background: #0b7dda; color: white;}
+.azul {background-color: var(--blanco); border: 2px solid var(--azul); color: var(--azul);} 
+.azul:hover {background: #0b7dda; color: var(--blanco);}
 
-.verde {background-color: white; border: 2px solid var(--verde); color: var(--verde);} 
-.verde:hover {background-color: #46a049; color: white;}
+.verde {background-color: var(--blanco); border: 2px solid var(--verde); color: var(--verde);} 
+.verde:hover {background-color: #46a049; color: var(--blanco);}
 
-.amarillo {background-color: white; border: 2px solid var(--amarillo); color: var(--amarillo);} 
-.amarillo:hover {background: #e68a00; color: white;}
+.amarillo {background-color: var(--blanco); border: 2px solid var(--amarillo); color: var(--amarillo);} 
+.amarillo:hover {background: #e68a00; color: var(--blanco);}
 
-.rojo {background-color: white; border: 2px solid var(--rojo); color: var(--rojo);} 
-.rojo:hover {background: #da190b; color: white;}
+.rojo {background-color: var(--blanco); border: 2px solid var(--rojo); color: var(--rojo);} 
+.rojo:hover {background: #da190b; color: var(--blanco);}
 
-.general {background-color: white; border: 2px solid var(--general); color: var(--general);} 
-.general:hover {background: #6f4ef6; color: white;}
+.general {background-color: var(--blanco); border: 2px solid var(--general); color: var(--general);} 
+.general:hover {background: #6f4ef6; color: var(--blanco);}
 
 
 

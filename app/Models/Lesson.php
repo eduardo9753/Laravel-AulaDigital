@@ -27,7 +27,7 @@ class Lesson extends Model
     //RELACION UNO A UNO
     public function description()
     {
-        return $this->belongsTo('App\Models\Description');
+        return $this->hasOne('App\Models\Description');
     }
 
     //RELACION MUCHOS A MUCHOS

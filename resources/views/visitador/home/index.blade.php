@@ -44,8 +44,9 @@
                                     <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/3315/3315581.png"
                                         alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo">Contarás con acceso a material educativo en formato PDF
-                                    para descargarlo y tenerlo contigo en todo momento.</p>
+                                <p class="contenido-bloques-parrafo">Dispondrás de material educativo en formato PDF que
+                                    podrás descargar y llevar contigo en todo momento. Este recurso estará disponible al
+                                    concluir cada lección aprendida.</p>
                             </div>
                         </div>
                     </div>
@@ -81,6 +82,9 @@
             </div>
         </div>
     </section>
+
+
+
 
 
     <section id="curso-elegir" class="p-5">
