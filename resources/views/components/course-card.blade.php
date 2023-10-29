@@ -14,7 +14,7 @@
                                 </div>
 
                                 <p class="contenido-bloques-parrafo mt-3">
-                                    {{ Str::limit($course->description, 30) }}
+                                    {!! Str::limit($course->description, 30) !!}
                                 </p>
 
                                 <div class="d-flex justify-content-between">
