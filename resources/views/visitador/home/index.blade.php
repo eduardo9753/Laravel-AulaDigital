@@ -10,7 +10,7 @@
     <header class="header-home-fondo" id="header-home">
         <div class="">
             <h1 class="header-titulo">Plataforma de educación dirigida a estudiantes de todas las edades</h1>
-            <p class="header-parrafo">A través de Aula Digital, puedes acceder a una amplia gama de cursos a un costo muy
+            <p class="header-parrafo">A través de MiAulaDigital, puedes acceder a una amplia gama de cursos a un costo muy
                 asequible, con la posibilidad de explorar el contenido de manera ilimitada.</p>
         </div>
     </header>
