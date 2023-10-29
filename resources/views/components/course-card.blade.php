@@ -14,10 +14,10 @@
                                 </div>
 
                                 <p class="contenido-bloques-parrafo mt-3">
-                                    {!! Str::limit($course->description, 70) !!}
+                                    {!! Str::limit($course->description, 50) !!}
                                 </p>
 
-                                <div class="d-flex justify-content-between">
+                                <div class="d-flex justify-content-between mt-4">
                                     <p>Matriculados({{ $course->students_count }})</p>
                                     <ul class="d-flex">
                                         <li>
