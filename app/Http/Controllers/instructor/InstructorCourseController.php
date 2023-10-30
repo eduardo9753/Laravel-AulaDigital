@@ -126,7 +126,6 @@ class InstructorCourseController extends Controller
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'description' => $request->description,
-            'status' => Course::BORRADOR,
             'slug' => $request->slug,
             'user_id' => auth()->user()->id,
             'level_id' => $request->level_id,
