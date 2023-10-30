@@ -107,7 +107,7 @@
                     <div class="col-md-3 mb-3">
                         <div class="mi-card">
                             <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">Acceso a lectura!</h2>
+                                <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
                                 <div class="text-center">
                                     @if ($contenido->image)
                                         <img class="imagen" src="{{ $contenido->image->url }}" class=""

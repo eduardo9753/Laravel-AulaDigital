@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 my-3">
-                            <p>{{ $contenido->url }}</p>
+                            <p style="text-align: justify">{{ $contenido->url }}</p>
                         </div>
                     </div>
                 </div>
