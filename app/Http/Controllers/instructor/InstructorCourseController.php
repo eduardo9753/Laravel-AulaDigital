@@ -114,7 +114,7 @@ class InstructorCourseController extends Controller
         $request->request->add(['slug' => Str::slug($course->title)]); //PONER EN MINUSCULA Y LOS ESPACION LO RELLENA CON "-"
 
         $this->validate($request, [
-            'title' => 'required|unique:courses',
+            'title' => 'required',
             'subtitle' => 'required',
             'description' => 'required',
             'level_id' => 'required',
