@@ -123,11 +123,11 @@ class PaymentController extends Controller
 
     public function failure()
     {
-        return "error de pago";
+        return redirect()->route('visitador.home.index')->with('mensaje', 'Se Canceló el Pago');
     }
 
     public function pending()
     {
-        return "Pago Pendiente";
+        return redirect()->route('visitador.home.index')->with('mensaje', 'El pago se cuentra Pendiente');
     }
 }
