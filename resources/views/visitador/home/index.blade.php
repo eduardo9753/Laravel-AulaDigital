@@ -12,6 +12,8 @@
             <h1 class="header-titulo">Plataforma de educación dirigida a estudiantes de todas las edades</h1>
             <p class="header-parrafo">A través de MiAulaDigital, puedes acceder a una amplia gama de cursos a un costo muy
                 asequible, con la posibilidad de explorar el contenido de manera ilimitada.</p>
+
+            <a href="{{ route('admin.register.index') }}" class="mi-boton general mt-3">Registrarme</a>
         </div>
     </header>
 @endsection
@@ -105,18 +107,15 @@
                     <div class="col-md-3 mb-3">
                         <div class="mi-card">
                             <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
+                                <h2 class="contenido-bloques-titulo">Acceso a lectura!</h2>
                                 <div class="text-center">
-                                    <figure>
-                                        @if ($contenido->image)
-                                            <img class="imagen" src="{{ $contenido->image->url }}" class=""
-                                                alt="Imagen del curso">
-                                        @else
-                                            <img class="imagen"
-                                                src="https://cdn-icons-png.flaticon.com/512/2436/2436648.png" class=""
-                                                alt="...">
-                                        @endif
-                                    </figure>
+                                    @if ($contenido->image)
+                                        <img class="imagen" src="{{ $contenido->image->url }}" class=""
+                                            alt="Imagen del curso">
+                                    @else
+                                        <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/2436/2436648.png"
+                                            class="" alt="...">
+                                    @endif
                                 </div>
                                 <p class="contenido-bloques-parrafo mt-3">
                                     {{ Str::limit($contenido->url, 80) }}

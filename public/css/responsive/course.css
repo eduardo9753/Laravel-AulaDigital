@@ -1,7 +1,7 @@
 @media only screen and (max-width: 600px) {
     /* Estilos específicos para dispositivos móviles */
     .header-home-fondo {
-        height: 42vh !important;
+        height: 48vh !important;
         padding: 18px !important;
     }
 
@@ -44,6 +44,10 @@
     
     #curso-show .curso-show-subtitulo {
        font-size: 14px;
+    }
+
+    #curso-show-columna-ocho #temario .temario-parrafo {
+       font-size: 12px; 
     }
 
 

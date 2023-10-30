@@ -7,7 +7,7 @@
 
 .header-home-fondo {
    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(../../img/visitador/home/header.jpg);
-   height: 56vh;  
+   height: 63vh;  
    padding: 3.3rem;
 }
 
@@ -22,6 +22,7 @@
     color: var(--blanco);
     font-size: 20px;
     font-weight: 500;
+    text-align: justify;
 }
 
 

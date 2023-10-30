@@ -26,8 +26,7 @@
                     <div class="row">
                         <div class="col-md-6 my-3">
                             <div class="text-center">
-                                <img src="https://media.istockphoto.com/id/1430005833/es/foto/juego-de-%C3%BAtiles-para-matem%C3%A1ticas-y-para-la-escuela-fracciones-reglas-l%C3%A1pices-bloc-de-notas.webp?s=1024x1024&w=is&k=20&c=_-Et2qYN_rIItpm5xLDbSiSkr2iPGK4r0DCG-wd4HDk="
-                                    class="card-img-top" alt="...">
+                                <img src="{{ $course->image->url }}" class="card-img-top" alt="...">
                             </div>
                         </div>
                         <div class="col-md-6 my-3">

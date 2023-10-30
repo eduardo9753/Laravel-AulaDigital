@@ -34,7 +34,7 @@
     {{-- DESCRIPCION DEL CURSO Y SUS CARACTERISTICAS --}}
 
 
-    <div class="curso-shoe-columna-ocho">
+    <div id="curso-show-columna-ocho">
         <div class="contenedor">
             <div class="row">
                 {{-- COLUMNA IZQUIERDA --}}
@@ -61,7 +61,7 @@
 
 
                     {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
-                    <section>
+                    <section id="temario">
                         <h3 class="mt-4 mb-3 color-general">Temario</h3>
                         @foreach ($course->sections as $section)
                             <div class="card mt-2">
@@ -81,7 +81,7 @@
                                                 @foreach ($section->lessons as $lesson)
                                                     <li class="d-flex align-items-center my-1">
                                                         <i class='bx bx-circle' style='color:#4b22f4 ; font-size: 22px'></i>
-                                                        <p>{{ $lesson->name }}</p>
+                                                        <p class="temario-parrafo">{{ $lesson->name }}</p>
                                                     </li>
                                                 @endforeach
                                             </ul>
@@ -140,7 +140,7 @@
                                 <div class="d-flex item-center">
                                     <img src="{{ $course->teacher->profile_photo_url }}" alt="">
                                     <div>
-                                        <p>Calaborador:{{ $course->teacher->name }}</p>
+                                        <p>Colaborador:{{ $course->teacher->name }}</p>
                                         <a href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
                                     </div>
                                 </div>

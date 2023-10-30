@@ -20,7 +20,7 @@
                     @guest
                         <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
                         <li class="item"><a href="{{ route('visitador.course.index') }}">Catalogo</a></li>
-                        <li class="item"><a href="{{ route('login') }}">Iniciar Session</a></li>
+                        <li class="item"><a href="{{ route('login') }}">Ingresar</a></li>
                         <li class="item"><a href="{{ route('admin.register.index') }}">Registrarme</a></li>
                     @endguest
                 </ul>
