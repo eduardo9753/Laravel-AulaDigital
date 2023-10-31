@@ -80,7 +80,8 @@
                                             <ul>
                                                 @foreach ($section->lessons as $lesson)
                                                     <li class="d-flex align-items-center my-1">
-                                                        <i class='bx bx-circle' style='color:#4b22f4 ; font-size: 22px'></i>
+                                                        <i class='bx bx-play-circle'
+                                                            style='color:#4b22f4 ; font-size: 22px'></i>
                                                         <p>{{ $lesson->name }}</p>
                                                     </li>
                                                 @endforeach

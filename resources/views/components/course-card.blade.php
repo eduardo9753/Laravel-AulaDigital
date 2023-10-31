@@ -3,7 +3,7 @@
         <div class="contenedor">
             <div class="row">
                 @foreach ($courses as $course)
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3 my-2">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">{{ $course->title }}</h2>
@@ -30,8 +30,8 @@
                                             <i class='bx bx-star {{ $course->rating >= 3 ? 'text-warning' : '' }}'></i>
                                         </li>
                                         <li>
-
-                                        </li><i class='bx bx-star {{ $course->rating >= 4 ? 'text-warning' : '' }}'></i>
+                                            <i class='bx bx-star {{ $course->rating >= 4 ? 'text-warning' : '' }}'></i>
+                                        </li>
                                         <li>
                                             <i class='bx bx-star {{ $course->rating == 5 ? 'text-warning' : '' }}'></i>
                                         </li>

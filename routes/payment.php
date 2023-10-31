@@ -9,3 +9,7 @@ Route::post('/mercadopago/payment', [PaymentController::class, 'pay'])->name('me
 Route::get('/mercadopago/success/{course}', [PaymentController::class, 'success'])->name('mercadopago.success');
 Route::get('/mercadopago/failure', [PaymentController::class, 'failure'])->name('mercadopago.failure');
 Route::get('/mercadopago/pending', [PaymentController::class, 'pending'])->name('mercadopago.pending');
+
+
+
+Route::post('/yape/payment/{course}', [PaymentController::class, 'yape'])->name('yape.index');

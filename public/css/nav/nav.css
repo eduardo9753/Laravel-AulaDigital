@@ -113,3 +113,12 @@
     cursor: pointer;
     transition: all 700ms ease;
 }
+
+.menu-item .nav-item .dropdown-menu {
+    width: 100%;
+}
+
+.menu-item .nav-item .dropdown-menu a{
+    padding: 10px;
+    color: var(--general);
+}

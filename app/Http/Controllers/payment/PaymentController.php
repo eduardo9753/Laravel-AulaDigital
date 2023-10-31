@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\payment;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailUserController;
 use App\Models\Course;
 use App\Models\Pay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use MercadoPago\SDK;
 use MercadoPago\Preference;
 use MercadoPago\Item;
@@ -129,5 +131,37 @@ class PaymentController extends Controller
     public function pending()
     {
         return redirect()->route('visitador.home.index')->with('mensaje', 'El pago se cuentra Pendiente');
+    }
+
+    //pagar con yape 
+    public function yape(Request $request, Course $course)
+    {
+        $pay = Pay::create([
+            'user_id' => auth()->user()->id,
+            'collection_id' => '',
+            'collection_status' => '',
+            'payment_id' => $request->payment_id,
+            'status' => 'PAGADO',
+            'external_reference' => '',
+            'payment_type' => 'QR',
+            'merchant_order_id' => '',
+            'preference_id' => $request->payment_id,
+            'site_id' => 'MPE',
+            'processing_mode' => 'ONLINE',
+            'merchant_account_id' => '',
+            'estado' => 'VALIDAR',
+        ]);
+
+        if ($pay) {
+            //CADA VEZ QUE EL USUARIO LE DE CLICK EN "llevar curso" 
+            //SE GUARDARA ESOS DATOS EN LA TABLA "course_user"
+            $course->students()->attach(auth()->user()->id);
+
+            Mail::to(auth()->user()->email)->send(new MailUserController($course));
+
+            return redirect()->route('visitador.course.status', $course)->with('mensaje', 'Agradecemos su adquisición del curso. El sistema verificará sus datos y le enviará un correo electrónico. Por favor, continúe con el curso.');
+        } else {
+            return redirect()->route('visitador.home.index')->with('mensaje', 'No fue posible generar el pago del curso. Por favor, póngase en contacto con el número +51 9922 394 642.');
+        }
     }
 }

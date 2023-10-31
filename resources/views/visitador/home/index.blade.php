@@ -13,7 +13,9 @@
             <p class="header-parrafo">A través de MiAulaDigital, puedes acceder a una amplia gama de cursos a un costo muy
                 asequible, con la posibilidad de explorar el contenido de manera ilimitada.</p>
 
-            <a href="{{ route('admin.register.index') }}" class="mi-boton general mt-3">Registrarme</a>
+            @guest
+                <a href="{{ route('admin.register.index') }}" class="mi-boton general mt-3">Registrarme</a>
+            @endguest
         </div>
     </header>
 
@@ -24,7 +26,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-
     </div>
 @endsection
 
@@ -34,7 +35,15 @@
         <div class="" id="contenido-bloques">
             <div class="contenedor">
                 <div class="row">
-                    <div class="col-md-3 mb-3">
+                    @if (session('mensaje'))
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>IMPORTANTE!</strong>
+                            <p style="text-align: justify"> {{ session('mensaje') }}</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                    
+                    <div class="col-md-3 my-2">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Videos!</h2>
@@ -48,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3 my-2">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Recursos!</h2>
@@ -62,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3 my-2">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Cotinuidad!</h2>
@@ -76,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3 my-2">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Acceso a lectura!</h2>
@@ -114,7 +123,7 @@
         <div class="contenedor">
             <div class="row">
                 @foreach ($contenidos as $contenido)
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3 my-2">
                         <div class="mi-card">
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>

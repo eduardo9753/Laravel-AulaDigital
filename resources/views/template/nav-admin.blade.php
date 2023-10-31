@@ -4,15 +4,47 @@
         <div class="contenido-menu">
             <nav>
                 <ul class="menu-item">
-                    <li class="item"><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
-                    <li class="item"><a href="{{ route('admin.roles.index') }}">Roles</a></li>
-                    <li class="item"><a href="{{ route('admin.courses.index') }}">Cursos en Revisión</a></li>
-                    <li class="item"><a href="{{ route('admin.prices.index') }}">Precios</a></li>
-                    <li class="item"><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
-                    <li class="item"><a href="{{ route('admin.levels.index') }}">Niveles</a></li>
-                    <li class="item"><a href="{{ route('admin.resources.index') }}">Contenidos</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Cursos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="item"><a href="{{ route('admin.courses.index') }}">Cursos en Revisión</a></li>
+                            <li class="item"><a href="{{ route('admin.prices.index') }}">Precios</a></li>
+                            <li class="item"><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
+                            <li class="item"><a href="{{ route('admin.levels.index') }}">Niveles</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Permisos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="item"><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
+                            <li class="item"><a href="{{ route('admin.roles.index') }}">Roles</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Recursos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="item"><a href="{{ route('admin.resources.index') }}">Contenidos</a></li>
+                            <li class="item"><a href="#">Lectura</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="item"><a href="{{ route('admin.pays.index') }}">Pagos</a></li>
                     <li class="item"><a href="">Bienvenido: {{ auth()->user()->name }}</a></li>
-                   
+
                     <li class="item">
                         <form action="{{ route('admin.logout') }}" method="POST">
                             @csrf

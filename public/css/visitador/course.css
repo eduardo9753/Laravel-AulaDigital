@@ -87,7 +87,7 @@ figure {text-align: center;}
 .header-pago-fondo{
   padding-top: 90px;
   background-color: var(--general);
-  height: 35vh;
+  height: 32.5vh;
 }
 #header-pago h3 {font-size: 35px;}
 #header-pago p {font-size: 30px;}

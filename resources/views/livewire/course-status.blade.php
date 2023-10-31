@@ -122,19 +122,19 @@
                                                             @if ($lesson->completed)
                                                                 {{-- SI EL CURSO ESTA COMPLETO Y ESTAMOS EN ESA POSICION BORDEAMOS EL CIRCULO --}}
                                                                 @if ($current->id == $lesson->id)
-                                                                    <i class='bx bx-circle'
+                                                                    <i class='bx bx-play-circle bx-burst'
                                                                         style='color:rgb(52, 152, 219); font-size: 22px'></i>
                                                                 @else
                                                                     {{-- DE LO CONTRARIO QUE  ME PINTE DE VERDE --}}
-                                                                    <i class='bx bxs-circle'
+                                                                    <i class='bx bx-check-circle'
                                                                         style='color:rgb(52, 152, 219); font-size: 22px'></i>
                                                                 @endif
                                                             @else
                                                                 @if ($current->id == $lesson->id)
-                                                                    <i class='bx bx-circle'
-                                                                        style='color:#99a29b ; font-size: 22px'></i>
+                                                                    <i class='bx bx-play-circle bx-burst'
+                                                                        style='color:#1112de; font-size: 22px'></i>
                                                                 @else
-                                                                    <i class='bx bxs-circle'
+                                                                    <i class='bx bx-bolt-circle'
                                                                         style='color:#99a29b; font-size: 22px'></i>
                                                                 @endif
                                                             @endif
