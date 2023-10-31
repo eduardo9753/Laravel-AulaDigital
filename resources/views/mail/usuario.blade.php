@@ -26,7 +26,7 @@ margin: 20px;">
         margin-bottom: 20px;">
             <div style="text-align: center;
             margin-bottom: 20px;">
-                <img src="{{ asset('img/logo/FAMILC.png') }}"
+                <img src="{{ asset('img/logo/logo.png') }}"
                     style=" width: 150px;
                 height: 150px;
                 border-radius: 50%;"
