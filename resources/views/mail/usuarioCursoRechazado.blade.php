@@ -28,8 +28,7 @@ margin: 20px;">
             margin-bottom: 20px;">
                 <img src="{{ asset('img/logo/logo.png') }}"
                     style=" width: 150px;
-                height: 150px;
-                border-radius: 50%;"
+                height: 150px;"
                     alt="Logo">
             </div>
 
