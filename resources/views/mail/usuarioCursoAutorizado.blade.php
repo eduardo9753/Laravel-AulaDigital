@@ -38,8 +38,8 @@ margin: 20px;">
             border-radius: 10px;
             margin-bottom: 20px;
             padding: 20px;">
-                <h1 style="color: blueviolet;">{{ auth()->user()->name }}</h1>
-                <p style="font-size: 18px;">¡Gracias por tu pedido, {{ auth()->user()->name }}!</p>
+                <h1 style="color: blueviolet;">{{ $user->name }}</h1>
+                <p style="font-size: 18px;">¡Gracias, Validamos su pedido, {{ $user->name }}!</p>
             </div>
 
             <div
@@ -50,7 +50,7 @@ margin: 20px;">
                 <h2 style="color: blueviolet;
                 font-size: 20px;">Monto total de la Compra</h2>
                 <p style="font-size: 18px;">Total Compra: S/.{{ $course->price->value }}</p>
-                <p style="font-size: 18px;">Estado: EN REVICIÓN</p>
+                <p style="font-size: 18px;">Estado: AUTORIZADO</p>
             </div>
 
 
@@ -58,15 +58,20 @@ margin: 20px;">
                 style=" background-color: rgba(255, 255, 255, 0.842);
             border-radius: 10px;
             margin-bottom: 20px;
-            padding: 20px;">
+            padding: 20px;
+            text-align: justify">
                 <h2 style="color: blueviolet;
             font-size: 20px;">IMPORTANTE</h2>
-                <p style="font-size: 18px;">El sistema verificará la validez del pago en un plazo de 24 horas <strong>Si
-                        el número de operación no es correcto, se procederá a revocar el permiso para acceder al curso
-                        solicitado.</strong></p>
+                <p style="font-size: 18px;">Nos complace informarte que el sistema ha verificado la validez del pago.
+                    <strong>Te agradecemos por elegir nuestro curso de '{{ $course->title }}'</strong>. Continúa tu
+                    viaje de aprendizaje y avanza a través de las lecciones. ¡Estamos emocionados de acompañarte en tu
+                    camino hacia el conocimiento y el crecimiento. Si tienes alguna
+                    pregunta o necesitas asistencia, no dudes en comunicarte con nosotros al +51 922 394 642 o
+                    mediante correo electrónico a anthony.anec@gmail.com.!
+                </p>
             </div>
 
-            
+
             <div
                 style=" margin-top: 20px;
             background-color: rgba(255, 255, 255, 0.842);

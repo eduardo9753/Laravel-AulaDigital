@@ -43,6 +43,9 @@
     <link rel="stylesheet" href="{{ asset('lib/datatable/dataTables.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/datatable/dataTables.min.css') }}">
 
+    <!-- ICONO DEL PROYECTO -->
+    <link rel="icon" type="image/png" href="{{ asset('img/logo/logo.png') }}">
+
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 

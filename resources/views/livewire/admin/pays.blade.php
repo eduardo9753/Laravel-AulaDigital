@@ -9,7 +9,7 @@
                         <div class="card-body">
                             <!-- FORMULARIO PARA EDITAR PAGO Y MANDAR CORREO AL USUARIO -->
                             @if ($pay_id)
-                                <form wire:submit.prevent="create">
+                                <form wire:submit.prevent="update">
                                     <div class="form-group my-2">
                                         <label for="">Codigo:</label>
                                         <input wire:model="payment_id" type="text" class="form-control"
@@ -54,7 +54,7 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="mi-boton azul w-100 mt-2"></button>
+                                    <button type="submit" class="mi-boton azul w-100 mt-2">Autorzar Curso</button>
                                 </form>
                             @endif
                             <!-- FORMULARIO PARA CREAR UNA CATEGORIA DEL CURSO -->
@@ -67,7 +67,7 @@
                         <div class="card-header fondo-general">
                             <h2 class="lead text-white">Pagos</h2>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -76,10 +76,10 @@
                                         <th>PAGO</th>
                                         <th>ESTADO</th>
                                         <th>
-                                            <i class='bx bx-edit-alt bx-tada'></i>
+                                            Autorizar</i>
                                         </th>
                                         <th>
-                                            <i class='bx bx-message-alt-x bx-burst'></i>
+                                            Rechazar</i>
                                         </th>
                                     </tr>
                                 </thead>

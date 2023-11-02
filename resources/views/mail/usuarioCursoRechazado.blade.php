@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmación de Pedido</title>
+    <title>Pago Rechazado</title>
 </head>
 
 <body style="font-family: 'Arial', sans-serif;
@@ -38,8 +38,8 @@ margin: 20px;">
             border-radius: 10px;
             margin-bottom: 20px;
             padding: 20px;">
-                <h1 style="color: blueviolet;">{{ auth()->user()->name }}</h1>
-                <p style="font-size: 18px;">¡Gracias por tu pedido, {{ auth()->user()->name }}!</p>
+                <h1 style="color: blueviolet;">{{ $user->name }}</h1>
+                <p style="font-size: 18px;">¡Estimado, {{ $user->name }}!</p>
             </div>
 
             <div
@@ -50,7 +50,7 @@ margin: 20px;">
                 <h2 style="color: blueviolet;
                 font-size: 20px;">Monto total de la Compra</h2>
                 <p style="font-size: 18px;">Total Compra: S/.{{ $course->price->value }}</p>
-                <p style="font-size: 18px;">Estado: EN REVICIÓN</p>
+                <p style="font-size: 18px;">Estado: RECHAZADO</p>
             </div>
 
 
@@ -58,15 +58,24 @@ margin: 20px;">
                 style=" background-color: rgba(255, 255, 255, 0.842);
             border-radius: 10px;
             margin-bottom: 20px;
-            padding: 20px;">
+            padding: 20px;
+            text-align: justify">
                 <h2 style="color: blueviolet;
             font-size: 20px;">IMPORTANTE</h2>
-                <p style="font-size: 18px;">El sistema verificará la validez del pago en un plazo de 24 horas <strong>Si
-                        el número de operación no es correcto, se procederá a revocar el permiso para acceder al curso
-                        solicitado.</strong></p>
+                <p style="font-size: 18px;">Queremos comunicarte que el sistema no ha podido validar el número de
+                    operación (Pago) para el curso '{{ $course->title }}'. Valoramos tu interés y paciencia mientras
+                    gestionamos este proceso. <strong>Lamentablemente, en este momento no podemos proporcionar acceso al
+                        contenido del curso</strong>. Estaremos encantados de acompañarte tan pronto como el número de
+                    operación (Pago) sea verificado para brindarte acceso al curso. Agradecemos tu comprensión y te
+                    deseamos éxito en tu travesía hacia el conocimiento y el crecimiento. <strong>Si tienes alguna
+                        pregunta o necesitas asistencia, no dudes en comunicarte con nosotros al +51 922 394 642 o
+                        mediante correo electrónico a anthony.anec@gmail.com.</strong>
+                </p>
+
+
             </div>
 
-            
+
             <div
                 style=" margin-top: 20px;
             background-color: rgba(255, 255, 255, 0.842);

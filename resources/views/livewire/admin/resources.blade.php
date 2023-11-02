@@ -67,7 +67,7 @@
                         <div class="card-header fondo-general">
                             <h2 class="lead text-white">Contenido y Lecturas</h2>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>

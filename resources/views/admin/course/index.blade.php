@@ -25,29 +25,31 @@
                     </div>
                     <div class="card-body">
 
-                        <table class="table" id="datatable">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>NOMBRE</th>
-                                    <th>CATEGORIA</th>
-                                    <th>EDITAR</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($courses as $course)
-                                <tr>
-                                    <td>{{ $course->id }}</td>
-                                    <td>{{ $course->title }}</td>
-                                    <td>{{ $course->category->name }}</td>
-                                    <td>
-                                        <a class="mi-boton azul"
-                                            href="{{ route('admin.courses.show', ['course' => $course]) }}">Revisar</a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>NOMBRE</th>
+                                        <th>CATEGORIA</th>
+                                        <th>EDITAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($courses as $course)
+                                        <tr>
+                                            <td>{{ $course->id }}</td>
+                                            <td>{{ $course->title }}</td>
+                                            <td>{{ $course->category->name }}</td>
+                                            <td>
+                                                <a class="mi-boton azul"
+                                                    href="{{ route('admin.courses.show', ['course' => $course]) }}">Revisar</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
