@@ -26,31 +26,34 @@
                             </div>
                         @endif
 
-                        <table class="table" id="datatable">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>NOMBRE</th>
-                                    <th>EDITAR</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($users as $user)
+                        <div class="table-responsive">
+                            <table class="table" id="datatable">
+                                <thead>
                                     <tr>
-                                        <td>{{ $user->id }}</td>
-                                        <td>{{ $user->name }}</td>
+                                        <th>ID</th>
+                                        <th>NOMBRE</th>
+                                        <th>EDITAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($users as $user)
+                                        <tr>
+                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $user->name }}</td>
 
-                                        <td>
-                                            <a class="mi-boton azul" href="{{ route('admin.users.edit', ['user' => $user]) }}">edit</a>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td>Sin Usuarios por ahora</td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
+                                            <td>
+                                                <a class="mi-boton azul"
+                                                    href="{{ route('admin.users.edit', ['user' => $user]) }}">edit</a>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td>Sin Usuarios por ahora</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

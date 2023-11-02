@@ -41,8 +41,7 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <button type="submit"
-                                        class="mi-boton azul w-100 mt-2">Actualizar</button>
+                                    <button type="submit" class="mi-boton azul w-100 mt-2">Actualizar</button>
                                 </form>
                             @endif
                             <!-- FORMULARIO PARA EDITAR UNA META DEL CURSO -->
@@ -55,39 +54,42 @@
                         <div class="card-header fondo-general">
                             <h2 class="lead text-white">metas del curso: {{ $course->title }}</h2>
                         </div>
-                        <div class="card-body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>META</th>
-                                        <th>
-                                            <i class='bx bx-edit-alt bx-tada'></i>
-                                        </th>
-                                        <th>
-                                            <i class='bx bx-message-alt-x bx-burst'></i>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($course->goals as $goal)
+
+                        <div class="table-responsive">
+                            <div class="card-body table-responsive">
+                                <table class="table">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $goal->id }}</td>
-                                            <td>{{ $goal->name }}</td>
-                                            <td>
-                                                <button wire:click="edit({{ $goal->id }})"
-                                                    class="mi-boton azul btn-sm"><i
-                                                        class='bx bx-edit-alt bx-tada'></i></button>
-                                            </td>
-                                            <td>
-                                                <button wire:click="delete({{ $goal->id }})"
-                                                    class="mi-boton rojo btn-sm"><i
-                                                        class='bx bx-message-alt-x bx-burst'></i></button>
-                                            </td>
+                                            <th>ID</th>
+                                            <th>META</th>
+                                            <th>
+                                                <i class='bx bx-edit-alt bx-tada'></i>
+                                            </th>
+                                            <th>
+                                                <i class='bx bx-message-alt-x bx-burst'></i>
+                                            </th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($course->goals as $goal)
+                                            <tr>
+                                                <td>{{ $goal->id }}</td>
+                                                <td>{{ $goal->name }}</td>
+                                                <td>
+                                                    <button wire:click="edit({{ $goal->id }})"
+                                                        class="mi-boton azul btn-sm"><i
+                                                            class='bx bx-edit-alt bx-tada'></i></button>
+                                                </td>
+                                                <td>
+                                                    <button wire:click="delete({{ $goal->id }})"
+                                                        class="mi-boton rojo btn-sm"><i
+                                                            class='bx bx-message-alt-x bx-burst'></i></button>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
