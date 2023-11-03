@@ -27,7 +27,13 @@ class Pays extends Component
     {
         //$this->pays = Pay::where('estado', '=', 'VALIDAR')->get();
         $this->pays = User::join('pays', 'users.id', '=', 'pays.user_id')
-            ->select('users.*', 'pays.*')
+            ->select('users.*', 
+                     'pays.id',
+                     'pays.payment_id',
+                     'pays.status',
+                     'pays.payment_type',
+                     'pays.preference_id',
+                     'pays.estado')
             ->where('pays.estado', '=', 'VALIDAR')
             ->get();
     }
@@ -47,6 +53,7 @@ class Pays extends Component
         $this->payment_type = $pay->payment_type;
         $this->preference_id = $pay->preference_id;
         $this->estado = $pay->estado;
+        $this->reload();
     }
 
     public function update()
@@ -87,7 +94,16 @@ class Pays extends Component
 
     public function reload()
     {
-        $this->pays = Pay::where('estado', '=', 'VALIDAR')->get();
+        $this->pays = User::join('pays', 'users.id', '=', 'pays.user_id')
+        ->select('users.*', 
+                 'pays.id',
+                 'pays.payment_id',
+                 'pays.status',
+                 'pays.payment_type',
+                 'pays.preference_id',
+                 'pays.estado')
+        ->where('pays.estado', '=', 'VALIDAR')
+        ->get();
     }
 
     //LIMPIAR CAJAS

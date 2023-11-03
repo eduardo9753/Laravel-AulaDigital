@@ -52,6 +52,14 @@ figure {text-align: center;}
   transition: 0.3s;
 }
 
+
+#curso-status .curso-status-title {
+  margin-top: 10px;
+  font-size: 22px ;
+}
+
+
+
 .cursor-status { 
   transition: 0.1s; 
   display: inline-block;

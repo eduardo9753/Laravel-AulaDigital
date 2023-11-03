@@ -1,78 +1,71 @@
 <div class="mt-5">
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
-    <div class="contenedor">
+    <div class="" id="curso-status">
         <div class="row">
             <div class="col-md-8 mb-2">
                 {{-- CON ESTA SINTAXIS PODEMOS ACCEDER AL IFRAME EN BLADE --}}
                 <div class="embed-responsive">{!! $current->iframe !!}</div>
 
-                <div class="card mt-3">
+                <h1 class="color-general curso-status-title">{{ $current->name }}</h1>
+
+                {{-- MARCAR COMO CULMINADA LA LECCION --}}
+                <div class="d-flex align-items-center cursor" wire:click="completed">
+                    @if ($current->completed)
+                        <i class='bx bxs-toggle-right' style='color:rgb(52, 152, 219);  font-size: 28px'></i>
+                        <p class="cursor-status">lección culminada</p>
+                    @else
+                        <i class='bx bx-toggle-left' style="font-size: 28px"></i>
+                        <p class="cursor-status">culminar lección</p>
+                    @endif
+                </div>
+                {{-- MARCAR COMO CULMINADA LA LECCION --}}
+
+
+                {{-- NAVEGACONDE LECCIONES --}}
+
+                <div class="mt-3 d-flex justify-content-between">
+                    @if ($this->previous)
+                        <a class="" wire:click="changeLesson({{ $this->previous }})"><i
+                                class='bx bx-send bx-flip-horizontal' style="font-size: 40px"></i></a>
+                    @else
+                        <a href=""><i class='bx bx-trending-up' style="font-size: 40px"></i></a>
+                    @endif
+
+                    @if ($this->next)
+                        <a class="" wire:click="changeLesson({{ $this->next }})"><i class='bx bx-send'
+                                style="font-size: 40px"></i></a>
+                    @else
+                        <a href=""><i class='bx bx-trending-up bx-flip-horizontal'
+                                style="font-size: 40px"></i></a>
+                    @endif
+                </div>
+
+                {{-- NAVEGACONDE LECCIONES --}}
+
+
+                {{-- DESCRIPCION DE LA LECCION --}}
+                <div class="card">
                     <div class="card-body">
-                        <h1 class="color-general">{{ $current->name }}</h1>
-
-
-                        {{-- MARCAR COMO CULMINADA LA LECCION --}}
-                        <div class="d-flex align-items-center cursor" wire:click="completed">
-                            @if ($current->completed)
-                                <i class='bx bxs-toggle-right' style='color:rgb(52, 152, 219);  font-size: 28px'></i>
-                                <p class="cursor-status">lección culminada</p>
-                            @else
-                                <i class='bx bx-toggle-left' style="font-size: 28px"></i>
-                                <p class="cursor-status">culminar lección</p>
-                            @endif
-                        </div>
-                        {{-- MARCAR COMO CULMINADA LA LECCION --}}
-
-
-                        {{-- NAVEGACONDE LECCIONES --}}
-                        <div class="card mt-3">
-                            <div class="card-body d-flex justify-content-between">
-                                @if ($this->previous)
-                                    <a class="mi-boton general"
-                                        wire:click="changeLesson({{ $this->previous }})">anterior</a>
-                                @else
-                                    <button disabled class="mi-boton rojo">Primero</button>
-                                @endif
-
-                                @if ($this->next)
-                                    <a class="mi-boton general"
-                                        wire:click="changeLesson({{ $this->next }})">siguiente</a>
-                                @else
-                                    <button disabled class="mi-boton rojo">Ultimo</button>
-                                @endif
-                            </div>
-                        </div>
-                        {{-- NAVEGACONDE LECCIONES --}}
-
-
-                        {{-- DESCRIPCION DE LA LECCION --}}
-                        <div class="card">
-                            <div class="card-body">
-                                @if ($current->description)
-                                    <p>Material extraído. Fuente: <cite><a target="_blank"
-                                                href="{{ $current->description->name }}">{{ $current->description->name }}</a></cite>
-                                    </p>
-                                @else
-                                    sin datos por ahora
-                                @endif
-                            </div>
-                        </div>
-                        {{-- DESCRIPCION DE LA LECCION --}}
-
-
-                        {{-- RECURSOS DE LA LECCION --}}
-                        <div class="card">
-                            <div class="card-body">
-                                @if ($current->resource)
-                                    <iframe style="width: 100%;height: 550px;" src="{{ $current->resource->url }}"
-                                        title="W3Schools Free Online Web Tutorials">
-                                    </iframe>
-                                @endif
-                            </div>
-                        </div>
-                        {{-- RECURSOS DE LA LECCION --}}
+                        @if ($current->description)
+                            <p>Material extraído. Fuente: <cite><a target="_blank"
+                                        href="{{ $current->description->name }}">{{ $current->description->name }}</a></cite>
+                            </p>
+                        @else
+                            sin datos por ahora
+                        @endif
                     </div>
                 </div>
+                {{-- DESCRIPCION DE LA LECCION --}}
+
+
+                {{-- RECURSOS DE LA LECCION --}}
+                @if ($current->resource)
+                    <iframe style="width: 100%;height: 550px;" src="{{ $current->resource->url }}"
+                        title="W3Schools Free Online Web Tutorials">
+                    </iframe>
+                @endif
+                {{-- RECURSOS DE LA LECCION --}}
+
             </div>
 
 

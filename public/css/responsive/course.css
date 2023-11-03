@@ -51,6 +51,11 @@
     }
 
 
+    #curso-status .curso-status-title {
+        font-size: 15px ;
+    }
+      
+
 
     .header-course-fondo {
         padding-top: 60px !important;

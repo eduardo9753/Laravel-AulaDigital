@@ -20,7 +20,7 @@ class Resources extends Component
     public function mount()
     {
         $this->courses = Course::all();
-        $this->resources = Resource::all();
+        $this->resources = Resource::where('resourceable_type','=','App\Models\Course')->get();
         $this->resourceable_id = Course::pluck('id')->first();
         //@dump($url, $resourceable_id)
     }
@@ -84,7 +84,7 @@ class Resources extends Component
     public function reload()
     {
         $this->courses = Course::all();
-        $this->resources = Resource::all();
+        $this->resources = Resource::where('resourceable_type','=','App\Models\Course')->get();
     }
 
     //LIMPIAR CAJAS
