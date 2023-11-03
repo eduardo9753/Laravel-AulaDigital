@@ -60,34 +60,35 @@
                     {{-- INPRIMIENDO LAS METAS --}}
 
 
+
+
                     {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
                     <section id="temario">
                         <h3 class="mt-4 mb-3 color-general">Temario</h3>
                         @foreach ($course->sections as $section)
-                            <div class="card mt-2">
-                                <div class="card-body">
-                                    {{-- PARA QUE EL PRIMER SECTION ESTE ABIERTO --}}
-                                    <article
-                                        @if ($loop->first) x-data="{ open: true }"
-                                @else
-                                x-data="{ open: false }" @endif>
-                                        <header class="link-primary" x-on:click="open= !open">
-                                            <h4 class="lead cursor-show"> <i class="bx bx-chevron-down bx-flip-"></i>
-                                                {{ $section->name }}</h4>
-                                        </header>
-                                        {{-- INPRIMIENDO LAS LECCIONES DE CADA SECCION --}}
-                                        <div class="bg-white py-2 px-4" x-show="open">
-                                            <ul>
-                                                @foreach ($section->lessons as $lesson)
-                                                    <li class="d-flex align-items-center my-1">
-                                                        <i class='bx bx-play-circle' style='color:#4b22f4 ; font-size: 22px'></i>
-                                                        <p class="temario-parrafo">{{ $lesson->name }}</p>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        {{-- INPRIMIENDO LAS LECCIONES DE CADA SECCION --}}
-                                    </article>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading{{ $section->id }}">
+                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#{{ $section->id }}"
+                                        aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
+                                        aria-controls="{{ $section->id }}">
+                                        {{ $section->name }}
+                                    </button>
+                                </h2>
+                                <div id="{{ $section->id }}"
+                                    class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
+                                    aria-labelledby="heading{{ $section->id }}" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            @foreach ($section->lessons as $lesson)
+                                                <li class="d-flex align-items-center my-1">
+                                                    <i class='bx bx-play-circle'
+                                                        style='color:#4b22f4 ; font-size: 22px'></i>
+                                                    <p class="temario-parrafo">{{ $lesson->name }}</p>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
