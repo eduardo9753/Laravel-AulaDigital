@@ -1,10 +1,10 @@
 <div>
     {{-- Be like water. --}}
     <section>
-        <div class="container pt-5">
+        <div class="contenedor pt-5">
             <h1 class="lead mt-5">Contenidos: </h1>
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-5">
                     <div class="card">
                         <div class="card-body">
                             <!-- FORMULARIO PARA CREAR UN RECURSO "en este caso un contenido" DEL CURSO -->
@@ -62,7 +62,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-7">
                     <div class="card sombra">
                         <div class="card-header fondo-general">
                             <h2 class="lead text-white">Contenido y Lecturas</h2>

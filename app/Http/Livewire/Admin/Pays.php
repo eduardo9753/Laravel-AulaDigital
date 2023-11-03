@@ -25,7 +25,11 @@ class Pays extends Component
 
     public function mount()
     {
-        $this->pays = Pay::where('estado', '=', 'VALIDAR')->get();
+        //$this->pays = Pay::where('estado', '=', 'VALIDAR')->get();
+        $this->pays = User::join('pays', 'users.id', '=', 'pays.user_id')
+            ->select('users.*', 'pays.*')
+            ->where('pays.estado', '=', 'VALIDAR')
+            ->get();
     }
 
     public function render()

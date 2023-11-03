@@ -1,6 +1,6 @@
 <div class="mt-5">
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
-    <div class="container">
+    <div class="contenedor">
         <div class="row">
             <div class="col-md-8 mb-2">
                 {{-- CON ESTA SINTAXIS PODEMOS ACCEDER AL IFRAME EN BLADE --}}
