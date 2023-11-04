@@ -1,6 +1,6 @@
 # Plataforma Educativa MIAULADIGITAL
 
-Plataforma orientada escolares y estuantes pre universitarios para complementar su ciclo academico junto con clases grabadas y material educativo brindado en PDF por el sistema.
+Plataforma diseñada para apoyar a estudiantes de escuelas y preuniversitarios, ofreciendo clases grabadas y material educativo en formato PDF como complemento a su trayectoria académica.
 
 Construida en laravel 8, Tailwind CSS y Base de Datos MySql.
 
