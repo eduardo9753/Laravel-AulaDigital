@@ -46,7 +46,7 @@
 /*CONTENEDOR DEL MENU Y TOMA TODO EL ALTO Y ANCHO*/
 .contenedor-menu {
     position: fixed;
-    z-index: 1000000; /*ponerle mas altura para poder dar click a los enlaces*/
+    z-index: 2000000; /*ponerle mas altura para poder dar click a los enlaces*/
     width: 100%;
     height: 100vh;
     top: 0;
