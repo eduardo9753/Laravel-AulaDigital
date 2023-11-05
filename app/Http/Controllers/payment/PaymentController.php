@@ -157,7 +157,7 @@ class PaymentController extends Controller
             //SE GUARDARA ESOS DATOS EN LA TABLA "course_user"
             $course->students()->attach(auth()->user()->id);
 
-            Mail::to(auth()->user()->email)->send(new MailUserController($course));
+            Mail::to([auth()->user()->email,'anthony.anec@gmail.com'])->send(new MailUserController($course));
 
             return redirect()->route('visitador.course.status', $course)->with('mensaje', 'Agradecemos su adquisición del curso. El sistema verificará sus datos y le enviará un correo electrónico. Por favor, continúe con el curso.');
         } else {
