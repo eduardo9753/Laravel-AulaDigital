@@ -2,13 +2,13 @@
 
 
 @section('main')
-    <div class="">
+    <div class="fondo register-fondo">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mx-auto mt-3">
-                    <div class="card sombra">
+                <div class="col-md-6 mx-auto mt-4">
+                    <div class="card" style="opacity: 0.7">
                         <div class="card-header fondo-general text-center">
-                            <h1>Register</h1>
+                            <h1>Registrate</h1>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin.register.store') }}" method="POST">
@@ -17,7 +17,7 @@
                                 @csrf
 
                                 <!-- Email input -->
-                                <div class="form-outline mb-4">
+                                <div class="form-outline my-2">
                                     <label class="form-label" for="name">Nombre</label>
                                     <input type="text" id="name" name="name" class="form-control"
                                         value="{{ old('name') }}" />
@@ -29,7 +29,7 @@
                                 </div>
 
                                 <!-- Email input -->
-                                <div class="form-outline mb-4">
+                                <div class="form-outline my-2">
                                     <label class="form-label" for="form2Example1">Email address</label>
                                     <input type="email" id="email" name="email" class="form-control"
                                         value="{{ old('email') }}" />
@@ -41,7 +41,7 @@
                                 </div>
 
                                 <!-- Password input -->
-                                <div class="form-outline mb-4">
+                                <div class="form-outline my-2">
                                     <label class="form-label" for="password">Password</label>
                                     <input type="password" id="password" name="password" class="form-control" />
                                     {{-- validacion con validate --}}
@@ -52,7 +52,7 @@
                                 </div>
 
                                 <!-- Password input -->
-                                <div class="form-outline mb-4">
+                                <div class="form-outline my-2">
                                     <label class="form-label" for="password_confirmation">Password Confirmation</label>
                                     <input type="password" id="password_confirmation" name="password_confirmation"
                                         class="form-control" />

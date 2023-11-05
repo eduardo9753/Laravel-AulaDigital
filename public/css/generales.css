@@ -85,3 +85,19 @@ p { margin-bottom: 0px !important;}
     font-size: 24px;
     padding-top: 13px;
 }
+
+.fondo {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.register-fondo {
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/8500290/pexels-photo-8500290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+ }
+
+ .login-fondo {
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/2781814/pexels-photo-2781814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+ }

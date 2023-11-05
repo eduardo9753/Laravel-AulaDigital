@@ -42,7 +42,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    
+
                     <div class="col-md-3 my-2">
                         <div class="mi-card">
                             <div class="mi-card-content">
@@ -119,6 +119,16 @@
     </section>
 
 
+    <section id="ultimos-cursos" class="text-center">
+        <h3 class="ultimos-cursos-titulo color-general">Ultimos cursos</h3>
+        <p class="ultimos-cursos-parrafo color-general">no hay limites para aprender, eso está en ti</p>
+        <div>
+            {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
+            <x-course-card :courses="$courses"></x-course-card>
+        </div>
+    </section>
+
+
     <section class="" id="contenido-bloques">
         <div class="contenedor">
             <div class="row">
@@ -180,15 +190,5 @@
 
         </div>
         <!--OWLCOURRESL-->
-    </section>
-
-
-    <section id="ultimos-cursos" class="text-center">
-        <h3 class="ultimos-cursos-titulo color-general">Ultimos cursos</h3>
-        <p class="ultimos-cursos-parrafo color-general">no hay limites para aprender, eso está en ti</p>
-        <div>
-            {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
-            <x-course-card :courses="$courses"></x-course-card>
-        </div>
     </section>
 @endsection

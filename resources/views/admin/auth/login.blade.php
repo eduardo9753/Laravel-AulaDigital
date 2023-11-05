@@ -2,11 +2,11 @@
 
 
 @section('main')
-    <div>
+    <div class="fondo login-fondo">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto mt-5">
-                    <div class="card sombra">
+                    <div class="card" style="opacity: 0.7">
                         <div class="card-header fondo-general text-center">
                             <h1>Login</h1>
                         </div>
@@ -24,7 +24,7 @@
                                 @endif
 
                                 <!-- Email input -->
-                                <div class="form-outline mb-4">
+                                <div class="form-outline my-2">
                                     <label class="form-label" for="email">Email address</label>
                                     <input type="email" name="email" id="email" class="form-control" />
                                     {{-- validacon con validate --}}
@@ -34,7 +34,7 @@
                                 </div>
 
                                 <!-- Password input -->
-                                <div class="form-outline mb-4">
+                                <div class="form-outline my-2">
                                     <label class="form-label" for="password">Password</label>
                                     <input type="password" id="password" name="password" class="form-control" />
                                     {{-- validacon con validate --}}
@@ -44,7 +44,7 @@
                                 </div>
 
                                 <!-- 2 column grid layout for inline styling -->
-                                <div class="row mb-4">
+                                <div class="row my-2">
                                     <div class="col d-flex justify-content-center">
                                         <!-- Checkbox -->
                                         <div class="form-check">
