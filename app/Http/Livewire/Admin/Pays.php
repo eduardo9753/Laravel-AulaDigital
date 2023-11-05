@@ -27,13 +27,15 @@ class Pays extends Component
     {
         //$this->pays = Pay::where('estado', '=', 'VALIDAR')->get();
         $this->pays = User::join('pays', 'users.id', '=', 'pays.user_id')
-            ->select('users.*', 
-                     'pays.id',
-                     'pays.payment_id',
-                     'pays.status',
-                     'pays.payment_type',
-                     'pays.preference_id',
-                     'pays.estado')
+            ->select(
+                'users.*',
+                'pays.id',
+                'pays.payment_id',
+                'pays.status',
+                'pays.payment_type',
+                'pays.preference_id',
+                'pays.estado'
+            )
             ->where('pays.estado', '=', 'VALIDAR')
             ->get();
     }
@@ -68,7 +70,7 @@ class Pays extends Component
         $results = DB::table('course_user')->where('user_id', $user->id)->first();
         $course = Course::find($results->course_id);
 
-        Mail::to(auth()->user()->email)->send(new MailUserCursoAutorizarController($course, $user));
+        Mail::to([$user->email, auth()->user()->email])->send(new MailUserCursoAutorizarController($course, $user));
         $this->reload();
         $this->resetInputFields();
     }
@@ -87,7 +89,7 @@ class Pays extends Component
         $course = Course::find($results->course_id);
         $course->students()->detach($user->id);
 
-        Mail::to(auth()->user()->email)->send(new MailUserCursoRechazadoController($course, $user));
+        Mail::to([$user->email, auth()->user()->email])->send(new MailUserCursoRechazadoController($course, $user));
         $this->reload();
         $this->resetInputFields();
     }
@@ -95,15 +97,17 @@ class Pays extends Component
     public function reload()
     {
         $this->pays = User::join('pays', 'users.id', '=', 'pays.user_id')
-        ->select('users.*', 
-                 'pays.id',
-                 'pays.payment_id',
-                 'pays.status',
-                 'pays.payment_type',
-                 'pays.preference_id',
-                 'pays.estado')
-        ->where('pays.estado', '=', 'VALIDAR')
-        ->get();
+            ->select(
+                'users.*',
+                'pays.id',
+                'pays.payment_id',
+                'pays.status',
+                'pays.payment_type',
+                'pays.preference_id',
+                'pays.estado'
+            )
+            ->where('pays.estado', '=', 'VALIDAR')
+            ->get();
     }
 
     //LIMPIAR CAJAS
