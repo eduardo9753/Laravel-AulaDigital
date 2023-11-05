@@ -1,64 +1,41 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Plataforma Educativa MIAULADIGITAL
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Plataforma diseñada para apoyar a estudiantes de escuelas y preuniversitarios, ofreciendo clases grabadas y material educativo en formato PDF como complemento a su trayectoria académica.
 
-## About Laravel
+Construida en laravel 8, Tailwind CSS y Base de Datos MySql.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Visita Nuestra Pagina - MiAulaDigital](https://auladigital.familc.com/).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+HERRAMIENTAS :
+- Base de Datos: MySQL.
+- Estilos: CSS3 y Tailwind CSS.
+- Lenguaje : Lenguaje PHP - FRAMEWORK LARAVEL.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. HOME
+![1](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/edbdfb4b-da40-4d39-85ea-ae743d154a3a)
+2. HOME
+![2](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/6f0f1b9b-1b98-4a46-b445-d685b6b7ad63)
+3. HOME
+![3](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/6ada0eb9-68ff-429c-a8bf-9132aeee9742)
+4. HOME
+![4](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/a3681a22-696e-4abc-a04f-0c7ce7460617)
+5. HOME
+![5](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/bb5ba675-f1c9-4481-bfa8-571a9ee7dc46)
+6. HOME
+![6](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/d85de432-f722-40c7-b8e8-a7c0acedaab5)
+7. HOME
+![7](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/f250558d-b865-4315-a0a0-c9261055049a)
+8. HOME
+![8](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/59aa9789-eda1-445c-bf58-081a1fc5d636)
+9. HOME
+![9](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/1965db1d-b6f2-4e8b-a53a-17a5c8375aaf)
+10. HOME
+![10](https://github.com/eduardo9753/Laravel-MiAgroPeru/assets/68178186/5b3d3858-2e18-42b8-ac10-f790731c3070)
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
