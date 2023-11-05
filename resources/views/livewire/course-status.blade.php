@@ -28,14 +28,14 @@
                         <a class="" wire:click="changeLesson({{ $this->previous }})"><i
                                 class='bx bx-send bx-flip-horizontal' style="font-size: 40px"></i></a>
                     @else
-                        <a href=""><i class='bx bx-trending-up' style="font-size: 40px"></i></a>
+                        <a><i class='bx bx-trending-up' style="font-size: 40px"></i></a>
                     @endif
 
                     @if ($this->next)
                         <a class="" wire:click="changeLesson({{ $this->next }})"><i class='bx bx-send'
                                 style="font-size: 40px"></i></a>
                     @else
-                        <a href=""><i class='bx bx-trending-up bx-flip-horizontal'
+                        <a><i class='bx bx-trending-up bx-flip-horizontal'
                                 style="font-size: 40px"></i></a>
                     @endif
                 </div>
