@@ -129,38 +129,6 @@
     </section>
 
 
-    <section class="" id="contenido-bloques">
-        <div class="contenedor">
-            <div class="row">
-                @foreach ($contenidos as $contenido)
-                    <div class="col-md-3 my-2">
-                        <div class="mi-card">
-                            <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
-                                <div class="text-center">
-                                    @if ($contenido->image)
-                                        <img class="imagen" src="{{ $contenido->image->url }}" class=""
-                                            alt="Imagen del curso">
-                                    @else
-                                        <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/2436/2436648.png"
-                                            class="" alt="...">
-                                    @endif
-                                </div>
-                                <p class="contenido-bloques-parrafo mt-3">
-                                    {{ Str::limit($contenido->url, 80) }}
-                                </p>
-
-                                <a href="{{ route('visitador.contenido', ['resource' => $contenido]) }}"
-                                    class="mi-boton general mt-2 w-100">Detalles</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-
     <section>
         <!--  OWLCOURRESL Demos -->
         <div id="owl-demo" class="owl-carousel owl-theme fondo-general">
@@ -190,5 +158,37 @@
 
         </div>
         <!--OWLCOURRESL-->
+    </section>
+
+
+    <section class="" id="contenido-bloques">
+        <div class="contenedor">
+            <div class="row">
+                @foreach ($contenidos as $contenido)
+                    <div class="col-md-3 my-2">
+                        <div class="mi-card">
+                            <div class="mi-card-content">
+                                <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
+                                <div class="text-center">
+                                    @if ($contenido->image)
+                                        <img class="imagen" src="{{ $contenido->image->url }}" class=""
+                                            alt="Imagen del curso">
+                                    @else
+                                        <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/2436/2436648.png"
+                                            class="" alt="...">
+                                    @endif
+                                </div>
+                                <p class="contenido-bloques-parrafo mt-3">
+                                    {{ Str::limit($contenido->url, 80) }}
+                                </p>
+
+                                <a href="{{ route('visitador.contenido', ['resource' => $contenido]) }}"
+                                    class="mi-boton general mt-2 w-100">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </section>
 @endsection
