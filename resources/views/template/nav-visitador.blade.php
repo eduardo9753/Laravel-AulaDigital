@@ -49,7 +49,7 @@
                             <path d="M4 12l16 0" />
                             <path d="M4 18l16 0" />
                         </svg>
-                        <p class="escoder-responsive">MIAULADIGITAL</p>
+                        <p class="escoder-responsive">ACADÉMICO</p>
                     </div>
                 </label>
 
