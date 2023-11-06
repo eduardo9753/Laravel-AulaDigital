@@ -29,7 +29,8 @@
                                 <div class="mi-card-content">
                                     <h2 class="contenido-bloques-titulo">Lectura N° {{ $resource->id }}!</h2>
                                     <div class="text-center">
-                                        <img class="imagen" src="{{ $resource->img }}" alt="">
+                                        <a href="{{ route('visitador.read.show', ['resource' => $resource]) }}"><img
+                                                class="imagen" src="{{ $resource->img }}" alt=""></a>
                                     </div>
 
                                     <p class="contenido-bloques-parrafo">{{ $resource->nombre }}</p>

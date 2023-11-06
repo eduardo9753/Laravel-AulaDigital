@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-4 my-3">
                             <div class="text-center">
-                                <img src="{{ $resource->img }}" alt="..." style="width: 230px;height: 230px;border-radius: 5%">
+                                <img src="{{ $resource->img }}" alt="..." style="width: 100%;height: 240px;border-radius: 10px">
                             </div>
 
                             <p class="mt-4">Material extraído. Fuente: <cite><a target="_blank"
