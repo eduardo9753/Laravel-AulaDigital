@@ -14,12 +14,13 @@ class HomeController extends Controller
     {
 
         //PARA EL CONTENIDO
-        $courseIds = [12, 13, 14, 15];
+        $courseIds = [2, 3, 4, 5];
 
         //$contenidos =  Resource::whereIn('resourceable_id', $courseIds)->get();
 
         $contenidos = Course::join('resources', 'courses.id', '=', 'resources.resourceable_id')
-            ->select('courses.*', 'resources.*')
+            ->join('images', 'courses.id', '=', 'images.imageable_id')
+            ->select('courses.*', 'resources.*','images.*')
             ->whereIn('resourceable_id', $courseIds)
             ->get();
 

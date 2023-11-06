@@ -168,12 +168,15 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
                                 <div class="text-center">
-                                    @if ($contenido->image)
-                                        <img class="imagen" src="{{ $contenido->image->url }}" class=""
-                                            alt="Imagen del curso">
+                                    @if ($contenido->url)
+                                        <a href="{{ route('visitador.contenido', ['resource' => $contenido]) }}">
+                                            <img class="imagen" src="{{ $contenido->url }}" class=""
+                                                alt="Imagen del curso"></a>
                                     @else
-                                        <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/2436/2436648.png"
-                                            class="" alt="...">
+                                        <a href="{{ route('visitador.contenido', ['resource' => $contenido]) }}">
+                                            <img class="imagen"
+                                                src="https://cdn-icons-png.flaticon.com/512/2436/2436648.png"
+                                                class="" alt="..."></a>
                                     @endif
                                 </div>
                                 <p class="contenido-bloques-parrafo mt-3">
