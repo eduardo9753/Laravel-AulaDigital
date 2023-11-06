@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\course\CourseController;
 use App\Http\Controllers\admin\level\LevelController;
 use App\Http\Controllers\admin\pay\PayController;
 use App\Http\Controllers\admin\price\PriceController;
+use App\Http\Controllers\admin\read\ReadController;
 use App\Http\Controllers\admin\resource\ResourceController;
 use App\Http\Controllers\admin\role\RoleController;
 use App\Http\Controllers\admin\user\UserController;
@@ -41,4 +42,5 @@ Route::get('/admin/price/index', [PriceController::class , 'index'])->name('admi
 Route::get('/admin/category/index', [CategoryController::class, 'index'])->name('admin.categories.index');
 Route::get('/admin/level/index',[LevelController::class, 'index'])->name('admin.levels.index');
 Route::get('/admin/resource/index', [ResourceController::class , 'index'])->name('admin.resources.index');
+Route::get('/admin/reads/index', [ReadController::class , 'index'])->name('admin.reads.index');
 Route::get('/admin/pays/index', [PayController::class , 'index'])->name('admin.pays.index');

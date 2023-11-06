@@ -7,6 +7,7 @@
                     @auth
                         <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
                         <li class="item"><a href="{{ route('visitador.course.index') }}">Catalogo</a></li>
+                        <li class="item"><a href="{{ route('visitador.read.index') }}">Lecturas</a></li>
                         <li class="item"><a href="{{ route('visitador.course.list') }}">Mis cursos</a></li>
                         <li class="item"><a href="">Bienvenido: {{ auth()->user()->name }}</a></li>
                         <li class="item">

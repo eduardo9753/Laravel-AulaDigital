@@ -37,7 +37,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="item"><a href="{{ route('admin.resources.index') }}">Contenidos</a></li>
-                            <li class="item"><a href="#">Lectura</a></li>
+                            <li class="item"><a href="{{ route('admin.reads.index') }}">Lectura</a></li>
                         </ul>
                     </li>
 

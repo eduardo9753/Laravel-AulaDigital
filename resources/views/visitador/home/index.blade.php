@@ -106,8 +106,6 @@
 
 
 
-
-
     <section id="curso-elegir" class="p-5">
         <div class="centrar-div">
             <h3 class="curso-elegir-titulo">¿No sabes que curso elegir?</h3>

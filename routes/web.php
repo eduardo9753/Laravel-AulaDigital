@@ -3,8 +3,10 @@
 use App\Http\Controllers\admin\auth\LoginController;
 use App\Http\Controllers\admin\auth\LogoutController;
 use App\Http\Controllers\admin\auth\RegisterController;
+
 use App\Http\Controllers\visitador\course\CourseController;
 use App\Http\Controllers\visitador\home\HomeController;
+use App\Http\Controllers\visitador\read\ReadController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -51,8 +53,8 @@ Route::post('/course/{course}/enrolled', [CourseController::class, 'enrolled'])-
 Route::get('/course-status/{course:slug}', [CourseController::class, 'status'])->middleware('auth')->name('visitador.course.status');
 Route::get('/list/course/student', [CourseController::class, 'courses'])->middleware('auth')->name('visitador.course.list');
 
-
-
+Route::get('/lectura', [ReadController::class, 'index'])->name('visitador.read.index');
+Route::get('/lectura/show/{resource}', [ReadController::class, 'show'])->name('visitador.read.show');
 
 
 //RUTAS PARA EL ADMIN
