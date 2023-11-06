@@ -8,7 +8,7 @@
     {{-- CON ESTE COMANDO SE ARREGLO ERROR: 419 --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>MIAULADIGITAL</title>
+    <title>ACADÉMICO</title>
 
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
