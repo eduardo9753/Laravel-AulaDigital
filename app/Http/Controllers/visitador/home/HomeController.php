@@ -20,7 +20,13 @@ class HomeController extends Controller
 
         $contenidos = Course::join('resources', 'courses.id', '=', 'resources.resourceable_id')
             ->join('images', 'courses.id', '=', 'images.imageable_id')
-            ->select('courses.*', 'resources.*','images.*')
+            ->select(
+                'courses.title',
+                'courses.id',
+                'courses.subtitle',
+                'resources.*',
+                'images.url'
+            )
             ->whereIn('resourceable_id', $courseIds)
             ->get();
 

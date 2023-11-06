@@ -180,7 +180,7 @@
                                     @endif
                                 </div>
                                 <p class="contenido-bloques-parrafo mt-3">
-                                    {{ Str::limit($contenido->url, 80) }}
+                                    {{ Str::limit($contenido->subtitle, 40) }}
                                 </p>
 
                                 <a href="{{ route('visitador.contenido', ['resource' => $contenido]) }}"
