@@ -1,4 +1,4 @@
-# Plataforma Educativa MIAULADIGITAL
+# Plataforma Educativa ACADÉMICO
 
 Plataforma diseñada para apoyar a estudiantes de escuelas y preuniversitarios, ofreciendo clases grabadas y material educativo en formato PDF como complemento a su trayectoria académica.
 
