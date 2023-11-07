@@ -4,7 +4,7 @@ Plataforma diseñada para apoyar a estudiantes de escuelas y preuniversitarios, 
 
 Construida en laravel 8, Tailwind CSS y Base de Datos MySql.
 
-- [Visita Nuestra Pagina - MiAulaDigital](https://auladigital.familc.com/).
+- [Visita Nuestra Pagina - MiAulaDigital](https://academico.familc.com/).
 
 HERRAMIENTAS :
 - Base de Datos: MySQL.
