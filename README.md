@@ -1,10 +1,10 @@
-# Plataforma Educativa MIAULADIGITAL
+# Plataforma Educativa ACADÉMICO
 
 Plataforma diseñada para apoyar a estudiantes de escuelas y preuniversitarios, ofreciendo clases grabadas y material educativo en formato PDF como complemento a su trayectoria académica.
 
 Construida en laravel 8, Tailwind CSS y Base de Datos MySql.
 
-- [Visita Nuestra Pagina - MiAulaDigital](https://auladigital.familc.com/).
+- [Visita Nuestra Pagina - Académico](https://academico.familc.com/).
 
 HERRAMIENTAS :
 - Base de Datos: MySQL.
