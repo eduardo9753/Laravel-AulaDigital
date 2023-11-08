@@ -119,8 +119,7 @@
                     <div class="mi-card">
                         <div class="mi-card-content">
                             <div class="text-center">
-                                <img src="https://i.ibb.co/PQDLf6q/4da6df79-a779-419d-9a16-ea157a44edcf.jpg"
-                                    alt="4da6df79-a779-419d-9a16-ea157a44edcf" border="0">
+                                <img src="https://i.ibb.co/cgcrLc6/qr.png" alt="qr" border="0">
                             </div>
                         </div>
                     </div>
