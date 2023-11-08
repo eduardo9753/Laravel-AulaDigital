@@ -11,7 +11,7 @@ body { font-family: "Noto Sans", "San Francisco", "Segoe UI", "Helvetica Neue", 
     max-width: 1200px;
     margin: auto;
 }
-img{width: 100%; object-fit: cover;}
+/*img{width: 100%; object-fit: cover;}*/
 
 .centrar-div{
     /*position: absolute;*/
