@@ -119,7 +119,7 @@
                     <div class="mi-card">
                         <div class="mi-card-content">
                             <div class="text-center">
-                                <img src="https://i.ibb.co/cgcrLc6/qr.png" alt="qr" border="0">
+                                <img src="https://i.ibb.co/wy55yj5/qr.jpg" alt="qr" border="0">
                             </div>
                         </div>
                     </div>
