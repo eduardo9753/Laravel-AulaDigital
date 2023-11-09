@@ -51,35 +51,6 @@
                 <div class="col-md-3 my-2">
                     <div class="mi-card">
                         <div class="mi-card-content">
-                            <div class="d-flex justify-content-around align-items-center">
-                                <h2 class="contenido-bloques-titulo">Costo:</h2>
-                                <p class="contenido-bloques-parrafo"
-                                    style="font-size: 25px; color: var(--general);font-weight:bold">
-                                    {{ $course->price->value }} S/.</p>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <form action="{{ route('yape.index', ['course' => $course]) }}" method="POST">
-                                        @csrf
-                                        <div class="mb-3">
-                                            <label for="number" class="form-label">N° de operación:</label>
-                                            <input type="number" class="form-control" name="payment_id" id="payment_id"
-                                                min="0" placeholder="N° de operación: 00099521" required>
-                                            <div id="emailHelp" class="form-text">
-                                                <p>Ingrese el número de operación.</p>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="mi-boton general mt-2 w-100">Enviar Datos</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 my-2">
-                    <div class="mi-card">
-                        <div class="mi-card-content">
                             <h2 class="contenido-bloques-titulo">{{ $course->title }}</h2>
                             <div class="text-center">
                                 <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
@@ -124,6 +95,35 @@
                                 @endif
 
                                 <p class="contenido-bloques-parrafo">Colaborador: {{ $course->teacher->name }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 my-2">
+                    <div class="mi-card">
+                        <div class="mi-card-content">
+                            <div class="d-flex justify-content-around align-items-center">
+                                <h2 class="contenido-bloques-titulo">Costo:</h2>
+                                <p class="contenido-bloques-parrafo"
+                                    style="font-size: 25px; color: var(--general);font-weight:bold">
+                                    {{ $course->price->value }} S/.</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="{{ route('yape.index', ['course' => $course]) }}" method="POST">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label for="number" class="form-label">N° de operación:</label>
+                                            <input type="number" class="form-control" name="payment_id" id="payment_id"
+                                                min="0" placeholder="N° de operación: 00099521" required>
+                                            <div id="emailHelp" class="form-text">
+                                                <p>Ingrese el número de operación.</p>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="mi-boton general mt-2 w-100">Enviar Datos</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
