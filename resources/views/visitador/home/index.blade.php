@@ -48,7 +48,7 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Videos!</h2>
                                 <div class="text-center">
-                                    <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/2703/2703920.png"
+                                    <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/2703/2703920.png"
                                         alt="">
                                 </div>
                                 <p class="contenido-bloques-parrafo">Cada curso incluye una lista de videos necesarios para
@@ -62,7 +62,7 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Recursos!</h2>
                                 <div class="text-center">
-                                    <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/3315/3315581.png"
+                                    <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/3315/3315581.png"
                                         alt="">
                                 </div>
                                 <p class="contenido-bloques-parrafo">Dispondrás de material educativo en formato PDF que
@@ -76,7 +76,7 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Cotinuidad!</h2>
                                 <div class="text-center">
-                                    <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/11421/11421424.png"
+                                    <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/11421/11421424.png"
                                         alt="">
                                 </div>
                                 <p class="contenido-bloques-parrafo">Puedes avanzar a tu propio ritmo en el curso, y tendrás
@@ -90,7 +90,7 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Acceso a lectura!</h2>
                                 <div class="text-center">
-                                    <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/3574/3574808.png"
+                                    <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/3574/3574808.png"
                                         alt="">
                                 </div>
                                 <p class="contenido-bloques-parrafo">Dispondrás de una sección donde podrás acceder a
