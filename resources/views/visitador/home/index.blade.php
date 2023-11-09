@@ -51,7 +51,7 @@
                                     <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/2703/2703920.png"
                                         alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo">Cada curso incluye una lista de videos necesarios para
+                                <p class="contenido-bloques-parrafo mt-2">Cada curso incluye una lista de videos necesarios para
                                     cada
                                     lección, permitiendo una mayor exploración de los temas presentados.</p>
                             </div>
@@ -65,7 +65,7 @@
                                     <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/3315/3315581.png"
                                         alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo">Dispondrás de material educativo en formato PDF que
+                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de material educativo en formato PDF que
                                     podrás descargar y llevar contigo en todo momento. Este recurso estará disponible al
                                     concluir cada lección aprendida.</p>
                             </div>
@@ -79,7 +79,7 @@
                                     <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/11421/11421424.png"
                                         alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo">Puedes avanzar a tu propio ritmo en el curso, y tendrás
+                                <p class="contenido-bloques-parrafo mt-2">Puedes avanzar a tu propio ritmo en el curso, y tendrás
                                     la
                                     opción de hacer clic al finalizar cada tema aprendido.</p>
                             </div>
@@ -93,7 +93,7 @@
                                     <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/3574/3574808.png"
                                         alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo">Dispondrás de una sección donde podrás acceder a
+                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de una sección donde podrás acceder a
                                     lecturas
                                     interesantes y resumidas para evitar el aburrimiento.</p>
                             </div>
