@@ -56,7 +56,7 @@
     text-align: center;
     color: var(--general);
   }
-  #contenido-bloques .imagen{ width: 100px; height: 100px; margin: 15px 0px 15px 0px;}
+  #contenido-bloques .imagen{ width: 100%; height: 100%; margin: 15px 0px 15px 0px; border-radius: 20px;}
   #contenido-bloques .contenido-bloques-parrafo { text-align: justify !important; font-size: 12.5px;}
 
 
