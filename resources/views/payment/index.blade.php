@@ -20,22 +20,35 @@
     <section class="" id="contenido-bloques">
         <div class="contenedor">
             <div class="row">
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                    <strong>IMPORTANTE!</strong>
-                    <p style="text-align: justify">Después de enviar el número de operación, el sistema verificará la
-                        validez
-                        del pago en un plazo de 24 horas. En
-                        caso de que el número de operación sea correcto, se enviará un correo electrónico al estudiante
-                        registrado
-                        en la
-                        plataforma con el estado del cobro. <strong>Si el número de operación no es correcto, se procederá a
-                            revocar
-                            el
-                            permiso
-                            para acceder al curso solicitado.</strong></p>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                <div class="col-md-3 my-2">
+                    <div class="mi-card">
+                        <div class="mi-card-content">
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <strong>IMPORTANTE!</strong>
+                                <p style="text-align: justify">Después de enviar el número de operación, el sistema
+                                    verificará la
+                                    validez
+                                    del pago en un plazo de 24 horas. En
+                                    caso de que el número de operación sea correcto, se enviará un correo electrónico al
+                                    estudiante
+                                    registrado
+                                    en la
+                                    plataforma con el estado del cobro. <strong>Si el número de operación no es correcto, se
+                                        procederá a
+                                        revocar
+                                        el
+                                        permiso
+                                        para acceder al curso solicitado.</strong></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 my-2">
+
+
+                <div class="col-md-3 my-2">
                     <div class="mi-card">
                         <div class="mi-card-content">
                             <div class="d-flex justify-content-around align-items-center">
@@ -63,7 +76,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 my-2">
+
+                <div class="col-md-3 my-2">
                     <div class="mi-card">
                         <div class="mi-card-content">
                             <h2 class="contenido-bloques-titulo">{{ $course->title }}</h2>
@@ -115,7 +129,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 my-2">
+                <div class="col-md-3 my-2">
                     <div class="mi-card">
                         <div class="mi-card-content">
                             <h2 class="contenido-bloques-titulo">Qr Yape</h2>
