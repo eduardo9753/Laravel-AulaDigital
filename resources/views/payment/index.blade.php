@@ -105,7 +105,7 @@
                         <div class="mi-card-content">
                             <h2 class="contenido-bloques-titulo">Qr Yape</h2>
                             <div class="text-center">
-                                <img src="https://i.ibb.co/wy55yj5/qr.jpg" alt="qr" border="0">
+                                <img src="https://i.postimg.cc/FHQ3LsyM/Captura.png" alt="qr" border="0">
                             </div>
                         </div>
                     </div>
