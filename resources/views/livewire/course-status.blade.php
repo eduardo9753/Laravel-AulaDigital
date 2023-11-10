@@ -158,34 +158,28 @@
                                 document.addEventListener('livewire:load', function() {
                                     Livewire.on('lessonChanged', function(sectionId) {
                                         // Ocultar todos los acordeones
-                                        document.querySelectorAll('.accordion-collapse').forEach(function(collapse) {
-                                            collapse.classList.remove('show');
+                                        document.querySelectorAll('.accordion-item').forEach(function(item) {
+                                            item.classList.remove('show');
                                         });
 
                                         // Mostrar solo el acordeón correspondiente a la lección seleccionada
-                                        var targetId = "#flush-collapse" + sectionId; // Agrega el signo # para seleccionar por ID
-                                        var targetCollapse = document.querySelector(targetId);
+                                        var targetId = "#flush-collapse" + sectionId;
+                                        var targetItem = document.querySelector(targetId);
 
-                                        if (targetCollapse) {
-                                            targetCollapse.classList.add('show');
-                                            targetCollapse.scrollIntoView({
-                                                behavior: 'smooth',
-                                                block: 'start'
-                                            }); // Desplazar la vista al acordeón
+                                        if (targetItem && !targetItem.classList.contains('show')) {
+                                            targetItem.classList.add('show');
+                                            targetItem.scrollIntoView(false); // Desactivar el desplazamiento suave
                                         }
                                     });
 
                                     // Mostrar el acordeón al cargar la página
                                     var currentSectionId = "{{ $current->section_id }}";
                                     var initialTargetId = "#flush-collapse" + currentSectionId;
-                                    var initialTargetCollapse = document.querySelector(initialTargetId);
+                                    var initialTargetItem = document.querySelector(initialTargetId);
 
-                                    if (initialTargetCollapse) {
-                                        initialTargetCollapse.classList.add('show');
-                                        initialTargetCollapse.scrollIntoView({
-                                            behavior: 'smooth',
-                                            block: 'start'
-                                        });
+                                    if (initialTargetItem && !initialTargetItem.classList.contains('show')) {
+                                        initialTargetItem.classList.add('show');
+                                        initialTargetItem.scrollIntoView(false); // Desactivar el desplazamiento suave
                                     }
                                 });
                             </script>
