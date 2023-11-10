@@ -48,10 +48,11 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Videos!</h2>
                                 <div class="text-center">
-                                    <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/2703/2703920.png"
-                                        alt="">
+                                    <img style="width: 100px;height: 100px;"
+                                        src="https://cdn-icons-png.flaticon.com/512/2703/2703920.png" alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-2">Cada curso incluye una lista de videos necesarios para
+                                <p class="contenido-bloques-parrafo mt-2">Cada curso incluye una lista de videos necesarios
+                                    para
                                     cada
                                     lección, permitiendo una mayor exploración de los temas presentados.</p>
                             </div>
@@ -62,10 +63,11 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Recursos!</h2>
                                 <div class="text-center">
-                                    <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/3315/3315581.png"
-                                        alt="">
+                                    <img style="width: 100px;height: 100px;"
+                                        src="https://cdn-icons-png.flaticon.com/512/3315/3315581.png" alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de material educativo en formato PDF que
+                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de material educativo en formato PDF
+                                    que
                                     podrás descargar y llevar contigo en todo momento. Este recurso estará disponible al
                                     concluir cada lección aprendida.</p>
                             </div>
@@ -76,10 +78,11 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Cotinuidad!</h2>
                                 <div class="text-center">
-                                    <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/11421/11421424.png"
-                                        alt="">
+                                    <img style="width: 100px;height: 100px;"
+                                        src="https://cdn-icons-png.flaticon.com/512/11421/11421424.png" alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-2">Puedes avanzar a tu propio ritmo en el curso, y tendrás
+                                <p class="contenido-bloques-parrafo mt-2">Puedes avanzar a tu propio ritmo en el curso, y
+                                    tendrás
                                     la
                                     opción de hacer clic al finalizar cada tema aprendido.</p>
                             </div>
@@ -90,12 +93,34 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">Acceso a lectura!</h2>
                                 <div class="text-center">
-                                    <img style="width: 100px;height: 100px;" src="https://cdn-icons-png.flaticon.com/512/3574/3574808.png"
-                                        alt="">
+                                    <img style="width: 100px;height: 100px;"
+                                        src="https://cdn-icons-png.flaticon.com/512/3574/3574808.png" alt="">
                                 </div>
                                 <p class="contenido-bloques-parrafo mt-2">Dispondrás de una sección donde podrás acceder a
                                     lecturas
                                     interesantes y resumidas para evitar el aburrimiento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="py-5" id="">
+            <div class="contenedor">
+                <div class="row">
+                    <div class="col-md-9 my-2">
+                        <img style="width: 100%;" src="{{ asset('img/home/union.png') }}" alt="">
+                    </div>
+
+                    <div class="col-md-3 my-2">
+                        <div class="card">
+                            <div class="card-body" style="text-align: justify">
+                                La plataforma se adapta a una variedad de dispositivos, como teléfonos celulares, laptops y
+                                computadoras, permitiéndote continuar tu proceso de aprendizaje de manera suave y cómoda
                             </div>
                         </div>
                     </div>
@@ -158,6 +183,28 @@
         <!--OWLCOURRESL-->
     </section>
 
+
+    <section>
+        <div class="py-5" id="">
+            <div class="contenedor">
+                <div class="row">
+                    <div class="col-md-9 my-2">
+                        <img style="width: 100%;" src="{{ asset('img/home/union_dos.png') }}" alt="">
+                    </div>
+
+                    <div class="col-md-3 my-2">
+                        <div class="card">
+                            <div class="card-body" style="text-align: justify">
+                                Podrás llevar tu avance y retomar tu continuidad en el momento que desees. Además de ello,
+                                tendrás acceso a ejercicios para repasar lo aprendido en formato PDF en la última parte de
+                                cada lección
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="" id="contenido-bloques">
         <div class="contenedor">
