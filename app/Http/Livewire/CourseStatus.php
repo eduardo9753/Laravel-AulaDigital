@@ -45,7 +45,10 @@ class CourseStatus extends Component
     //METODO PARA CAMBIAR LA LECCION ACTUAL
     public function changeLesson(Lesson $lesson)
     {
-        return $this->current = $lesson;
+        $this->current = $lesson;
+
+        // Emitir un evento de Livewire para actualizar la interfaz
+        $this->emit('lessonChanged', $lesson->section_id);
     }
 
     //METODO PARA DAR CLICK Y CULMINAR UNA LECCION
@@ -62,9 +65,10 @@ class CourseStatus extends Component
         //REFREZCANDO LAS LECCIONES CULMINADAS
         $this->current = Lesson::find($this->current->id);
         $this->course = Course::find($this->course->id);
+
+        // Emitir un evento de Livewire para actualizar la interfaz
+        $this->emit('lessonChanged', $this->current->section_id);
     }
-
-
 
 
     //PROPIEDADES COMPUTADAS

@@ -75,7 +75,7 @@
     {{-- cuerpo --}}
     <main>
         @yield('main')
-
+        @yield('scripts')
         <!-- SCRIPT LIVEWIRE -->
         @livewireScripts
     </main>

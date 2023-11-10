@@ -35,8 +35,7 @@
                         <a class="" wire:click="changeLesson({{ $this->next }})"><i class='bx bx-send'
                                 style="font-size: 40px"></i></a>
                     @else
-                        <a><i class='bx bx-trending-up bx-flip-horizontal'
-                                style="font-size: 40px"></i></a>
+                        <a><i class='bx bx-trending-up bx-flip-horizontal' style="font-size: 40px"></i></a>
                     @endif
                 </div>
 
@@ -97,17 +96,23 @@
                         {{-- BARRA DE PROGRESO --}}
 
 
-                        {{-- SECCIONES DEL CURSO --}}
-                        <ul>
+                        {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
                             @foreach ($course->sections as $section)
-                                <div class="card sombra my-3">
-                                    <div class="card-body">
-                                        <li>
-                                            <h2 class="color-general" style="font-size: 18px; font-weight: bold">
-                                                {{ $section->name }}</h2>
-
-                                            {{-- LECCIONES DE LA SECCION --}}
-                                            <ul class="">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-heading{{ $section->id }}">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapse{{ $section->id }}" aria-expanded="false"
+                                            aria-controls="flush-collapse{{ $section->id }}">
+                                            <p class="color-general">{{ $section->name }}</p>
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse{{ $section->id }}" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-heading{{ $section->id }}"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <ul>
                                                 @foreach ($section->lessons as $lesson)
                                                     <li class="d-flex my-1">
                                                         {{-- ver si esta completada la leccion --}}
@@ -138,14 +143,53 @@
                                                     </li>
                                                 @endforeach
                                             </ul>
-                                        </li>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach
-                        </ul>
-                        {{-- SECCIONES DEL CURSO --}}
+                        </div>
+                        {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
 
-                        <script src="{{ asset('js/youtube.js') }}"></script>
+
+                        @section('scripts')
+                            <script src="{{ asset('js/youtube.js') }}"></script>
+
+                            <script>
+                                document.addEventListener('livewire:load', function() {
+                                    Livewire.on('lessonChanged', function(sectionId) {
+                                        // Ocultar todos los acordeones
+                                        document.querySelectorAll('.accordion-collapse').forEach(function(collapse) {
+                                            collapse.classList.remove('show');
+                                        });
+
+                                        // Mostrar solo el acordeón correspondiente a la lección seleccionada
+                                        var targetId = "#flush-collapse" + sectionId; // Agrega el signo # para seleccionar por ID
+                                        var targetCollapse = document.querySelector(targetId);
+
+                                        if (targetCollapse) {
+                                            targetCollapse.classList.add('show');
+                                            targetCollapse.scrollIntoView({
+                                                behavior: 'smooth',
+                                                block: 'start'
+                                            }); // Desplazar la vista al acordeón
+                                        }
+                                    });
+
+                                    // Mostrar el acordeón al cargar la página
+                                    var currentSectionId = "{{ $current->section_id }}";
+                                    var initialTargetId = "#flush-collapse" + currentSectionId;
+                                    var initialTargetCollapse = document.querySelector(initialTargetId);
+
+                                    if (initialTargetCollapse) {
+                                        initialTargetCollapse.classList.add('show');
+                                        initialTargetCollapse.scrollIntoView({
+                                            behavior: 'smooth',
+                                            block: 'start'
+                                        });
+                                    }
+                                });
+                            </script>
+                        @endsection
                     </div>
                 </div>
             </div>
