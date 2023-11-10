@@ -168,7 +168,11 @@
 
                                         if (targetItem && !targetItem.classList.contains('show')) {
                                             targetItem.classList.add('show');
-                                            targetItem.scrollIntoView(false); // Desactivar el desplazamiento suave
+                                            // Ajustar la posición del scroll al inicio de la página
+                                            window.scrollTo({
+                                                top: 0,
+                                                behavior: 'smooth' // Puedes cambiar a 'auto' si no quieres un desplazamiento suave
+                                            });
                                         }
                                     });
 
@@ -179,7 +183,11 @@
 
                                     if (initialTargetItem && !initialTargetItem.classList.contains('show')) {
                                         initialTargetItem.classList.add('show');
-                                        initialTargetItem.scrollIntoView(false); // Desactivar el desplazamiento suave
+                                        // Ajustar la posición del scroll al inicio de la página
+                                        window.scrollTo({
+                                            top: 0,
+                                            behavior: 'smooth' // Puedes cambiar a 'auto' si no quieres un desplazamiento suave
+                                        });
                                     }
                                 });
                             </script>
