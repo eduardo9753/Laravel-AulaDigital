@@ -47,7 +47,7 @@
   }
 
   #contenido-bloques .mi-card:hover {
-    transform: scale(1.1);
+    transform: scale(1.04);
   }
 
 
@@ -69,5 +69,5 @@
 
 
 #ultimos-cursos img {width: 100%;height: 220px;  object-fit: cover; }
-#ultimos-cursos .ultimos-cursos-titulo {margin-top: 65px;}
-#ultimos-cursos .ultimos-cursos-parrafo {padding-bottom: 35px;}
+#ultimos-cursos .ultimos-cursos-titulo {margin-top: 65px; font-size: 45px;}
+#ultimos-cursos .ultimos-cursos-parrafo {padding-bottom: 35px; font-size: 22px;}

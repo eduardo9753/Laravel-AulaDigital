@@ -10,4 +10,10 @@
     --verde : #04AA6D;
     --amarillo: #ff9800;
     --rojo: #f44336;
+
+
+    /*colores gradiante curso show*/
+    --gradienteUno: #845ec2;
+    --gradienteDos : #d65db1;
+    --gradienteTres: #ff6f61;
 }

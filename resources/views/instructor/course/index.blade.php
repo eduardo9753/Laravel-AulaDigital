@@ -17,7 +17,7 @@
                     <div class="card-header fondo-general">
                         <a class="text-white" href="{{ route('admin.instructor.course.create') }}">Crear Nuevo Curso</a>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         <table class="table" id="datatable">
                             <thead>
                                 <tr>

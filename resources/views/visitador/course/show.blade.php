@@ -11,6 +11,14 @@
 @section('main')
     {{-- DESCRIPCION DEL CURSO Y SUS CARACTERISTICAS --}}
     <section id="curso-show" class="">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+
+
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -22,10 +30,10 @@
                     <div>
                         <h2 class="curso-show-titulo">{{ $course->title }}</h2>
                         <h3 class="curso-show-subtitulo">{{ $course->subtitle }}</h3>
-                        <p>Nivel: {{ $course->level->name }}</p>
-                        <p>Categoria: {{ $course->category->name }}</p>
-                        <p>Matriculado: {{ $course->students_count }}</p>
-                        <p>Calificación: {{ $course->rating }}</p>
+                        <p><i class='bx bx-signal-5'></i>Nivel: {{ $course->level->name }}</p>
+                        <p><i class='bx bxs-category-alt'></i>Categoria: {{ $course->category->name }}</p>
+                        <p><i class='bx bxs-user-plus'></i>Matriculado: {{ $course->students_count }}</p>
+                        <p><i class='bx bxs-star-half'></i>Calificación: {{ $course->rating }}</p>
                     </div>
                 </div>
             </div>
