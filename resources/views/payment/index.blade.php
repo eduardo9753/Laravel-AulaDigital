@@ -123,7 +123,8 @@
                             </div>
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('yape.index', ['course' => $course]) }}" method="POST">
+                                    <form action="{{ route('yape.index', ['course' => $course]) }}" method="POST"
+                                        id="paymentForm">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="number" class="form-label">N° de operación:</label>
@@ -133,8 +134,12 @@
                                                 <p>Ingrese el número de operación.</p>
                                             </div>
                                         </div>
-                                        <button type="submit" class="mi-boton general mt-2 w-100">Enviar Datos</button>
+                                        <button type="submit" id="btn-pago-yape" class="mi-boton general mt-2 w-100">Enviar
+                                            Datos</button>
                                     </form>
+
+
+                                    <script src="{{ asset('js/pay/pay.js') }}"></script>
                                 </div>
                             </div>
                         </div>
