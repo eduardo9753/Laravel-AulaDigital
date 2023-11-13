@@ -22,7 +22,7 @@ class CreatePaysTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade'); //foranea user 
 
-            $table->string('collection_id')->nullable();
+            $table->string('collection_id')->nullable(); //LO TOMAREMOS COMO ID DEL CURSO
             $table->string('collection_status')->nullable();
             $table->string('payment_id')->nullable();
             $table->string('status')->nullable();

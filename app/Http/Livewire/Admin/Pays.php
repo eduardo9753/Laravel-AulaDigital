@@ -67,8 +67,7 @@ class Pays extends Component
         ]);
 
         $user = User::find($pay->user_id);
-        $results = DB::table('course_user')->where('user_id', $user->id)->first();
-        $course = Course::find($results->course_id);
+        $course = Course::find($pay->collection_id);
 
         Mail::to([$user->email, auth()->user()->email])->send(new MailUserCursoAutorizarController($course, $user));
         $this->reload();
@@ -85,8 +84,7 @@ class Pays extends Component
         ]);
 
         $user = User::find($pay->user_id);
-        $results = DB::table('course_user')->where('user_id', $user->id)->first();
-        $course = Course::find($results->course_id);
+        $course = Course::find($pay->collection_id);
         $course->students()->detach($user->id);
 
         Mail::to([$user->email, auth()->user()->email])->send(new MailUserCursoRechazadoController($course, $user));
