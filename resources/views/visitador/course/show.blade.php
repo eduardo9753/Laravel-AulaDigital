@@ -32,7 +32,7 @@
                         <h3 class="curso-show-subtitulo">{{ $course->subtitle }}</h3>
                         <p><i class='bx bx-signal-5'></i>Nivel: {{ $course->level->name }}</p>
                         <p><i class='bx bxs-category-alt'></i>Categoria: {{ $course->category->name }}</p>
-                        <p><i class='bx bxs-user-plus'></i>Matriculado: {{ $course->students_count }}</p>
+                        <p><i class='bx bxs-user-plus'></i>Matriculados: {{ $course->students_count }}</p>
                         <p><i class='bx bxs-star-half'></i>Calificación: {{ $course->rating }}</p>
                         <p><i class='bx bx-infinite'></i>Acceso de por vida</p>
                         <p><i class='bx bxs-file-pdf'></i>Recursos Descargables</p>

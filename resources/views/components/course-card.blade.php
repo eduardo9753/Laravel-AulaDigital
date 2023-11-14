@@ -13,12 +13,16 @@
                                     </a>
                                 </div>
 
-                                <p class="contenido-bloques-parrafo mt-3">
+                                <p class="contenido-bloques-parrafo">
                                     {!! Str::limit($course->description, 50) !!}
                                 </p>
 
-                                <div class="d-flex justify-content-between mt-4">
-                                    <p>Matriculados({{ $course->students_count }})</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <i class='bx bxs-user-plus' style="font-size: 24px"></i>
+                                        <p>({{ $course->students_count }})</p>
+                                    </div>
+                                    
                                     <ul class="d-flex">
                                         <li>
                                             <i class='bx bx-star {{ $course->rating >= 1 ? 'text-warning' : '' }}'></i>
@@ -38,6 +42,8 @@
                                     </ul>
                                 </div>
 
+                                <p class="contenido-bloques-parrafo mb-3 color-general">Colaborador: {{ $course->teacher->name }}</p>
+
                                 @if ($course->price->value == 0)
                                     <p style="font-size: 22px;font-weight:bold" class="color-general">
                                         {{ $course->price->name }}
@@ -51,7 +57,7 @@
                                 <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
                                     class="mi-boton general mt-2 w-100">Detalles</a>
 
-                                <p class="contenido-bloques-parrafo mt-3">Colaborador: {{ $course->teacher->name }}</p>
+                              
                             </div>
                         </div>
                     </div>
