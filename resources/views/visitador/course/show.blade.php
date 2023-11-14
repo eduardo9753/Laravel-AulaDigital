@@ -34,6 +34,9 @@
                         <p><i class='bx bxs-category-alt'></i>Categoria: {{ $course->category->name }}</p>
                         <p><i class='bx bxs-user-plus'></i>Matriculado: {{ $course->students_count }}</p>
                         <p><i class='bx bxs-star-half'></i>Calificación: {{ $course->rating }}</p>
+                        <p><i class='bx bx-infinite'></i>Acceso de por vida</p>
+                        <p><i class='bx bxs-file-pdf'></i>Recursos Descargables</p>
+                        <p><i class='bx bx-devices'></i>Disponible en móviles como en PC</p>
                     </div>
                 </div>
             </div>
@@ -136,6 +139,11 @@
                         </div>
                     </section>
                     {{-- INPRIMIENDO LA DESCRIPCION DEL CURSO --}}
+
+
+                    {{-- RESEÑAS DE LOS CURSOS --}}
+                    @livewire('courses-reviews', ['course' => $course], key($course->id))
+                    {{-- RESEÑAS DE LOS CURSOS --}}
                 </div>
                 {{-- COLUMNA IZQUIERDA --}}
 

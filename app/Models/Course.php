@@ -34,11 +34,11 @@ class Course extends Model
     public function getRatingAttribute()
     {
         if ($this->reviews_count) {
-            return round($this->review->avg('rating'), 2); //me retorna la coleccion de datos
+            return round($this->reviews->avg('rating'), 2);
         } else {
-            return 5;
+            return 5; // o el valor predeterminado que desees
         }
-    }
+    }    
 
     //RELACION UNO A MUCHOS INVERSA "me retorna al usuario que a dictado el curso"
     public function teacher()
