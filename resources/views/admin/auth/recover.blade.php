@@ -8,25 +8,28 @@
                 <div class="col-md-6 mx-auto mt-4">
                     <div class="card" style="opacity: 0.8">
                         <div class="card-header fondo-general text-center">
-                            <h1>Registrate</h1>
+                            <h1>Recuperar Cuenta</h1>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.register.store') }}" method="POST">
+                            <form action="{{ route('admin.recover.update') }}" method="POST">
 
                                 {{-- token de seguridad --}}
                                 @csrf
 
-                                <!-- Email input -->
-                                <div class="form-outline my-2">
-                                    <label class="form-label" for="name">Nombre</label>
-                                    <input type="text" id="name" name="name" class="form-control"
-                                        value="{{ old('name') }}" />
-                                    {{-- validacion con validate --}}
-                                    @error('name')
-                                        {{-- alerta de error --}}
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+                                <div class="text-center alert alert-dark">Favor de ingresar el correo con el cual se
+                                    registro en la plataforma</div>
+
+
+                                {{-- MENSAJE SI ESTAN MAL LAS CREDENCIALES --}}
+                                @if (session('mensaje'))
+                                    {{-- MENSAJE SI ESTAN MAL LAS CREDENCIALES --}}
+                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                        <strong>Mensaje!</strong> {{ session('mensaje') }}.
+                                        <a href="{{ route('login') }}">Ingresar</a>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endif
 
                                 <!-- Email input -->
                                 <div class="form-outline my-2">
@@ -42,7 +45,7 @@
 
                                 <!-- Password input -->
                                 <div class="form-outline my-2">
-                                    <label class="form-label" for="password">Password</label>
+                                    <label class="form-label" for="password">Nuevo Password</label>
                                     <input type="password" id="password" name="password" class="form-control" />
                                     {{-- validacion con validate --}}
                                     @error('password')
@@ -53,7 +56,7 @@
 
                                 <!-- Password input -->
                                 <div class="form-outline my-2">
-                                    <label class="form-label" for="password_confirmation">Confirmar Password</label>
+                                    <label class="form-label" for="password_confirmation">Confimar Password</label>
                                     <input type="password" id="password_confirmation" name="password_confirmation"
                                         class="form-control" />
                                     {{-- validacion con validate --}}
@@ -68,9 +71,10 @@
 
                                 <!-- Register buttons -->
                                 <div class="d-flex justify-content-between">
-                                    <p><a class="btn btn-dark" href="{{ route('login') }}">Login</a></p>
+                                    <p><a class="btn btn-dark" href="{{ route('login') }}">Ingresar</a></p>
 
-                                    <p><a class="btn btn-outline-dark" href="{{ route('visitador.home.index') }}">Ir a Casa</a></p>
+                                    <p><a class="btn btn-outline-dark" href="{{ route('visitador.home.index') }}">Ir a
+                                            Casa</a></p>
                                 </div>
                             </form>
                         </div>

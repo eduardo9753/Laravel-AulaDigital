@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\auth\LoginController;
 use App\Http\Controllers\admin\auth\LogoutController;
+use App\Http\Controllers\admin\auth\RecoverController;
 use App\Http\Controllers\admin\auth\RegisterController;
 
 use App\Http\Controllers\visitador\course\CourseController;
@@ -41,7 +42,13 @@ Route::get('/admin/Register', [RegisterController::class, 'index'])->name('admin
 Route::post('/admin/Register/store', [RegisterController::class, 'store'])->name('admin.register.store');
 
 
+
+Route::get('/admin/recover',[RecoverController::class, 'recover'])->name('admin.recover');
+Route::post('/admin/recover',[RecoverController::class, 'send'])->name('admin.send');
+Route::get('/admin/recover/usuario',[RecoverController::class, 'index'])->name('admin.recover.index');
+Route::post('/admin/recover/update', [RecoverController::class ,'update'])->name('admin.recover.update');
 Route::post('/admin/logout', [LogoutController::class, 'logout'])->name('admin.logout');
+
 
 //BUSQUEDA DEL CURSO Y MOSTRAR CURSO CON SU CONTENIDO
 Route::get('/course', [CourseController::class, 'index'])->name('visitador.course.index');

@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto mt-5">
-                    <div class="card" style="opacity: 0.7">
+                    <div class="card" style="opacity: 0.8">
                         <div class="card-header fondo-general text-center">
                             <h1>Login</h1>
                         </div>
@@ -48,7 +48,7 @@
                                     <div class="col d-flex justify-content-center">
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <label class="form-check-label" for="remember"> Remember me </label>
+                                            <label class="form-check-label" for="remember"> Recordarme </label>
                                             <input class="form-check-input" type="checkbox" name="remember"
                                                 id="remember" />
                                         </div>
@@ -56,12 +56,12 @@
 
                                     <div class="col">
                                         <!-- Simple link -->
-                                        <a href="">Olvide mi Contraseña</a>
+                                        <a href="{{ route('admin.recover') }}">Olvide mi Contraseña</a>
                                     </div>
                                 </div>
 
                                 <!-- Submit button -->
-                                <input type="submit" class="mi-boton azul mb-4 w-100" value="Ingresar">
+                                <input type="submit" class="mi-boton general mb-4 w-100" value="Ingresar">
 
                                 <!-- Register buttons -->
                                 <div class="d-flex justify-content-between">
