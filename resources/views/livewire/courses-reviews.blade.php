@@ -1,8 +1,8 @@
-<div>
+<div style="max-height: 300px; overflow-y: auto;">
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
     <div class="card mt-3">
         <div class="card-body">
-            <h3 class="color-general">Valoraciones ({{ $course->reviews->count() }}) </h3>
+            <h3 class="color-general">Valoraciones <small>({{ $course->reviews->count() }})</small> </h3>
 
             @can('enrolled', $course)
                 <article class="my-3">

@@ -59,7 +59,8 @@
                                     @foreach ($course->goals as $goal)
                                         <div class="col-md-6">
                                             <div class="d-flex align-items-center">
-                                                <i class='bx bx-bullseye' style='color:#0d6efd;margin-right: 3px'></i>
+                                                <i class='bx bx-label color-general' style='color:#4b22f4;margin-right: 3px'></i>
+                                               
                                                 <li class="">{{ $goal->name }}</li>
                                             </div>
                                         </div>
@@ -93,7 +94,7 @@
                                         <ul>
                                             @foreach ($section->lessons as $lesson)
                                                 <li class="d-flex align-items-center my-1">
-                                                    <i class='bx bx-play-circle'
+                                                    <i class='bx bxs-videos'
                                                         style='color:#4b22f4 ; font-size: 22px'></i>
                                                     <p class="temario-parrafo">{{ $lesson->name }}</p>
                                                 </li>
@@ -115,7 +116,7 @@
                                 <ul>
                                     @foreach ($course->requirements as $requirement)
                                         <div class="d-flex align-items-center">
-                                            <i class='bx bx-check-square' style='color:#4b22f4;margin-right: 3px'></i>
+                                            <i class='bx bx-check' style='color:#4b22f4;margin-right: 3px'></i>
                                             <li>{{ $requirement->name }}</li>
                                         </div>
                                     @endforeach

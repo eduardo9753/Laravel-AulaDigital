@@ -25,17 +25,17 @@
 
                 <div class="mt-3 d-flex justify-content-between">
                     @if ($this->previous)
-                        <a class="" wire:click="changeLesson({{ $this->previous }})"><i
+                        <a class="mi-boton general btn-sm" wire:click="changeLesson({{ $this->previous }})"><i
                                 class='bx bx-send bx-flip-horizontal' style="font-size: 40px"></i></a>
                     @else
-                        <a><i class='bx bx-trending-up' style="font-size: 40px"></i></a>
+                        <a class="mi-boton azul btn-sm"><i class='bx bx-trending-up' style="font-size: 40px"></i></a>
                     @endif
 
                     @if ($this->next)
-                        <a class="" wire:click="changeLesson({{ $this->next }})"><i class='bx bx-send'
+                        <a class="mi-boton general btn-sm" wire:click="changeLesson({{ $this->next }})"><i class='bx bx-send'
                                 style="font-size: 40px"></i></a>
                     @else
-                        <a><i class='bx bx-trending-up bx-flip-horizontal' style="font-size: 40px"></i></a>
+                        <a class="mi-boton rojo btn-sm"><i class='bx bx-trending-up bx-flip-horizontal' style="font-size: 40px"></i></a>
                     @endif
                 </div>
 
@@ -97,7 +97,7 @@
 
 
                         {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion accordion-flush" id="accordionFlushExample" style="max-height: 300px; overflow-y: auto;">
                             @foreach ($course->sections as $section)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-heading{{ $section->id }}">

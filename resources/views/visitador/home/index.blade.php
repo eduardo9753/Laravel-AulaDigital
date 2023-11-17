@@ -10,9 +10,9 @@
     <header class="header-home-fondo" id="header-home">
         <div class="">
             <h1 class="header-titulo">Plataforma de educación dirigida a estudiantes de todas las edades</h1>
-            <p class="header-parrafo">A través de Académico, puedes acceder a una amplia gama de cursos a un costo muy
-                asequible, con la posibilidad de explorar el contenido de manera ilimitada.</p>
-
+            <p class="header-parrafo">En Académico, descubrirás cursos que abordan temas precisos y fundamentales, diseñados
+                para fortalecer tu preparación académica. Además, tendrás la oportunidad de potenciar tus habilidades,
+                preparándote de manera integral para tu etapa universitaria.</p>
             @guest
                 <a href="{{ route('admin.register.index') }}" class="mi-boton general mt-3">Registrarme</a>
             @endguest

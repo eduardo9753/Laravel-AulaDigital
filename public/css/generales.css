@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body { font-family: "Noto Sans", "San Francisco", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
+body { font-family: 'Mulish', sans-serif !important; }
 
 .contenedor {
     width: 90%;
