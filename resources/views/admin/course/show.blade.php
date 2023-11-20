@@ -11,6 +11,14 @@
 @section('main')
     {{-- DESCRIPCION DEL CURSO Y SUS CARACTERISTICAS --}}
     <section id="curso-show" class="">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+
+
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -22,10 +30,13 @@
                     <div>
                         <h2 class="curso-show-titulo">{{ $course->title }}</h2>
                         <h3 class="curso-show-subtitulo">{{ $course->subtitle }}</h3>
-                        <p>Nivel: {{ $course->level->name }}</p>
-                        <p>Categoria: {{ $course->category->name }}</p>
-                        <p>Matriculado: {{ $course->students_count }}</p>
-                        <p>Calificación: {{ $course->rating }}</p>
+                        <p><i class='bx bx-signal-5'></i>Nivel: {{ $course->level->name }}</p>
+                        <p><i class='bx bxs-category-alt'></i>Categoria: {{ $course->category->name }}</p>
+                        <p><i class='bx bxs-user-plus'></i>Matriculados: {{ $course->students_count }}</p>
+                        <p><i class='bx bxs-star-half'></i>Calificación: {{ $course->rating }}</p>
+                        <p><i class='bx bx-infinite'></i>Acceso de por vida</p>
+                        <p><i class='bx bxs-file-pdf'></i>Recursos Descargables</p>
+                        <p><i class='bx bx-devices'></i>Disponible en móviles como en PC</p>
                     </div>
                 </div>
             </div>
@@ -34,7 +45,7 @@
     {{-- DESCRIPCION DEL CURSO Y SUS CARACTERISTICAS --}}
 
 
-    <div class="curso-shoe-columna-ocho">
+    <div id="curso-show-columna-ocho">
         <div class="contenedor">
             <div class="row">
                 {{-- COLUMNA IZQUIERDA --}}
@@ -48,7 +59,9 @@
                                     @foreach ($course->goals as $goal)
                                         <div class="col-md-6">
                                             <div class="d-flex align-items-center">
-                                                <i class='bx bx-bullseye' style='color:#0d6efd;margin-right: 3px'></i>
+                                                <i class='bx bx-label color-general'
+                                                    style='color:#4b22f4;margin-right: 3px'></i>
+
                                                 <li class="">{{ $goal->name }}</li>
                                             </div>
                                         </div>
@@ -60,35 +73,34 @@
                     {{-- INPRIMIENDO LAS METAS --}}
 
 
+
+
                     {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
-                    <section>
+                    <section id="temario">
                         <h3 class="mt-4 mb-3 color-general">Temario</h3>
                         @foreach ($course->sections as $section)
-                            <div class="card mt-2">
-                                <div class="card-body">
-                                    {{-- PARA QUE EL PRIMER SECTION ESTE ABIERTO --}}
-                                    <article
-                                        @if ($loop->first) x-data="{ open: true }"
-                                @else
-                                x-data="{ open: false }" @endif>
-                                        <header class="link-primary" x-on:click="open= !open">
-                                            <h4 class="lead cursor-show"> <i class="bx bx-chevron-down bx-flip-"></i>
-                                                {{ $section->name }}</h4>
-                                        </header>
-                                        {{-- INPRIMIENDO LAS LECCIONES DE CADA SECCION --}}
-                                        <div class="bg-white py-2 px-4" x-show="open">
-                                            <ul>
-                                                @foreach ($section->lessons as $lesson)
-                                                    <li class="d-flex align-items-center my-1">
-                                                        <i class='bx bx-play-circle'
-                                                            style='color:#4b22f4 ; font-size: 22px'></i>
-                                                        <p>{{ $lesson->name }}</p>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        {{-- INPRIMIENDO LAS LECCIONES DE CADA SECCION --}}
-                                    </article>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading{{ $section->id }}">
+                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#{{ $section->id }}"
+                                        aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
+                                        aria-controls="{{ $section->id }}">
+                                        {{ $section->name }}
+                                    </button>
+                                </h2>
+                                <div id="{{ $section->id }}"
+                                    class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
+                                    aria-labelledby="heading{{ $section->id }}" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            @foreach ($section->lessons as $lesson)
+                                                <li class="d-flex align-items-center my-1">
+                                                    <i class='bx bxs-videos' style='color:#4b22f4 ; font-size: 22px'></i>
+                                                    <p class="temario-parrafo">{{ $lesson->name }}</p>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
@@ -104,7 +116,7 @@
                                 <ul>
                                     @foreach ($course->requirements as $requirement)
                                         <div class="d-flex align-items-center">
-                                            <i class='bx bx-check-square' style='color:#4b22f4;margin-right: 3px'></i>
+                                            <i class='bx bx-check' style='color:#4b22f4;margin-right: 3px'></i>
                                             <li>{{ $requirement->name }}</li>
                                         </div>
                                     @endforeach
@@ -128,6 +140,11 @@
                         </div>
                     </section>
                     {{-- INPRIMIENDO LA DESCRIPCION DEL CURSO --}}
+
+
+                    {{-- RESEÑAS DE LOS CURSOS --}}
+                    @livewire('courses-reviews', ['course' => $course], key($course->id))
+                    {{-- RESEÑAS DE LOS CURSOS --}}
                 </div>
                 {{-- COLUMNA IZQUIERDA --}}
 

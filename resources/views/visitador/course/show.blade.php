@@ -209,7 +209,7 @@
                                         <p style="font-size: 10.6px;margin-left: 5px">{{ $similar->teacher->name }}</p>
                                     </div>
 
-                                    <p class="mt-2"><i class='bx bx-star text-warning'></i>{{ $similar->rating }}</p>
+                                    <p class="mt-2"><i class='bx bxs-star' style='color:#da920f'></i>{{ $similar->rating }}</p>
                                 </div>
                             </article>
                         @endforeach

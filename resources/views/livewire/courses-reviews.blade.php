@@ -1,11 +1,11 @@
-<div style="max-height: 300px; overflow-y: auto;">
+<div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
     <div class="card mt-3">
-        <div class="card-body">
+        <div class="card-body" style="max-height: 300px; overflow-y: auto;">
             <h3 class="color-general">Valoraciones <small>({{ $course->reviews->count() }})</small> </h3>
 
             @can('enrolled', $course)
-                <article class="my-3">
+                <article class="my-3" >
                     @can('valued', $course)
                         <form wire:submit.prevent="create">
                             <textarea wire:model="comment" rows="3" class="form-control w-100 mb-2" placeholder="Ingrese una reseña del curso"></textarea>
@@ -53,12 +53,15 @@
                 <article>
 
                     <figure class="d-flex justify-content-between align-items-center">
-                        <img style="width: 15px;height: 15px;"
-                            src="https://cdn-icons-png.flaticon.com/512/560/560277.png" alt="">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <img style="width: 15px;height: 15px;"
+                                src="https://cdn-icons-png.flaticon.com/512/560/560277.png" alt="">
 
-                        <p class="pr-2"><b>{{ $review->user->name }}</b> <i class='bx bxs-star'
-                                style='color:#da920f'></i>
-                            {{ $review->rating }}
+                            <p class="pr-2"><b>{{ $review->user->name }}</b>
+                            </p>
+                        </div>
+
+                        <p class="pr-2">{{ $review->rating }}<i class='bx bxs-star' style='color:#da920f'></i>
                         </p>
                     </figure>
 

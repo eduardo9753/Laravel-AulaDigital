@@ -22,27 +22,39 @@
                                         <i class='bx bxs-user-plus' style="font-size: 24px"></i>
                                         <p>({{ $course->students_count }})</p>
                                     </div>
-                                    
-                                    <ul class="d-flex">
-                                        <li>
-                                            <i class='bx bx-star {{ $course->rating >= 1 ? 'text-warning' : '' }}'></i>
-                                        </li>
-                                        <li>
-                                            <i class='bx bx-star {{ $course->rating >= 2 ? 'text-warning' : '' }}'></i>
-                                        </li>
-                                        <li>
-                                            <i class='bx bx-star {{ $course->rating >= 3 ? 'text-warning' : '' }}'></i>
-                                        </li>
-                                        <li>
-                                            <i class='bx bx-star {{ $course->rating >= 4 ? 'text-warning' : '' }}'></i>
-                                        </li>
-                                        <li>
-                                            <i class='bx bx-star {{ $course->rating == 5 ? 'text-warning' : '' }}'></i>
-                                        </li>
+
+                                    <ul class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p>{{ round($course->rating) }}</p>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <li>
+                                                <i style='color:#da920f'
+                                                    class='bx bx-star {{ $course->rating >= 1 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                            <li>
+                                                <i style='color:#da920f'
+                                                    class='bx bx-star {{ $course->rating >= 2 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                            <li>
+                                                <i style='color:#da920f'
+                                                    class='bx bx-star {{ $course->rating >= 3 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                            <li>
+                                                <i style='color:#da920f'
+                                                    class='bx bx-star {{ $course->rating >= 4 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                            <li>
+                                                <i style='color:#da920f'
+                                                    class='bx bx-star {{ $course->rating == 5 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                        </div>
                                     </ul>
                                 </div>
 
-                                <p class="contenido-bloques-parrafo mb-3 color-general">Colaborador: {{ $course->teacher->name }}</p>
+                                <p class="contenido-bloques-parrafo mb-3 color-general">Colaborador:
+                                    {{ $course->teacher->name }}</p>
 
                                 @if ($course->price->value == 0)
                                     <p style="font-size: 22px;font-weight:bold" class="color-general">
@@ -57,7 +69,7 @@
                                 <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
                                     class="mi-boton general mt-2 w-100">Detalles</a>
 
-                              
+
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@
 
 @section('main')
     <section>
-        <div class="container pt-5">
+        <div class="contenedor pt-5">
             <h1 class="lead mt-5">Edición del Curso</h1>
             <div class="row">
                 <div class="col-md-4">

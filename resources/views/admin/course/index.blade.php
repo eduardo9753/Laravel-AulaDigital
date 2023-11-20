@@ -10,7 +10,7 @@
 
 @section('main')
     <section id="" class="">
-        <div class="container pt-5">
+        <div class="contenedor pt-5">
             <h1 class="lead mt-5">lista de Cursos Pendientes de aprobación</h1>
             <div class="row">
                 <div class="card sombra">
