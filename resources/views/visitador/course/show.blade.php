@@ -59,8 +59,9 @@
                                     @foreach ($course->goals as $goal)
                                         <div class="col-md-6">
                                             <div class="d-flex align-items-center">
-                                                <i class='bx bx-label color-general' style='color:#4b22f4;margin-right: 3px'></i>
-                                               
+                                                <i class='bx bx-label color-general'
+                                                    style='color:#4b22f4;margin-right: 3px'></i>
+
                                                 <li class="">{{ $goal->name }}</li>
                                             </div>
                                         </div>
@@ -94,8 +95,7 @@
                                         <ul>
                                             @foreach ($section->lessons as $lesson)
                                                 <li class="d-flex align-items-center my-1">
-                                                    <i class='bx bxs-videos'
-                                                        style='color:#4b22f4 ; font-size: 22px'></i>
+                                                    <i class='bx bxs-videos' style='color:#4b22f4 ; font-size: 22px'></i>
                                                     <p class="temario-parrafo">{{ $lesson->name }}</p>
                                                 </li>
                                             @endforeach
@@ -159,7 +159,13 @@
                                     <img src="{{ $course->teacher->profile_photo_url }}" alt="">
                                     <div>
                                         <p>Colaborador:{{ $course->teacher->name }}</p>
-                                        <a href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
+                                        @if (optional($course->teacher->profile)->website)
+                                            <a href="{{ $course->teacher->profile->website }}" target="_blank">
+                                                {{ '@' . Str::slug($course->teacher->name, '') }}
+                                            </a>
+                                        @else
+                                            <a href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -209,7 +215,8 @@
                                         <p style="font-size: 10.6px;margin-left: 5px">{{ $similar->teacher->name }}</p>
                                     </div>
 
-                                    <p class="mt-2"><i class='bx bxs-star' style='color:#da920f'></i>{{ $similar->rating }}</p>
+                                    <p class="mt-2"><i class='bx bxs-star'
+                                            style='color:#da920f'></i>{{ $similar->rating }}</p>
                                 </div>
                             </article>
                         @endforeach

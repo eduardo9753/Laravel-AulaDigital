@@ -57,7 +57,7 @@
     color: var(--general);
   }
   #contenido-bloques .imagen{ width: 180px; height: 180px; margin: 15px 0px 15px 0px; border-radius: 10px;}
-  #contenido-bloques .contenido-bloques-parrafo { text-align: justify !important; font-size: 12.5px;}
+  #contenido-bloques .contenido-bloques-parrafo { text-align: justify !important; font-size: 14.5px;}
 
 
 

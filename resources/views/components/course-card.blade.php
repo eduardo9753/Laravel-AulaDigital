@@ -17,7 +17,7 @@
                                     {!! Str::limit($course->description, 50) !!}
                                 </p>
 
-                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div class="d-flex justify-content-between align-items-center mt-3 mb-2">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <i class='bx bxs-user-plus' style="font-size: 24px"></i>
                                         <p>({{ $course->students_count }})</p>
@@ -53,8 +53,19 @@
                                     </ul>
                                 </div>
 
-                                <p class="contenido-bloques-parrafo mb-3 color-general">Colaborador:
-                                    {{ $course->teacher->name }}</p>
+
+
+                                @if (optional($course->teacher->profile)->website)
+                                    <a href="{{ $course->teacher->profile->website }}" target="_blank">
+                                        <p class="contenido-bloques-parrafo mb-3 color-general">Colaborador:
+                                            {{ $course->teacher->name }}</p>
+                                    </a>
+                                @else
+                                    <p class="contenido-bloques-parrafo mb-3 color-general">Colaborador:
+                                        {{ $course->teacher->name }}</p>
+                                @endif
+
+
 
                                 @if ($course->price->value == 0)
                                     <p style="font-size: 22px;font-weight:bold" class="color-general">

@@ -32,10 +32,11 @@
                     @endif
 
                     @if ($this->next)
-                        <a class="mi-boton general btn-sm" wire:click="changeLesson({{ $this->next }})"><i class='bx bx-send'
-                                style="font-size: 40px"></i></a>
+                        <a class="mi-boton general btn-sm" wire:click="changeLesson({{ $this->next }})"><i
+                                class='bx bx-send' style="font-size: 40px"></i></a>
                     @else
-                        <a class="mi-boton rojo btn-sm"><i class='bx bx-trending-up bx-flip-horizontal' style="font-size: 40px"></i></a>
+                        <a class="mi-boton rojo btn-sm"><i class='bx bx-trending-up bx-flip-horizontal'
+                                style="font-size: 40px"></i></a>
                     @endif
                 </div>
 
@@ -79,9 +80,14 @@
                                 <img src="{{ $course->teacher->profile_photo_url }}" alt="">
                             </figure>
                             <div>
-                                <p class="font-sans">{{ $course->teacher->name }}</p>
-                                <a href=""
-                                    class="text-primary">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
+                                <p>Colaborador:{{ $course->teacher->name }}</p>
+                                @if (optional($course->teacher->profile)->website)
+                                    <a href="{{ $course->teacher->profile->website }}" target="_blank">
+                                        {{ '@' . Str::slug($course->teacher->name, '') }}
+                                    </a>
+                                @else
+                                    <a href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
+                                @endif
                             </div>
                         </div>
                         {{-- DESCRICCION DEL COLABORADOR "profesor" --}}
@@ -97,7 +103,8 @@
 
 
                         {{-- INPRIMIENDO LAS SECCIONES DE LOS CURSOS --}}
-                        <div class="accordion accordion-flush" id="accordionFlushExample" style="max-height: 300px; overflow-y: auto;">
+                        <div class="accordion accordion-flush" id="accordionFlushExample"
+                            style="max-height: 300px; overflow-y: auto;">
                             @foreach ($course->sections as $section)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-heading{{ $section->id }}">
