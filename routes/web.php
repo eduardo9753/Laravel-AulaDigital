@@ -4,7 +4,7 @@ use App\Http\Controllers\admin\auth\LoginController;
 use App\Http\Controllers\admin\auth\LogoutController;
 use App\Http\Controllers\admin\auth\RecoverController;
 use App\Http\Controllers\admin\auth\RegisterController;
-
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\visitador\course\CourseController;
 use App\Http\Controllers\visitador\home\HomeController;
 use App\Http\Controllers\visitador\read\ReadController;
@@ -41,7 +41,7 @@ Route::post('/admin/SingIn', [LoginController::class, 'store'])->name('admin.log
 Route::get('/admin/Register', [RegisterController::class, 'index'])->name('admin.register.index');
 Route::post('/admin/Register/store', [RegisterController::class, 'store'])->name('admin.register.store');
 
-
+Route::get('/profile/{user:name}', [ProfileController::class , 'index'])->name('profile.index');
 
 Route::get('/admin/recover',[RecoverController::class, 'recover'])->name('admin.recover');
 Route::post('/admin/recover',[RecoverController::class, 'send'])->name('admin.send');

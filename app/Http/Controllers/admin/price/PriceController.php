@@ -16,6 +16,6 @@ class PriceController extends Controller
     
     public function index()
     {
-        return view('admin.price.index');
+        return view('admin.profile.index');
     }
 }

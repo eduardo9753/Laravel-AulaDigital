@@ -5,7 +5,9 @@
             <nav>
                 <ul class="menu-item">
                     <li class="item"><a href="{{ route('admin.instructor.course.index') }}">Mis cursos</a></li>
-                    <li class="item"><a href="">Bienvenido: {{ auth()->user()->name }}</a></li>
+                    <li class="item"><a
+                            href="{{ route('admin.instructor.profile.index', ['user' => auth()->user()]) }}">Bienvenido:
+                            {{ auth()->user()->name }}</a></li>
                     <li class="item">
                         <form action="{{ route('admin.logout') }}" method="POST">
                             @csrf

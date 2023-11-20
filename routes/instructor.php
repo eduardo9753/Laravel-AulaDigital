@@ -7,6 +7,7 @@ use App\Http\Controllers\instructor\InstructorLessonController;
 use App\Http\Controllers\instructor\InstructorRequirementController;
 use App\Http\Controllers\instructor\InstructorSectionController;
 use App\Http\Controllers\instructor\InstructorStudentController;
+use App\Http\Controllers\instructor\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,6 +22,7 @@ Route::get('/course/instructor/edit/{course:slug}', [InstructorCourseController:
 Route::put('/course/instructor/update/{course:slug}', [InstructorCourseController::class, 'update'])->name('admin.instructor.course.update');
 Route::post('/course/instructor/status/{course:slug}', [InstructorCourseController::class , 'status'])->name('admin.instructor.course.status');
 
+Route::get('/admin/instructor/profile/{user:name}', [ProfileController::class , 'index'])->name('admin.instructor.profile.index');
 
 Route::get('/section/instructor/index/{course:slug}',[InstructorSectionController::class, 'index'])->name('admin.instructor.section.index');
 

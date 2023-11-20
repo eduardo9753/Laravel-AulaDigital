@@ -43,7 +43,9 @@
 
 
                     <li class="item"><a href="{{ route('admin.pays.index') }}">Pagos</a></li>
-                    <li class="item"><a href="">Bienvenido: {{ auth()->user()->name }}</a></li>
+                    <li class="item"><a
+                            href="{{ route('admin.profile.index', ['user' => auth()->user()]) }}">Bienvenido:
+                            {{ auth()->user()->name }}</a></li>
 
                     <li class="item">
                         <form action="{{ route('admin.logout') }}" method="POST">

@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\course\CourseController;
 use App\Http\Controllers\admin\level\LevelController;
 use App\Http\Controllers\admin\pay\PayController;
 use App\Http\Controllers\admin\price\PriceController;
+use App\Http\Controllers\admin\profile\ProfileController;
 use App\Http\Controllers\admin\read\ReadController;
 use App\Http\Controllers\admin\resource\ResourceController;
 use App\Http\Controllers\admin\role\RoleController;
@@ -36,7 +37,7 @@ Route::get('/admin/course/index', [CourseController::class, 'index'])->name('adm
 Route::get('/admin/course/show/{course:slug}', [CourseController::class, 'show'])->name('admin.courses.show');
 Route::post('/admin/course/approved/{course:slug}', [CourseController::class, 'approved'])->name('admin.courses.approved');
 
-
+Route::get('/admin/profile/{user:name}', [ProfileController::class, 'index'])->name('admin.profile.index');
 
 Route::get('/admin/price/index', [PriceController::class , 'index'])->name('admin.prices.index');
 Route::get('/admin/category/index', [CategoryController::class, 'index'])->name('admin.categories.index');
