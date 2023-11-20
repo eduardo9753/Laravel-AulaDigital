@@ -23,6 +23,7 @@ Route::put('/admin/role/update/{role}', [RoleController::class, 'update'])->name
 Route::get('/admin/role/edit/{role}', [RoleController::class, 'edit'])->name('admin.roles.edit');
 Route::delete('/admin/role/destroy/{role}', [RoleController::class, 'destroy'])->name('admin.roles.destroy');
 
+Route::get('/admin/profile/{user:name}', [ProfileController::class, 'index'])->name('admin.profile.index');
 
 
 Route::get('/admin/user', [UserController::class, 'index'])->name('admin.users.index');
@@ -37,7 +38,6 @@ Route::get('/admin/course/index', [CourseController::class, 'index'])->name('adm
 Route::get('/admin/course/show/{course:slug}', [CourseController::class, 'show'])->name('admin.courses.show');
 Route::post('/admin/course/approved/{course:slug}', [CourseController::class, 'approved'])->name('admin.courses.approved');
 
-Route::get('/admin/profile/{user:name}', [ProfileController::class, 'index'])->name('admin.profile.index');
 
 Route::get('/admin/price/index', [PriceController::class , 'index'])->name('admin.prices.index');
 Route::get('/admin/category/index', [CategoryController::class, 'index'])->name('admin.categories.index');
