@@ -47,7 +47,7 @@
                 <div class="card">
                     <div class="card-body">
                         @if ($current->description)
-                            <p>Material extraído. Fuente: <cite><a target="_blank"
+                            <p>Material extraído de la Web - Fuente: <cite><a target="_blank"
                                         href="{{ $current->description->name }}">{{ $current->description->name }}</a></cite>
                             </p>
                         @else
