@@ -117,8 +117,8 @@
                                 <h3 class="mb-3 color-general">Requisitos</h3>
                                 <ul>
                                     @foreach ($course->requirements as $requirement)
-                                        <div class="d-flex align-items-center">
-                                            <i class='bx bx-check' style='color:#4b22f4;margin-right: 3px'></i>
+                                        <div class="d-flex">
+                                            <i class='bx bx-check' style='color:#4b22f4;margin-right: 3px; margin-top:5px;'></i>
                                             <li>{{ $requirement->name }}</li>
                                         </div>
                                     @endforeach
@@ -151,7 +151,7 @@
                                 <h3 class="mb-3 color-general">Audiencia</h3>
                                 <ul>
                                     @foreach ($course->audiences as $audience)
-                                        <div class="d-flex align-items-center">
+                                        <div class="d-flex">
                                             <i class='bx bxs-pin' style='color:#4b22f4;margin-right: 3px; margin-top:5px'></i>
                                             <li>{{ $audience->name }}</li>
                                         </div>
