@@ -66,19 +66,24 @@
                                 <p>Matriculados({{ $course->students_count }})</p>
                                 <ul class="d-flex">
                                     <li>
-                                        <i class='bx bx-star {{ $course->rating >= 1 ? 'text-warning' : '' }}'></i>
+                                        <i style='color:#da920f'
+                                            class='bx bx-star {{ $course->rating >= 1 ? 'bx bxs-star' : '' }}'></i>
                                     </li>
                                     <li>
-                                        <i class='bx bx-star {{ $course->rating >= 2 ? 'text-warning' : '' }}'></i>
+                                        <i style='color:#da920f'
+                                            class='bx bx-star {{ $course->rating >= 2 ? 'bx bxs-star' : '' }}'></i>
                                     </li>
                                     <li>
-                                        <i class='bx bx-star {{ $course->rating >= 3 ? 'text-warning' : '' }}'></i>
+                                        <i style='color:#da920f'
+                                            class='bx bx-star {{ $course->rating >= 3 ? 'bx bxs-star' : '' }}'></i>
                                     </li>
                                     <li>
-                                        <i class='bx bx-star {{ $course->rating >= 4 ? 'text-warning' : '' }}'></i>
+                                        <i style='color:#da920f'
+                                            class='bx bx-star {{ $course->rating >= 4 ? 'bx bxs-star' : '' }}'></i>
                                     </li>
                                     <li>
-                                        <i class='bx bx-star {{ $course->rating == 5 ? 'text-warning' : '' }}'></i>
+                                        <i style='color:#da920f'
+                                            class='bx bx-star {{ $course->rating == 5 ? 'bx bxs-star' : '' }}'></i>
                                     </li>
                                 </ul>
                             </div>
@@ -94,7 +99,15 @@
                                         S/.</p>
                                 @endif
 
-                                <p class="contenido-bloques-parrafo">Colaborador: {{ $course->teacher->name }}</p>
+                                @if (optional($course->teacher->profile)->website)
+                                    <a href="{{ $course->teacher->profile->website }}" target="_blank">
+                                        <p class="contenido-bloques-parrafo color-general">
+                                            {{ $course->teacher->name }}</p>
+                                    </a>
+                                @else
+                                    <p class="contenido-bloques-parrafo color-general">
+                                        {{ $course->teacher->name }}</p>
+                                @endif
                             </div>
                         </div>
                     </div>
