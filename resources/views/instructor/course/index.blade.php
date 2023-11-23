@@ -53,28 +53,28 @@
                                         </td>
                                         <td>{{ $course->students_count }}</td>
                                         <td class="">
-                                            <div class="d-flex">
-                                                <p>{{ $course->rating }}</p>
+                                            <div class="d-flex align-items-center">
+                                                <p>{{ round($course->rating) }}</p>
                                                 <ul class="d-flex pt-1">
                                                     <li>
-                                                        <i
-                                                            class='bx bx-star {{ $course->rating >= 1 ? 'text-warning' : '' }}'></i>
+                                                        <i style="color:#da920f"
+                                                            class='bx bx-star {{ $course->rating >= 1 ? 'bx bxs-star' : '' }}'></i>
                                                     </li>
                                                     <li>
-                                                        <i
-                                                            class='bx bx-star {{ $course->rating >= 2 ? 'text-warning' : '' }}'></i>
+                                                        <i style="color:#da920f"
+                                                            class='bx bx-star {{ $course->rating >= 2 ? 'bx bxs-star' : '' }}'></i>
                                                     </li>
                                                     <li>
-                                                        <i
-                                                            class='bx bx-star {{ $course->rating >= 3 ? 'text-warning' : '' }}'></i>
+                                                        <i style="color:#da920f"
+                                                            class='bx bx-star {{ $course->rating >= 3 ? 'bx bxs-star' : '' }}'></i>
                                                     </li>
                                                     <li>
-                                                        <i
-                                                            class='bx bx-star {{ $course->rating >= 4 ? 'text-warning' : '' }}'></i>
+                                                        <i style="color:#da920f"
+                                                            class='bx bx-star {{ $course->rating >= 4 ? 'bx bxs-star' : '' }}'></i>
                                                     </li>
                                                     <li>
-                                                        <i
-                                                            class='bx bx-star {{ $course->rating == 5 ? 'text-warning' : '' }}'></i>
+                                                        <i style="color:#da920f"
+                                                            class='bx bx-star {{ $course->rating == 5 ? 'bx bxs-star' : '' }}'></i>
                                                     </li>
                                                 </ul>
                                             </div>

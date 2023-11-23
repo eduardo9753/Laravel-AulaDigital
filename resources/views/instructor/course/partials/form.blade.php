@@ -52,18 +52,23 @@
                     {{-- VALIDA SI EXISTE LA VARIABLE CURSO --}}
                     @isset($course)
                         @if ($course->image)
-                            <img src="{{ $course->image->url }}" class="" alt="...">
+                            <img style="width: 150px;height: 150px;" src="{{ $course->image->url }}" class=""
+                                alt="...">
                         @endif
                     @else
-                        <img src="https://images.pexels.com/photos/7509366/pexels-photo-7509366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        <img style="width: 150px;height: 150px;"
+                            src="https://images.pexels.com/photos/7509366/pexels-photo-7509366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             class="" alt="...">
                     @endisset
                 </figure>
             </div>
             <div class="col-md-8">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab explicabo ea modi
-                    temporibus fuga cumque obcaecati nihil similique? Facere, cupiditate.</p>
-                {!! Form::text('photo', null, ['class' => 'form-control', 'placeholder' => 'por favor de subir con extenciones validas ".png|.jpg"']) !!}
+                <p>Coloca la Url de la imagen , puedes ayudarte de esta web <a
+                    target="_blank"    href="https://postimages.org/">https://postimages.org/</a></p>
+                {!! Form::text('photo', null, [
+                    'class' => 'form-control mt-4',
+                    'placeholder' => 'por favor de subir con extenciones validas ".png|.jpg"',
+                ]) !!}
             </div>
         </div>
     </div>

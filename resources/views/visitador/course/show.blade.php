@@ -58,9 +58,11 @@
                                 <ul class="row">
                                     @foreach ($course->goals as $goal)
                                         <div class="col-md-6">
-                                            <div class="d-flex align-items-center">
-                                                <i class='bx bx-label color-general'
-                                                    style='color:#4b22f4;margin-right: 3px'></i>
+                                            <div class="d-flex ">
+                                                <div>
+                                                    <i class='bx bx-label color-general'
+                                                    style='color:#4b22f4;margin-right: 3px; margin-top:5px'></i>
+                                                </div>
 
                                                 <li class="">{{ $goal->name }}</li>
                                             </div>
@@ -140,6 +142,25 @@
                         </div>
                     </section>
                     {{-- INPRIMIENDO LA DESCRIPCION DEL CURSO --}}
+
+
+                     {{-- INPRIMIENDO LA AUDIENCIA DEL CURSO --}}
+                     <section class="mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="mb-3 color-general">Audiencia</h3>
+                                <ul>
+                                    @foreach ($course->audiences as $audience)
+                                        <div class="d-flex align-items-center">
+                                            <i class='bx bxs-pin' style='color:#4b22f4;margin-right: 3px; margin-top:5px'></i>
+                                            <li>{{ $audience->name }}</li>
+                                        </div>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    {{-- INPRIMIENDO LA AUDIENCIA DEL CURSO --}}
 
 
                     {{-- RESEÑAS DE LOS CURSOS --}}

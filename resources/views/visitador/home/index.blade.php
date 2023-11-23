@@ -52,8 +52,7 @@
                                         src="https://cdn-icons-png.flaticon.com/512/2703/2703920.png" alt="">
                                 </div>
                                 <p class="contenido-bloques-parrafo mt-2">Cada curso incluye una lista de videos necesarios
-                                    para
-                                    cada
+                                    por
                                     lección, permitiendo una mayor exploración de los temas presentados.</p>
                             </div>
                         </div>
@@ -66,10 +65,8 @@
                                     <img style="width: 100px;height: 100px;"
                                         src="https://cdn-icons-png.flaticon.com/512/3315/3315581.png" alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de material educativo en formato PDF
-                                    que
-                                    podrás descargar y llevar contigo en todo momento. Este recurso estará disponible al
-                                    concluir cada lección aprendida.</p>
+                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de material educativo en formato PDF. Este recurso estará disponible al
+                                    final de cada Sección aprendida.</p>
                             </div>
                         </div>
                     </div>
