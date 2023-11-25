@@ -21,8 +21,7 @@
                 {{-- MARCAR COMO CULMINADA LA LECCION --}}
 
 
-                {{-- NAVEGACONDE LECCIONES --}}
-
+                {{-- NAVEGACiON DE LECCIONES --}}
                 <div class="mt-3 d-flex justify-content-between">
                     @if ($this->previous)
                         <a class="mi-boton general btn-sm" wire:click="changeLesson({{ $this->previous }})"><i
@@ -39,22 +38,46 @@
                                 style="font-size: 40px"></i></a>
                     @endif
                 </div>
+                {{-- NAVEGACiON DE LECCIONES --}}
 
-                {{-- NAVEGACONDE LECCIONES --}}
+
+                {{-- CITA DEL VIDEO --}}
+                <?php
+                $url = $current->url;
+                $urlParts = parse_url($url);
+                $channelName = '';
+                $videoDate = '';
+                
+                if (isset($urlParts['query'])) {
+                    parse_str($urlParts['query'], $queryArray);
+                    $channelName = $queryArray['ab_channel'] ?? '';
+                    $videoDate = $queryArray['t'] ?? '';
+                
+                    if ($videoDate) {
+                        $fecha = 'No disponible'; // Agrega el punto y coma aquí
+                    } else {
+                        $fecha = $videoDate;
+                    }
+                }
+                ?>
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>Cita !</strong>
+                    <p>Material extraído de la Web - {{ $current->name }} [Video]. YouTube. Publicado por el canal
+                        <strong>{{ $channelName }}</strong>. Disponible en: <a target="_blank"
+                            href="{{ $current->url }}" title="{{ $channelName }}">{{ $url }}</a></p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {{-- CITA DEL VIDEO --}}
 
 
                 {{-- DESCRIPCION DE LA LECCION --}}
-                <div class="card">
-                    <div class="card-body">
-                        @if ($current->description)
-                            <p>Material extraído de la Web - Fuente: <cite><a target="_blank"
-                                        href="{{ $current->description->name }}">{{ $current->description->name }}</a></cite>
-                            </p>
-                        @else
-                            sin datos por ahora
-                        @endif
+                @if ($current->description)
+                    <div class="card">
+                        <div class="card-body">
+                            <p>{{ $current->description->name }}</p>
+                        </div>
                     </div>
-                </div>
+                @endif
                 {{-- DESCRIPCION DE LA LECCION --}}
 
 
