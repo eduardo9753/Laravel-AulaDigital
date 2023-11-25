@@ -42,30 +42,37 @@
 
 
                 {{-- CITA DEL VIDEO --}}
-                <?php
-                $url = $current->url;
-                $urlParts = parse_url($url);
-                $channelName = '';
-                $videoDate = '';
-                
-                if (isset($urlParts['query'])) {
-                    parse_str($urlParts['query'], $queryArray);
-                    $channelName = $queryArray['ab_channel'] ?? '';
-                    $videoDate = $queryArray['t'] ?? '';
-                
-                    if ($videoDate) {
-                        $fecha = 'No disponible'; // Agrega el punto y coma aquí
-                    } else {
-                        $fecha = $videoDate;
-                    }
-                }
-                ?>
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                    <strong>Cita !</strong>
-                    <p>Material extraído de la Web - {{ $current->name }} [Video]. YouTube. Publicado por el canal
-                        <strong>{{ $channelName }}</strong>. Disponible en: <a target="_blank"
-                            href="{{ $current->url }}" title="{{ $channelName }}">{{ $url }}</a></p>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="card">
+                    <div class="card-body">
+                        <?php
+                        $url = $current->url;
+                        $urlParts = parse_url($url);
+                        $channelName = '';
+                        $videoDate = '';
+                        
+                        if (isset($urlParts['query'])) {
+                            parse_str($urlParts['query'], $queryArray);
+                            $channelName = $queryArray['ab_channel'] ?? '';
+                            $videoDate = $queryArray['t'] ?? '';
+                        
+                            if ($videoDate) {
+                                $fecha = 'No disponible'; // Agrega el punto y coma aquí
+                            } else {
+                                $fecha = $videoDate;
+                            }
+                        }
+                        ?>
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>Cita !</strong>
+                            <p>Material extraído de la Web - {{ $current->name }} [Video]. YouTube. Publicado por el
+                                canal
+                                <strong>{{ $channelName }}</strong>. Disponible en: <a target="_blank"
+                                    href="{{ $current->url }}" title="{{ $channelName }}">{{ $url }}</a>
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    </div>
                 </div>
                 {{-- CITA DEL VIDEO --}}
 
