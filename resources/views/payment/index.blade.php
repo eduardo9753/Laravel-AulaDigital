@@ -63,7 +63,10 @@
                             </p>
 
                             <div class="d-flex justify-content-between mt-4">
-                                <p>Matriculados({{ $course->students_count }})</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <i class='bx bxs-user-plus' style="font-size: 24px"></i>
+                                    <p>({{ $course->students_count }})</p>
+                                </div>
                                 <ul class="d-flex">
                                     <li>
                                         <i style='color:#da920f'
