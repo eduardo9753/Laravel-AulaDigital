@@ -63,7 +63,7 @@
                         }
                         ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
-                            <strong>Cita !</strong>
+                            <strong>Referencia!</strong>
                             <p>Material extraído de la Web - {{ $current->name }} [Video]. YouTube. Publicado por el
                                 canal
                                 <strong>{{ $channelName }}</strong>. Disponible en: <a target="_blank"
@@ -81,7 +81,19 @@
                 @if ($current->description)
                     <div class="card">
                         <div class="card-body">
-                            <p>{{ $current->description->name }}</p>
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <strong>Referencia:</strong>
+                                <p>
+                                    Universidad Nacional Federico Villarreal. (2018). {{ $course->title }}.
+                                    <strong>Recuperado de:</strong>
+                                    <a target="_blank" href="{{ $current->description->name }}"
+                                        title="{{ $current->description->name }}">
+                                        {{ $current->description->name }}
+                                    </a>
+                                </p>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
                         </div>
                     </div>
                 @endif
