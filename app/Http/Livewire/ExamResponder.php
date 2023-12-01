@@ -7,6 +7,7 @@ use App\Models\Exam;
 use App\Models\ExamQuestion;
 use App\Models\ExamUser;
 use App\Models\ExamUserAnswer;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class ExamResponder extends Component
@@ -20,7 +21,7 @@ class ExamResponder extends Component
     public $respuestasSeleccionadas = [];
     public $openedAccordions = [];
 
-
+    protected $listeners = ['tiempoFuera'];
     public $respuestas;
 
     public function mount(Exam $exam, ExamUser $examUser)
@@ -31,12 +32,20 @@ class ExamResponder extends Component
             ->where('exam_id', $this->exam->id)
             ->get();
 
-        // Inicializar el array de IDs de preguntas
+        // Inicializar el array de IDs de preguntas - Asignar los ids de la tabla "exam_questions" al array
         $this->idsPreguntas = [];
-        // Asignar los ids de la tabla "exam_questions" al array
         foreach ($this->examenes as $examen) {
             $this->idsPreguntas[] = $examen->id;
         }
+
+
+        // Inicializar las respuestas seleccionadas con la primera respuesta de cada pregunta
+        foreach ($this->examenes as $examen) {
+            $this->respuestasSeleccionadas[$examen->question->id] = $examen->question->answers->first()->id;
+        }
+
+        // Escuchar el evento tiempoFuera
+        $this->listeners = ['tiempoFuera'];
     }
 
     public function render()
@@ -44,6 +53,7 @@ class ExamResponder extends Component
         return view('livewire.exam-responder');
     }
 
+    //REGLA PARA VALIDAR EL RADIO BUTON
     public function rules()
     {
         $validationRules = [];
@@ -54,11 +64,27 @@ class ExamResponder extends Component
         return $validationRules;
     }
 
+
+    //METODO PARA CUANDO SE ACABE EL TIEMPO SE GUARDE LAS RESPUESTAS QUE MARCO EL USUARIO
+    public function tiempoFuera()
+    {
+        // Validate the form
+        $this->validate();
+        $this->guardarPreguntaRespuestas();
+    }
+
+
+    //METODO PARA CUANDO EL USUARIO LE DA CLICK A "Culminar Examen"
     public function culminarExamen()
     {
         // Validate the form
         $this->validate();
+        $this->guardarPreguntaRespuestas();
+    }
 
+    //PARA GUARDAR LAS PREGUNTAS Y RESPUESTAS QUE EL USUARIO SELECCIONA
+    public function guardarPreguntaRespuestas()
+    {
         // Array para almacenar las respuestas seleccionadas
         $respuestasSeleccionadasArray = [];
 

@@ -1,5 +1,9 @@
 <div>
-    <h1>Azaña: {{ $exam->nombre }}</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="lead">Azaña: <strong>{{ $exam->nombre }}</strong></h1>
+        <p id="tiempoRestante"><strong>{{ $exam->duracion }} minutos</strong></p>
+    </div>
+
 
     <form wire:submit.prevent="culminarExamen">
         <div id="accordionExample">
@@ -45,7 +49,7 @@
 
                                                     <label class="form-check-label"
                                                         for="marcar_{{ $examen->question->id }}_{{ $respuesta->id }}">
-                                                        Marcar Respuesta
+                                                        Marcar
                                                     </label>
 
                                                     @error("respuestasSeleccionadas.{$examen->question->id}")
@@ -68,4 +72,30 @@
             <button class="mi-boton rojo mt-5 w-100" wire:click="culminarExamen">Culminar Examen</button>
         </div>
     </form>
+
+    @section('scripts')
+        <script>
+            document.addEventListener('livewire:load', function() {
+                var tiempoRestante = {{ $exam->duracion * 60 }}; // Convertir minutos a segundos
+                var tiempoMostrar = document.getElementById('tiempoRestante');
+
+                function actualizarTiempo() {
+                    var minutos = Math.floor(tiempoRestante / 60);
+                    var segundos = tiempoRestante % 60;
+                    tiempoMostrar.innerHTML = "<strong>" + minutos + "m " + segundos + "s</strong>";
+
+                    if (tiempoRestante <= 0) {
+                        console.log("Tiempo llegó a cero. Emitiendo evento tiempoFuera...");
+                        Livewire.emit('tiempoFuera');
+                    } else {
+                        tiempoRestante--;
+                        setTimeout(actualizarTiempo, 1000);
+                    }
+                }
+
+                actualizarTiempo();
+            });
+        </script>
+    @endsection
+
 </div>
