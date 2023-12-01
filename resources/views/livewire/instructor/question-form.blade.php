@@ -117,7 +117,7 @@
                         <h2 class="lead text-white">Lista de Preguntas</h2>
                     </div>
                     <div class="card-body table-responsive">
-                        <table class="table">
+                        <table class="table" id="datatable">
                             <thead>
                                 <tr>
                                     <th>ID</th>

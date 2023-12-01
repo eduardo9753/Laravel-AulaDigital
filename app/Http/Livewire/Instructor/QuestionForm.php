@@ -43,15 +43,17 @@ class QuestionForm extends Component
 
     public function render()
     {
-        $topics = Topic::where('estado', '=', 'activo')->get(); 
+        $topics = Topic::where('estado', '=', 'activo')->get();
         return view('livewire.instructor.question-form', compact('topics'));
     }
 
 
     private function loadQuestions()
     {
-        $this->questions = Question::where('user_id', '=', auth()->user()->id)
-            ->where('topic_id', '=', $this->selectedTopicId)
+        $this->questions = Question::join('topics', 'questions.topic_id', '=', 'topics.id')
+            ->where('questions.user_id', '=', auth()->user()->id)
+            ->where('questions.topic_id', '=', $this->selectedTopicId)
+            ->where('topics.estado', '=', 'activo')
             ->get();
     }
 
