@@ -7,10 +7,10 @@
 
 
 @section('header')
-    <header class="header-course-fondo" id="header-home">
-        <div class="contenedor">
-            {{-- COMPONENTE LIVEWIRE BUSCADOR --}}
-            @livewire('search')
+    <header class="header-pago-fondo" id="header-pago">
+        <div class="contenedor text-center">
+            <h3 class="ultimos-cursos-titulo text-white">{{ auth()->user()->name }}</h3>
+            <p class="ultimos-cursos-parrafo text-white">Tu Lista de Lecturas</p>
         </div>
     </header>
 @endsection

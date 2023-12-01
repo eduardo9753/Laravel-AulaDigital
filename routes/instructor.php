@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\instructor\InstructorAudienceController;
 use App\Http\Controllers\instructor\InstructorCourseController;
+use App\Http\Controllers\instructor\instructorExamController;
 use App\Http\Controllers\instructor\InstructorGoalController;
 use App\Http\Controllers\instructor\InstructorLessonController;
+use App\Http\Controllers\instructor\instructorQuestionController;
 use App\Http\Controllers\instructor\InstructorRequirementController;
 use App\Http\Controllers\instructor\InstructorSectionController;
 use App\Http\Controllers\instructor\InstructorStudentController;
+use App\Http\Controllers\instructor\InstructorTopicController;
 use App\Http\Controllers\instructor\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,5 +37,10 @@ Route::get('/requirement/instructor/index/{course:slug}', [InstructorRequirement
 
 Route::get('/audience/instructor/index/{course:slug}', [InstructorAudienceController::class, 'index'])->name('admin.instructor.audience.index');
 
+Route::get('/topics/instructor/index', [InstructorTopicController::class, 'index'])->name('admin.instructor.topic.index');
+
+Route::get('/question/instructor/index', [instructorQuestionController::class, 'index'])->name('admin.instructor.question.index');
+
+Route::get('/exam/instructor/index', [instructorExamController::class, 'index'])->name('admin.instructor.exam.index');
 
 Route::get('/student/instructor/index/{course:slug}', [InstructorStudentController::class, 'index'])->name('admin.instructor.student.index');

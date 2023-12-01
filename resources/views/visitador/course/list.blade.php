@@ -7,10 +7,10 @@
 
 
 @section('header')
-    <header class="header-list-fondo" id="header-list">
+    <header class="header-pago-fondo" id="header-pago">
         <div class="contenedor text-center">
-            <h3 class="ultimos-cursos-titulo text-white">Mi aprendizaje</h3>
-            <p class="ultimos-cursos-parrafo text-white">no hay limites para aprender, eso está en ti</p>
+            <h3 class="ultimos-cursos-titulo text-white">{{ auth()->user()->name }}</h3>
+            <p class="ultimos-cursos-parrafo text-white">Mi Cursos</p>
         </div>
     </header>
 @endsection

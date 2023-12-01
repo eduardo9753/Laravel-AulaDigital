@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\auth\RecoverController;
 use App\Http\Controllers\admin\auth\RegisterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\visitador\course\CourseController;
+use App\Http\Controllers\visitador\examResponder\ExamResponderController;
 use App\Http\Controllers\visitador\home\HomeController;
 use App\Http\Controllers\visitador\read\ReadController;
 use Illuminate\Support\Facades\Route;
@@ -41,12 +42,12 @@ Route::post('/admin/SingIn', [LoginController::class, 'store'])->name('admin.log
 Route::get('/admin/Register', [RegisterController::class, 'index'])->name('admin.register.index');
 Route::post('/admin/Register/store', [RegisterController::class, 'store'])->name('admin.register.store');
 
-Route::get('/profile/{user:name}', [ProfileController::class , 'index'])->name('profile.index');
+Route::get('/profile/{user:name}', [ProfileController::class, 'index'])->name('profile.index');
 
-Route::get('/admin/recover',[RecoverController::class, 'recover'])->name('admin.recover');
-Route::post('/admin/recover',[RecoverController::class, 'send'])->name('admin.send');
-Route::get('/admin/recover/usuario',[RecoverController::class, 'index'])->name('admin.recover.index');
-Route::post('/admin/recover/update', [RecoverController::class ,'update'])->name('admin.recover.update');
+Route::get('/admin/recover', [RecoverController::class, 'recover'])->name('admin.recover');
+Route::post('/admin/recover', [RecoverController::class, 'send'])->name('admin.send');
+Route::get('/admin/recover/usuario', [RecoverController::class, 'index'])->name('admin.recover.index');
+Route::post('/admin/recover/update', [RecoverController::class, 'update'])->name('admin.recover.update');
 Route::post('/admin/logout', [LogoutController::class, 'logout'])->name('admin.logout');
 
 
@@ -62,6 +63,13 @@ Route::get('/list/course/student', [CourseController::class, 'courses'])->middle
 
 Route::get('/lectura', [ReadController::class, 'index'])->name('visitador.read.index');
 Route::get('/lectura/show/{resource}', [ReadController::class, 'show'])->name('visitador.read.show');
+
+
+//EXAMENES
+Route::get('/examen/lista', [ExamResponderController::class, 'index'])->name('visitador.examenes.index');
+Route::get('/examen/{exam:slug}/enrolled', [ExamResponderController::class, 'enrolled'])->name('visitador.examenes.enrolled');
+Route::get('/examen/{exam:slug}/status/', [ExamResponderController::class, 'status'])->name('visitador.examenes.status');
+Route::get('/examen/{exam:slug}/culminate/show', [ExamResponderController::class , 'show'] )->name('visitador.examenes.show');
 
 
 //RUTAS PARA EL ADMIN

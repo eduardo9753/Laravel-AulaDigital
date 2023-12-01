@@ -65,7 +65,8 @@
                                     <img style="width: 100px;height: 100px;"
                                         src="https://cdn-icons-png.flaticon.com/512/3315/3315581.png" alt="">
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de material educativo en formato PDF. Este recurso estará disponible al
+                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de material educativo en formato PDF.
+                                    Este recurso estará disponible al
                                     final de cada Sección aprendida.</p>
                             </div>
                         </div>
@@ -141,7 +142,7 @@
 
     <section id="ultimos-cursos" class="text-center">
         <h3 class="ultimos-cursos-titulo color-general">Ultimos cursos</h3>
-        <p class="ultimos-cursos-parrafo color-general">no hay limites para aprender, eso está en ti</p>
+        <p class="ultimos-cursos-parrafo color-general">Inscríbete y accede a una amplia variedad de recursos educativos</p>
         <div>
             {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
             <x-course-card :courses="$courses"></x-course-card>

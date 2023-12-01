@@ -5,6 +5,9 @@
             <nav>
                 <ul class="menu-item">
                     <li class="item"><a href="{{ route('admin.instructor.course.index') }}">Mis cursos</a></li>
+                    <li class="item"><a href="{{ route('admin.instructor.topic.index') }}">Crear Tema</a></li>
+                    <li class="item"><a href="{{ route('admin.instructor.exam.index') }}">Crear Exámen</a></li>
+                    <li class="item"><a href="{{ route('admin.instructor.question.index') }}">Crear Preguntas</a></li>
                     <li class="item"><a
                             href="{{ route('admin.instructor.profile.index', ['user' => auth()->user()]) }}">Bienvenido:
                             {{ auth()->user()->name }}</a></li>

@@ -62,7 +62,7 @@ class CoursePolicy
         }
     }
 
-    //PARA VERIFICAR SI YA AGREGGO UNA RESEÑA AL CURSO
+    //PARA VERIFICAR SI YA AGREGO UNA RESEÑA AL CURSO
     public function valued(User $user, Course $course)
     {
         if (Review::where('user_id', '=', $user->id)->where('course_id', $course->id)->count()) {
