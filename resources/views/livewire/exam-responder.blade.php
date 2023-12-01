@@ -69,7 +69,10 @@
         </div>
 
         <div>
-            <button class="mi-boton rojo mt-5 w-100" wire:click="culminarExamen">Culminar Examen</button>
+            <button class="mi-boton rojo mt-5 w-100" wire:click="culminarExamen" wire:loading.attr="disabled"
+                :disabled="$botonDesactivado">
+                Culminar Examen
+            </button>
         </div>
     </form>
 

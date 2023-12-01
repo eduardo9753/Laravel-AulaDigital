@@ -24,6 +24,9 @@ class ExamResponder extends Component
     protected $listeners = ['tiempoFuera'];
     public $respuestas;
 
+    public $botonDesactivado = false;
+
+
     public function mount(Exam $exam, ExamUser $examUser)
     {
         $this->exam = $exam;
@@ -46,6 +49,9 @@ class ExamResponder extends Component
 
         // Escuchar el evento tiempoFuera
         $this->listeners = ['tiempoFuera'];
+
+        // Inicializa la propiedad $botonDesactivado
+        $this->botonDesactivado = false;
     }
 
     public function render()
@@ -71,6 +77,9 @@ class ExamResponder extends Component
         // Validate the form
         $this->validate();
         $this->guardarPreguntaRespuestas();
+
+        // Desactiva el botón después de culminar el examen
+        $this->botonDesactivado = true;
     }
 
 
@@ -80,6 +89,9 @@ class ExamResponder extends Component
         // Validate the form
         $this->validate();
         $this->guardarPreguntaRespuestas();
+
+        // Desactiva el botón después de culminar el examen
+        $this->botonDesactivado = true;
     }
 
     //PARA GUARDAR LAS PREGUNTAS Y RESPUESTAS QUE EL USUARIO SELECCIONA
