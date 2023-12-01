@@ -49,6 +49,9 @@ class ExamResponderController extends Controller
     //para resolver el examen
     public function status(Exam $exam)
     {
+        //METODO AUTORIZAR ENTRAR AL EXAMEN AL USUARIO AUTENTICADO
+        $this->authorize('enrolledExamUser', $exam);
+
         $examUser = ExamUser::where('user_id', '=', auth()->user()->id)
             ->where('exam_id', '=', $exam->id)
             ->first();
@@ -66,6 +69,8 @@ class ExamResponderController extends Controller
     {
         //dd($exam);
         //usar el police para validar la inscrion del alumno con el examen "exam_users"
+        //METODO AUTORIZAR ENTRAR AL EXAMEN AL USUARIO AUTENTICADO
+        $this->authorize('enrolledExamUser', $exam);
 
         //examen usuario
         $examUser = ExamUser::where('user_id', '=', auth()->user()->id)->where('exam_id', '=', $exam->id)->first();
