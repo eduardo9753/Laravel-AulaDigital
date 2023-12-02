@@ -23,7 +23,7 @@
                 <div class="col-md-3 my-2">
                     <div class="mi-card">
                         <div class="mi-card-content">
-                            <h2 class="contenido-bloques-titulo">{{ $exam->nombre }}!</h2>
+                            <h2 class="contenido-bloques-titulo">{{ $exam->nombre }}</h2>
 
                             <div class="card">
                                 <div class="card-body">
@@ -72,7 +72,7 @@
                 <div class="col-md-6 my-2">
                     <div class="mi-card">
                         <div class="mi-card-content">
-                            <h2 class="contenido-bloques-titulo">Preguntas!</h2>
+                            <h2 class="contenido-bloques-titulo">Tus Respuestas!</h2>
 
                             @foreach ($questions as $question)
                                 <div class="accordion accordion-flush" id="accordionFlushExample">

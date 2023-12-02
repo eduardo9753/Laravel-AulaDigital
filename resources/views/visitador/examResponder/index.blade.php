@@ -27,7 +27,7 @@
                         <div class="col-md-3 my-2">
                             <div class="mi-card">
                                 <div class="mi-card-content">
-                                    <h2 class="contenido-bloques-titulo">{{ $exam->nombre }}!</h2>
+                                    <h2 class="contenido-bloques-titulo">{{ $exam->nombre }}</h2>
                                     <div class="text-center">
                                         <img style="width: 100px;height: 100px;"
                                             src="https://cdn-icons-png.flaticon.com/512/10510/10510645.png" alt="">
