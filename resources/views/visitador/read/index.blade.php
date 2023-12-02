@@ -33,8 +33,6 @@
                                                 class="imagen" src="{{ $resource->img }}" alt=""></a>
                                     </div>
 
-                                    <p class="contenido-bloques-parrafo">{{ $resource->nombre }}</p>
-
                                     <a href="{{ route('visitador.read.show', ['resource' => $resource]) }}"
                                         class="mi-boton general mt-2 w-100">Detalles</a>
                                 </div>

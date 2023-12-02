@@ -20,12 +20,26 @@
                     <div class="row">
                         <div class="col-md-3 my-3">
                             <div class="text-center">
-                                <img src="{{ $resource->img }}" alt="..." style="width: 100%;height: 240px;border-radius: 10px">
+                                <img src="{{ $resource->img }}" alt="..."
+                                    style="width: 100%;height: 240px;border-radius: 10px">
                             </div>
 
-                            <p class="mt-4">Material extraído. Fuente: <cite><a target="_blank"
-                                        href="{{ $resource->nombre }}">{{ $resource->nombre }}</a></cite>
-                            </p>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                        <strong>Referencia:</strong>
+                                        <p>
+                                            <strong>Recuperado de:</strong>
+                                            <a target="_blank" href="{{ $resource->nombre }}"
+                                                title="{{ $resource->nombre }}">
+                                                {{ $resource->nombre }}
+                                            </a>
+                                        </p>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-9 my-3">
                             <iframe style="width: 100%;height: 550px;" src="{{ $resource->url }}"

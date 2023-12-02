@@ -1,7 +1,7 @@
 <div>
     <div class="d-flex justify-content-between align-items-center">
-        <h1 class="lead">Azaña: <strong>{{ $exam->nombre }}</strong></h1>
-        <p id="tiempoRestante"><strong>{{ $exam->duracion }} minutos</strong></p>
+        <h1 class="lead"><strong>Duración Estimada</strong></h1>
+        <p id="tiempoRestante" class="color-general"><strong>{{ $exam->duracion }} minutos</strong></p>
     </div>
 
 
@@ -12,16 +12,21 @@
                     <div class="col-md-12 my-2">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="heading{{ $examen->question->id }}">
-                                <button
-                                    class="accordion-button {{ in_array($examen->question->id, $openedAccordions) ? '' : 'collapsed' }}"
-                                    type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse{{ $examen->question->id }}"
-                                    aria-expanded="{{ in_array($examen->question->id, $openedAccordions) ? 'true' : 'false' }}"
-                                    aria-controls="collapse{{ $examen->question->id }}"
-                                    wire:click.prevent="toggleAccordion({{ $examen->question->id }})">
-                                    {{ $examen->question->titulo }} - Puntos
-                                    <strong>({{ $examen->question->puntos }})</strong>
-                                </button>
+                                <div class="d-flex justify-content-between align-items-center gap-1">
+                                    <button
+                                        class="accordion-button {{ in_array($examen->question->id, $openedAccordions) ? '' : 'collapsed' }}"
+                                        type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse{{ $examen->question->id }}"
+                                        aria-expanded="{{ in_array($examen->question->id, $openedAccordions) ? 'true' : 'false' }}"
+                                        aria-controls="collapse{{ $examen->question->id }}"
+                                        wire:click.prevent="toggleAccordion({{ $examen->question->id }})">
+                                        {{ $examen->question->titulo }}
+                                    </button>
+
+                                    <div>
+                                        <button class="mi-boton general btn-sm"> <strong>({{ $examen->question->puntos }})</strong></button>
+                                    </div>
+                                </div>
                             </h2>
 
                             <div id="collapse{{ $examen->question->id }}"
