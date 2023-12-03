@@ -132,7 +132,7 @@
     <section>
         <div class="py-5" id="">
             <div class="contenedor">
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-md-9 my-2">
                         <img style="width: 100%;" src="https://i.postimg.cc/jS9HHBdk/union.png" alt="">
                     </div>
@@ -149,7 +149,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-md-3 my-2">
                         <div class="card">
                             <div class="card-body" style="text-align: justify">
@@ -170,7 +170,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-md-9 my-2">
                         <img style="width: 100%;" src="https://i.postimg.cc/bJSF0Qh1/image.png" alt="">
                     </div>
@@ -189,15 +189,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-
-    <section>
-        <div class="py-5" id="">
-            <div class="contenedor">
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-md-3 my-2">
                         <div class="card">
                             <div class="card-body" style="text-align: justify">
@@ -217,6 +210,7 @@
             </div>
         </div>
     </section>
+
 
 
 
