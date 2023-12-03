@@ -51,6 +51,10 @@ class QuestionForm extends Component
     private function loadQuestions()
     {
         $this->questions = Question::join('topics', 'questions.topic_id', '=', 'topics.id')
+            ->select('questions.id',
+                     'questions.titulo',
+                     'questions.dificultad',
+                     'questions.puntos')
             ->where('questions.user_id', '=', auth()->user()->id)
             ->where('questions.topic_id', '=', $this->selectedTopicId)
             ->where('topics.estado', '=', 'activo')
