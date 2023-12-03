@@ -9,10 +9,10 @@
 @section('header')
     <header class="header-home-fondo" id="header-home">
         <div class="">
-            <h1 class="header-titulo">Plataforma de educación dirigida a estudiantes de todas las edades</h1>
-            <p class="header-parrafo">En Académico, descubrirás cursos que abordan temas precisos y fundamentales, diseñados
-                para fortalecer tu preparación académica. Además, tendrás la oportunidad de potenciar tus habilidades,
-                preparándote de manera integral para tu etapa universitaria.</p>
+            <h1 class="header-titulo">Plataforma de educación</h1>
+            <p class="header-parrafo">En Académico, encontrarás cursos para fortalecer tu preparación académica con
+                contenidos y temarios extraídos de universidades nacionales. Esta oferta formativa te preparará de manera
+                integral para tu experiencia universitaria.</p>
             @guest
                 <a href="{{ route('admin.register.index') }}" class="mi-boton general mt-3">Registrarme</a>
             @endguest
@@ -106,21 +106,127 @@
     </section>
 
 
+    <!--  OWLCOURRESL Demos -->
+    <section id="demos" class="container-fluid">
+        <div class="row">
+            <div class="large-12 columns">
+                <div class="owl-carousel owl-theme">
+                    @foreach ($courses as $course)
+                        <div class="item">
+                            <div class="text-center">
+                                <h2 class="color-general lead">{{ $course->title }}</h2>
+                                <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
+                                    <img class="imagen imagen-owl-centrar" src="{{ $course->image->url }}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <!-- <a class="boton secondary play">Play</a>
+                                                                                                    <a class="boton secondary stop">Stop</a>-->
+            </div>
+        </div>
+    </section>
+    <!--OWLCOURRESL-->
+
     <section>
         <div class="py-5" id="">
             <div class="contenedor">
                 <div class="row">
                     <div class="col-md-9 my-2">
-                        <img style="width: 100%;" src="{{ asset('img/home/union.png') }}" alt="">
+                        <img style="width: 100%;" src="https://i.postimg.cc/jS9HHBdk/union.png" alt="">
                     </div>
 
                     <div class="col-md-3 my-2">
                         <div class="card">
                             <div class="card-body" style="text-align: justify">
-                                La plataforma se adapta a una variedad de dispositivos, como teléfonos celulares, laptops y
-                                computadoras, permitiéndote continuar tu proceso de aprendizaje de manera suave y cómoda
+                                <div class="alert alert-primary" role="alert">
+                                    Serás capaz de proseguir con tu proceso de aprendizaje de manera continua, ya sea en tu
+                                    dispositivo móvil o desde la comodidad de tu hogar.
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="py-5" id="">
+            <div class="contenedor">
+                <div class="row">
+                    <div class="col-md-3 my-2">
+                        <div class="card">
+                            <div class="card-body" style="text-align: justify">
+                                <div class="alert alert-info" role="alert">
+                                    Podrás llevar tu avance y retomar tu continuidad en el momento que desees. Además de
+                                    ello,
+                                    tendrás acceso a ejercicios para repasar lo aprendido en formato PDF en el último
+                                    capitulo
+                                    de
+                                    cada lección
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 my-2">
+                        <img style="width: 100%;" src="https://i.postimg.cc/FsrVNjBG/union-dos.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="py-5" id="">
+            <div class="contenedor">
+                <div class="row">
+                    <div class="col-md-9 my-2">
+                        <img style="width: 100%;" src="https://i.postimg.cc/bJSF0Qh1/image.png" alt="">
+                    </div>
+
+
+                    <div class="col-md-3 my-2">
+                        <div class="card">
+                            <div class="card-body" style="text-align: justify">
+                                <div class="alert alert-warning" role="alert">
+                                    Tendrás acceso a una serie de exámenes con preguntas y respuestas provenientes de
+                                    evaluaciones anteriores. Estos podrás completarlos en un tiempo establecido con el
+                                    objetivo
+                                    de fortalecer tus conocimientos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section>
+        <div class="py-5" id="">
+            <div class="contenedor">
+                <div class="row">
+                    <div class="col-md-3 my-2">
+                        <div class="card">
+                            <div class="card-body" style="text-align: justify">
+                                <div class="alert alert-success" role="alert">
+                                    Una vez que hayas finalizado tu examen, tendrás la oportunidad de visualizar tu
+                                    calificación
+                                    junto con la lista de respuestas y los resultados que seleccionaste.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 my-2">
+                        <img style="width: 100%;" src="https://i.postimg.cc/JnkC7sp4/image.png" alt="">
                     </div>
                 </div>
             </div>
@@ -142,7 +248,8 @@
 
     <section id="ultimos-cursos" class="text-center">
         <h3 class="ultimos-cursos-titulo color-general">Ultimos cursos</h3>
-        <p class="ultimos-cursos-parrafo color-general">Inscríbete y accede a una amplia variedad de recursos educativos</p>
+        <p class="ultimos-cursos-parrafo color-general">Inscríbete y accede a una amplia variedad de recursos educativos
+        </p>
         <div>
             {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
             <x-course-card :courses="$courses"></x-course-card>
@@ -151,58 +258,68 @@
 
 
     <section>
-        <!--  OWLCOURRESL Demos -->
-        <div id="owl-demo" class="owl-carousel owl-theme fondo-general">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner fondo-general">
+                <div class="carousel-item active">
+                    <p class="text-center p-3" style="font-size: 20px">La educación no es preparación para la vida, es
+                        vida en sí misma. Aprovéchala al máximo.</p>
+                </div>
 
-            <div class="item text-center">
-                <p class="owl-parrafo">El éxito es la suma de pequeños esfuerzos repetidos día tras día.</p>
-            </div>
-            <div class="item text-center">
-                <p class="owl-parrafo">No te preocupes por los errores y fracasos. Son parte del viaje hacia el éxito.</p>
-            </div>
+                <div class="carousel-item">
+                    <p class="text-center p-3" style="font-size: 20px">El éxito es la suma de pequeños esfuerzos repetidos
+                        día tras día.</p>
+                </div>
 
-            <div class="item text-center">
-                <p class="owl-parrafo">Cada día es una nueva oportunidad para aprender y crecer.</p>
-            </div>
+                <div class="carousel-item">
+                    <p class="text-center p-3" style="font-size: 20px">No te preocupes por los errores y fracasos. Son
+                        parte del viaje hacia el éxito.
+                    </p>
+                </div>
 
-            <div class="item text-center">
-                <p class="owl-parrafo">Cada logro comienza con la decisión de intentarlo.</p>
-            </div>
+                <div class="carousel-item">
+                    <p class="text-center p-3" style="font-size: 20px">El conocimiento es el mejor activo que puedes
+                        poseer. Invierte en ti mismo.</p>
+                </div>
 
-            <div class="item text-center">
-                <p class="owl-parrafo">La mente es como un paracaídas, solo funciona cuando está abierta.</p>
-            </div>
+                <div class="carousel-item">
+                    <p class="text-center p-3" style="font-size: 20px">La perseverancia no es un sprint, es un maratón.
+                        Sigue adelante paso a paso.
+                    </p>
+                </div>
 
-            <div class="item text-center">
-                <p class="owl-parrafo">No hay atajos para ningún lugar que valga la pena.</p>
-            </div>
+                <div class="carousel-item">
+                    <p class="text-center p-3" style="font-size: 20px">La mente es como un paracaídas, solo funciona
+                        cuando está abierta.</p>
+                </div>
 
-        </div>
-        <!--OWLCOURRESL-->
-    </section>
+                <div class="carousel-item">
+                    <p class="text-center p-3" style="font-size: 20px">No hay atajos para ningún lugar que valga la pena.
+                    </p>
+                </div>
 
+                <div class="carousel-item">
+                    <p class="text-center p-3" style="font-size: 20px">No te compares con los demás. Compara tu hoy con tu
+                        ayer y trabaja para un mejor mañana.
+                    </p>
+                </div>
 
-    <section>
-        <div class="py-5" id="">
-            <div class="contenedor">
-                <div class="row">
-                    <div class="col-md-9 my-2">
-                        <img style="width: 100%;" src="{{ asset('img/home/union_dos.png') }}" alt="">
-                    </div>
+                <div class="carousel-item">
+                    <p class="text-center p-3" style="font-size: 20px">La educación es el pasaporte para el futuro; el
+                        mañana pertenece a aquellos que se preparan hoy. - Malcolm X
+                    </p>
+                </div>
 
-                    <div class="col-md-3 my-2">
-                        <div class="card">
-                            <div class="card-body" style="text-align: justify">
-                                Podrás llevar tu avance y retomar tu continuidad en el momento que desees. Además de ello,
-                                tendrás acceso a ejercicios para repasar lo aprendido en formato PDF en la última parte de
-                                cada lección
-                            </div>
-                        </div>
-                    </div>
+                <div class="carousel-item">
+                    <p class="text-center p-3" style="font-size: 20px">Cada error es una oportunidad de aprendizaje. No
+                        temas equivocarte, teme no aprender de ello.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
+
+
+
 
     <section class="" id="contenido-bloques">
         <div class="contenedor">

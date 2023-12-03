@@ -69,7 +69,13 @@ p { margin-bottom: 0px !important;}
 .general {background-color: var(--blanco); border: 2px solid var(--general); color: var(--general);} 
 .general:hover {background: #6f4ef6; color: var(--blanco);}
 
-
+.imagen-owl-centrar{
+    width: 180px !important;
+    height: 180px !important; 
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+}
 
 .fondo-general {background-color: var(--general) !important; color: var(--blanco);}
 .color-general { color: var(--general);}

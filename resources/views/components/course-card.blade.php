@@ -13,9 +13,7 @@
                                     </a>
                                 </div>
 
-                                <p class="contenido-bloques-parrafo">
-                                    {!! Str::limit($course->description, 50) !!}
-                                </p>
+                                {{-- <p class="contenido-bloques-parrafo">{!! Str::limit($course->description, 50) !!}</p> --}}
 
                                 <div class="d-flex justify-content-between align-items-center mt-3 mb-2">
                                     <div class="d-flex justify-content-between align-items-center">
