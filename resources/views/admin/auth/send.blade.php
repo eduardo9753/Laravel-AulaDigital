@@ -34,9 +34,9 @@
 
                                 <!-- Email input -->
                                 <div class="form-outline my-2">
-                                    <label class="form-label" for="form2Example1">Email address</label>
+                                    <label class="form-label" for="form2Example1">Correo</label>
                                     <input type="email" id="email" name="email" class="form-control"
-                                        value="{{ old('email') }}" />
+                                        value="{{ old('email') }}" placeholder="Tu Gmail" />
                                     {{-- validacion con validate --}}
                                     @error('email')
                                         {{-- alerta de error --}}

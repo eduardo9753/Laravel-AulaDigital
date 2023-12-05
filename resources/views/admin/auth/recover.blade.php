@@ -33,9 +33,9 @@
 
                                 <!-- Email input -->
                                 <div class="form-outline my-2">
-                                    <label class="form-label" for="form2Example1">Email address</label>
+                                    <label class="form-label" for="form2Example1">Correo</label>
                                     <input type="email" id="email" name="email" class="form-control"
-                                        value="{{ old('email') }}" />
+                                        value="{{ old('email') }}" placeholder="Tu Gmail" />
                                     {{-- validacion con validate --}}
                                     @error('email')
                                         {{-- alerta de error --}}
@@ -46,7 +46,8 @@
                                 <!-- Password input -->
                                 <div class="form-outline my-2">
                                     <label class="form-label" for="password">Nuevo Password</label>
-                                    <input type="password" id="password" name="password" class="form-control" />
+                                    <input type="password" id="password" name="password" class="form-control"
+                                        placeholder="**********" />
                                     {{-- validacion con validate --}}
                                     @error('password')
                                         {{-- alerta de error --}}
@@ -58,7 +59,7 @@
                                 <div class="form-outline my-2">
                                     <label class="form-label" for="password_confirmation">Confimar Password</label>
                                     <input type="password" id="password_confirmation" name="password_confirmation"
-                                        class="form-control" />
+                                        class="form-control" placeholder="**********" />
                                     {{-- validacion con validate --}}
                                     @error('password_confirmation')
                                         {{-- alerta de error --}}

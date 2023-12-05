@@ -25,8 +25,9 @@
 
                                 <!-- Email input -->
                                 <div class="form-outline my-2">
-                                    <label class="form-label" for="email">Email address</label>
-                                    <input type="email" name="email" id="email" class="form-control" />
+                                    <label class="form-label" for="email">Correo</label>
+                                    <input type="email" name="email" id="email" class="form-control"
+                                        placeholder="Tu Gmail" />
                                     {{-- validacon con validate --}}
                                     @error('email')
                                         <p class="text-danger">{{ $message }}</p>
@@ -36,7 +37,8 @@
                                 <!-- Password input -->
                                 <div class="form-outline my-2">
                                     <label class="form-label" for="password">Password</label>
-                                    <input type="password" id="password" name="password" class="form-control" />
+                                    <input type="password" id="password" name="password" class="form-control"
+                                        placeholder="**********" />
                                     {{-- validacon con validate --}}
                                     @error('password')
                                         <p class="text-danger">{{ $message }}</p>
@@ -68,8 +70,7 @@
                                     <p><a class="btn btn-dark" href="{{ route('admin.register.index') }}">Registrarme</a>
                                     </p>
 
-                                    <p><a class="btn btn-outline-dark" href="{{ route('visitador.home.index') }}">Ir a
-                                            Casa</a></p>
+                                    <p><a class="btn btn-outline-dark" href="{{ route('visitador.home.index') }}">Inicio</a></p>
                                 </div>
                             </form>
                         </div>

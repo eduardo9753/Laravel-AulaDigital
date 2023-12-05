@@ -20,7 +20,7 @@
                                 <div class="form-outline my-2">
                                     <label class="form-label" for="name">Nombre</label>
                                     <input type="text" id="name" name="name" class="form-control"
-                                        value="{{ old('name') }}" />
+                                        value="{{ old('name') }}" placeholder="Tu nombre o nombre de usuario"/>
                                     {{-- validacion con validate --}}
                                     @error('name')
                                         {{-- alerta de error --}}
@@ -30,9 +30,9 @@
 
                                 <!-- Email input -->
                                 <div class="form-outline my-2">
-                                    <label class="form-label" for="form2Example1">Email address</label>
+                                    <label class="form-label" for="form2Example1">Correo</label>
                                     <input type="email" id="email" name="email" class="form-control"
-                                        value="{{ old('email') }}" />
+                                        value="{{ old('email') }}"  placeholder="Tu Gmail"/>
                                     {{-- validacion con validate --}}
                                     @error('email')
                                         {{-- alerta de error --}}
@@ -43,7 +43,7 @@
                                 <!-- Password input -->
                                 <div class="form-outline my-2">
                                     <label class="form-label" for="password">Password</label>
-                                    <input type="password" id="password" name="password" class="form-control" />
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="**********"/>
                                     {{-- validacion con validate --}}
                                     @error('password')
                                         {{-- alerta de error --}}
@@ -55,7 +55,7 @@
                                 <div class="form-outline my-2">
                                     <label class="form-label" for="password_confirmation">Confirmar Password</label>
                                     <input type="password" id="password_confirmation" name="password_confirmation"
-                                        class="form-control" />
+                                        class="form-control" placeholder="**********"/>
                                     {{-- validacion con validate --}}
                                     @error('password_confirmation')
                                         {{-- alerta de error --}}
