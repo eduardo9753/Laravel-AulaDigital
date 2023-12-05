@@ -10,7 +10,7 @@
 
 @section('main')
     <section id="" class="">
-        <div class="contenedor pt-5">
+        <div class="container-fluid pt-5">
             @if (session('mensaje'))
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     <strong>IMPORTANTE!</strong>
