@@ -12,10 +12,10 @@
                 <div class="d-flex align-items-center cursor" wire:click="completed">
                     @if ($current->completed)
                         <i class='bx bxs-toggle-right' style='color:rgb(52, 152, 219);  font-size: 28px'></i>
-                        <p class="cursor-status">lección culminada</p>
+                        <p class="cursor-status" style='font-size: 18px'>lección culminada</p>
                     @else
                         <i class='bx bx-toggle-left' style="font-size: 28px"></i>
-                        <p class="cursor-status">culminar lección</p>
+                        <p class="cursor-status" style='font-size: 18px'>culminar lección</p>
                     @endif
                 </div>
                 {{-- MARCAR COMO CULMINADA LA LECCION --}}
