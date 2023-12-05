@@ -21,7 +21,7 @@
                         <div class="col-md-3 my-3">
                             <div class="text-center">
                                 <img src="{{ $resource->img }}" alt="..."
-                                    style="width: 100%;height: 240px;border-radius: 10px">
+                                    style="width: 100%;height: 240px;border-radius: 10px;object-fit: scale-down">
                             </div>
 
                             <div class="card">
