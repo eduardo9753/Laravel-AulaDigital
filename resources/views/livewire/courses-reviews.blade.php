@@ -2,7 +2,7 @@
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
     <div class="card mt-3">
         <div class="card-body">
-            <h3 class="color-general">Reseña de los estudiantes <small>({{ $course->reviews->count() }})</small> </h3>
+            <h3 class="color-general">Reseñas <small>({{ $course->reviews->count() }})</small> </h3>
 
             <div style="max-height: 300px; overflow-y: auto;">
                 @can('enrolled', $course)

@@ -58,7 +58,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&display=swap" rel="stylesheet">
 
-
+    <link href="{{ asset('css/login/login.css') }}" rel="stylesheet">
 
     <!-- ESTILOS LIVEWIRE -->
     @livewireStyles
@@ -120,6 +120,9 @@
     <script src="{{ asset('js/dataTables.js') }}"></script>
 
     <script src="{{ asset('js/owl.js') }}"></script>
+
+    <script src="{{ asset('js/login/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('js/login/main.js') }}"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

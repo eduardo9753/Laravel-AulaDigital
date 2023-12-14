@@ -2,81 +2,68 @@
 
 
 @section('main')
-    <div class="fondo login-fondo">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto mt-5">
-                    <div class="card" style="opacity: 0.8">
-                        <div class="card-header fondo-general text-center">
-                            <h1>Login</h1>
+    <section class="vh-100">
+        <div class="wrapper">
+            <div class="inner">
+                <img src="{{ asset('images/login/image-1.png') }}" alt="" class="image-1">
+                <form class="form" action="{{ route('admin.login.store') }}" method="POST">
+
+                    {{-- token de seguridad --}}
+                    @csrf
+
+                    {{-- MENSAJE SI ESTAN MAL LAS CREDENCIALES --}}
+                    @if (session('mensaje'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('mensaje') }}
                         </div>
-                        <div class="card-body">
-                            <form action="{{ route('admin.login.store') }}" method="POST">
+                    @endif
+                    <div class="d-flex justify-content-between">
+                        <h3>Acceder</h3>
+                        <div> <a class="btn-solid-sm" href="{{ route('visitador.home.index') }}">Casa</a></div>
+                    </div>
 
-                                {{-- token de seguridad --}}
-                                @csrf
+                    <div class="form-holder">
+                        <span><i class='bx bx-user-check'></i></span>
+                        <input type="email" value="{{ old('email') }}" name="email" id="email" class="form-control"
+                            placeholder="Tu Gmail" />
+                        @error('email')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
 
-                                {{-- MENSAJE SI ESTAN MAL LAS CREDENCIALES --}}
-                                @if (session('mensaje'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ session('mensaje') }}
-                                    </div>
-                                @endif
+                    <div class="form-holder">
+                        <span><i class='bx bx-barcode'></i></span>
+                        <input type="password" id="password" name="password" class="form-control"
+                            placeholder="**********" />
+                    </div>
+                    {{-- validacon con validate --}}
+                    @error('password')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
 
-                                <!-- Email input -->
-                                <div class="form-outline my-2">
-                                    <label class="form-label" for="email">Correo</label>
-                                    <input type="email" name="email" id="email" class="form-control"
-                                        placeholder="Tu Gmail" />
-                                    {{-- validacon con validate --}}
-                                    @error('email')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row my-2">
+                        <div class="col d-flex justify-content-center">
+                            <!-- Checkbox -->
+                            <div class="form-check">
+                                <label class="form-check-label" for="remember"> Recordarme </label>
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" />
+                            </div>
+                        </div>
 
-                                <!-- Password input -->
-                                <div class="form-outline my-2">
-                                    <label class="form-label" for="password">Password</label>
-                                    <input type="password" id="password" name="password" class="form-control"
-                                        placeholder="**********" />
-                                    {{-- validacon con validate --}}
-                                    @error('password')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-
-                                <!-- 2 column grid layout for inline styling -->
-                                <div class="row my-2">
-                                    <div class="col d-flex justify-content-center">
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <label class="form-check-label" for="remember"> Recordarme </label>
-                                            <input class="form-check-input" type="checkbox" name="remember"
-                                                id="remember" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col">
-                                        <!-- Simple link -->
-                                        <a href="{{ route('admin.recover') }}">Olvide mi Contraseña</a>
-                                    </div>
-                                </div>
-
-                                <!-- Submit button -->
-                                <input type="submit" class="mi-boton general mb-4 w-100" value="Ingresar">
-
-                                <!-- Register buttons -->
-                                <div class="d-flex justify-content-between">
-                                    <p><a class="btn btn-dark" href="{{ route('admin.register.index') }}">Registrarme</a>
-                                    </p>
-
-                                    <p><a class="btn btn-outline-dark" href="{{ route('visitador.home.index') }}">Inicio</a></p>
-                                </div>
-                            </form>
+                        <div class="col">
+                            <!-- Simple link -->
+                            <a href="{{ route('admin.recover') }}">mi Contraseña?</a>
                         </div>
                     </div>
-                </div>
+
+                    <button class="button-login">
+                        <span>Ingresar</span>
+                    </button>
+                </form>
+                <img src="{{ asset('images/login/image-2.png') }}" alt="" class="image-2">
             </div>
+
         </div>
-    </div>
+    </section>
 @endsection

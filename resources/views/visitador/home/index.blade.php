@@ -14,7 +14,7 @@
                 contenidos y temarios extraídos de universidades nacionales. Esta oferta formativa te preparará de manera
                 integral para tu experiencia universitaria.</p>
             @guest
-                <a href="{{ route('admin.register.index') }}" class="mi-boton general mt-3">Registrarme</a>
+                <a href="{{ route('admin.register.index') }}" class="btn-solid-sm mt-3">Registrarme</a>
             @endguest
         </div>
     </header>
@@ -114,7 +114,7 @@
                     @foreach ($courses as $course)
                         <div class="item">
                             <div class="text-center">
-                                <h2 class="color-general lead">{{ $course->title }}</h2>
+                                <h2 class="color-general lead mb-3">{{ $course->title }}</h2>
                                 <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
                                     <img class="imagen imagen-owl-centrar" src="{{ $course->image->url }}" alt="">
                                 </a>
@@ -123,7 +123,7 @@
                     @endforeach
                 </div>
                 <!-- <a class="boton secondary play">Play</a>
-                                                                                                        <a class="boton secondary stop">Stop</a>-->
+                                                                                                                    <a class="boton secondary stop">Stop</a>-->
             </div>
         </div>
     </section>
@@ -150,6 +150,10 @@
                 </div>
 
                 <div class="row mt-5">
+                    <div class="col-md-9 my-2">
+                        <img style="width: 100%;" src="https://i.postimg.cc/FsrVNjBG/union-dos.png" alt="">
+                    </div>
+
                     <div class="col-md-3 my-2">
                         <div class="card">
                             <div class="card-body" style="text-align: justify">
@@ -164,54 +168,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-9 my-2">
-                        <img style="width: 100%;" src="https://i.postimg.cc/FsrVNjBG/union-dos.png" alt="">
-                    </div>
-                </div>
-
-                <div class="row mt-5">
-                    <div class="col-md-9 my-2">
-                        <img style="width: 100%;" src="https://i.postimg.cc/bJSF0Qh1/image.png" alt="">
-                    </div>
-
-
-                    <div class="col-md-3 my-2">
-                        <div class="card">
-                            <div class="card-body" style="text-align: justify">
-                                <div class="alert alert-warning" role="alert">
-                                    Tendrás acceso a una serie de exámenes con preguntas y respuestas provenientes de
-                                    evaluaciones anteriores. Estos podrás completarlos en un tiempo establecido con el
-                                    objetivo
-                                    de fortalecer tus conocimientos.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5">
-                    <div class="col-md-3 my-2">
-                        <div class="card">
-                            <div class="card-body" style="text-align: justify">
-                                <div class="alert alert-success" role="alert">
-                                    Una vez que hayas finalizado tu examen, tendrás la oportunidad de visualizar tu
-                                    calificación
-                                    junto con la lista de respuestas y los resultados que seleccionaste.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-9 my-2">
-                        <img style="width: 100%;" src="https://i.postimg.cc/JnkC7sp4/image.png" alt="">
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 
 
     <section id="curso-elegir" class="p-5">
@@ -223,6 +183,48 @@
         {{-- COMPONENTE LIVEWIRE BUSCADOR --}}
         @livewire('search')
     </section>
+
+
+    <section>
+        <div class="row mt-5">
+            <div class="col-md-3 my-2">
+                <div class="card">
+                    <div class="card-body" style="text-align: justify">
+                        <div class="alert alert-warning" role="alert">
+                            Tendrás acceso a una serie de exámenes con preguntas y respuestas provenientes de
+                            evaluaciones anteriores. Estos podrás completarlos en un tiempo establecido con el
+                            objetivo
+                            de fortalecer tus conocimientos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 my-2">
+                <img style="width: 100%;" src="https://i.postimg.cc/bJSF0Qh1/image.png" alt="">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-3 my-2">
+                <div class="card">
+                    <div class="card-body" style="text-align: justify">
+                        <div class="alert alert-success" role="alert">
+                            Una vez que hayas finalizado tu examen, tendrás la oportunidad de visualizar tu
+                            calificación
+                            junto con la lista de respuestas y los resultados que seleccionaste.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 my-2">
+                <img style="width: 100%;" src="https://i.postimg.cc/JnkC7sp4/image.png" alt="">
+            </div>
+        </div>
+    </section>
+
+
 
 
     <section id="ultimos-cursos" class="text-center">

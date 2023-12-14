@@ -53,6 +53,7 @@
 
   #contenido-bloques .contenido-bloques-titulo {
     font-size: 23px;
+    margin-bottom: 15px;
     text-align: center;
     color: var(--general);
   }
