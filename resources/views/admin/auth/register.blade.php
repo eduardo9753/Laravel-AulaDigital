@@ -18,7 +18,7 @@
                         </div>
                     @endif
                     <div class="d-flex justify-content-between">
-                        <h3>Registrarme</h3>
+                        <h3 class="h3-login">Registrarme</h3>
                         <div> <a class="btn-solid-sm" href="{{ route('visitador.home.index') }}">Casa</a></div>
                     </div>
 
