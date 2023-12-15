@@ -123,7 +123,7 @@
                     @endforeach
                 </div>
                 <!-- <a class="boton secondary play">Play</a>
-                                                                                                                    <a class="boton secondary stop">Stop</a>-->
+                                                                                                                        <a class="boton secondary stop">Stop</a>-->
             </div>
         </div>
     </section>
@@ -186,40 +186,42 @@
 
 
     <section>
-        <div class="row mt-5">
-            <div class="col-md-3 my-2">
-                <div class="card">
-                    <div class="card-body" style="text-align: justify">
-                        <div class="alert alert-warning" role="alert">
-                            Tendrás acceso a una serie de exámenes con preguntas y respuestas provenientes de
-                            evaluaciones anteriores. Estos podrás completarlos en un tiempo establecido con el
-                            objetivo
-                            de fortalecer tus conocimientos.
+        <div class="contenedor">
+            <div class="row mt-5">
+                <div class="col-md-3 my-2">
+                    <div class="card">
+                        <div class="card-body" style="text-align: justify">
+                            <div class="alert alert-warning" role="alert">
+                                Tendrás acceso a una serie de exámenes con preguntas y respuestas provenientes de
+                                evaluaciones anteriores. Estos podrás completarlos en un tiempo establecido con el
+                                objetivo
+                                de fortalecer tus conocimientos.
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-9 my-2">
-                <img style="width: 100%;" src="https://i.postimg.cc/bJSF0Qh1/image.png" alt="">
-            </div>
-        </div>
-
-        <div class="row mt-5">
-            <div class="col-md-3 my-2">
-                <div class="card">
-                    <div class="card-body" style="text-align: justify">
-                        <div class="alert alert-success" role="alert">
-                            Una vez que hayas finalizado tu examen, tendrás la oportunidad de visualizar tu
-                            calificación
-                            junto con la lista de respuestas y los resultados que seleccionaste.
-                        </div>
-                    </div>
+                <div class="col-md-9 my-2">
+                    <img style="width: 100%;" src="https://i.postimg.cc/bJSF0Qh1/image.png" alt="">
                 </div>
             </div>
 
-            <div class="col-md-9 my-2">
-                <img style="width: 100%;" src="https://i.postimg.cc/JnkC7sp4/image.png" alt="">
+            <div class="row mt-5">
+                <div class="col-md-3 my-2">
+                    <div class="card">
+                        <div class="card-body" style="text-align: justify">
+                            <div class="alert alert-success" role="alert">
+                                Una vez que hayas finalizado tu examen, tendrás la oportunidad de visualizar tu
+                                calificación
+                                junto con la lista de respuestas y los resultados que seleccionaste.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9 my-2">
+                    <img style="width: 100%;" src="https://i.postimg.cc/JnkC7sp4/image.png" alt="">
+                </div>
             </div>
         </div>
     </section>
