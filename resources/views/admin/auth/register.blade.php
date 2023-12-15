@@ -5,7 +5,7 @@
     <section class="vh-100">
         <div class="wrapper">
             <div class="inner">
-                <img src="{{ asset('images/login/image-1.png') }}" alt="" class="image-1">
+                <img src="{{ asset('img/login/image-1.png') }}" alt="" class="image-1">
                 <form class="form" action="{{ route('admin.register.store') }}" method="POST">
 
                     {{-- token de seguridad --}}
@@ -63,7 +63,7 @@
                         <span>Registrarme</span>
                     </button>
                 </form>
-                <img src="{{ asset('images/login/image-2.png') }}" alt="" class="image-2">
+                <img src="{{ asset('img/login/image-2.png') }}" alt="" class="image-2">
             </div>
 
         </div>

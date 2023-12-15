@@ -5,7 +5,7 @@
     <section class="vh-100">
         <div class="wrapper">
             <div class="inner">
-                <img src="{{ asset('images/login/image-1.png') }}" alt="" class="image-1">
+                <img src="{{ asset('img/login/image-1.png') }}" alt="" class="image-1">
                 <form class="form" action="{{ route('admin.login.store') }}" method="POST">
 
                     {{-- token de seguridad --}}
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="form-holder">
-                        <span><i class='bx bx-user-check'></i></span>
+                        <span><i class='bx bx-envelope'></i></i></span>
                         <input type="email" value="{{ old('email') }}" name="email" id="email" class="form-control"
                             placeholder="Tu Gmail" />
                         @error('email')
@@ -61,7 +61,7 @@
                         <span>Ingresar</span>
                     </button>
                 </form>
-                <img src="{{ asset('images/login/image-2.png') }}" alt="" class="image-2">
+                <img src="{{ asset('img/login/image-2.png') }}" alt="" class="image-2">
             </div>
 
         </div>

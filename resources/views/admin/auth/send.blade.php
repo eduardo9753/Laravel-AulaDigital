@@ -2,66 +2,51 @@
 
 
 @section('main')
-    <div class="fondo register-fondo">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto mt-4">
-                    <div class="card" style="opacity: 0.8">
-                        <div class="card-header fondo-general text-center">
-                            <h1>Recuperar Cuenta</h1>
+    <section class="vh-100">
+        <div class="wrapper">
+            <div class="inner">
+                <img src="{{ asset('images/login/image-1.png') }}" alt="" class="image-1">
+                <form class="form" action="{{ route('admin.send') }}" method="POST">
+
+                    {{-- token de seguridad --}}
+                    @csrf
+
+                    {{-- MENSAJE SI ESTAN MAL LAS CREDENCIALES --}}
+
+                    <div class="text-center alert alert-dark">Por favor, introduzca la dirección de correo electrónico
+                        utilizada durante el registro en la plataforma.</div>
+
+                    @if (session('mensaje'))
+                        {{-- MENSAJE SI ESTAN MAL LAS CREDENCIALES --}}
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>Mensaje!</strong> {{ session('mensaje') }}.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                        <div class="card-body">
-                            <form action="{{ route('admin.send') }}" method="POST">
+                    @endif
 
-                                {{-- token de seguridad --}}
-                                @csrf
-
-                                <div class="text-center alert alert-dark">Favor de ingresar el correo con el cual se
-                                    registro en la plataforma</div>
-
-
-                                @if (session('mensaje'))
-                                    {{-- MENSAJE SI ESTAN MAL LAS CREDENCIALES --}}
-                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                        <strong>Mensaje!</strong> {{ session('mensaje') }}.
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
-                                    </div>
-                                @endif
-
-
-
-
-                                <!-- Email input -->
-                                <div class="form-outline my-2">
-                                    <label class="form-label" for="form2Example1">Correo</label>
-                                    <input type="email" id="email" name="email" class="form-control"
-                                        value="{{ old('email') }}" placeholder="Tu Gmail" />
-                                    {{-- validacion con validate --}}
-                                    @error('email')
-                                        {{-- alerta de error --}}
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-
-
-
-                                <!-- Submit button -->
-                                <input type="submit" class="mi-boton general mb-4 w-100" value="Recuperar Cuenta">
-
-                                <!-- Register buttons -->
-                                <div class="d-flex justify-content-between">
-                                    <p><a class="btn btn-dark" href="{{ route('admin.register.index') }}">Registrarme</a>
-                                    </p>
-
-                                    <p><a class="btn btn-outline-dark" href="{{ route('visitador.home.index') }}">Ir a
-                                            Casa</a></p>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="d-flex justify-content-between">
+                        <h3 class="h3-login">Recuperar</h3>
+                        <div> <a class="btn-solid-sm" href="{{ route('visitador.home.index') }}">Casa</a></div>
                     </div>
-                </div>
+
+                    <div class="form-holder">
+                        <span><i class='bx bx-envelope'></i></i></span>
+                        <input type="email" value="{{ old('email') }}" name="email" id="email" class="form-control"
+                            placeholder="Tu Gmail" />
+                        @error('email')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+
+
+                    <button class="button-login">
+                        <span>Recuperar Mi Cuenta</span>
+                    </button>
+                </form>
+                <img src="{{ asset('images/login/image-2.png') }}" alt="" class="image-2">
             </div>
+
         </div>
-    </div>
+    </section>
 @endsection
