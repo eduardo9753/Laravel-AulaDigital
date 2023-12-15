@@ -43,7 +43,7 @@
                     <div class="form-holder">
                         <span><i class='bx bx-barcode'></i></span>
                         <input type="password" id="password" name="password" class="form-control"
-                            placeholder="**********" />
+                            placeholder="contraseña" />
                     </div>
                     @error('password')
                         <p class="text-danger">{{ $message }}</p>
@@ -52,7 +52,7 @@
                     <div class="form-holder">
                         <span><i class='bx bx-barcode'></i></span>
                         <input type="password" id="password_confirmation" name="password_confirmation" class="form-control"
-                            placeholder="**********" />
+                            placeholder="repetir contraseña" />
                     </div>
                     @error('password_confirmation')
                         {{-- alerta de error --}}
