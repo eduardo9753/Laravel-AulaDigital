@@ -3,10 +3,8 @@
 
     <div class="card mt-2">
         <div class="card-body">
-            <form class="">
                 <input wire:model="search" class="form-control" type="search" name="search" placeholder="Buscar mis cursos"
                     autocomplete="off">
-            </form>
         </div>
     </div>
 
