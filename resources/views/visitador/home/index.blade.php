@@ -9,9 +9,9 @@
 @section('header')
     <header class="header-home-fondo" id="header-home">
         <div class="">
-            <h1 class="header-titulo">Plataforma de educación</h1>
+            <h1 class="header-titulo">Plataforma de aprendizaje en línea</h1>
             <p class="header-parrafo">Descubre el poder del conocimiento preuniversitario en un solo lugar. Exploramos cada
-                rincón de tu temario con lecciones en video y materiales PDF, porque en Académico, <strong>cada sección es
+                rincón de tu temario con lecciones en video y materiales PDF, porque <strong>En Académico,cada sección es
                     una
                     oportunidad para aprender y crecer</strong>.</p>
             @guest
@@ -124,7 +124,7 @@
                     @endforeach
                 </div>
                 <!-- <a class="boton secondary play">Play</a>
-                                                                                                                                            <a class="boton secondary stop">Stop</a>-->
+                                                                                                                                                <a class="boton secondary stop">Stop</a>-->
             </div>
         </div>
     </section>
