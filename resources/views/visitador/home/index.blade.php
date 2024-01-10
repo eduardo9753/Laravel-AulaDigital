@@ -123,7 +123,7 @@
                     @endforeach
                 </div>
                 <!-- <a class="boton secondary play">Play</a>
-                                                                                                                        <a class="boton secondary stop">Stop</a>-->
+                                                                                                                                    <a class="boton secondary stop">Stop</a>-->
             </div>
         </div>
     </section>
@@ -140,10 +140,8 @@
                     <div class="col-md-3 my-2">
                         <div class="card">
                             <div class="card-body" style="text-align: justify">
-                                <div class="alert alert-primary" role="alert">
-                                    Serás capaz de proseguir con tu proceso de aprendizaje de manera continua, ya sea en tu
-                                    dispositivo móvil o desde la comodidad de tu hogar.
-                                </div>
+                                <p>Serás capaz de proseguir con tu proceso de aprendizaje de manera continua, ya sea en tu
+                                    dispositivo móvil o desde la comodidad de tu hogar.</p>
                             </div>
                         </div>
                     </div>
@@ -157,14 +155,14 @@
                     <div class="col-md-3 my-2">
                         <div class="card">
                             <div class="card-body" style="text-align: justify">
-                                <div class="alert alert-info" role="alert">
+                                <p>
                                     Podrás llevar tu avance y retomar tu continuidad en el momento que desees. Además de
                                     ello,
                                     tendrás acceso a ejercicios para repasar lo aprendido en formato PDF en el último
                                     capitulo
                                     de
                                     cada lección
-                                </div>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -191,12 +189,12 @@
                 <div class="col-md-3 my-2">
                     <div class="card">
                         <div class="card-body" style="text-align: justify">
-                            <div class="alert alert-warning" role="alert">
+                            <p>
                                 Tendrás acceso a una serie de exámenes con preguntas y respuestas provenientes de
                                 evaluaciones anteriores. Estos podrás completarlos en un tiempo establecido con el
                                 objetivo
                                 de fortalecer tus conocimientos.
-                            </div>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -210,11 +208,9 @@
                 <div class="col-md-3 my-2">
                     <div class="card">
                         <div class="card-body" style="text-align: justify">
-                            <div class="alert alert-success" role="alert">
-                                Una vez que hayas finalizado tu examen, tendrás la oportunidad de visualizar tu
+                            <p> Una vez que hayas finalizado tu examen, tendrás la oportunidad de visualizar tu
                                 calificación
-                                junto con la lista de respuestas y los resultados que seleccionaste.
-                            </div>
+                                junto con la lista de respuestas y los resultados que seleccionaste.</p>
                         </div>
                     </div>
                 </div>

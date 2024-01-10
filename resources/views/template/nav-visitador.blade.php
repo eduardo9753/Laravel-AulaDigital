@@ -6,9 +6,9 @@
                 <ul class="menu-item">
                     @auth
                         <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
-                        <li class="item"><a href="{{ route('visitador.course.index') }}">Catalogo</a></li>
-                        <li class="item"><a href="{{ route('visitador.read.index') }}">Lecturas</a></li>
+                        <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
                         <li class="item"><a href="{{ route('visitador.course.list') }}">Mis cursos</a></li>
+                        <li class="item"><a href="{{ route('visitador.read.index') }}">Lecturas</a></li>
                         <li class="item"><a href="{{ route('visitador.examenes.index') }}">Examenes</a></li>
                         <li class="item"><a href="{{ route('profile.index', ['user' => auth()->user()]) }}">Bienvenido:
                                 {{ auth()->user()->name }}</a></li>
@@ -22,7 +22,7 @@
 
                     @guest
                         <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
-                        <li class="item"><a href="{{ route('visitador.course.index') }}">Catalogo</a></li>
+                        <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
                         <li class="item"><a href="{{ route('login') }}">Ingresar</a></li>
                         <li class="item"><a href="{{ route('admin.register.index') }}">Registrarme</a></li>
                     @endguest
