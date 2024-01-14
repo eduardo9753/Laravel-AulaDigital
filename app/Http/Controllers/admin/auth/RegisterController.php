@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\admin\auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailUserBienvenida;
+use App\Mail\MailUserRecover;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -45,8 +48,10 @@ class RegisterController extends Controller
         if ($roles->contains('Admin')) {
             return redirect()->route('admin.roles.index');
         } else if ($roles->contains('Instructor')) {
+            Mail::to($request->email)->send(new MailUserBienvenida($user));
             return redirect()->route('admin.instructor.course.index');
         } else {
+            Mail::to($request->email)->send(new MailUserBienvenida($user));
             return redirect()->route('visitador.home.index');
         }
     }
