@@ -32,6 +32,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>NOMBRE</th>
+                                        <th>EMAIL</th>
                                         <th>EDITAR</th>
                                     </tr>
                                 </thead>
@@ -40,7 +41,7 @@
                                         <tr>
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
-
+                                            <td>{{ $user->email }}</td>
                                             <td>
                                                 <a class="mi-boton azul"
                                                     href="{{ route('admin.users.edit', ['user' => $user]) }}">edit</a>
