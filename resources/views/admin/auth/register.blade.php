@@ -69,53 +69,66 @@
         </div>
     </section>
 
+    <!-- Agrega esto al final de tu página antes de cerrar el cuerpo -->
+    <!-- ... Código HTML anterior ... -->
+
+    <style>
+        .is-invalid {
+            border: 1px solid red !important;
+            /* Borde rojo */
+        }
+    </style>
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const emailInput = document.getElementById('email');
             const form = document.getElementById('formRegister');
             const registerButton = document.getElementById('btn-register');
-    
-            let isEmailValid = true;
-    
-            emailInput.addEventListener('input', function() {
+
+            emailInput.addEventListener('change', function() {
                 if (!isValidEmail(emailInput.value)) {
-                    isEmailValid = false;
+                    // Agregar la clase 'is-invalid' si el correo es inválido
+                    emailInput.classList.add('is-invalid');
                 } else {
-                    isEmailValid = true;
+                    // Quitar la clase 'is-invalid' si el correo es válido
+                    emailInput.classList.remove('is-invalid');
                 }
+
                 updateButtonState();
             });
-    
+
             form.addEventListener('submit', function(event) {
-                if (!isEmailValid) {
-                    event.preventDefault(); // Evitar que el formulario se envíe si el correo no es válido
+                if (!isValidEmail(emailInput.value)) {
+                    event.preventDefault();
                     alert(
                         'Por favor, ingresa una dirección de correo electrónico válida con una extensión permitida (gmail, hotmail).'
                     );
-                    // También podrías mostrar un mensaje de error en lugar de un alert.
                 } else {
-                    // Desactivar el botón después de enviar el formulario
                     registerButton.disabled = true;
                 }
             });
-    
+
             function isValidEmail(email) {
                 const allowedDomains = ['gmail.com', 'hotmail.com'];
                 const emailParts = email.split('@');
-    
+
                 if (emailParts.length === 2) {
                     const domain = emailParts[1].toLowerCase();
                     return allowedDomains.includes(domain);
                 }
-    
+
                 return false;
             }
-    
+
             function updateButtonState() {
                 console.log('botón desactivado');
-                registerButton.disabled = !isEmailValid;
+                registerButton.disabled = !isValidEmail(emailInput.value);
             }
         });
     </script>
-    
+
+
+
+    <!-- ... Código HTML posterior ... -->
 @endsection
