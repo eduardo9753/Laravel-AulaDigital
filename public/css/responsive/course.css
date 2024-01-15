@@ -1,14 +1,10 @@
 @media only screen and (max-width: 600px) {
     /* Estilos específicos para dispositivos móviles */
-    #header-home {
-        height: 40vh !important;
-      }
-    
-    #videoPlayer {
-        margin-top: 64px;
-        height: auto !important;
-        min-height: 0vh !important;
+    .header-home-fondo {
+        background-size: contain !important;
+        height: 36.6vh !important;
     }
+
 
 
 

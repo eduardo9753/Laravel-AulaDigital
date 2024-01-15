@@ -7,15 +7,8 @@
 
 
 @section('header')
-    <header id="header-home">
-        <video id="videoPlayer" autoplay muted loop>
-            <source src="{{ asset('videos/académico-presentacion.mp4') }}" type="video/mp4">
-            Tu navegador no soporta el tag de video.
-        </video>
-
-        <video muted autoplay loop>
-            <source src="{{ asset('video/taza-video.mp4') }}" type="video/mp4">
-        </video>
+    <header class="header-home-fondo" id="header-home">
+       
     </header>
 
     <div class="contenedor">
@@ -122,7 +115,7 @@
                     @endforeach
                 </div>
                 <!-- <a class="boton secondary play">Play</a>
-                                                                                                                                                        <a class="boton secondary stop">Stop</a>-->
+                                                                                                                                                <a class="boton secondary stop">Stop</a>-->
             </div>
         </div>
     </section>
