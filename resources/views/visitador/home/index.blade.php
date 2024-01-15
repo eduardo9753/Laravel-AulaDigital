@@ -7,17 +7,15 @@
 
 
 @section('header')
-    <header class="header-home-fondo" id="header-home">
-        <div class="">
-            <h1 class="header-titulo">Plataforma de aprendizaje en línea</h1>
-            <p class="header-parrafo">Descubre el poder del conocimiento preuniversitario en un solo lugar. Exploramos cada
-                rincón de tu temario con lecciones en video y materiales PDF, porque <strong>En Académico,cada sección es
-                    una
-                    oportunidad para aprender y crecer</strong>.</p>
-            @guest
-                <a href="{{ route('admin.register.index') }}" class="btn-solid-sm mt-3">Registrarme</a>
-            @endguest
-        </div>
+    <header id="header-home">
+        <video id="videoPlayer" autoplay muted loop>
+            <source src="{{ asset('videos/académico-presentacion.mp4') }}" type="video/mp4">
+            Tu navegador no soporta el tag de video.
+        </video>
+
+        <video muted autoplay loop>
+            <source src="{{ asset('video/taza-video.mp4') }}" type="video/mp4">
+        </video>
     </header>
 
     <div class="contenedor">
@@ -124,7 +122,7 @@
                     @endforeach
                 </div>
                 <!-- <a class="boton secondary play">Play</a>
-                                                                                                                                                <a class="boton secondary stop">Stop</a>-->
+                                                                                                                                                        <a class="boton secondary stop">Stop</a>-->
             </div>
         </div>
     </section>

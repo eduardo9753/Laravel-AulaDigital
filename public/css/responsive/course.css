@@ -1,18 +1,13 @@
 @media only screen and (max-width: 600px) {
     /* Estilos específicos para dispositivos móviles */
-    .header-home-fondo {
-        height: 53.5vh !important;
-        padding: 18px !important;
-    }
-
-    #header-home .header-titulo {
-        margin-top: 60px !important;
-       font-size: 24px;
-    }
-
-    #header-home .header-parrafo {
-       font-size: 15px !important;
-       margin-top: 20px;
+    #header-home {
+        height: 40vh !important;
+      }
+    
+    #videoPlayer {
+        margin-top: 64px;
+        height: auto !important;
+        min-height: 0vh !important;
     }
 
 
