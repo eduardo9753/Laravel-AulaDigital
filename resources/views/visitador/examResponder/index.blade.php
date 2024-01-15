@@ -10,7 +10,7 @@
     <header class="header-pago-fondo" id="header-pago">
         <div class="contenedor text-center">
             <h3 class="ultimos-cursos-titulo text-white">{{ auth()->user()->name }}</h3>
-            <p class="ultimos-cursos-parrafo text-white">Lista de Exámenes</p>
+            <p class="ultimos-cursos-parrafo text-white">Lista de Examenes</p>
         </div>
     </header>
 @endsection
