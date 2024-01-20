@@ -13,7 +13,7 @@
 @section('main')
     <section class="" id="contenido-bloques">
         <div class="contenedor">
-            <h2 class="contenido-bloques-titulo pt-4">Recurso N° {{ $resource->id }}</h2>
+            <h2 class="contenido-bloques-titulo pt-4"></h2>
 
             <div class="card">
                 <div class="card-body">
