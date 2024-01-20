@@ -27,7 +27,7 @@
                         <div class="col-md-3 my-2">
                             <div class="mi-card">
                                 <div class="mi-card-content">
-                                    <h2 class="contenido-bloques-titulo">Recurso N° {{ $resource->id }}!</h2>
+                                    <h2 class="contenido-bloques-titulo"></h2>
                                     <div class="text-center">
                                         <a href="{{ route('visitador.read.show', ['resource' => $resource]) }}"><img
                                                 class="imagen" src="{{ $resource->img }}" alt=""></a>
