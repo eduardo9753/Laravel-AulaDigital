@@ -10,7 +10,7 @@
     <header class="header-pago-fondo" id="header-pago">
         <div class="contenedor text-center">
             <h3 class="ultimos-cursos-titulo text-white">{{ auth()->user()->name }}</h3>
-            <p class="ultimos-cursos-parrafo text-white">Lista de Examenes</p>
+            <p class="ultimos-cursos-parrafo text-white">Lista de Exámenes</p>
         </div>
     </header>
 @endsection
@@ -38,7 +38,7 @@
                                     @can('enrolledExamUser', $exam)
                                         @can('ExamUserStatus', $exam)
                                             <a href="{{ route('visitador.examenes.status', ['exam' => $exam]) }}"
-                                                class="mi-boton general mt-2 w-100">Continuar el Exámen</a>
+                                                class="mi-boton general mt-2 w-100">Continuar el Examen</a>
                                         @else
                                             <a href="{{ route('visitador.examenes.show', ['exam' => $exam]) }}"
                                                 class="mi-boton rojo mt-2 w-100">Ver Resultados</a>
