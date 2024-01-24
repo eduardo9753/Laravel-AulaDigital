@@ -18565,7 +18565,7 @@ h6, .h6 {
 
 .footer {
   color: #e5e5e5;
-  background: #3c37f1 url(../images/footer_bg.svg);
+  background: #3c37f1 url(../../../img//home/footer_bg.svg);
   background-size: cover;
   background-position: left bottom;
 }
@@ -18927,7 +18927,7 @@ html {
 }
 
 .testimonial {
-  background: #a70ff6 url("../images/testimonial-bg.svg");
+  background: #a70ff6 url("../../../img/home/testimonial-bg.svg");
   padding: 100px 0 70px 0;
   background-size: cover;
 }
