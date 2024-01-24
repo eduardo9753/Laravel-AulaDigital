@@ -10,17 +10,18 @@
     <header class="header-pago-fondo" id="header-pago">
         <div class="contenedor text-center">
             <h3 class="ultimos-cursos-titulo text-white">{{ auth()->user()->name }}</h3>
-            <p class="ultimos-cursos-parrafo text-white">Mi Cursos</p>
+            <p class="ultimos-cursos-parrafo text-white">Mis Cursos</p>
         </div>
     </header>
 @endsection
 
 
 @section('main')
-    <section id="contenido-bloques">
-        <div class="contenedor">
+
+    @if ($courseUsers->count())
+        <section id="contenido-bloques">
             <div class="row">
-                @foreach ($courses as $course)
+                @foreach ($courseUsers as $course)
                     <div class="col-md-3 mb-3">
                         <div class="mi-card">
                             <div class="mi-card-content">
@@ -41,6 +42,20 @@
                     </div>
                 @endforeach
             </div>
-        </div>
-    </section>
+        </section>
+    @else
+        {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
+        <section id="ultimos-cursos" class="text-center">
+            <h3 class="ultimos-cursos-titulo color-general">Aún no tienes cursos. Matricúlate ahora!</h3>
+            <p class="ultimos-cursos-parrafo color-general"></p>
+            <div class="">
+                {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
+                <x-course-card :courses="$courses"></x-course-card>
+            </div>
+        </section>
+    @endif
+
+
+
+
 @endsection

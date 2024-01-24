@@ -6,323 +6,451 @@
 @endsection
 
 
-@section('header')
-    <header class="header-home-fondo" id="header-home">
-       
-    </header>
-
-    <div class="contenedor">
-        @if (session('mensaje'))
-            <div class="alert alert-info mt-2 alert-dismissible fade show" role="alert">
-                <strong>Importante!:</strong> {{ session('mensaje') }}.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-    </div>
-@endsection
-
 
 @section('main')
-    <section>
-        <div class="" id="contenido-bloques">
-            <div class="contenedor">
-                <div class="row">
-                    @if (session('mensaje'))
-                        <div class="alert alert-info alert-dismissible fade show" role="alert">
-                            <strong>IMPORTANTE!</strong>
-                            <p style="text-align: justify"> {{ session('mensaje') }}</p>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
 
-                    <div class="col-md-3 my-2">
-                        <div class="mi-card">
-                            <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">Videos!</h2>
-                                <div class="text-center">
-                                    <img style="width: 100px;height: 100px;"
-                                        src="https://cdn-icons-png.flaticon.com/512/2703/2703920.png" alt="">
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+        <div id="mobile-menu-overlay"></div>
+
+        <div class="page-body-wrapper">
+
+            <section id="home" class="home section-home">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="main-banner">
+                                <div class="d-sm-flex justify-content-between">
+                                    <div data-aos="zoom-in-up">
+                                        <div class="banner-title">
+                                            <h3 class="font-weight-medium">Únete y forma parte de ACADÉMICO</h3>
+                                        </div>
+                                        <p class="my-2">Plataforma educativa diseñado para jóvenes preuniversitarios
+                                        </p>
+                                        <p class="my-2">Descubre una forma diferente de aprender en tus tiempos libres,
+                                        </p>
+                                        <a href="{{ route('admin.register.index') }}" class="btn btn-primary mt-5">Quiero
+                                            Registrarme</a>
+                                    </div>
+                                    <div class="mt-5 mt-lg-0">
+                                        <img src="{{ asset('img/home/group.png') }}" alt="marsmello" class="img-fluid"
+                                            data-aos="zoom-in-up">
+                                    </div>
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-2">Cada curso incluye una lista de videos necesarios
-                                    por
-                                    lección, permitiendo una mayor exploración de los temas presentados.</p>
+                            </div>
+                        </div>
+                        <div class="contenedor">
+                            @if (session('mensaje'))
+                                <div class="alert alert-info mt-2 alert-dismissible fade show" role="alert">
+                                    <strong>Importante!:</strong> {{ session('mensaje') }}.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="our-services section-home" id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5 class="text-dark">Beneficios</h5>
+                            <h3 class="font-weight text-dark mb-5">en Académico</h3>
+                        </div>
+                    </div>
+                    <div class="row" data-aos="fade-up">
+                        <div class="col-sm-4 text-lg-left">
+                            <div class="services-box" data-aos="fade-down" data-aos-easing="linear"
+                                data-aos-duration="1500">
+                                <div class="text-center">
+                                    <img src="{{ asset('img/home/ilimitado.png') }}" data-aos="zoom-in">
+                                </div>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Acceso Ilimitado</h6>
+                                <p>Disfrutarás de acceso ilimitado en la plataforma.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 text-lg-left">
+                            <div class="services-box pb-lg-0" data-aos="fade-down" data-aos-easing="linear"
+                                data-aos-duration="1500">
+                                <div class="text-center">
+                                    <img src="{{ asset('img/home/pdf.png') }}" data-aos="zoom-in">
+                                </div>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Recursos en PDF</h6>
+                                <p>Accederás de manera ilimitada a material de estudio en formato PDF y podrás descargarlo
+                                    en cualquier momento.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-4 text-lg-left">
+                            <div class="services-box" data-aos="fade-down" data-aos-easing="linear"
+                                data-aos-duration="1500">
+                                <div class="text-center">
+                                    <img src="{{ asset('img/home/examen.png') }}" data-aos="zoom-in">
+                                </div>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Exámenes por área</h6>
+                                <p>Contarás con acceso a una lista de exámenes por área para complementar tu proceso de
+                                    aprendizaje.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 my-2">
-                        <div class="mi-card">
-                            <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">Recursos!</h2>
+
+                    <div class="row" data-aos="fade-up">
+                        <div class="col-sm-4 text-lg-left">
+                            <div class="services-box  pb-lg-0" data-aos="fade-down" data-aos-easing="linear"
+                                data-aos-duration="1500">
                                 <div class="text-center">
-                                    <img style="width: 100px;height: 100px;"
-                                        src="https://cdn-icons-png.flaticon.com/512/3315/3315581.png" alt="">
+                                    <img src="{{ asset('img/home/libros.png') }}" data-aos="zoom-in">
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de material educativo en formato PDF.
-                                    Este recurso estará disponible al
-                                    final de cada Sección aprendida.</p>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Material educativo</h6>
+                                <p>Dispondrás de material educativo al finalizar cada lección, correspondiente a la unidad
+                                    aprendida.</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 my-2">
-                        <div class="mi-card">
-                            <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">Continuidad!</h2>
+
+                        <div class="col-sm-4 text-lg-left">
+                            <div class="services-box" data-aos="fade-down" data-aos-easing="linear"
+                                data-aos-duration="1500">
                                 <div class="text-center">
-                                    <img style="width: 100px;height: 100px;"
-                                        src="https://cdn-icons-png.flaticon.com/512/11421/11421424.png" alt="">
+                                    <img src="{{ asset('img/home/pago.png') }}" data-aos="zoom-in">
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-2">Puedes avanzar a tu propio ritmo en el curso, y
-                                    tendrás
-                                    la
-                                    opción de hacer clic al finalizar cada tema aprendido.</p>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Pago único por curso</h6>
+                                <p>Obtendrás acceso de por vida con un único pago por el curso que elijas.</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 my-2">
-                        <div class="mi-card">
-                            <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">Acceso a lectura!</h2>
+
+                        <div class="col-sm-4 text-lg-left">
+                            <div class="services-box pb-0" data-aos="fade-down" data-aos-easing="linear"
+                                data-aos-duration="1500">
                                 <div class="text-center">
-                                    <img style="width: 100px;height: 100px;"
-                                        src="https://cdn-icons-png.flaticon.com/512/3574/3574808.png" alt="">
+                                    <img src="{{ asset('img/home/soporte.png') }}" data-aos="zoom-in">
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-2">Dispondrás de una sección donde podrás acceder a
-                                    lecturas
-                                    interesantes y resumidas para evitar el aburrimiento.</p>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Soporte las 24 horas</h6>
+                                <p>La plataforma cuenta con soporte las 24 horas, permitiéndote acceder en cualquier momento
+                                    de tus tiempos libres.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="our-process section-home" id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6" data-aos="fade-up">
+                            <h5 class="text-dark">Únete a nuestra comunidad estudiantil</h5>
+                            <h3 class="font-weight-medium text-dark">¡Descubre Académico!</h3>
+                            <h5 class="text-dark mb-3">y diviertete</h5>
+                            <p class="font-weight-medium mb-4"> Aprende en tus tiempos libres, <br>
+                                de una forma diferente en nuestra plataforma
+                            </p>
+                            <div class="d-flex justify-content-start mb-3">
+                                <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
+                                <p class="mb-0">Material de estudio y exámenes</p>
+                            </div>
+                            <div class="d-flex justify-content-start mb-3">
+                                <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
+                                <p class="mb-0">Acceso de por vida con soporte las 24 horas</p>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
+                                <p class="mb-0">Actualización constante de la plataforma para mejorar tus estudios.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-right" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000">
+                            <img src="{{ asset('img/home/idea.png') }}" alt="idea" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="our-projects section-home" id="projects">
+                <div class="container">
+                    <div class="row mb-5">
+                        <div class="col-sm-12">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                                <h3 class="font-weight-medium text-dark ">Lista de Cursos</h3>
+                                <div><a href="{{ route('visitador.course.index') }}" class="btn btn-outline-primary">Ver
+                                        todos los cursos</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!--  OWLCOURRESL Demos -->
-    <section id="demos" class="container-fluid">
-        <div class="row">
-            <div class="large-12 columns">
-                <div class="owl-carousel owl-theme">
-                    @foreach ($courses as $course)
-                        <div class="item">
-                            <div class="text-center">
-                                <h2 class="color-general lead mb-3">{{ $course->title }}</h2>
+                <div class="mb-5" data-aos="fade-up">
+                    <div class="owl-carousel-projects owl-carousel owl-theme">
+                        @foreach ($courses as $course)
+                            <div class="item">
                                 <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
-                                    <img class="imagen imagen-owl-centrar" src="{{ $course->image->url }}" alt="">
+                                    <img class="imagen" src="{{ $course->image->url }}" alt="slider">
                                 </a>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
-                <!-- <a class="boton secondary play">Play</a>
-                                                                                                                                                <a class="boton secondary stop">Stop</a>-->
-            </div>
-        </div>
-    </section>
-    <!--OWLCOURRESL-->
-
-    <section>
-        <div class="py-5" id="">
-            <div class="contenedor">
-                <div class="row mt-5">
-                    <div class="col-md-9 my-2">
-                        <img style="width: 100%;" src="https://i.postimg.cc/jS9HHBdk/union.png" alt="">
-                    </div>
-
-                    <div class="col-md-3 my-2">
-                        <div class="card">
-                            <div class="card-body" style="text-align: justify">
-                                <p>Serás capaz de proseguir con tu proceso de aprendizaje de manera continua, ya sea en tu
-                                    dispositivo móvil o desde la comodidad de tu hogar.</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-
-                <div class="row mt-5">
-                    <div class="col-md-9 my-2">
-                        <img style="width: 100%;" src="https://i.postimg.cc/FsrVNjBG/union-dos.png" alt="">
-                    </div>
-
-                    <div class="col-md-3 my-2">
-                        <div class="card">
-                            <div class="card-body" style="text-align: justify">
-                                <p>
-                                    Podrás llevar tu avance y retomar tu continuidad en el momento que desees. Además de
-                                    ello,
-                                    tendrás acceso a ejercicios para repasar lo aprendido en formato PDF en el último
-                                    capitulo
-                                    de
-                                    cada lección
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="curso-elegir" class="p-5">
-        <div class="centrar-div">
-            <h3 class="curso-elegir-titulo">¿No sabes que curso elegir?</h3>
-            <p class="curso-elegir-parrafo">Tenemos diferentes temas para ti</p>
-        </div>
-
-        {{-- COMPONENTE LIVEWIRE BUSCADOR --}}
-        @livewire('search')
-    </section>
-
-
-    <section>
-        <div class="contenedor">
-            <div class="row mt-5">
-                <div class="col-md-3 my-2">
-                    <div class="card">
-                        <div class="card-body" style="text-align: justify">
-                            <p>
-                                Tendrás acceso a una serie de exámenes con preguntas y respuestas provenientes de
-                                evaluaciones anteriores. Estos podrás completarlos en un tiempo establecido con el
-                                objetivo
-                                de fortalecer tus conocimientos.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-9 my-2">
-                    <img style="width: 100%;" src="https://i.postimg.cc/bJSF0Qh1/image.png" alt="">
-                </div>
-            </div>
-
-            <div class="row mt-5">
-                <div class="col-md-3 my-2">
-                    <div class="card">
-                        <div class="card-body" style="text-align: justify">
-                            <p> Una vez que hayas finalizado tu examen, tendrás la oportunidad de visualizar tu
-                                calificación
-                                junto con la lista de respuestas y los resultados que seleccionaste.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-9 my-2">
-                    <img style="width: 100%;" src="https://i.postimg.cc/JnkC7sp4/image.png" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <section id="ultimos-cursos" class="text-center">
-        <h3 class="ultimos-cursos-titulo color-general">Ultimos cursos</h3>
-        <p class="ultimos-cursos-parrafo color-general">Inscríbete y accede a una amplia variedad de recursos educativos
-        </p>
-        <div>
-            {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
-            <x-course-card :courses="$courses"></x-course-card>
-        </div>
-    </section>
-
-
-    <section>
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner fondo-general">
-                <div class="carousel-item active">
-                    <p class="text-center p-3" style="font-size: 20px">La educación no es preparación para la vida, es
-                        vida en sí misma. Aprovéchala al máximo.</p>
-                </div>
-
-                <div class="carousel-item">
-                    <p class="text-center p-3" style="font-size: 20px">El éxito es la suma de pequeños esfuerzos repetidos
-                        día tras día.</p>
-                </div>
-
-                <div class="carousel-item">
-                    <p class="text-center p-3" style="font-size: 20px">No te preocupes por los errores y fracasos. Son
-                        parte del viaje hacia el éxito.
-                    </p>
-                </div>
-
-                <div class="carousel-item">
-                    <p class="text-center p-3" style="font-size: 20px">El conocimiento es el mejor activo que puedes
-                        poseer. Invierte en ti mismo.</p>
-                </div>
-
-                <div class="carousel-item">
-                    <p class="text-center p-3" style="font-size: 20px">La perseverancia no es un sprint, es un maratón.
-                        Sigue adelante paso a paso.
-                    </p>
-                </div>
-
-                <div class="carousel-item">
-                    <p class="text-center p-3" style="font-size: 20px">La mente es como un paracaídas, solo funciona
-                        cuando está abierta.</p>
-                </div>
-
-                <div class="carousel-item">
-                    <p class="text-center p-3" style="font-size: 20px">No hay atajos para ningún lugar que valga la pena.
-                    </p>
-                </div>
-
-                <div class="carousel-item">
-                    <p class="text-center p-3" style="font-size: 20px">No te compares con los demás. Compara tu hoy con tu
-                        ayer y trabaja para un mejor mañana.
-                    </p>
-                </div>
-
-                <div class="carousel-item">
-                    <p class="text-center p-3" style="font-size: 20px">La educación es el pasaporte para el futuro; el
-                        mañana pertenece a aquellos que se preparan hoy. - Malcolm X
-                    </p>
-                </div>
-
-                <div class="carousel-item">
-                    <p class="text-center p-3" style="font-size: 20px">Cada error es una oportunidad de aprendizaje. No
-                        temas equivocarte, teme no aprender de ello.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <section class="" id="contenido-bloques">
-        <div class="contenedor">
-            <div class="row">
-                @foreach ($contenidos as $contenido)
-                    <div class="col-md-3 my-2">
-                        <div class="mi-card">
-                            <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">{{ $contenido->title }}</h2>
-                                <div class="text-center">
-                                    @if ($contenido->url)
-                                        <a href="{{ route('visitador.contenido', ['resource' => $contenido]) }}">
-                                            <img class="imagen" src="{{ $contenido->url }}" class=""
-                                                alt="Imagen del curso"></a>
-                                    @else
-                                        <a href="{{ route('visitador.contenido', ['resource' => $contenido]) }}">
-                                            <img class="imagen"
-                                                src="https://cdn-icons-png.flaticon.com/512/2436/2436648.png"
-                                                class="" alt="..."></a>
-                                    @endif
+                <div class="container">
+                    <div class="row pt-5 mt-5 pb-5 mb-5">
+                        <div class="col-sm-3">
+                            <div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-down">
+                                <img src="{{ asset('img/home/usuarios.png') }}" alt="satisfied-client" class="mr-3">
+                                <div>
+                                    <h4 class="font-weight-bold text-dark mb-0"><span class="scVal">0</span>+</h4>
+                                    <h5 class="text-dark mb-0">Estudiantes</h5>
                                 </div>
-                                <p class="contenido-bloques-parrafo mt-3">
-                                    {{ Str::limit($contenido->subtitle, 40) }}
-                                </p>
-
-                                <a href="{{ route('visitador.contenido', ['resource' => $contenido]) }}"
-                                    class="mi-boton general mt-2 w-100">Detalles</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-up">
+                                <img src="{{ asset('img/home/pruebas.png') }}" alt="satisfied-client" class="mr-3">
+                                <div>
+                                    <h4 class="font-weight-bold text-dark mb-0"><span class="fpVal">0</span>+</h4>
+                                    <h5 class="text-dark mb-0">Exámenes</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-down">
+                                <img src="{{ asset('img/home/videos.png') }}" alt="Team Members" class="mr-3">
+                                <div>
+                                    <h4 class="font-weight-bold text-dark mb-0"><span class="tMVal">0</span>+</h4>
+                                    <h5 class="text-dark mb-0">Lista de Videos</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-up">
+                                <img src="{{ asset('img/home/recursos.png') }}" alt="Our Blog Posts" class="mr-3">
+                                <div>
+                                    <h4 class="font-weight-bold text-dark mb-0"><span class="bPVal">0</span>+</h4>
+                                    <h5 class="text-dark mb-0">Recursos PDF</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            </section>
+
+
+
+            <section class="testimonial section-home" id="testimonial">
+                <div class="container">
+                    <div class="row  mt-md-0 mt-lg-4">
+                        <div class="col-sm-6 text-white" data-aos="fade-up">
+                            <p class="font-weight-bold mb-3"><strong>Testimoniales</strong></p>
+                            <h3 class="font-weight-medium">Comentarios <br>compatidos</h3>
+                            <ul class="flipster-custom-nav">
+                                <li class="flipster-custom-nav-item">
+                                    <a href="javascript:;" class="flipster-custom-nav-link" title="0"></a>
+                                </li>
+                                <li class="flipster-custom-nav-item">
+                                    <a href="javascript:;" class="flipster-custom-nav-link" title="1"></a>
+                                </li>
+                                <li class="flipster-custom-nav-item">
+                                    <a href="javascript:;" class="flipster-custom-nav-link active" title="2"></a>
+                                </li>
+                                <li class="flipster-custom-nav-item">
+                                    <a href="javascript:;" class="flipster-custom-nav-link" title="3"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6" data-aos="fade-up">
+                            <div id="testimonial-flipster">
+                                <ul>
+                                    <li>
+                                        <div class="testimonial-item">
+                                            <img src="{{ asset('img/home/testimoniales.png') }}" alt="icon"
+                                                class="testimonial-icons">
+                                            <p>“La lista de temas son precisos y es muy útil para repasar lo esencial con
+                                                los
+                                                ejércitos en pdf.”
+                                            </p>
+                                            <h6 class="testimonial-author">Alonso</h6>
+                                            <p class="testimonial-destination">Estudiante</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="testimonial-item">
+                                            <img src="{{ asset('img/home/testimoniales.png') }}" alt="icon"
+                                                class="testimonial-icons">
+                                            <p>“La lista de temas son precisos y es muy útil para repasar lo esencial con
+                                                los
+                                                ejércitos en pdf.”
+                                            </p>
+                                            <h6 class="testimonial-author">Alonso</h6>
+                                            <p class="testimonial-destination">Estudiante</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="testimonial-item">
+                                            <img src="{{ asset('img/home/testimoniales.png') }}" alt="icon"
+                                                class="testimonial-icons">
+                                            <p>“Bien condensado, y la inclusión de archivos PDF al final de cada lección
+                                                resulta muy útil.”
+                                            </p>
+                                            <h6 class="testimonial-author">Anthony Nuñez</h6>
+                                            <p class="testimonial-destination">Estudiante</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="testimonial-item">
+                                            <img src="{{ asset('img/home/testimoniales.png') }}" alt="icon"
+                                                class="testimonial-icons">
+                                            <p>“Bien condensado, y la inclusión de archivos PDF al final de cada lección
+                                                resulta muy útil.”
+                                            </p>
+                                            <h6 class="testimonial-author">Anthony Nuñez</h6>
+                                            <p class="testimonial-destination">Estudiante</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="contactus section-home" id="contact">
+                <div class="container">
+                    <div class="row mb-5 pb-5">
+                        <div class="col-sm-5" data-aos="fade-up" data-aos-offset="-500">
+                            <img src="{{ asset('img/home/contact.jpg') }}" alt="contact" class="img-fluid">
+                        </div>
+                        <div class="col-sm-7" data-aos="fade-up" data-aos-offset="-500">
+                            <h3 class="font-weight-medium text-dark mt-5 mt-lg-0">¿Alguna Sugerencia?</h3>
+                            <h5 class="text-dark mb-5">Envíanos tus sugerencias en el siguiente formulario</h5>
+                            <form>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name"
+                                                placeholder="Nombre*">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="mail"
+                                                placeholder="Gmail*">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <textarea name="message" id="message" class="form-control" placeholder="Mensaje*" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <a href="#" class="btn-solid-sm">ENVIAR</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
+
+
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <address>
+                                <p>Académico</p>
+                                <p class="mb-4">Plataforma de Educación</p>
+                                <div class="d-flex align-items-center">
+                                    <p class="mr-4 mb-0">+51 924 080 517</p>
+                                    <a href="#" class="footer-link d-block">academico2023edu@gmail.com</a>
+                                </div>
+                            </address>
+                            <div class="social-icons">
+                                <h6 class="footer-title font-weight-bold">
+                                    Redes Sociales
+                                </h6>
+                                <div class="d-flex">
+                                    <a target="_blank"
+                                        href="https://www.linkedin.com/in/anthony-eduardo-nu%C3%B1ez-canchari-05b1371a0/"><i
+                                            class='bx bxl-linkedin-square'></i></a>
+                                    <a target="_blank" href="https://www.facebook.com/profile.php?id=61553432355046"><i
+                                            class='bx bxl-facebook-circle'></i></a>
+                                    <a target="_blank" href="https://www.tiktok.com/@academico2023edu"><i
+                                            class='bx bxl-tiktok'></i></a>
+                                    <a target="_blank" href="https://www.instagram.com/academico2023edu/"><i
+                                            class='bx bxl-instagram-alt'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h6 class="footer-title">Matemáticas</h6>
+                                    <ul class="list-footer">
+                                        <li><a href="https://academico.familc.com/course/show/aritmetica"
+                                                class="footer-link">Aritmética</a></li>
+                                        <li><a href="https://academico.familc.com/course/show/geometria"
+                                                class="footer-link">Geometría</a></li>
+                                        <li><a href="https://academico.familc.com/course/show/algebra"
+                                                class="footer-link">Álgebra</a></li>
+                                        <li><a href="https://academico.familc.com/course/show/trigonometria"
+                                                class="footer-link">Trigonometría</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h6 class="footer-title">Ciencias Sociales</h6>
+                                    <ul class="list-footer">
+                                        <li><a href="https://academico.familc.com/course/show/historia-del-peru"
+                                                class="footer-link">Historia del Perú</a></li>
+                                        <li><a href="https://academico.familc.com/course/show/literatura"
+                                                class="footer-link">Literatura</a></li>
+                                        <li><a href="https://academico.familc.com/course/show/lenguaje"
+                                                class="footer-link">Lenguaje</a></li>
+                                        <li><a href="https://academico.familc.com/course/show/razonamiento-verbal"
+                                                class="footer-link">Razonamiento Verbal
+                                            </a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h6 class="footer-title">Ciencias Naturales</h6>
+                                    <ul class="list-footer">
+                                        <li><a href="https://academico.familc.com/course/show/quimica"
+                                                class="footer-link">Química</a></li>
+                                        <li><a href="https://academico.familc.com/course/show/fisica"
+                                                class="footer-link">Física</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <p class="mb-0 text-small pt-1">Copyright © <a href="https://academico.familc.com/"
+                                    class="text-white" target="_blank">Academico</a> @php
+                                        echo date('Y');
+                                    @endphp </p>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-start">
+                                <p class="font-weight-medium text-center text-small">
+                                    <a href="https://academico.familc.com/" target="_blank"
+                                        class="text-white">Plataformna de Educación</a> Unete a la Cominudad
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
 @endsection

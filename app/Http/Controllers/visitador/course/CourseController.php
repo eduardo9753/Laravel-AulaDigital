@@ -67,12 +67,16 @@ class CourseController extends Controller
     ]);
   }
 
+  //MI CURSOS EN DONDE ME INSCRITO
   public function courses()
   {
     $courseIds = DB::table('course_user')->where('user_id', '=', auth()->user()->id)->pluck('course_id');
-    $courses = Course::whereIn('id', $courseIds)->get();
+    $courseUsers = Course::whereIn('id', $courseIds)->get();
+    $courses = Course::where('status', '=', 3)->latest('id')->take(8)->get();
+
     return view('visitador.course.list', [
-      'courses' => $courses,
+      'courseUsers' => $courseUsers,
+      'courses' => $courses
     ]);
   }
 }

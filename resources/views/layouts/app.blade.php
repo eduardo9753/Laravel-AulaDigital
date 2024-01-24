@@ -18,10 +18,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- Owl Stylesheets -->
-    <link rel="stylesheet" href="{{ asset('lib/owl/dist/assets/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('lib/owl/dist/assets/owl.theme.default.min.css') }}">
-
 
     {{-- links css generales --}}
     <link rel="stylesheet" href="{{ asset('css/generales.css') }}">
@@ -36,7 +32,14 @@
     <link rel="stylesheet" href="{{ asset('css/responsive/course.css') }}">
 
     {{-- links css visitador --}}
-    <link rel="stylesheet" href="{{ asset('css/visitador/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/visitador/home/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/visitador/home/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/visitador/home/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/visitador/home/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/visitador/home/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/visitador/home/jquery.flipster.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/visitador/home/style.css') }}">
+
     <link rel="stylesheet" href="{{ asset('css/visitador/course.css') }}">
 
     <!-- DATATABLES CSS -->
@@ -112,18 +115,19 @@
     <script src="{{ asset('lib/datatable/dataTables.min.js') }}"></script>
 
 
-    <!-- javascript OWL CAROUSEL LIB-->
-    <script src="{{ asset('lib/owl/dist/owl.carousel.js') }}"></script>
-    <script src="{{ asset('lib/owl/dist/owl.carousel.min.js') }}"></script>
-
     <!--SCCRIPT GENERALES-->
     <script src="{{ asset('js/dataTables.js') }}"></script>
 
-    <script src="{{ asset('js/owl.js') }}"></script>
-
+   
     <script src="{{ asset('js/login/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/login/main.js') }}"></script>
 
+
+    <script src="{{ asset('js/home/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('js/home/owl.carousel.js') }}"></script>
+    <script src="{{ asset('js/home/aos.js') }}"></script>
+    <script src="{{ asset('js/home/jquery.flipster.min.js') }}"></script>
+    <script src="{{ asset('js/home/template.js') }}"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
