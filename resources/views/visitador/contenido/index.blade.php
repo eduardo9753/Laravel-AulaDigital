@@ -38,3 +38,8 @@
         </div>
     </section>
 @endsection
+
+
+@section('footer')
+    @include('template.footer')
+@endsection

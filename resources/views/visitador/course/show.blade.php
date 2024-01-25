@@ -61,7 +61,7 @@
                                             <div class="d-flex ">
                                                 <div>
                                                     <i class='bx bx-label color-general'
-                                                    style='color:#4b22f4;margin-right: 3px; margin-top:5px'></i>
+                                                        style='color:#4b22f4;margin-right: 3px; margin-top:5px'></i>
                                                 </div>
 
                                                 <li class="">{{ $goal->name }}</li>
@@ -118,7 +118,8 @@
                                 <ul>
                                     @foreach ($course->requirements as $requirement)
                                         <div class="d-flex">
-                                            <i class='bx bx-check' style='color:#4b22f4;margin-right: 3px; margin-top:5px;'></i>
+                                            <i class='bx bx-check'
+                                                style='color:#4b22f4;margin-right: 3px; margin-top:5px;'></i>
                                             <li>{{ $requirement->name }}</li>
                                         </div>
                                     @endforeach
@@ -144,15 +145,16 @@
                     {{-- INPRIMIENDO LA DESCRIPCION DEL CURSO --}}
 
 
-                     {{-- INPRIMIENDO LA AUDIENCIA DEL CURSO --}}
-                     <section class="mt-3">
+                    {{-- INPRIMIENDO LA AUDIENCIA DEL CURSO --}}
+                    <section class="mt-3">
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="mb-3 color-general">Audiencia</h3>
                                 <ul>
                                     @foreach ($course->audiences as $audience)
                                         <div class="d-flex">
-                                            <i class='bx bxs-pin' style='color:#4b22f4;margin-right: 3px; margin-top:5px'></i>
+                                            <i class='bx bxs-pin'
+                                                style='color:#4b22f4;margin-right: 3px; margin-top:5px'></i>
                                             <li>{{ $audience->name }}</li>
                                         </div>
                                     @endforeach
@@ -247,5 +249,9 @@
                 {{-- COLUMNA DERECHA --}}
             </div>
         </div>
+    </div>
+
+    <div class="mt-5">
+        @include('template.footer')
     </div>
 @endsection

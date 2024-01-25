@@ -5,10 +5,12 @@ use App\Http\Controllers\admin\auth\LogoutController;
 use App\Http\Controllers\admin\auth\RecoverController;
 use App\Http\Controllers\admin\auth\RegisterController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\visitador\contact\ContactController;
 use App\Http\Controllers\visitador\course\CourseController;
 use App\Http\Controllers\visitador\examResponder\ExamResponderController;
 use App\Http\Controllers\visitador\home\HomeController;
 use App\Http\Controllers\visitador\read\ReadController;
+use App\Http\Controllers\visitador\testimonial\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -55,6 +57,12 @@ Route::post('/admin/logout', [LogoutController::class, 'logout'])->name('admin.l
 Route::get('/course', [CourseController::class, 'index'])->name('visitador.course.index');
 Route::get('/course/show/{course:slug}', [CourseController::class, 'show'])->name('visitador.course.show');
 
+
+//CONTACTOS
+Route::get('/contact-me', [ContactController::class, 'index'])->name('visitador.contact.index');
+
+//TESTIMONIALES
+Route::get('/testimoniales' , [TestimonialController::class ,'index'])->name('visitador.testimonial.index');
 
 //PERSONAS MATRICULADAS AL CURSO Y SEGUIMIENTO DEL CURSO
 Route::post('/course/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('visitador.course.enrolled');

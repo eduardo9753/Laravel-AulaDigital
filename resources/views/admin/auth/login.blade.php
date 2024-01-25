@@ -45,7 +45,7 @@
                     <div class="row my-2">
                         <div class="col d-flex justify-content-center">
                             <!-- Checkbox -->
-                            <div class="form-check">
+                            <div class="form-check d-flex">
                                 <label class="form-check-label" for="remember"> Recordarme </label>
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" />
                             </div>

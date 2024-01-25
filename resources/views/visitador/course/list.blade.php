@@ -55,7 +55,5 @@
         </section>
     @endif
 
-
-
-
+    @include('template.footer')
 @endsection

@@ -63,7 +63,7 @@
                         }
                         ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
-                            <strong>Referencia!</strong>
+                            <strong>Referencia:</strong>
                             <p>Material extraído de la Web - {{ $current->name }} [Video]. YouTube. Publicado por el
                                 canal
                                 <strong>{{ $channelName }}</strong>. Disponible en: <a target="_blank"

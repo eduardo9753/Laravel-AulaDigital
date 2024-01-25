@@ -25,4 +25,6 @@
             <x-course-card :courses="$courses"></x-course-card>
         </div>
     </section>
+
+    @include('template.footer')
 @endsection

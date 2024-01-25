@@ -8,8 +8,9 @@
                         <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
                         <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
                         <li class="item"><a href="{{ route('visitador.course.list') }}">Mis cursos</a></li>
-                        <li class="item"><a href="{{ route('visitador.read.index') }}">Recursos</a></li>
-                        <li class="item"><a href="{{ route('visitador.examenes.index') }}">Exámenes</a></li>
+                        <li class="item"><a href="{{ route('visitador.read.index') }}">Mis recursos</a></li>
+                        <li class="item"><a href="{{ route('visitador.examenes.index') }}">Mis exámenes</a></li>
+                        <li class="item"><a href="{{ route('visitador.contact.index') }}">Contacto</a></li>
                         <li class="item"><a href="{{ route('profile.index', ['user' => auth()->user()]) }}">Bienvenido:
                                 {{ auth()->user()->name }}</a></li>
                         <li class="item">
@@ -23,7 +24,9 @@
                     @guest
                         <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
                         <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
-                        <li class="item"><a href="{{ route('login') }}">Ingresar</a></li>
+                        <li class="item"><a href="{{ route('visitador.contact.index') }}">Contacto</a></li>
+                        <li class="item"><a href="{{ route('visitador.testimonial.index') }}">Testimoniales</a></li>
+                        <li class="item"><a href="{{ route('login') }}">Acceder</a></li>
                         <li class="item"><a href="{{ route('admin.register.index') }}">Registrarme</a></li>
                     @endguest
                 </ul>
