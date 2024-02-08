@@ -20,27 +20,29 @@
 
     @if ($courseUsers->count())
         <section id="contenido-bloques">
-            <div class="row">
-                @foreach ($courseUsers as $course)
-                    <div class="col-md-3 mb-3">
-                        <div class="mi-card">
-                            <div class="mi-card-content">
-                                <div class="text-center">
-                                    <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
-                                        <img class="imagen" src="{{ $course->image->url }}" alt="">
-                                    </a>
+            <div class="container">
+                <div class="row">
+                    @foreach ($courseUsers as $course)
+                        <div class="col-md-3 mb-3">
+                            <div class="mi-card">
+                                <div class="mi-card-content">
+                                    <div class="text-center">
+                                        <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
+                                            <img class="imagen" src="{{ $course->image->url }}" alt="">
+                                        </a>
+                                    </div>
+                                    <h4 class="contenido-bloques-titulo">{{ $course->title }}</h4>
+                                    <p class="contenido-bloques-parrafo mt-3 mt-3">Colaborador: {{ $course->teacher->name }}
+                                    </p>
+                                    @can('enrolled', $course)
+                                        <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
+                                            class="mi-boton rojo mt-3 w-100">Continuar con el curso</a>
+                                    @endcan
                                 </div>
-                                <h4 class="contenido-bloques-titulo">{{ $course->title }}</h4>
-                                <p class="contenido-bloques-parrafo mt-3 mt-3">Colaborador: {{ $course->teacher->name }}
-                                </p>
-                                @can('enrolled', $course)
-                                    <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
-                                        class="mi-boton rojo mt-3 w-100">Continuar con el curso</a>
-                                @endcan
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </section>
     @else
