@@ -18,19 +18,29 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3 my-3">
-                            <div class="text-center">
-                                <img src="{{ $resource->img }}" alt="..."
-                                    style="width: 100%;height: 240px;border-radius: 10px;object-fit: scale-down">
-                            </div>
 
-                            <div class="card">
-                                <div class="card-body">
+                        <div class="col-md-12 my-3">
+                            <div id="flipbook">
+                                <iframe style="width: 100%;height: 550px;" src="{{ $archive->url }}"
+                                    title="Material educativo">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
                                     <div class="alert alert-info alert-dismissible fade show" role="alert">
                                         <p>
                                             <strong>Recuperado de:</strong>
-                                            <a target="_blank" href="{{ $resource->url }}" title="{{ $resource->nombre }}">
-                                                {{ $resource->nombre }}
+                                            <a target="_blank" href="{{ $archive->cita }}" title="{{ $archive->cita }}">
+                                                {{ $archive->cita }}
                                             </a>
                                         </p>
 
@@ -38,26 +48,17 @@
                                             aria-label="Close"></button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-9 my-3">
-                            <div id="flipbook">
-                                <iframe style="width: 100%;height: 550px;" src="{{ $resource->url }}"
-                                    title="Material educativo">
-                                </iframe>
-                            </div>
-                        </div>
 
-                        <!-- Agrega las bibliotecas Turn.js -->
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
-                        <script>
-                            // Inicializa el flipbook una vez que el contenido esté cargado
-                            $("#flipbook").turn({
-                                width: '100%',
-                                height: 550,
-                                autoCenter: true
-                            });
-                        </script>
+                                <div class="col-md-2">
+                                    <div class="text-center">
+                                        <img src="{{ $course->image->url }}"
+                                            style="width: 60px;height: 60px;border-radius: 50%"
+                                            alt="{{ $archive->course->title }}"
+                                            style="width: 100%;height: 240px;border-radius: 10px;object-fit: scale-down">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

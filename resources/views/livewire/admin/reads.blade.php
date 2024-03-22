@@ -8,31 +8,61 @@
                     <div class="card">
                         <div class="card-body">
                             <!-- FORMULARIO PARA CREAR UN RECURSO "en este caso un contenido" DEL CURSO -->
-                            @if (!$resource_id)
+                            @if (!$archive_id)
                                 <form wire:submit.prevent="create">
                                     <div class="form-group my-2">
-                                        <label for="">Nombre de la lectura:</label>
-                                        <input type="text" wire:model="resourceable_type" class="form-control">
+                                        <label for="">Curso:</label>
+                                        <select class="form-select" wire:model="course_id">
+                                            @foreach ($courses as $course)
+                                                <option value="{{ $course->id }}">{{ $course->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
-                                        @error('resourceable_type')
+                                    <div class="form-group my-2">
+                                        <label for="">Nombre de la lectura:</label>
+                                        <input type="text" wire:model="name" class="form-control"
+                                            placeholder="nombre lectura">
+
+                                        @error('name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
 
                                     <div class="form-group my-2">
-                                        <label for="">Imagen de la lectura:</label>
-                                        <input type="text" wire:model="img" class="form-control">
+                                        <label for="">Imagen de la lectura(Url):</label>
+                                        <input type="text" wire:model="image" class="form-control"
+                                            placeholder="url de la imagen">
 
-                                        @error('img')
+                                        @error('image')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group my-2">
+                                        <label for="">Cita:</label>
+                                        <input type="text" wire:model="cita" class="form-control"
+                                            placeholder="cita del documento">
+
+                                        @error('cita')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
 
                                     <div class="form-group my-2">
                                         <label for="">Url de la lectura:</label>
-                                        <textarea wire:model="url" style="width: 100%; height: 80px !important;" class="form-control"></textarea>
+                                        <textarea wire:model="url" class="form-control" placeholder="url"></textarea>
 
                                         @error('url')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group my-2">
+                                        <label for="">Desccription:</label>
+                                        <textarea wire:model="description" class="form-control" placeholder="descripción"></textarea>
+
+                                        @error('description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -43,31 +73,61 @@
 
 
                             <!-- FORMULARIO PARA EDITAR UN RECURSO "en este caso un contenido" DEL CURSO -->
-                            @if ($resource_id)
+                            @if ($archive_id)
                                 <form wire:submit.prevent="update">
                                     <div class="form-group my-2">
-                                        <label for="">Nombre de la lectura:</label>
-                                        <input type="text" wire:model="resourceable_type" class="form-control">
+                                        <label for="">Curso:</label>
+                                        <select class="form-select" wire:model="course_id">
+                                            @foreach ($courses as $course)
+                                                <option value="{{ $course->id }}">{{ $course->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
-                                        @error('resourceable_type')
+                                    <div class="form-group my-2">
+                                        <label for="">Nombre de la lectura:</label>
+                                        <input type="text" wire:model="name" class="form-control"
+                                            placeholder="nombre lectura">
+
+                                        @error('name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
 
                                     <div class="form-group my-2">
-                                        <label for="">Imagen de la lectura:</label>
-                                        <input type="text" wire:model="img" class="form-control">
+                                        <label for="">Imagen de la lectura(Url):</label>
+                                        <input type="text" wire:model="image" class="form-control"
+                                            placeholder="url de la imagen">
 
-                                        @error('img')
+                                        @error('image')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group my-2">
+                                        <label for="">Cita:</label>
+                                        <input type="text" wire:model="cita" class="form-control"
+                                            placeholder="cita del documento">
+
+                                        @error('cita')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
 
                                     <div class="form-group my-2">
                                         <label for="">Url de la lectura:</label>
-                                        <textarea wire:model="url" style="width: 100%; height: 80px !important;" class="form-control"></textarea>
+                                        <textarea wire:model="url" class="form-control" placeholder="url"></textarea>
 
                                         @error('url')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group my-2">
+                                        <label for="">Desccription:</label>
+                                        <textarea wire:model="description" class="form-control" placeholder="descripción"></textarea>
+
+                                        @error('description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -82,13 +142,14 @@
                 <div class="col-md-7">
                     <div class="card sombra">
                         <div class="card-header fondo-general">
-                            <h2 class="lead text-white">Lecturas</h2>
+                            <h2 class="lead text-white">Recursos Descargables</h2>
                         </div>
                         <div class="card-body table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>CURSO</th>
                                         <th>NOMBRE</th>
                                         <th>CONTENIDO</th>
                                         <th>
@@ -100,18 +161,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($resources as $resource)
+                                    @foreach ($archives as $archive)
                                         <tr>
-                                            <td>{{ $resource->id }}</td>
-                                            <td>{{ $resource->resourceable_type }}</td>
-                                            <td>{{ Str::limit($resource->url, 20) }}</td>
+                                            <td>{{ $archive->id }}</td>
+                                            <td>{{ $archive->title }}</td>
+                                            <td>{{ $archive->name }}</td>
+                                            <td>{{ Str::limit($archive->url, 20) }}</td>
                                             <td>
-                                                <button wire:click="edit({{ $resource->id }})"
+                                                <button wire:click="edit({{ $archive->id }})"
                                                     class="mi-boton azul btn-sm"><i
                                                         class='bx bx-edit-alt bx-tada'></i></button>
                                             </td>
                                             <td>
-                                                <button wire:click="delete({{ $resource->id }})"
+                                                <button wire:click="delete({{ $archive->id }})"
                                                     class="mi-boton rojo btn-sm"><i
                                                         class='bx bx-message-alt-x bx-burst'></i></button>
                                             </td>

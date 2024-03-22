@@ -111,4 +111,10 @@ class Course extends Model
     {
         return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');
     }
+
+    //DEFINIR LA RELACION CON ARCHIVE
+    public function archives()
+    {
+        return $this->hasMany(Archive::class);
+    }
 }

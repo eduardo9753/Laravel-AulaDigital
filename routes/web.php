@@ -70,7 +70,7 @@ Route::get('/course-status/{course:slug}', [CourseController::class, 'status'])-
 Route::get('/list/course/student', [CourseController::class, 'courses'])->middleware('auth')->name('visitador.course.list');
 
 Route::get('/lectura', [ReadController::class, 'index'])->name('visitador.read.index');
-Route::get('/lectura/show/{resource}', [ReadController::class, 'show'])->name('visitador.read.show');
+Route::get('/lectura/show/{archive}', [ReadController::class, 'show'])->name('visitador.read.show');
 
 
 //EXAMENES

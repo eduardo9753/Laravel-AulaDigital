@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Archive;
+use App\Models\Course;
 use App\Models\Image;
 use App\Models\Resource;
 use Illuminate\Support\Facades\DB;
@@ -9,57 +11,60 @@ use Livewire\Component;
 
 class Reads extends Component
 {
-    public $resources;
+    public $courses;
 
-    public $resource_id;
+    public $archives;
+    public $archive_id;
+    public $course_id;
+    public $name;
+    public $image;
+    public $cita;
     public $url;
-    public $resourceable_type; //SERA EL NOMBRE DEL LIBRO
+    public $description;
 
-    public $image_id;
-    public $img;              //resourceable_id PARA LAS LECTURAS SERA DE  9999
 
 
     //
     public function mount()
     {
-        $this->resources =  Resource::join('images', 'resources.id', '=', 'images.imageable_id')
+        $this->archives =  Course::join('archives', 'courses.id', '=', 'archives.course_id')
             ->select(
-                'resources.url',
-                'resources.resourceable_type',
-                'resources.id',
-                'images.url as img',
-                'images.imageable_id',
-                'images.imageable_type'
+                'courses.title',
+                'archives.id',
+                'archives.url',
+                'archives.name',
+                'archives.image',
+                'archives.url'
             )
-            ->where('resources.resourceable_id', '=', '9999')
             ->get();
+        $this->course_id = Course::first()->id; //ASIGNAMOS EL PRIMER ID DE LA TABLA A LA VARIABLE PARA QUE NO DEE NULL
         //@dump($url, $resourceable_id)
     }
 
 
     public function render()
     {
+        $this->courses = Course::all();
         return view('livewire.admin.reads');
     }
 
     public function create()
     {
         $this->validate([
-            'resourceable_type' => 'required',
-            'img' => 'required',
-            'url' => 'required'
+            'name' => 'required',
+            'image' => 'required',
+            'cita' => 'required',
+            'url' => 'required',
+            'description' => 'required'
         ]);
 
-        $resource = Resource::create([
+        Archive::create([
+            'course_id' => $this->course_id,
+            'name' => $this->name,
+            'image' => $this->image,
+            'cita' => $this->cita,
             'url' => $this->url,
-            'resourceable_id' => '9999',
-            'resourceable_type' => $this->resourceable_type
-        ]);
-
-        Image::create([
-            'url' => $this->img,
-            'imageable_id' => $resource->id,
-            'imageable_type' => 'App\Models\Resource'
+            'description' => $this->description
         ]);
 
         $this->reload();
@@ -69,37 +74,37 @@ class Reads extends Component
 
     public function edit($id)
     {
-        $resource = Resource::find($id);
-        $this->resource_id = $resource->id;
-        $this->url = $resource->url;
-        $this->resourceable_type = $resource->resourceable_type;
+        $archives = Archive::find($id);
+        $this->archive_id = $archives->id;
+        $this->course_id = $archives->course_id;
+        $this->name = $archives->name;
+        $this->image = $archives->image;
+        $this->cita = $archives->cita;
+        $this->url = $archives->url;
+        $this->description = $archives->description;
 
-        $image = DB::table('images')->where('imageable_id', $resource->id)->first();
-        $this->image_id = $image->id;
-        $this->img = $image->url;
+        $this->reload();
     }
 
 
     public function update()
     {
         $this->validate([
-            'resourceable_type' => 'required',
-            'img' => 'required',
-            'url' => 'required'
+            'name' => 'required',
+            'image' => 'required',
+            'cita' => 'required',
+            'url' => 'required',
+            'description' => 'required'
         ]);
 
-        $resource = Resource::find($this->resource_id);
-        $resource->update([
+        $archives = Archive::find($this->archive_id);
+        $archives->update([
+            'course_id' => $this->course_id,
+            'name' => $this->name,
+            'image' => $this->image,
+            'cita' => $this->cita,
             'url' => $this->url,
-            'resourceable_id' => '9999',
-            'resourceable_type' => $this->resourceable_type
-        ]);
-
-        $image = Image::find($this->image_id);
-        $image->update([
-            'url' => $this->img,
-            'imageable_id' => $resource->id,
-            'imageable_type' => 'App\Models\Resource'
+            'description' => $this->description
         ]);
 
         $this->reload();
@@ -109,30 +114,33 @@ class Reads extends Component
 
     public function delete($id)
     {
-
+        $archives = Archive::find($id);
+        $archives->delete();
+        $this->reload();
+        $this->resetInputFields();
     }
 
     public function reload()
     {
-        $this->resources =  Resource::join('images', 'resources.id', '=', 'images.imageable_id')
+        $this->archives =  Course::join('archives', 'courses.id', '=', 'archives.course_id')
             ->select(
-                'resources.url',
-                'resources.resourceable_type',
-                'resources.id',
-                'images.url as img',
-                'images.imageable_id',
-                'images.imageable_type'
+                'courses.title',
+                'archives.id',
+                'archives.url',
+                'archives.name',
+                'archives.image',
+                'archives.url'
             )
-            ->where('resources.resourceable_id', '=', '9999')
             ->get();
     }
 
     //LIMPIAR CAJAS
     public function resetInputFields()
     {
-        $this->resource_id = '';
-        $this->img = '';
-        $this->resourceable_type = '';
+        $this->name = '';
+        $this->image = '';
+        $this->cita = '';
         $this->url = '';
+        $this->description = '';
     }
 }
