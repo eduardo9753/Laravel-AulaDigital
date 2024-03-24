@@ -23,6 +23,9 @@ class ExamResponderController extends Controller
     //para inscribirme al examen
     public function index()
     {
+        //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES
+        $this->authorize('viewSubscription', auth()->user());
+
         $exams = Exam::where('estado', '=', 'activo')->get();
         return view('visitador.examResponder.index', [
             'exams' => $exams
@@ -49,6 +52,9 @@ class ExamResponderController extends Controller
     //para resolver el examen
     public function status(Exam $exam)
     {
+        //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES
+        $this->authorize('viewSubscription', auth()->user());
+
         //METODO AUTORIZAR ENTRAR AL EXAMEN AL USUARIO AUTENTICADO
         $this->authorize('enrolledExamUser', $exam);
 
@@ -67,6 +73,9 @@ class ExamResponderController extends Controller
     //para mostrar el examen las respuestas y su calificacion
     public function show(Exam $exam)
     {
+        //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES
+        $this->authorize('viewSubscription', auth()->user());
+
         //dd($exam);
         //usar el police para validar la inscrion del alumno con el examen "exam_users"
         //METODO AUTORIZAR ENTRAR AL EXAMEN AL USUARIO AUTENTICADO

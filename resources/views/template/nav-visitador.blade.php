@@ -5,20 +5,36 @@
             <nav>
                 <ul class="menu-item">
                     @auth
-                        <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
-                        <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
-                        <li class="item"><a href="{{ route('visitador.course.list') }}">Mis cursos</a></li>
-                        <li class="item"><a href="{{ route('visitador.read.index') }}">Mis recursos</a></li>
-                        <li class="item"><a href="{{ route('visitador.examenes.index') }}">Mis exámenes</a></li>
-                        <li class="item"><a href="{{ route('visitador.contact.index') }}">Contacto</a></li>
-                        <li class="item"><a href="{{ route('profile.index', ['user' => auth()->user()]) }}">Perfil:
-                                {{ auth()->user()->name }}</a></li>
-                        <li class="item">
-                            <form action="{{ route('admin.logout') }}" method="POST">
-                                @csrf
-                                <input type="submit" class="btn btn-danger w-100" value="Salir">
-                            </form>
-                        </li>
+                        @can('viewSubscription', auth()->user())
+                            <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
+                            <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
+                            <li class="item"><a href="{{ route('visitador.course.list') }}">Mis cursos</a></li>
+                            <li class="item"><a href="{{ route('visitador.read.index') }}">Mis recursos</a></li>
+                            <li class="item"><a href="{{ route('visitador.examenes.index') }}">Mis exámenes</a></li>
+                            <li class="item"><a href="{{ route('visitador.contact.index') }}">Contacto</a></li>
+                            <li class="item"><a href="{{ route('profile.index', ['user' => auth()->user()]) }}">Perfil:
+                                    {{ auth()->user()->name }}</a></li>
+                            <li class="item">
+                                <form action="{{ route('admin.logout') }}" method="POST">
+                                    @csrf
+                                    <input type="submit" class="btn btn-danger w-100" value="Salir">
+                                </form>
+                            </li>
+                        @else
+                            <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
+                            <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
+                            <li class="item"><a href="{{ route('visitador.course.list') }}">Mis cursos</a></li>
+                            <li class="item"><a href="{{ route('visitador.read.index') }}">Mis recursos</a></li>
+                            <li class="item"><a href="{{ route('visitador.contact.index') }}">Contacto</a></li>
+                            <li class="item"><a href="{{ route('profile.index', ['user' => auth()->user()]) }}">Perfil:
+                                    {{ auth()->user()->name }}</a></li>
+                            <li class="item">
+                                <form action="{{ route('admin.logout') }}" method="POST">
+                                    @csrf
+                                    <input type="submit" class="btn btn-danger w-100" value="Salir">
+                                </form>
+                            </li>
+                        @endcan
                     @endauth
 
                     @guest
@@ -26,7 +42,7 @@
                         <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
                         <li class="item"><a href="{{ route('visitador.contact.index') }}">Contacto</a></li>
                         <li class="item"><a href="{{ route('visitador.testimonial.index') }}">Testimoniales</a></li>
-                        <li class="item"><a href="{{ route('login') }}">Acceder</a></li>
+                        <li class="item"><a href="{{ route('login') }}">Ingresar</a></li>
                         <li class="item"><a href="{{ route('admin.register.index') }}">Registrarme</a></li>
                     @endguest
                 </ul>

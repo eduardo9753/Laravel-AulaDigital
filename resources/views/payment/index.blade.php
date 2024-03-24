@@ -27,19 +27,9 @@
                             <div class="alert alert-info alert-dismissible fade show" role="alert">
                                 <strong>IMPORTANTE!</strong>
                                 <p style="text-align: justify">Después de enviar el número de operación, el sistema
-                                    verificará la
-                                    validez
-                                    del pago en un plazo de 24 horas. En
-                                    caso de que el número de operación sea correcto, se enviará un correo electrónico al
-                                    estudiante
-                                    registrado
-                                    en la
-                                    plataforma con el estado del cobro. <strong>Si el número de operación no es correcto, se
-                                        procederá a
-                                        revocar
-                                        el
-                                        permiso
-                                        para acceder al curso solicitado.</strong></p>
+                                    verificará el pago en 24 horas. Se enviará un correo al estudiante con el estado del
+                                    cobro. <strong>Si el número de operación es incorrecto, se revocará el acceso al
+                                        curso</strong>.</p>
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                     aria-label="Close"></button>
                             </div>
@@ -48,7 +38,7 @@
                 </div>
 
 
-                <div class="col-md-3 my-2">
+                <div class="col-md-3 my-2" title=" {!! Str::limit($course->description, 150) !!}">
                     <div class="mi-card">
                         <div class="mi-card-content">
                             <h2 class="contenido-bloques-titulo">{{ $course->title }}</h2>
@@ -58,11 +48,11 @@
                                 </a>
                             </div>
 
-                            <p class="contenido-bloques-parrafo mt-3">
+                            {{-- <p class="contenido-bloques-parrafo mt-3">
                                 {!! Str::limit($course->description, 150) !!}
-                            </p>
+                            </p> --}}
 
-                            <div class="d-flex justify-content-between mt-4">
+                            <div class="d-flex justify-content-between mt-3">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <i class='bx bxs-user-plus' style="font-size: 24px"></i>
                                     <p>({{ $course->students_count }})</p>
@@ -121,7 +111,8 @@
                         <div class="mi-card-content">
                             <h2 class="contenido-bloques-titulo">Qr Yape</h2>
                             <div class="text-center">
-                                <img src="https://i.postimg.cc/FHQ3LsyM/Captura.png" style="width: 200px;height: 200px;" alt="qr" border="0">
+                                <img src="https://i.postimg.cc/FHQ3LsyM/Captura.png" style="width: 200px;height: 200px;"
+                                    alt="qr" border="0">
                             </div>
                         </div>
                     </div>
@@ -131,11 +122,8 @@
                 <div class="col-md-3 my-2">
                     <div class="mi-card">
                         <div class="mi-card-content">
-                            <div class="d-flex justify-content-around align-items-center">
-                                <h2 class="contenido-bloques-titulo">Costo:</h2>
-                                <p class="contenido-bloques-parrafo"
-                                    style="font-size: 25px; color: var(--general);font-weight:bold">
-                                    {{ $course->price->value }} S/.</p>
+                            <div class="">
+                                <h2 class="contenido-bloques-titulo">Costo: {{ $course->price->value }} S/.</h2>
                             </div>
                             <div class="card">
                                 <div class="card-body">
@@ -147,7 +135,7 @@
                                             <input type="number" class="form-control" name="payment_id" id="payment_id"
                                                 min="0" placeholder="N° de operación: 00099521" required>
                                             <div id="emailHelp" class="form-text">
-                                                <p>Ingrese el número de operación.</p>
+                                                <p># de operación.</p>
                                             </div>
                                         </div>
                                         <button type="submit" id="btn-pago-yape" class="mi-boton general mt-2 w-100">Enviar

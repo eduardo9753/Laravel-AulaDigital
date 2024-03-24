@@ -124,6 +124,8 @@
     <script src="{{ asset('js/home/aos.js') }}"></script>
     <script src="{{ asset('js/home/jquery.flipster.min.js') }}"></script>
     <script src="{{ asset('js/home/template.js') }}"></script>
+
+    <script src="{{ asset('js/mercadopagoSuscripcion.js') }}"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

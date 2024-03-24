@@ -193,26 +193,54 @@
                                 </div>
 
                                 {{-- POLICY PARA VERIFICAR SI YA ESTOY MATRICULADO EN EL CURSO --}}
-                                @can('enrolled', $course)
-                                    <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
-                                        class="mi-boton general mt-3 w-100">Continuar con el curso</a>
-                                @else
-                                    @if ($course->price->value == 0)
-                                        <p style="font-size: 22px;font-weight: bold" class="color-general">
-                                            {{ $course->price->name }} S/.0</p>
-                                        <form action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
-                                            method="POST">
-                                            @csrf
-                                            <button class="mi-boton general mt-1 w-100" type="submit">Llevar este
-                                                curso</button>
-                                        </form>
+                                @auth
+                                    {{-- VERIFICAMOS SI TIENE UNA SUSCRIPCION --}}
+                                    @can('viewSubscription', auth()->user())
+                                        {{-- VERIFICAMOS SI ESTA MATRICULADO EN EL CURSO QUE ESTA VIENDO --}}
+                                        @can('enrolled', $course)
+                                            <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
+                                                class="mi-boton general mt-3 w-100">Continuar con el curso</a>
+                                        @else
+                                            {{-- SI NO LO ESTA LLEVA EL CURSO POR SER PREMIUM --}}
+                                            <form action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
+                                                method="POST">
+                                                @csrf
+                                                <button class="mi-boton general mt-1 w-100" type="submit">Llevar este
+                                                    curso</button>
+                                            </form>
+                                        @endcan
                                     @else
-                                        <p style="font-size: 22px;font-weight: bold" class="color-general">
-                                            {{ $course->price->value }} S/.</p>
-                                        <a href="{{ route('checkout.course.index', ['course' => $course]) }}"
-                                            class="mi-boton general mt-1 w-100">Adquirir Curso</a>
-                                    @endif
-                                @endcan
+                                        {{-- CASO CONTRARIO SI NO TIENE PLAN PODRA COMPRAR CURSO INDIVIDUALMENTE --}}
+                                        @can('enrolled', $course)
+                                            <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
+                                                class="mi-boton general mt-3 w-100">Continuar con el curso</a>
+                                        @else
+                                            {{-- SI ES GRATIS SE VA PODER MATRICULAR --}}
+                                            @if ($course->price->value == 0)
+                                                <p style="font-size: 22px;font-weight: bold" class="color-general">
+                                                    {{ $course->price->name }} S/.0</p>
+                                                <form action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button class="mi-boton general mt-1 w-100" type="submit">Llevar este
+                                                        curso</button>
+                                                </form>
+                                            @else
+                                                {{-- SI NO TENDRA QUE YAPEAR EL CURSO --}}
+                                                <p style="font-size: 22px;font-weight: bold" class="color-general">
+                                                    {{ $course->price->value }} S/.</p>
+                                                <a href="{{ route('checkout.course.index', ['course' => $course]) }}"
+                                                    class="mi-boton general mt-1 w-100">Adquirir Curso</a>
+                                            @endif
+                                        @endcan
+                                    @endcan
+                                @endauth
+
+                                @guest
+                                    <a href="{{ route('admin.register.index') }}" class="mi-boton general mt-1 w-100">Llevar este
+                                        curso</a>
+                                @endguest
+
                             </div>
                         </div>
                     </section>

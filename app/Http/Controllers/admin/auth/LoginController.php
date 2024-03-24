@@ -36,7 +36,7 @@ class LoginController extends Controller
             } else if ($roles->contains('Instructor')) {
                 return redirect()->route('admin.instructor.course.index');
             } else {
-                return redirect()->route('visitador.home.index');
+                return redirect()->route('visitador.course.list');
             }
         }
 

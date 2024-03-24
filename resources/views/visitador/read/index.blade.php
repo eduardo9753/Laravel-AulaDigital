@@ -24,26 +24,27 @@
                 <div class="row">
                     <div id="accordion">
                         @foreach ($courses as $course)
-                            <div class="card">
-                                <div class="card-header" id="heading{{ $course->id }}">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse"
-                                            data-target="#collapse{{ $course->id }}" aria-expanded="false" 
-                                            aria-controls="collapse{{ $course->id }}">
-                                            {{ $course->title }} <!-- Mostrar el título del curso -->
-                                        </button>
-                                    </h5>
-                                </div>
-
-                                <div id="collapse{{ $course->id }}" class="collapse" 
-                                    aria-labelledby="heading{{ $course->id }}" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <h6>Archivos para el estudio:</h6>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading{{ $course->id }}">
+                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#{{ $course->id }}"
+                                        aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
+                                        aria-controls="{{ $course->id }}">
+                                        {{ $course->title }}
+                                    </button>
+                                </h2>
+                                <div id="{{ $course->id }}"
+                                    class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
+                                    aria-labelledby="heading{{ $course->id }}" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
                                         <ul>
                                             @foreach ($course->archives as $archive)
-                                                <li><a
-                                                        href="{{ route('visitador.read.show', ['archive' => $archive]) }}">{{ $archive->name }}</a>
-                                                </li> <!-- Mostrar el nombre del archivo -->
+                                                <a href="{{ route('visitador.read.show', ['archive' => $archive]) }}">
+                                                    <li class="d-flex align-items-center my-1">
+                                                        <i class='bx bxs-file-pdf' style='color:#310fc7'></i>
+                                                        <p class="temario-parrafo">{{ $archive->name }}</p>
+                                                    </li>
+                                                </a>
                                             @endforeach
                                         </ul>
                                     </div>

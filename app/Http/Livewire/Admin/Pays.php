@@ -36,7 +36,7 @@ class Pays extends Component
                 'pays.preference_id',
                 'pays.estado'
             )
-            ->where('pays.estado', '=', 'VALIDAR')
+            ->whereIn('pays.estado', ['VALIDAR', 'ACTIVO'])
             ->get();
     }
 

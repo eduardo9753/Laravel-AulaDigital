@@ -52,7 +52,7 @@ class RegisterController extends Controller
             return redirect()->route('admin.instructor.course.index');
         } else {
             Mail::to($request->email)->send(new MailUserBienvenida($user));
-            return redirect()->route('visitador.home.index');
+            return redirect()->route('visitador.course.list');
         }
     }
 }

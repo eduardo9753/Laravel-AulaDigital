@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use MercadoPago\SDK;
 use MercadoPago\Preference;
 use MercadoPago\Item;
-
-
+use phpDocumentor\Reflection\Types\This;
 
 class PaymentController extends Controller
 {
@@ -24,6 +23,9 @@ class PaymentController extends Controller
 
     public function index(Course $course)
     {
+        //SI NO TIENE SUSCRIPCION ENTONCES PUEDE PAGAR CURSO INDIVIDUAL
+        $this->authorize('notSubscription', auth()->user());
+        
         //return $course;
         return view('payment.index', [
             'course' => $course
@@ -139,9 +141,9 @@ class PaymentController extends Controller
         $pay = Pay::create([
             'user_id' => auth()->user()->id,
             'collection_id' => $course->id,
-            'collection_status' => '',
+            'collection_status' => 'INDIVIDUAL',
             'payment_id' => $request->payment_id,
-            'status' => 'PAGADO',
+            'status' => 'PAGO INDIVIDUAL',
             'external_reference' => '',
             'payment_type' => 'QR',
             'merchant_order_id' => '',
