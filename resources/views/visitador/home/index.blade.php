@@ -207,7 +207,7 @@
             </section>
 
 
-            <section class="our-projects section-home" id="projects">
+            <section class="our-projects" id="projects">
                 <div class="container">
                     <div class="row mb-5">
                         <div class="col-sm-12">

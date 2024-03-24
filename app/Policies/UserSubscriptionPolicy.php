@@ -24,6 +24,7 @@ class UserSubscriptionPolicy
     {
         $subscription = Pay::where('user_id', $user->id)
                            ->where('collection_status', 'PLAN-PRE-UNI')
+                           ->where('estado','ACTIVO')
                            ->first();
 
         return $subscription ? true : false;
@@ -33,6 +34,7 @@ class UserSubscriptionPolicy
     {
         $subscription = Pay::where('user_id', $user->id)
                            ->where('collection_status', 'PLAN-PRE-UNI')
+                           ->where('estado','ACTIVO')
                            ->first();
 
         return $subscription ? false : true;
