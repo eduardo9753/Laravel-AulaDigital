@@ -207,7 +207,7 @@
             </section>
 
 
-            <section class="our-projects" id="projects">
+            <section class="our-projects section-home" id="projects">
                 <div class="container">
                     <div class="row mb-5">
                         <div class="col-sm-12">
@@ -274,7 +274,7 @@
             </section>
 
 
-            <section class="our-process section-home" id="plans">
+            <section class="our-process" id="plans">
                 <div class="container">
                     <div class="row" data-aos="fade-up" data-aos-offset="-500">
                         <div class="col-sm-12">
