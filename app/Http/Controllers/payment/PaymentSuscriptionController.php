@@ -82,7 +82,7 @@ class PaymentSuscriptionController extends Controller
                 'site_id' => 'MPE',
                 'processing_mode' => 'ONLINE',
                 'merchant_account_id' => '',
-                'estado' => 'ACTIVO',
+                'estado' => 'SUSCRITO',
             ]);
 
             if ($pay) {

@@ -48,7 +48,7 @@
 
                                                     <form action="{{ route('admin.logout') }}" method="POST">
                                                         @csrf
-                                                        <input type="submit" class="btn btn-warning " value="Cerrar Aplicativo">
+                                                        <input type="submit" class="btn btn-warning " value="Salir">
                                                     </form>
                                                 </div>
                                             @else
@@ -60,7 +60,7 @@
                                                     <form action="{{ route('admin.logout') }}" method="POST">
                                                         @csrf
                                                         <input type="submit" class="btn btn-warning ml-4"
-                                                            value="Cerrar Aplicativo">
+                                                            value="Salir">
                                                     </form>
                                                 </div>
                                             @endcan
@@ -303,7 +303,7 @@
                                 <img src="https://cdn-icons-png.flaticon.com/512/1010/1010711.png"
                                     style="width: 80px;height: 80px;" alt="starter">
                                 <h6 class="font-weight-medium title-text">Plan Escolar</h6>
-                                <h1 class="text-amount mb-4 mt-2">S/.15</h1>
+                                <h1 class="text-amount mb-4 mt-2">S/.25</h1>
                                 <ul class="pricing-list">
                                     <li>Acceso Ilimitado</li>
                                     <li>Acceso a todos los cursos</li>
@@ -324,7 +324,7 @@
                                 <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png"
                                     style="width: 80px;height: 80px;" alt="starter">
                                 <h6 class="font-weight-medium title-text text-white">Plan Pre Universitario</h6>
-                                <h1 class="text-amount mb-4 mt-2">S/.25</h1>
+                                <h1 class="text-amount mb-4 mt-2">S/.30</h1>
                                 <ul class="pricing-list">
                                     <li class="text-white">Acceso Ilimitado</li>
                                     <li class="text-white">Acceso a todos los cursos</li>

@@ -60,6 +60,10 @@
                             <!-- FORMULARIO PARA CREAR UNA CATEGORIA DEL CURSO -->
                         </div>
                     </div>
+
+
+
+
                 </div>
 
                 <div class="col-md-8">
@@ -90,22 +94,41 @@
                                             <td>{{ $pay->name }}</td>
                                             <td>{{ $pay->payment_id }}</td>
                                             <td>{{ $pay->estado }}</td>
-                                            <td>
-                                                <button wire:click="edit({{ $pay->id }})"
-                                                    class="mi-boton azul btn-sm"><i
-                                                        class='bx bx-edit-alt bx-tada'></i></button>
-                                            </td>
-                                            <td>
-                                                <button wire:click="delete({{ $pay->id }})"
-                                                    class="mi-boton rojo btn-sm"><i
-                                                        class='bx bx-message-alt-x bx-burst'></i></button>
-                                            </td>
+                                            @if ($pay->estado == 'VALIDAR')
+                                                <td>
+                                                    <button wire:click="edit({{ $pay->id }})"
+                                                        class="mi-boton azul btn-sm"><i
+                                                            class='bx bx-edit-alt bx-tada'></i></button>
+                                                </td>
+                                                <td>
+                                                    <button wire:click="delete({{ $pay->id }})"
+                                                        class="mi-boton rojo btn-sm"><i
+                                                            class='bx bx-message-alt-x bx-burst'></i></button>
+                                                </td>
+                                            @else
+                                                <td></td>
+                                                <td>
+                                                    <button wire:click="cancelSuscription({{ $pay->id }})"
+                                                        class="mi-boton rojo btn-sm"><i
+                                                            class='bx bx-message-alt-x bx-burst'></i></button>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                </div>
+
+                <div class="col-md-12 mt-4">
+                    @if ($cancelSubscriptionMessage)
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>{{ $cancelSubscriptionMessage }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

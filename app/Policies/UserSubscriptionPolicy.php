@@ -20,22 +20,46 @@ class UserSubscriptionPolicy
         //
     }
 
+    //SUSCRIPCION PRE UNIVERSITARIO
     public function viewSubscription(User $user)
     {
         $subscription = Pay::where('user_id', $user->id)
-                           ->where('collection_status', 'PLAN-PRE-UNI')
-                           ->where('estado','ACTIVO')
-                           ->first();
+            ->where('collection_status', 'PLAN-PRE-UNI')
+            ->where('estado', 'SUSCRITO')
+            ->first();
 
         return $subscription ? true : false;
     }
 
+    //SUSCRIPCION UNIVERSITARIO
+    public function viewSubscriptionUniversitario(User $user)
+    {
+        $subscription = Pay::where('user_id', $user->id)
+            ->where('collection_status', 'PLAN-UNI')
+            ->where('estado', 'SUSCRITO')
+            ->first();
+
+        return $subscription ? true : false;
+    }
+
+    //SUSCRIPCION ESCOLAR
+    public function viewSubscriptionEscolar(User $user)
+    {
+        $subscription = Pay::where('user_id', $user->id)
+            ->where('collection_status', 'PLAN-ESCOLAR')
+            ->where('estado', 'SUSCRITO')
+            ->first();
+
+        return $subscription ? true : false;
+    }
+
+    //NO TIENE NINGUNA SUSCRIPCION
     public function notSubscription(User $user)
     {
         $subscription = Pay::where('user_id', $user->id)
-                           ->where('collection_status', 'PLAN-PRE-UNI')
-                           ->where('estado','ACTIVO')
-                           ->first();
+            ->whereIn('collection_status', ['PLAN-PRE-UNI', 'PLAN-ESCOLAR', 'PLAN-UNI'])
+            ->where('estado', 'SUSCRITO')
+            ->first();
 
         return $subscription ? false : true;
     }

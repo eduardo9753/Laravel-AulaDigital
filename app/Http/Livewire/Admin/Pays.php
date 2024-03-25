@@ -9,6 +9,9 @@ use App\Models\Pay;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use MercadoPago\SDK;
+use MercadoPago\Preapproval;
+
 use Livewire\Component;
 
 class Pays extends Component
@@ -22,22 +25,14 @@ class Pays extends Component
     public $preference_id;
     public $estado;
 
+    public $cancelSubscriptionMessage;
+
+
 
     public function mount()
     {
         //$this->pays = Pay::where('estado', '=', 'VALIDAR')->get();
-        $this->pays = User::join('pays', 'users.id', '=', 'pays.user_id')
-            ->select(
-                'users.*',
-                'pays.id',
-                'pays.payment_id',
-                'pays.status',
-                'pays.payment_type',
-                'pays.preference_id',
-                'pays.estado'
-            )
-            ->whereIn('pays.estado', ['VALIDAR', 'ACTIVO'])
-            ->get();
+        $this->reload();
     }
 
     public function render()
@@ -92,6 +87,34 @@ class Pays extends Component
         $this->resetInputFields();
     }
 
+    public function cancelSuscription($id)
+    {
+        try {
+            $pay = Pay::find($id);
+            // Configura las credenciales de Mercado Pago
+            SDK::setAccessToken(config('mercadopago.token'));
+
+            // Obtén la instancia de Preapproval
+            $preapproval = Preapproval::find_by_id($pay->preference_id);
+
+            // Realiza la cancelación de la suscripción
+            $preapproval->status = 'cancelled';
+            $preapproval->update();
+
+            // Verifica el estado de la suscripción después de la actualización
+            $preapproval = Preapproval::find_by_id($pay->preference_id);
+
+            if ($preapproval->status === 'cancelled') {
+                $pay->update(['estado' => 'CANCELADO']);
+                $this->cancelSubscriptionMessage = 'Suscripción cancelada con éxito';
+            } else {
+                $this->cancelSubscriptionMessage = 'No se pudo cancelar la suscripción';
+            }
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+        }
+    }
+
     public function reload()
     {
         $this->pays = User::join('pays', 'users.id', '=', 'pays.user_id')
@@ -104,7 +127,7 @@ class Pays extends Component
                 'pays.preference_id',
                 'pays.estado'
             )
-            ->where('pays.estado', '=', 'VALIDAR')
+            ->whereIn('pays.estado', ['VALIDAR', 'SUSCRITO'])
             ->get();
     }
 

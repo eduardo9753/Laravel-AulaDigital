@@ -32,6 +32,7 @@ class PaymentController extends Controller
         ]);
     }
 
+    //MERCADOPAGO
     public function pay(Request $request)
     {
         $course = Course::find($request->course_id);
@@ -93,6 +94,7 @@ class PaymentController extends Controller
         }
     }
 
+    //MERCADOPAGO
     public function success(Request $request, Course $course)
     {
         //return $course;

@@ -5,6 +5,7 @@
             <nav>
                 <ul class="menu-item">
                     @auth
+                        {{-- PLAN PRE UNI --}}
                         @can('viewSubscription', auth()->user())
                             <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
                             <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
@@ -20,11 +21,13 @@
                                     <input type="submit" class="btn btn-danger w-100" value="Salir">
                                 </form>
                             </li>
-                        @else
+                        @endcan
+
+                        {{-- SIN PLAN --}}
+                        @can('notSubscription', auth()->user())
                             <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
                             <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
                             <li class="item"><a href="{{ route('visitador.course.list') }}">Mis cursos</a></li>
-                            <li class="item"><a href="{{ route('visitador.read.index') }}">Mis recursos</a></li>
                             <li class="item"><a href="{{ route('visitador.contact.index') }}">Contacto</a></li>
                             <li class="item"><a href="{{ route('profile.index', ['user' => auth()->user()]) }}">Perfil:
                                     {{ auth()->user()->name }}</a></li>
