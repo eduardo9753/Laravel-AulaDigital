@@ -27,8 +27,8 @@
                         @can('notSubscription', auth()->user())
                             <li class="item"><a href="{{ route('visitador.home.index') }}">Casa</a></li>
                             <li class="item"><a href="{{ route('visitador.course.index') }}">Cursos</a></li>
-                            <li class="item"><a href="{{ route('visitador.course.list') }}">Mis cursos</a></li>
                             <li class="item"><a href="{{ route('visitador.contact.index') }}">Contacto</a></li>
+                            <li class="item"><a href="{{ route('mercadopago.suscription.subscribe') }}">Suscribete</a></li>
                             <li class="item"><a href="{{ route('profile.index', ['user' => auth()->user()]) }}">Perfil:
                                     {{ auth()->user()->name }}</a></li>
                             <li class="item">

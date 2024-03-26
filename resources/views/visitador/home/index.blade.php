@@ -151,9 +151,9 @@
                                 <div class="text-center">
                                     <img src="{{ asset('img/home/pago.png') }}" data-aos="zoom-in">
                                 </div>
-                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Pago único o Suscripción</h6>
-                                <p>Paga por un solo curso con acceso de por vida, o suscríbete y tendrás acceso ilimitado a
-                                    todos los cursos, incluyendo exámenes, material educativo y mucho más.</p>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Suscripción(Mercadopago)</h6>
+                                <p>Únete ahora y desbloquea acceso ilimitado a todos nuestros cursos, exámenes, material
+                                    educativo ¡y mucho más! Además, paga de forma segura y fiable con MercadoPago.</p>
                             </div>
                         </div>
 

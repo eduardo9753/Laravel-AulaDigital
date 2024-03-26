@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Level;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class CourseController extends Controller
 {
@@ -52,9 +53,15 @@ class CourseController extends Controller
   {
     //CADA VEZ QUE EL USUARIO LE DE CLICK EN "llevar curso" 
     //SE GUARDARA ESOS DATOS EN LA TABLA "course_user"
-    $course->students()->attach(auth()->user()->id);
+    $user = auth()->user();
 
-    return redirect()->route('visitador.course.status', $course);
+    if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user)) {
+      $course->students()->attach(auth()->user()->id);
+      return redirect()->route('visitador.course.status', $course);
+    } else {
+      // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
+      return redirect()->route('mercadopago.suscription.subscribe');
+    }
   }
 
 
@@ -70,13 +77,20 @@ class CourseController extends Controller
   //MI CURSOS EN DONDE ME INSCRITO
   public function courses()
   {
-    $courseIds = DB::table('course_user')->where('user_id', '=', auth()->user()->id)->pluck('course_id');
-    $courseUsers = Course::whereIn('id', $courseIds)->get();
-    $courses = Course::where('status', '=', 3)->latest('id')->take(8)->get();
+    $user = auth()->user();
 
-    return view('visitador.course.list', [
-      'courseUsers' => $courseUsers,
-      'courses' => $courses
-    ]);
+    if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user)) {
+      $courseIds = DB::table('course_user')->where('user_id', '=', auth()->user()->id)->pluck('course_id');
+      $courseUsers = Course::whereIn('id', $courseIds)->get();
+      $courses = Course::where('status', '=', 3)->latest('id')->take(8)->get();
+
+      return view('visitador.course.list', [
+        'courseUsers' => $courseUsers,
+        'courses' => $courses
+      ]);
+    } else {
+      // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
+      return redirect()->route('mercadopago.suscription.subscribe');
+    }
   }
 }

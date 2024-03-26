@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\payment;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailUserBienvenida;
 use App\Models\Pay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use MercadoPago\SDK;
 use MercadoPago\Preference;
 
@@ -86,23 +88,29 @@ class PaymentSuscriptionController extends Controller
             ]);
 
             if ($pay) {
+                Mail::to([auth()->user()->email, 'anthony.anec@gmail.com'])->send(new MailUserBienvenida(auth()->user()));
                 return redirect()->route('visitador.home.index')->with('mensaje', 'Se realizó el pago de tu suscripcion correctamente');
             } else {
-                return redirect()->route('visitador.home.index')->with('mensaje', 'No se realizó el pago de tu suscripcion correctamente');
+                return redirect()->route('visitador.home.index')->with('mensaje', 'Tu pago no se registró en nuestra base de datos, pero ya tienes acceso como usuario Premium.');
             }
         } else {
-            return redirect()->route('visitador.home.index')->with('mensaje', 'No se recibió el ID de preaprobación en la solicitud');
+            return redirect()->route('mercadopago.suscription.failure');
         }
     }
 
 
     public function failure()
     {
-        return "error de Suscripcion";
+        return view('payment.failure');
     }
 
     public function pending()
     {
-        return "Suscripcion Pendiente";
+        return view('payment.pending');
+    }
+
+    public function subscribe()
+    {
+        return view('payment.suscribete');
     }
 }

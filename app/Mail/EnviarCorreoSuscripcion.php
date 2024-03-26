@@ -8,11 +8,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MailUserBienvenida extends Mailable
+class EnviarCorreoSuscripcion extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = 'Bienvenido - Usuario Premium';
+    public $subject = 'Bienvenido - Suscripción Activada';
     public $user;
     /**
      * Create a new message instance.
@@ -32,6 +32,6 @@ class MailUserBienvenida extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.usuarioBienvenida');
+        return $this->view('mail.usuarioSuscripcionActivada');
     }
 }

@@ -33,7 +33,7 @@ class ExamResponderController extends Controller
             ]);
         } else {
             // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
-            return redirect()->route('visitador.home.index')->with('mensaje', 'Solo usuarios suscritos');
+            return redirect()->route('mercadopago.suscription.subscribe');
         }
     }
 
@@ -71,7 +71,7 @@ class ExamResponderController extends Controller
             ]);
         } else {
             // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
-            return redirect()->route('visitador.home.index')->with('mensaje', 'Solo usuarios suscritos');
+            return redirect()->route('mercadopago.suscription.subscribe');
         }
     }
 
@@ -110,7 +110,7 @@ class ExamResponderController extends Controller
             ]);
         } else {
             // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
-            return redirect()->route('visitador.home.index')->with('mensaje', 'Solo usuarios suscritos');
+            return redirect()->route('mercadopago.suscription.subscribe');
         }
         //dd($exam);
     }
