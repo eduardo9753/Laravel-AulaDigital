@@ -12,7 +12,7 @@ class EnviarCorreoSuscripcion extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = 'Bienvenido - Suscripción Activada';
+    public $subject = 'Usuario Premium - Suscripción Activada';
     public $user;
     /**
      * Create a new message instance.

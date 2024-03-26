@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\payment;
 
 use App\Http\Controllers\Controller;
-use App\Mail\MailUserBienvenida;
+use App\Mail\EnviarCorreoSuscripcion;
 use App\Models\Pay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -88,10 +88,10 @@ class PaymentSuscriptionController extends Controller
             ]);
 
             if ($pay) {
-                Mail::to([auth()->user()->email, 'anthony.anec@gmail.com'])->send(new MailUserBienvenida(auth()->user()));
-                return redirect()->route('visitador.home.index')->with('mensaje', 'Se realizó el pago de tu suscripcion correctamente');
+                Mail::to([auth()->user()->email, 'anthony.anec@gmail.com'])->send(new EnviarCorreoSuscripcion(auth()->user()));
+                return redirect()->route('visitador.course.index')->with('mensaje', '¡El pago de tu suscripción se ha procesado correctamente! Ahora tienes acceso ilimitado a nuestros cursos, material educativo, exámenes ¡y mucho más!');
             } else {
-                return redirect()->route('visitador.home.index')->with('mensaje', 'Tu pago no se registró en nuestra base de datos, pero ya tienes acceso como usuario Premium.');
+                return redirect()->route('visitador.course.index')->with('mensaje', 'Tu pago no se registró en nuestra base de datos, pero ya tienes acceso como usuario Premium.');
             }
         } else {
             return redirect()->route('mercadopago.suscription.failure');

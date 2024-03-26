@@ -12,7 +12,7 @@ class MailUserBienvenida extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = 'Bienvenido - Usuario Premium';
+    public $subject = 'Bienvenido';
     public $user;
     /**
      * Create a new message instance.
