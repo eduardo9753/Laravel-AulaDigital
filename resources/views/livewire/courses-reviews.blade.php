@@ -61,38 +61,38 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endcan
-            @endcan
 
 
-            @foreach ($course->reviews as $review)
-                <article>
 
-                    <figure class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <img style="width: 15px;height: 15px;"
-                                src="https://cdn-icons-png.flaticon.com/512/560/560277.png" alt="">
+                @foreach ($course->reviews as $review)
+                    <article>
 
-                            <p class="pr-2"><b>{{ $review->user->name }}</b>
+                        <figure class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <img style="width: 15px;height: 15px;"
+                                    src="https://cdn-icons-png.flaticon.com/512/560/560277.png" alt="">
+
+                                <p class="pr-2"><b>{{ $review->user->name }}</b>
+                                </p>
+                            </div>
+
+                            <p class="pr-2">{{ $review->rating }}<i class='bx bxs-star' style='color:#da920f'></i>
+                                @if ($review->created_at)
+                                    - <strong>{{ $review->created_at->diffForHumans() }}</strong>
+                                @else
+                                    <strong>(Fecha no disponible)</strong>
+                                @endif
                             </p>
+                        </figure>
+
+                        <div>
+                            <p>{{ $review->comment }}</p>
                         </div>
 
-                        <p class="pr-2">{{ $review->rating }}<i class='bx bxs-star' style='color:#da920f'></i>
-                            @if ($review->created_at)
-                                - <strong>{{ $review->created_at->diffForHumans() }}</strong>
-                            @else
-                                <strong>(Fecha no disponible)</strong>
-                            @endif
-                        </p>
-                    </figure>
-
-                    <div>
-                        <p>{{ $review->comment }}</p>
-                    </div>
-
-                </article>
-                <hr>
-            @endforeach
+                    </article>
+                    <hr>
+                @endforeach
+            </div>
         </div>
     </div>
-</div>
 </div>
