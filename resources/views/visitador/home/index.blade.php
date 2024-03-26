@@ -93,7 +93,8 @@
                                     <img src="{{ asset('img/home/ilimitado.png') }}" data-aos="zoom-in">
                                 </div>
                                 <h6 class="text-dark mb-3 mt-4 font-weight-medium">Acceso Ilimitado</h6>
-                                <p>Disfrutarás de acceso ilimitado en la plataforma.</p>
+                                <p>Como usuario premium, disfrutarás de acceso ilimitado a nuestra plataforma y podrás
+                                    cancelar tu suscripción en cualquier momento que desees.</p>
                             </div>
                         </div>
 
@@ -216,7 +217,7 @@
                                 <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png"
                                     style="width: 80px;height: 80px;" alt="starter">
                                 <h6 class="font-weight-medium title-text text-white">Plan Pre Universitario</h6>
-                                <h1 class="text-amount mb-4 mt-2">S/.30</h1>
+                                <h1 class="text-amount mb-4 mt-2">S/.35</h1>
                                 <ul class="pricing-list">
                                     <li class="text-white">Acceso Ilimitado</li>
                                     <li class="text-white">Acceso a todos los cursos</li>
