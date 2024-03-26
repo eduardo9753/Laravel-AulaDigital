@@ -107,8 +107,10 @@ class Pays extends Component
             if ($preapproval->status === 'cancelled') {
                 $pay->update(['estado' => 'CANCELADO']);
                 $this->cancelSubscriptionMessage = 'Suscripción cancelada con éxito';
+                $this->reload();
             } else {
                 $this->cancelSubscriptionMessage = 'No se pudo cancelar la suscripción';
+                $this->reload();
             }
         } catch (\Exception $e) {
             return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
