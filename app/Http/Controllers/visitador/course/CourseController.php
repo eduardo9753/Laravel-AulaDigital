@@ -16,7 +16,7 @@ class CourseController extends Controller
   public function index(Request $request)
   {
 
-    $courses = Course::where('status', '=', 3)->inRandomOrder()->limit(8)->get();
+    $courses = Course::where('status', '=', 3)->inRandomOrder()->limit(10)->get();
     $categories = Category::all();
     $levels = Level::all();
 
