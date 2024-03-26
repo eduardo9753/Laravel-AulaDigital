@@ -36,7 +36,7 @@ class PaymentSuscriptionController extends Controller
         ];
 
         // Se crea el código en MercadoPago
-        $preference->subscription_plan_id  = '2c9380848e681dc3018e68cd27c50081';
+        $preference->subscription_plan_id  = '2c9380848e681d84018e7821538c0912';
 
         // URL de retorno del estado del pago
         $preference->back_urls = [
@@ -52,7 +52,7 @@ class PaymentSuscriptionController extends Controller
 
         // Redirige al usuario al checkout de Mercado Pago para la suscripción
         if ($save) {
-            $init_point = 'https://www.mercadopago.com.pe/subscriptions/checkout?preapproval_plan_id=2c9380848e681dc3018e68cd27c50081';
+            $init_point = 'https://www.mercadopago.com.pe/subscriptions/checkout?preapproval_plan_id=2c9380848e681d84018e7821538c0912';
 
             return response()->json([
                 'code' => 1,
