@@ -5,8 +5,8 @@
             <h3 class="color-general">Reseñas <small>({{ $course->reviews->count() }})</small> </h3>
 
             <div style="max-height: 300px; overflow-y: auto;">
-                @can('enrolled', $course)
-                    @can('viewSubscription', auth()->user())
+                @can('viewSubscription', auth()->user())
+                    @can('enrolled', $course)
                         <article class="my-3">
                             @can('valued', $course)
                                 <form wire:submit.prevent="create">
@@ -49,6 +49,11 @@
                                 </div>
                             @endcan
                         </article>
+                    @else
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>Hola!</strong> ¡Inscríbete en el curso y comparte tu opinión! 😊.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     @endcan
                 @else
                     <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -56,36 +61,38 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endcan
+            @endcan
 
-                @foreach ($course->reviews as $review)
-                    <article>
 
-                        <figure class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <img style="width: 15px;height: 15px;"
-                                    src="https://cdn-icons-png.flaticon.com/512/560/560277.png" alt="">
+            @foreach ($course->reviews as $review)
+                <article>
 
-                                <p class="pr-2"><b>{{ $review->user->name }}</b>
-                                </p>
-                            </div>
+                    <figure class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <img style="width: 15px;height: 15px;"
+                                src="https://cdn-icons-png.flaticon.com/512/560/560277.png" alt="">
 
-                            <p class="pr-2">{{ $review->rating }}<i class='bx bxs-star' style='color:#da920f'></i>
-                                @if ($review->created_at)
-                                    - <strong>{{ $review->created_at->diffForHumans() }}</strong>
-                                @else
-                                    <strong>(Fecha no disponible)</strong>
-                                @endif
+                            <p class="pr-2"><b>{{ $review->user->name }}</b>
                             </p>
-                        </figure>
-
-                        <div>
-                            <p>{{ $review->comment }}</p>
                         </div>
 
-                    </article>
-                    <hr>
-                @endforeach
-            </div>
+                        <p class="pr-2">{{ $review->rating }}<i class='bx bxs-star' style='color:#da920f'></i>
+                            @if ($review->created_at)
+                                - <strong>{{ $review->created_at->diffForHumans() }}</strong>
+                            @else
+                                <strong>(Fecha no disponible)</strong>
+                            @endif
+                        </p>
+                    </figure>
+
+                    <div>
+                        <p>{{ $review->comment }}</p>
+                    </div>
+
+                </article>
+                <hr>
+            @endforeach
         </div>
     </div>
+</div>
 </div>
