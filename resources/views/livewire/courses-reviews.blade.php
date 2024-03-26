@@ -6,48 +6,50 @@
 
             <div style="max-height: 300px; overflow-y: auto;">
                 @can('enrolled', $course)
-                    <article class="my-3">
-                        @can('valued', $course)
-                            <form wire:submit.prevent="create">
-                                <textarea wire:model="comment" rows="3" class="form-control w-100 mb-2" placeholder="Ingrese una reseña del curso"></textarea>
-                                @error('comment')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                    @can('viewSubscription', auth()->user())
+                        <article class="my-3">
+                            @can('valued', $course)
+                                <form wire:submit.prevent="create">
+                                    <textarea wire:model="comment" rows="3" class="form-control w-100 mb-2" placeholder="Ingrese una reseña del curso"></textarea>
+                                    @error('comment')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
 
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <button type="submit" class="mi-boton general">Agregar Comentario</button>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="mi-boton general">Agregar Comentario</button>
 
-                                    <ul class="d-flex">
-                                        <li wire:click="$set('rating',1)">
-                                            <i style='color:#da920f; font-size:30px'
-                                                class='bx bx-star {{ $rating >= 1 ? 'bx bxs-star' : '' }}'></i>
-                                        </li>
-                                        <li wire:click="$set('rating',2)">
-                                            <i style='color:#da920f; font-size:30px'
-                                                class='bx bx-star {{ $rating >= 2 ? 'bx bxs-star' : '' }}'></i>
-                                        </li>
-                                        <li wire:click="$set('rating',3)">
-                                            <i style='color:#da920f; font-size:30px'
-                                                class='bx bx-star {{ $rating >= 3 ? 'bx bxs-star' : '' }}'></i>
-                                        </li>
-                                        <li wire:click="$set('rating',4)">
-                                            <i style='color:#da920f; font-size:30px'
-                                                class='bx bx-star {{ $rating >= 4 ? 'bx bxs-star' : '' }}'></i>
-                                        </li>
-                                        <li wire:click="$set('rating',5)">
-                                            <i style='color:#da920f; font-size:30px'
-                                                class='bx bx-star {{ $rating == 5 ? 'bx bxs-star' : '' }}'></i>
-                                        </li>
-                                    </ul>
+                                        <ul class="d-flex">
+                                            <li wire:click="$set('rating',1)">
+                                                <i style='color:#da920f; font-size:30px'
+                                                    class='bx bx-star {{ $rating >= 1 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                            <li wire:click="$set('rating',2)">
+                                                <i style='color:#da920f; font-size:30px'
+                                                    class='bx bx-star {{ $rating >= 2 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                            <li wire:click="$set('rating',3)">
+                                                <i style='color:#da920f; font-size:30px'
+                                                    class='bx bx-star {{ $rating >= 3 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                            <li wire:click="$set('rating',4)">
+                                                <i style='color:#da920f; font-size:30px'
+                                                    class='bx bx-star {{ $rating >= 4 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                            <li wire:click="$set('rating',5)">
+                                                <i style='color:#da920f; font-size:30px'
+                                                    class='bx bx-star {{ $rating == 5 ? 'bx bxs-star' : '' }}'></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            @else
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>{{ auth()->user()->name }}!</strong> Ya dejaste tu reseña en este curso 😊.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
-                            </form>
-                        @else
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>{{ auth()->user()->name }}!</strong> Ya dejaste tu reseña en este curso 😊.
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        @endcan
-                    </article>
+                            @endcan
+                        </article>
+                    @endcan
                 @else
                     <div class="alert alert-info alert-dismissible fade show" role="alert">
                         <strong>Hola!</strong> ¡Inscríbete en el curso y comparte tu opinión! 😊.
