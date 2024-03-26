@@ -19,23 +19,17 @@
                 <div class="card-body">
                     <div class="row">
 
-                        <div class="col-md-12 my-3">
+                        <div class="col-md-8 my-1">
                             <div id="flipbook">
                                 <iframe style="width: 100%;height: 550px;" src="{{ $archive->url }}"
                                     title="Material educativo">
                                 </iframe>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="card">
-                <div class="card-body">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-10">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
                                     <div class="alert alert-info alert-dismissible fade show" role="alert">
                                         <p>
                                             <strong>Recuperado de:</strong>
@@ -48,11 +42,14 @@
                                             aria-label="Close"></button>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-md-2">
+
+                            <div class="card mt-3">
+                                <div class="card-body">
                                     <div class="text-center">
                                         <img src="{{ $course->image->url }}"
-                                            style="width: 60px;height: 60px;border-radius: 50%"
+                                            style="width: 120px;height: 120px;"
                                             alt="{{ $archive->course->title }}"
                                             style="width: 100%;height: 240px;border-radius: 10px;object-fit: scale-down">
                                     </div>
