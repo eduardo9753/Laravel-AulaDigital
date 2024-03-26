@@ -249,7 +249,7 @@
                                 <img src="https://cdn-icons-png.flaticon.com/512/13215/13215926.png"
                                     style="width: 80px;height: 80px;" alt="starter">
                                 <h6 class="font-weight-medium title-text">Universitario</h6>
-                                <h1 class="text-amount mb-4 mt-2">S/.35</h1>
+                                <h1 class="text-amount mb-4 mt-2">S/.45</h1>
                                 <ul class="pricing-list">
                                     <li>Acceso Ilimitado</li>
                                     <li>Acceso a todos los cursos</li>
