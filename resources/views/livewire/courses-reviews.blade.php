@@ -49,18 +49,22 @@
                                 </div>
                             @endcan
                         </article>
+                    @endcan
+                @else
+                    @if (auth()->check())
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>Hola, {{ auth()->user()->name }}!</strong> ¡Inscríbete en el curso y comparte tu
+                            opinión! 😊.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     @else
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             <strong>Hola!</strong> ¡Inscríbete en el curso y comparte tu opinión! 😊.
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    @endcan
-                @else
-                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                        <strong>Hola!</strong> ¡Inscríbete en el curso y comparte tu opinión! 😊.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                    @endif
                 @endcan
+
 
 
 
