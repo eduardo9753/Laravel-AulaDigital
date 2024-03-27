@@ -10,7 +10,7 @@
     <!-- Ahora incluimos la vista suscripcion.blade.php -->
     @include('helpers.suscripcion')
 
-    <div class="container">
+    <div class="container mt-4">
         <div class="col-md-12">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>¡Suscríbete!</strong> ¡Únete ahora para obtener acceso exclusivo a nuestro contenido!
