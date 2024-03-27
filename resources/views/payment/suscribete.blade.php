@@ -7,6 +7,9 @@
 
 
 @section('main')
+    <!-- Ahora incluimos la vista suscripcion.blade.php -->
+    @include('helpers.suscripcion')
+
     <div class="container">
         <div class="col-md-12">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -14,11 +17,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>
-
     </div>
-
-    <!-- Ahora incluimos la vista suscripcion.blade.php -->
-    @include('helpers.suscripcion')
 
     @include('template.footer')
 @endsection
