@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\payment\PaymentController;
 use App\Http\Controllers\payment\PaymentSuscriptionController;
+use App\Http\Controllers\payment\PaymentSuscriptionEscolarController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,5 +21,14 @@ Route::get('/mercadopago/suscription/academico-premium/success', [PaymentSuscrip
 Route::get('/mercadopago/suscription/academico-premium/failure', [PaymentSuscriptionController::class, 'failure'])->name('mercadopago.suscription.failure');
 Route::get('/mercadopago/suscription/academico-premium/pending', [PaymentSuscriptionController::class, 'pending'])->name('mercadopago.suscription.pending');
 Route::get('/mercadopago/subscribete/academico-premium', [PaymentSuscriptionController::class, 'subscribe'])->name('mercadopago.suscription.subscribe');
+
+
+//RUTA PARA SUSCRIPCION
+Route::post('/mercadopago/suscription/school/academico-premium', [PaymentSuscriptionEscolarController::class, 'school'])->name('mercadopago.suscription.school.index');
+Route::get('/mercadopago/suscription/school/academico-premium/success', [PaymentSuscriptionEscolarController::class, 'success'])->name('mercadopago.suscription.school.success');
+Route::get('/mercadopago/suscription/school/academico-premium/failure', [PaymentSuscriptionEscolarController::class, 'failure'])->name('mercadopago.suscription.school.failure');
+Route::get('/mercadopago/suscription/school/academico-premium/pending', [PaymentSuscriptionEscolarController::class, 'pending'])->name('mercadopago.suscription.school.pending');
+Route::get('/mercadopago/subscribete/school/academico-premium', [PaymentSuscriptionEscolarController::class, 'subscribe'])->name('mercadopago.suscription.school.subscribe');
+
 
 Route::post('/yape/payment/{course}', [PaymentController::class, 'yape'])->name('yape.index');

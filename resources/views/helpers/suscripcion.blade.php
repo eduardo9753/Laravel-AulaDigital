@@ -8,16 +8,7 @@
                         <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
                             las 24 horas del día</h5>
                     </div>
-                    <div class="mb-5 mb-lg-0 mt-3 mt-lg-0">
-                        <div class="d-flex align-items-center">
-                            <p class="mr-2 font-weight-medium monthly text-active check-box-label">Aca</p>
-                            <label class="toggle-switch toggle-switch">
-                                <input type="checkbox" checked id="toggle-switch">
-                                <span class="toggle-slider round"></span>
-                            </label>
-                            <p class="ml-2 font-weight-medium yearly check-box-label">démico</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -34,7 +25,24 @@
                         <li>Acceso a material educativo</li>
                         <li><strong>Cobro cada 02 de cada mes</strong></li>
                     </ul>
-                    <input type="submit" class="mi-boton general mt-3 w-100" value="Proximamente">
+                    @auth
+                        @can('viewSubscription', auth()->user())
+                            <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
+                        @else
+                            @can('viewSubscriptionEscolar', auth()->user())
+                                <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
+                            @else
+                                <form action="{{ route('mercadopago.suscription.school.index') }}" id="form-suscription-school" method="POST">
+                                    @csrf
+                                    <input type="submit" class="button-login" value="Suscribirme">
+                                </form>
+                            @endcan
+                        @endcan
+                    @endauth
+
+                    @guest
+                        <a href="{{ route('admin.register.index') }}" class="button-login text-white">Suscribirme</a>
+                    @endguest
                 </div>
             </div>
             <div class="col-sm-4">
@@ -57,15 +65,18 @@
                         <li class="text-white"><strong>Cobro cada 02 de cada mes</strong></li>
                     </ul>
                     @auth
-                        @can('viewSubscription', auth()->user())
-                            <input type="submit" class="button-login" value="Eres Usuario Premium">
+                        @can('viewSubscriptionEscolar', auth()->user())
+                            <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
                         @else
-                            <form action="{{ route('mercadopago.suscription.index') }}" id="form-suscription" method="POST">
-                                @csrf
-                                <input type="submit" class="button-login" value="Suscribirme">
-                            </form>
+                            @can('viewSubscription', auth()->user())
+                                <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
+                            @else
+                                <form action="{{ route('mercadopago.suscription.index') }}" id="form-suscription" method="POST">
+                                    @csrf
+                                    <input type="submit" class="button-login" value="Suscribirme">
+                                </form>
+                            @endcan
                         @endcan
-
                     @endauth
 
                     @guest

@@ -4,13 +4,14 @@ namespace App\Http\Controllers\payment;
 
 use App\Http\Controllers\Controller;
 use App\Mail\EnviarCorreoSuscripcion;
-use App\Models\Pay;
 use Illuminate\Http\Request;
+use App\Models\Pay;
 use Illuminate\Support\Facades\Mail;
 use MercadoPago\SDK;
 use MercadoPago\Preference;
 
-class PaymentSuscriptionController extends Controller
+
+class PaymentSuscriptionEscolarController extends Controller
 {
     //
     public function __construct()
@@ -19,8 +20,7 @@ class PaymentSuscriptionController extends Controller
     }
 
 
-    //pago de suscripcion recurrente
-    public function suscription()
+    public function school()
     {
         // Configura las credenciales de Mercado Pago
         SDK::setAccessToken(config('mercadopago.token'));
@@ -31,20 +31,20 @@ class PaymentSuscriptionController extends Controller
         // Configuración de los detalles de la suscripción
         $preference->items = [
             [
-                'title' => 'Académico Premium',
+                'title' => 'Académico Plan Escolar',
                 'quantity' => 1,
                 'unit_price' => 25
             ]
         ];
 
         // Se crea el código en MercadoPago
-        $preference->subscription_plan_id  = '2c9380848e681d84018e7821538c0912';
+        $preference->subscription_plan_id  = '2c9380848e83075d018e87e173ef02ba';
 
         // URL de retorno del estado del pago
         $preference->back_urls = [
-            'success' => route('mercadopago.suscription.success'),
-            'failure' => route('mercadopago.suscription.failure'),
-            'pending' => route('mercadopago.suscription.pending'),
+            'success' => route('mercadopago.suscription.school.success'),
+            'failure' => route('mercadopago.suscription.school.failure'),
+            'pending' => route('mercadopago.suscription.school.pending'),
         ];
 
         $preference->auto_return = 'approved'; // Redirige automáticamente al usuario después de un pago aprobado
@@ -54,7 +54,7 @@ class PaymentSuscriptionController extends Controller
 
         // Redirige al usuario al checkout de Mercado Pago para la suscripción
         if ($save) {
-            $init_point = 'https://www.mercadopago.com.pe/subscriptions/checkout?preapproval_plan_id=2c9380848e681d84018e7821538c0912';
+            $init_point = 'https://www.mercadopago.com.pe/subscriptions/checkout?preapproval_plan_id=2c9380848e83075d018e87e173ef02ba';
 
             return response()->json([
                 'code' => 1,
@@ -68,13 +68,14 @@ class PaymentSuscriptionController extends Controller
         }
     }
 
+
     public function success(Request $request)
     {
         if (isset($request->preapproval_id)) {
             $pay = Pay::create([
                 'user_id' => auth()->user()->id,
                 'collection_id' => '',
-                'collection_status' => 'PLAN-PRE-UNI',
+                'collection_status' => 'PLAN-ESCOLAR',
                 'payment_id' => $request->preapproval_id,
                 'status' => 'PAGO SUSCRIPCION',
                 'external_reference' => '',
@@ -97,7 +98,6 @@ class PaymentSuscriptionController extends Controller
             return redirect()->route('mercadopago.suscription.failure');
         }
     }
-
 
     public function failure()
     {
