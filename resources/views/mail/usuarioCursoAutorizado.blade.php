@@ -65,7 +65,7 @@ margin: 20px;">
                     <strong>Te agradecemos por elegir nuestro curso de '{{ $course->title }}'</strong>. Continúa tu
                     viaje de aprendizaje y avanza a través de las lecciones. ¡Estamos emocionados de acompañarte en tu
                     camino hacia el conocimiento y el crecimiento. Si tienes alguna
-                    pregunta o necesitas asistencia, no dudes en comunicarte con nosotros mediante correo electrónico a academico2023edu@gmail.com!
+                    pregunta o necesitas asistencia, no dudes en comunicarte con nosotros mediante correo electrónico a preunicursos@gmail.com!
                 </p>
             </div>
 
@@ -84,7 +84,7 @@ margin: 20px;">
                             href="https://www.linkedin.com/in/anthony-eduardo-nu%C3%B1ez-canchari-05b1371a0/"><i
                                 class='bx bxl-linkedin-square tamanio-icon' style='color:#2229c7'></i></a></li>
                     <li style="margin-bottom: 5px;"><i class='bx bxl-whatsapp tamanio-icon'
-                            style='color:#26c942'></i>academico2023edu@gmail.com</li>
+                            style='color:#26c942'></i>preunicursos@gmail.com</li>
                 </ul>
             </div>
         </div>

@@ -67,8 +67,8 @@ margin: 20px;">
                         contenido del curso</strong>. Estaremos encantados de acompañarte tan pronto como el número de
                     operación (Pago) sea verificado para brindarte acceso al curso. Agradecemos tu comprensión y te
                     deseamos éxito en tu travesía hacia el conocimiento y el crecimiento. <strong>Si tienes alguna
-                        pregunta o necesitas asistencia, no dudes en comunicarte con nosotros al +51 922 394 642 o
-                        mediante correo electrónico a anthony.anec@gmail.com.</strong>
+                        pregunta o necesitas asistencia, no dudes en comunicarte con nosotros al +51 924 080 517 o
+                        mediante correo electrónico a preunicursos@gmail.com.</strong>
                 </p>
 
 

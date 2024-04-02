@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Bienvenido a Académico! :) 😊</title>
+    <title>¡Bienvenido a PreuniCursos! :) 😊</title>
 </head>
 
 <body style="font-family: 'Arial', sans-serif;
@@ -42,7 +42,7 @@ margin: 20px;">
                     aprendizaje y avanza a través de las lecciones. Estamos emocionados de ser parte de tu camino hacia
                     el conocimiento y el crecimiento. Si en algún momento tienes preguntas o necesitas asistencia, no
                     dudes en ponerte en contacto con nosotros a través de correo electrónico en
-                    academico2023edu@gmail.com. ¡Bienvenido y que disfrutes de tu experiencia educativa con nosotros!
+                    preunicursos@gmail.com. ¡Bienvenido y que disfrutes de tu experiencia educativa con nosotros!
                 </p>
             </div>
 
@@ -61,7 +61,7 @@ margin: 20px;">
                             href="https://www.linkedin.com/in/anthony-eduardo-nu%C3%B1ez-canchari-05b1371a0/">+51 924
                             080 517<i class='bx bxl-linkedin-square tamanio-icon' style='color:#2229c7'></i></a></li>
                     <li style="margin-bottom: 5px;"><i class='bx bxl-whatsapp tamanio-icon'
-                            style='color:#26c942'></i>academico2023edu@gmail.com</li>
+                            style='color:#26c942'></i>preunicursos@gmail.com</li>
                 </ul>
             </div>
         </div>

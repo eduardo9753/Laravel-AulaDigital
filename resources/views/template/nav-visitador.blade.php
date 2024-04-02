@@ -91,7 +91,7 @@
                             <path d="M4 12l16 0" />
                             <path d="M4 18l16 0" />
                         </svg>
-                        <p class="escoder-responsive">ACADÉMICO</p>
+                        <p class="escoder-responsive">MENÚ</p>
                     </div>
                 </label>
 
