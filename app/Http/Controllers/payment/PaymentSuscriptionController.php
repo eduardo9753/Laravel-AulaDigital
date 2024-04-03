@@ -31,9 +31,9 @@ class PaymentSuscriptionController extends Controller
         // Configuración de los detalles de la suscripción
         $preference->items = [
             [
-                'title' => 'Académico Premium',
+                'title' => 'PreuniCursos - Plan Pre Universitario',
                 'quantity' => 1,
-                'unit_price' => 25
+                'unit_price' => 35
             ]
         ];
 

@@ -31,7 +31,7 @@ class PaymentSuscriptionEscolarController extends Controller
         // Configuración de los detalles de la suscripción
         $preference->items = [
             [
-                'title' => 'Académico Plan Escolar',
+                'title' => 'PreuniCursos - Plan Escolar',
                 'quantity' => 1,
                 'unit_price' => 25
             ]
