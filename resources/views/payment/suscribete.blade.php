@@ -13,12 +13,13 @@
     <div class="container mt-4">
         <div class="col-md-12">
             <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <strong>¡Importante!</strong> ¡Una vez completado el pago de tu suscripción, recuerda pulsar el botón
-                'Volver al sitio' para finalizar el proceso de suscripción en nuestra plataforma. ¡Gracias!
+                <strong>¡Importante!</strong> ¡Una vez completado el pago de tu suscripción, asegúrate de hacer clic en el
+                botón 'Volver al sitio' para finalizar el proceso y así acceder a todos los beneficios de nuestra
+                plataforma. ¡Gracias!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>
     </div>
-    
+
     @include('template.footer')
 @endsection
