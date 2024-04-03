@@ -33,20 +33,47 @@
 
                 {{-- DESCRIPCION DE LA LECCION --}}
                 @if ($current->description)
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                <strong>Referencia del Material:</strong>
-                                <p>
-                                    Universidad Nacional Federico Villarreal. (2018). {{ $course->title }}.
-                                    <strong>Recuperado de:</strong>
-                                    <a target="_blank" href="{{ $current->description->name }}"
-                                        title="{{ $current->description->name }}">
-                                        {{ $current->description->name }}
-                                    </a>
-                                </p>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="mi-boton general mt-3" data-bs-toggle="modal"
+                        data-bs-target="#ModalMaterialReferencia">
+                        Referencia del Material:
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="ModalMaterialReferencia" tabindex="-1"
+                        aria-labelledby="ModalMaterialReferenciaLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="ModalMaterialReferenciaLabel">Referencia del
+                                        Material:</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                                <strong>Referencia del Material:</strong>
+                                                <p>
+                                                    Universidad Nacional Federico Villarreal. (2018).
+                                                    {{ $course->title }}.
+                                                    <strong>Recuperado de:</strong>
+                                                    <a target="_blank" href="{{ $current->description->name }}"
+                                                        title="{{ $current->description->name }}">
+                                                        {{ $current->description->name }}
+                                                    </a>
+                                                </p>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -173,36 +200,65 @@
                         {{-- CITA DEL VIDEO --}}
                         <div class="card my-3">
                             <div class="card-body">
-                                @php
-                                    $url = $current->url;
-                                    $urlParts = parse_url($url);
-                                    $channelName = '';
-                                    $videoDate = '';
+                                <!-- Button trigger modal -->
+                                <button type="button" class="mi-boton general mt-3" data-bs-toggle="modal"
+                                    data-bs-target="#MoldalReferenciaVideo">
+                                    Referencia del Video:
+                                </button>
 
-                                    if (isset($urlParts['query'])) {
-                                        parse_str($urlParts['query'], $queryArray);
-                                        $channelName = $queryArray['ab_channel'] ?? '';
-                                        $videoDate = $queryArray['t'] ?? '';
+                                <!-- Modal -->
+                                <div class="modal fade" id="MoldalReferenciaVideo" tabindex="-1"
+                                    aria-labelledby="MoldalReferenciaVideoLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="MoldalReferenciaVideoLabel">Modal
+                                                    title</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                @php
+                                                    $url = $current->url;
+                                                    $urlParts = parse_url($url);
+                                                    $channelName = '';
+                                                    $videoDate = '';
 
-                                        if ($videoDate) {
-                                            $fecha = 'No disponible'; // Agrega el punto y coma aquí
-                                        } else {
-                                            $fecha = $videoDate;
-                                        }
-                                    }
-                                @endphp
+                                                    if (isset($urlParts['query'])) {
+                                                        parse_str($urlParts['query'], $queryArray);
+                                                        $channelName = $queryArray['ab_channel'] ?? '';
+                                                        $videoDate = $queryArray['t'] ?? '';
 
-                                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                    <strong>Referencia del Video:</strong>
-                                    <p>Material extraído de la Web - {{ $current->name }} [Video]. YouTube. Publicado
-                                        por el
-                                        canal
-                                        <strong>{{ $channelName }}</strong>. Disponible en: <a target="_blank"
-                                            href="{{ $current->url }}"
-                                            title="{{ $channelName }}">{{ $url }}</a>
-                                    </p>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
+                                                        if ($videoDate) {
+                                                            $fecha = 'No disponible'; // Agrega el punto y coma aquí
+                                                        } else {
+                                                            $fecha = $videoDate;
+                                                        }
+                                                    }
+                                                @endphp
+
+                                                <div class="alert alert-info alert-dismissible fade show"
+                                                    role="alert">
+                                                    <strong>Referencia del Video:</strong>
+                                                    <p>Material extraído de la Web - {{ $current->name }} [Video].
+                                                        YouTube. Publicado
+                                                        por el
+                                                        canal
+                                                        <strong>{{ $channelName }}</strong>. Disponible en: <a
+                                                            target="_blank" href="{{ $current->url }}"
+                                                            title="{{ $channelName }}">{{ $url }}</a>
+                                                    </p>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

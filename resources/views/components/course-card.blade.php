@@ -65,6 +65,7 @@
 
 
 
+                                {{--
                                 @if ($course->price->value == 0)
                                     <p style="font-size: 22px;font-weight:bold" class="color-general">
                                         {{ $course->price->name }}
@@ -73,7 +74,8 @@
                                     <p style="font-size: 22px; font-weight:bold" class="color-general">
                                         {{ $course->price->value }}
                                         S/.</p>
-                                @endif
+                                @endif 
+                                --}}
 
                                 <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
                                     class="mi-boton general mt-2 w-100">Detalles</a>
