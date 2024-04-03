@@ -31,7 +31,7 @@ class HomeController extends Controller
             ->get();
 
         //para mostrarlo de forma ascendente "de las mas actualizada y que me traiga solo 8"
-        $courses = Course::where('status', '=', 3)->latest('id')->take(8)->get();
+        $courses = Course::where('status', '=', 3)->latest('id')->take(16)->get();
         return view('visitador.home.index', [
             'courses' => $courses,
             'contenidos' => $contenidos

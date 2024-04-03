@@ -96,7 +96,7 @@
                                     <div class="accordion-body">
                                         <ul>
                                             @foreach ($section->lessons as $lesson)
-                                                <li class="d-flex align-items-center my-1">
+                                                <li class="d-flex my-1">
                                                     <i class='bx bxs-videos' style='color:#4b22f4 ; font-size: 22px'></i>
                                                     <p class="temario-parrafo">{{ $lesson->name }}</p>
                                                 </li>
