@@ -33,15 +33,18 @@
                                         <th>ID</th>
                                         <th>NOMBRE</th>
                                         <th>EMAIL</th>
+                                        <th>INSCRITO</th>
                                         <th>EDITAR</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  
                                     @forelse ($users as $user)
                                         <tr>
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>{{ $user->created_at->diffForHumans() }}</td>
                                             <td>
                                                 <a class="mi-boton azul"
                                                     href="{{ route('admin.users.edit', ['user' => $user]) }}">edit</a>
