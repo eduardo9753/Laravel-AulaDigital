@@ -117,6 +117,36 @@ class Pays extends Component
         }
     }
 
+    public function activeSuscription($id)
+    {
+        try {
+            $pay = Pay::find($id);
+            // Configura las credenciales de Mercado Pago
+            SDK::setAccessToken(config('mercadopago.token'));
+
+            // Obtén la instancia de Preapproval
+            $preapproval = Preapproval::find_by_id($pay->preference_id);
+
+            // Realiza la cancelación de la suscripción
+            $preapproval->status = 'active';
+            $preapproval->update();
+
+            // Verifica el estado de la suscripción después de la actualización
+            $preapproval = Preapproval::find_by_id($pay->preference_id);
+
+            if ($preapproval->status === 'active') {
+                $pay->update(['estado' => 'SUSCRITO']);
+                $this->cancelSubscriptionMessage = 'Suscripción activada con éxito';
+                $this->reload();
+            } else {
+                $this->cancelSubscriptionMessage = 'No se pudo activar la suscripción';
+                $this->reload();
+            }
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+        }
+    }
+
     public function reload()
     {
         $this->pays = User::join('pays', 'users.id', '=', 'pays.user_id')
@@ -129,7 +159,7 @@ class Pays extends Component
                 'pays.preference_id',
                 'pays.estado'
             )
-            ->whereIn('pays.estado', ['VALIDAR', 'SUSCRITO'])
+            ->whereIn('pays.estado', ['CANCELADO', 'SUSCRITO'])
             ->get();
     }
 

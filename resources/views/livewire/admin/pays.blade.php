@@ -80,10 +80,10 @@
                                         <th>PAGO</th>
                                         <th>ESTADO</th>
                                         <th>
-                                            Autorizar</i>
+                                            ACTIVAR</i>
                                         </th>
                                         <th>
-                                            Rechazar</i>
+                                            CANCELAR</i>
                                         </th>
                                     </tr>
                                 </thead>
@@ -94,20 +94,14 @@
                                             <td>{{ $pay->name }}</td>
                                             <td>{{ $pay->payment_id }}</td>
                                             <td>{{ $pay->estado }}</td>
-                                            @if ($pay->estado == 'VALIDAR')
-                                                <td>
-                                                    <button wire:click="edit({{ $pay->id }})"
+                                            @if ($pay->estado == 'CANCELADO')
+                                                <td class="text-center">
+                                                    <button wire:click="activeSuscription({{ $pay->id }})"
                                                         class="mi-boton azul btn-sm"><i
-                                                            class='bx bx-edit-alt bx-tada'></i></button>
-                                                </td>
-                                                <td>
-                                                    <button wire:click="delete({{ $pay->id }})"
-                                                        class="mi-boton rojo btn-sm"><i
-                                                            class='bx bx-message-alt-x bx-burst'></i></button>
+                                                            class='bx bx-check bx-tada'></i></button>
                                                 </td>
                                             @else
-                                                <td></td>
-                                                <td>
+                                                <td class="text-center">
                                                     <button wire:click="cancelSuscription({{ $pay->id }})"
                                                         class="mi-boton rojo btn-sm"><i
                                                             class='bx bx-message-alt-x bx-burst'></i></button>

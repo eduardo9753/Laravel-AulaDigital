@@ -8,6 +8,7 @@ use App\Models\Pay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use MercadoPago\SDK;
+use MercadoPago\Preapproval;
 use MercadoPago\Preference;
 
 class PaymentSuscriptionController extends Controller
@@ -112,5 +113,38 @@ class PaymentSuscriptionController extends Controller
     public function subscribe()
     {
         return view('payment.suscribete');
+    }
+
+    //PARA CANCELAR LA SUSCRIPCION DE PLAN PRE UNI
+    public function cancel()
+    {
+        try {
+            $pay = Pay::where('user_id', auth()->user()->id)
+                ->where('collection_status', 'PLAN-PRE-UNI')
+                ->where('estado', 'SUSCRITO')
+                ->first();
+
+            // Configura las credenciales de Mercado Pago
+            SDK::setAccessToken(config('mercadopago.token'));
+
+            // Obtén la instancia de Preapproval
+            $preapproval = Preapproval::find_by_id($pay->preference_id);
+
+            // Realiza la cancelación de la suscripción
+            $preapproval->status = 'cancelled';
+            $preapproval->update();
+
+            // Verifica el estado de la suscripción después de la actualización
+            $preapproval = Preapproval::find_by_id($pay->preference_id);
+
+            if ($preapproval->status === 'cancelled') {
+                $pay->update(['estado' => 'CANCELADO']);
+                return redirect()->route('login');
+            } else {
+                return redirect()->route('login');
+            }
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+        }
     }
 }

@@ -168,7 +168,7 @@
     .image-1, .image-2 {
       display: none; }
   
-    form {
+    .form {
       padding: 35px;
       box-shadow: none;
       -webkit-box-shadow: none;
