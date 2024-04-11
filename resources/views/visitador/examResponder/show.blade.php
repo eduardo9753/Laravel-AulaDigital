@@ -98,9 +98,9 @@
                                                         </div>
                                                         <div>
                                                             @if ($answer->es_correcta == 1)
-                                                                <strong class="text-primary">Respuesta Correcta</strong>
+                                                                <strong class="text-primary">correcta</strong>
                                                             @else
-                                                                <strong class="text-danger">Respuesta Incorrecta</strong>
+                                                                <strong class="text-danger">incorrecta</strong>
                                                             @endif
                                                         </div>
                                                     </div>

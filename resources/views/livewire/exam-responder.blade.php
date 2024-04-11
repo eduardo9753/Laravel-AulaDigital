@@ -54,7 +54,7 @@
 
                                                     <label class="form-check-label"
                                                         for="marcar_{{ $examen->question->id }}_{{ $respuesta->id }}">
-                                                        Marcar
+                                                        respuesta
                                                     </label>
 
                                                     @error("respuestasSeleccionadas.{$examen->question->id}")

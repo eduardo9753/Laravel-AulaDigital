@@ -94,19 +94,23 @@
                                             <td>{{ $pay->name }}</td>
                                             <td>{{ $pay->payment_id }}</td>
                                             <td>{{ $pay->estado }}</td>
-                                            @if ($pay->estado == 'CANCELADO')
-                                                <td class="text-center">
+
+                                            <td class="text-center">
+                                                @if ($pay->estado == 'CANCELADO')
                                                     <button wire:click="activeSuscription({{ $pay->id }})"
                                                         class="mi-boton azul btn-sm"><i
                                                             class='bx bx-check bx-tada'></i></button>
-                                                </td>
-                                            @else
-                                                <td class="text-center">
+                                                @endif
+                                            </td>
+
+                                            <td class="text-center">
+                                                @if ($pay->estado == 'SUSCRITO')
                                                     <button wire:click="cancelSuscription({{ $pay->id }})"
                                                         class="mi-boton rojo btn-sm"><i
                                                             class='bx bx-message-alt-x bx-burst'></i></button>
-                                                </td>
-                                            @endif
+                                                @endif
+                                            </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>
