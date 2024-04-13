@@ -24,9 +24,8 @@
                                         <div class="banner-title">
                                             <h3 class="font-weight-medium">Únete y forma parte de PreuniCursos</h3>
                                         </div>
-                                        <p class="my-2">Plataforma educativa diseñada para jóvenes académicos
-                                        </p>
-                                        <p class="my-3">Descubre una forma diferente de aprender en tus tiempos libres
+                                        <p class="my-2">Plataforma educativa diseñada ti</p>
+                                        <p class="my-3">Temarios para el examen de admisión <strong>UNFV</strong>
                                         </p>
 
                                         @guest
@@ -141,11 +140,10 @@
                             <div class="services-box" data-aos="fade-down" data-aos-easing="linear"
                                 data-aos-duration="1500">
                                 <div class="text-center">
-                                    <img src="{{ asset('img/home/pago.png') }}" data-aos="zoom-in">
+                                    <img src="{{ asset('img/home/videos.png') }}" data-aos="zoom-in">
                                 </div>
-                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Suscripción(Mercadopago)</h6>
-                                <p>Únete ahora y desbloquea acceso ilimitado a todos nuestros cursos, exámenes, material
-                                    educativo ¡y mucho más! Además, paga de forma segura y fiable con MercadoPago.</p>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Lista de Videos</h6>
+                                <p>Una lista de 16 secciones con videos asociados al temario para el examen de la UNFV.</p>
                             </div>
                         </div>
 
@@ -155,9 +153,9 @@
                                 <div class="text-center">
                                     <img src="{{ asset('img/home/soporte.png') }}" data-aos="zoom-in">
                                 </div>
-                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Soporte las 24 horas</h6>
-                                <p>La plataforma cuenta con soporte las 24 horas, permitiéndote acceder en cualquier momento
-                                    de tus tiempos libres.</p>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Suscripción(Mercadopago)</h6>
+                                <p>Las suscripciones se procesan de forma segura a través de la pasarela de pagos de Mercado
+                                    Pago.</p>
                             </div>
                         </div>
 
