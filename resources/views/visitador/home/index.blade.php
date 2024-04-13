@@ -151,7 +151,7 @@
                             <div class="services-box pb-0" data-aos="fade-down" data-aos-easing="linear"
                                 data-aos-duration="1500">
                                 <div class="text-center">
-                                    <img src="{{ asset('img/home/soporte.png') }}" data-aos="zoom-in">
+                                    <img src="{{ asset('img/home/pago.png') }}" data-aos="zoom-in">
                                 </div>
                                 <h6 class="text-dark mb-3 mt-4 font-weight-medium">Suscripción(Mercadopago)</h6>
                                 <p>Las suscripciones se procesan de forma segura a través de la pasarela de pagos de Mercado
