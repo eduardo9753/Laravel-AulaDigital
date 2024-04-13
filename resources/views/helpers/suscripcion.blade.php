@@ -61,7 +61,7 @@
                         <li class="text-white">Acceso Ilimitado</li>
                         <li class="text-white">Acceso a todos los cursos</li>
                         <li class="text-white">Acceso a material educativo</li>
-                        <li class="text-white">Acceso a examenes</li>
+                        <li class="text-white">Acceso a exámenes</li>
                         <li class="text-white"><strong>Cobro cada 02 de cada mes</strong></li>
                     </ul>
                     @auth
@@ -94,7 +94,7 @@
                         <li>Acceso Ilimitado</li>
                         <li>Acceso a todos los cursos</li>
                         <li>Acceso a material educativo</li>
-                        <li>Acceso a examenes</li>
+                        <li>Acceso a exámenes</li>
                         <li>Acceso a libros(PDF)</li>
                         <li><strong>Cobro cada 02 de cada mes</strong></li>
                     </ul>
