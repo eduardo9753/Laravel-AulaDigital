@@ -24,8 +24,8 @@
                                         <div class="banner-title">
                                             <h3 class="font-weight-medium">Únete y forma parte de PreuniCursos</h3>
                                         </div>
-                                        <p class="my-2">Plataforma educativa diseñada ti</p>
-                                        <p class="my-3">Temarios para el examen de admisión <strong>UNFV</strong>
+                                        <p class="my-2">Plataforma educativa diseñada para ti</p>
+                                        <p class="my-3">Temario para el examen de admisión <strong>UNFV</strong>
                                         </p>
 
                                         @guest
