@@ -51,10 +51,12 @@ class QuestionForm extends Component
     private function loadQuestions()
     {
         $this->questions = Question::join('topics', 'questions.topic_id', '=', 'topics.id')
-            ->select('questions.id',
-                     'questions.titulo',
-                     'questions.dificultad',
-                     'questions.puntos')
+            ->select(
+                'questions.id',
+                'questions.titulo',
+                'questions.dificultad',
+                'questions.puntos'
+            )
             ->where('questions.user_id', '=', auth()->user()->id)
             ->where('questions.topic_id', '=', $this->selectedTopicId)
             ->where('topics.estado', '=', 'activo')
@@ -68,20 +70,18 @@ class QuestionForm extends Component
     }
 
 
-    //
+    //Obtener el primer tema y asignar su id a $exam_id
     public function firstExam()
     {
-        // Obtener el primer tema y asignar su id a $exam_id
-        $firstExam = Exam::where('user_id', '=', auth()->user()->id)->where('estado', '=', 'pendiente')->first();
-        $this->exam_id = $firstExam ? $firstExam->id : 1;
+        $firstExam = Exam::where('user_id', '=', auth()->user()->id)->where('estado', '=', 'pendiente')->latest()->first();
+        $this->exam_id = $firstExam ? $firstExam->id : null;
     }
 
-    //
+    // Obtener el primer tema y asignar su id a $topic_id
     public function firstTopic()
     {
-        // Obtener el primer tema y asignar su id a $topic_id
-        $firstTopic = Topic::where('estado', '=', 'activo')->first();
-        $this->topic_id = $firstTopic ? $firstTopic->id : 1;
+        $firstTopic = Topic::where('estado', '=', 'activo')->latest()->first();
+        $this->topic_id = $firstTopic ? $firstTopic->id : null;
     }
 
     //PARA AÑADIR UNA NUEVA RESPUESTA
@@ -102,7 +102,14 @@ class QuestionForm extends Component
     {
         // Validar los datos según tus necesidades
         $this->validate([
-            'titulo' => 'required'
+            'titulo' => 'required',
+            'exam_id' => 'required',
+            'topic_id' => 'required',
+            'respuestas.*.titulo' => 'required', // Validar que al menos una respuesta tenga un título
+            'respuestas.*.es_correcta' => 'nullable|boolean', // Validar que al menos una respuesta sea marcada como correcta
+        ], [
+            'respuestas.*.titulo.required' => 'Debes agregar al menos una respuesta.', // Mensaje personalizado de error para respuestas sin título
+            'respuestas.*.es_correcta.boolean' => 'Debes marcar al menos una respuesta como correcta.', // Mensaje personalizado de error para respuestas sin marcar como correcta
         ]);
 
         // Guardar la pregunta
@@ -112,17 +119,15 @@ class QuestionForm extends Component
             'dificultad' => $this->dificultad,
             'puntos' => $this->puntos,
             'estado' => 'activo',
-            'topic_id' => $this->selectedTopicId, // Usar $this->selectedTopicId en lugar de $this->topic_id
+            'topic_id' => $this->selectedTopicId,
             'user_id' => auth()->user()->id
         ]);
-
 
         // Insertar en la tabla pivot "exam_question"
         DB::table('exam_questions')->insert([
             'exam_id' => $this->exam_id,
             'question_id' => $question->id,
         ]);
-
 
         // Insertando las respuestas
         foreach ($this->respuestas as $respuesta) {
@@ -138,6 +143,7 @@ class QuestionForm extends Component
         $this->resetInputFields();
     }
 
+
     public function delete($id)
     {
         $question = Question::find($id);
@@ -151,6 +157,30 @@ class QuestionForm extends Component
     {
         $this->updatedSelectedTopicId();
         $this->exams = Exam::where('user_id', '=', auth()->user()->id)->where('estado', '=', 'pendiente')->get();
+    }
+
+    //PARA PUBLICAR EL EXAMEN
+    public function publishExam($topic_id, $exam_id)
+    {
+        $topic = Topic::find($topic_id);
+        $topic->update([
+            'estado' => 'inactivo',
+        ]);
+
+        $exam = Exam::find($exam_id);
+        $exam->update([
+            'estado' => Exam::ACTIVO,
+        ]);
+    }
+
+    //PARA ANULAR EL EXAMEN
+    public function deleteExamen($topic_id, $exam_id)
+    {
+        $topic = Topic::find($topic_id);
+        $topic->delete();
+
+        $exam = Exam::find($exam_id);
+        $exam->delete();
     }
 
     public function resetInputFields()

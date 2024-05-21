@@ -13,19 +13,16 @@
 
                 {{-- NAVEGACiON DE LECCIONES --}}
                 <div class="mt-3 d-flex justify-content-between">
-                    @if ($this->previous)
-                        <a class="mi-boton general btn-sm" wire:click="changeLesson({{ $this->previous }})"><i
-                                class='bx bx-send bx-flip-horizontal' style="font-size: 25px"></i></a>
+                    @if ($this->index == 0)
+                        <a class="mi-boton azul" wire:click="changeLesson({{ $current }})">Primero</a>
                     @else
-                        <a class="mi-boton azul btn-sm"><i class='bx bx-trending-up' style="font-size: 25px"></i></a>
+                        <a class="mi-boton general" wire:click="changeLesson({{ $this->previous }})">Anterior</a>
                     @endif
 
                     @if ($this->next)
-                        <a class="mi-boton general btn-sm" wire:click="changeLesson({{ $this->next }})"><i
-                                class='bx bx-send' style="font-size: 25px"></i></a>
+                        <a class="mi-boton general" wire:click="changeLesson({{ $this->next }})">Siguiente</a>
                     @else
-                        <a class="mi-boton rojo btn-sm"><i class='bx bx-trending-up bx-flip-horizontal'
-                                style="font-size: 25px"></i></a>
+                        <a class="mi-boton rojo" wire:click="changeLesson({{ $current }})">Último</a>
                     @endif
                 </div>
                 {{-- NAVEGACiON DE LECCIONES --}}

@@ -11,9 +11,9 @@
                             @if (!$exam_id)
                                 <form wire:submit.prevent="create">
                                     <div class="form-group my-2">
-                                        <label for="">nombre:</label>
+                                        <label for="">Materia o curso:</label>
                                         <input wire:model="nombre" type="text" class="form-control"
-                                            placeholder="Química - Estado Gaseoso P1">
+                                            placeholder="Geometría plana">
                                         @error('nombre')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -29,13 +29,13 @@
                                     </div>
 
 
-                                    <div class="form-group my-2">
+                                    {{-- <div class="form-group my-2">
                                         <label for="">publicación:</label>
                                         <input wire:model="publicacion" type="datetime-local" class="form-control">
                                         @error('publicacion')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                     <button type="submit" class="mi-boton azul w-100 mt-2">Crear</button>
                                 </form>
                             @endif
@@ -46,9 +46,9 @@
                             @if ($exam_id)
                                 <form wire:submit.prevent="update">
                                     <div class="form-group my-2">
-                                        <label for="">nombre:</label>
+                                        <label for="">Materia o curso:</label>
                                         <input wire:model="nombre" type="text" class="form-control"
-                                            placeholder="Química - Estado Gaseoso P1">
+                                            placeholder="Geometría plana">
                                         @error('nombre')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -63,13 +63,13 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group my-2">
+                                    {{-- <div class="form-group my-2">
                                         <label for="publicacion">publicación:</label>
                                         <input wire:model="publicacion" type="datetime-local" class="form-control">
                                         @error('publicacion')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                     <button type="submit" class="mi-boton azul w-100 mt-2">Actualizar</button>
                                 </form>
                             @endif
@@ -81,7 +81,7 @@
                 <div class="col-md-8">
                     <div class="card sombra">
                         <div class="card-header fondo-general">
-                            <h2 class="lead text-white">Tus Exámenes</h2>
+                            <h2 class="lead text-white">Examen</h2>
                         </div>
                         <div class="card-body table-responsive">
                             <table class="table">

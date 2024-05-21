@@ -7,7 +7,6 @@ use App\Models\Exam;
 use App\Models\ExamQuestion;
 use App\Models\ExamUser;
 use App\Models\ExamUserAnswer;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class ExamResponder extends Component
@@ -15,17 +14,11 @@ class ExamResponder extends Component
     public $exam;
     public $examUser;
     public $examenes;
-
-    protected $rules = [];
-    public $idsPreguntas = [];
+    public $currentQuestionIndex = 0;
     public $respuestasSeleccionadas = [];
-    public $openedAccordions = [];
-
-    protected $listeners = ['tiempoFuera'];
-    public $respuestas;
-
     public $botonDesactivado = false;
 
+    protected $listeners = ['tiempoFuera'];
 
     public function mount(Exam $exam, ExamUser $examUser)
     {
@@ -35,126 +28,84 @@ class ExamResponder extends Component
             ->where('exam_id', $this->exam->id)
             ->get();
 
-        // Inicializar el array de IDs de preguntas - Asignar los ids de la tabla "exam_questions" al array
-        $this->idsPreguntas = [];
         foreach ($this->examenes as $examen) {
-            $this->idsPreguntas[] = $examen->id;
+            $this->respuestasSeleccionadas[$examen->question->id] = null;
         }
-
-
-        // Inicializar las respuestas seleccionadas con la primera respuesta de cada pregunta
-        foreach ($this->examenes as $examen) {
-            $this->respuestasSeleccionadas[$examen->question->id] = $examen->question->answers->first()->id;
-        }
-
-        // Escuchar el evento tiempoFuera
-        $this->listeners = ['tiempoFuera'];
-
-        // Inicializa la propiedad $botonDesactivado
-        $this->botonDesactivado = false;
     }
 
     public function render()
     {
-        return view('livewire.exam-responder');
+        return view('livewire.exam-responder', [
+            'currentQuestion' => $this->examenes[$this->currentQuestionIndex]
+        ]);
     }
 
-    //REGLA PARA VALIDAR EL RADIO BUTON
-    public function rules()
+    public function nextQuestion()
     {
-        $validationRules = [];
-        foreach ($this->examenes as $examen) {
-            // Add validation rule for each question
-            $validationRules["respuestasSeleccionadas.{$examen->question->id}"] = 'required';
+        if ($this->currentQuestionIndex < count($this->examenes) - 1) {
+            $this->currentQuestionIndex++;
         }
-        return $validationRules;
     }
 
-
-    //METODO PARA CUANDO SE ACABE EL TIEMPO SE GUARDE LAS RESPUESTAS QUE MARCO EL USUARIO
-    public function tiempoFuera()
+    public function previousQuestion()
     {
-        // Validate the form
-        $this->validate();
-        $this->guardarPreguntaRespuestas();
+        if ($this->currentQuestionIndex > 0) {
+            $this->currentQuestionIndex--;
+        }
+    }
 
-        // Desactiva el botón después de culminar el examen
+    public function submitExam($tiempoFuera = false)
+    {
+        if (!$tiempoFuera) {
+            $this->validate();
+        }
+
+        $this->guardarPreguntaRespuestas();
         $this->botonDesactivado = true;
     }
 
-
-    //METODO PARA CUANDO EL USUARIO LE DA CLICK A "Culminar Examen"
-    public function culminarExamen()
-    {
-        // Validate the form
-        $this->validate();
-        $this->guardarPreguntaRespuestas();
-
-        // Desactiva el botón después de culminar el examen
-        $this->botonDesactivado = true;
-    }
-
-    //PARA GUARDAR LAS PREGUNTAS Y RESPUESTAS QUE EL USUARIO SELECCIONA
     public function guardarPreguntaRespuestas()
     {
-        // Array para almacenar las respuestas seleccionadas
-        $respuestasSeleccionadasArray = [];
+        foreach ($this->respuestasSeleccionadas as $questionId => $respuestaId) {
+            if ($respuestaId) {
+                $respuesta = Answer::find($respuestaId);
+                $puntos = $respuesta && $respuesta->es_correcta ? $respuesta->es_correcta : 0;
 
-        foreach ($this->respuestasSeleccionadas as $respuestaSeleccionada) {
-            // Encuentra la respuesta por ID
-            $respuesta = Answer::find($respuestaSeleccionada);
+                $examenQuestion = ExamQuestion::where('question_id', $questionId)
+                    ->where('exam_id', $this->exam->id)
+                    ->first();
 
-            if ($respuesta->es_correcta == 0) {
-                $puntos = 0;
-            } else {
-                $puntos = $respuesta->es_correcta;
-            }
-
-            // Asegurarse de que haya preguntas disponibles
-            if (!empty($this->idsPreguntas)) {
-                // Asigna el ID de la pregunta actual
-                $examenQuestionId = array_shift($this->idsPreguntas);
-
-                // Almacena solo los atributos necesarios
-                $respuestaData = [
-                    'exam_user_id' => $this->examUser->id,
-                    'exam_question_id' => $examenQuestionId,
-                    'answer_id' => $respuesta->id,
-                    'puntos' => $puntos,
-                ];
-
-                // Almacena los datos en el array
-                $respuestasSeleccionadasArray[] = $respuestaData;
+                if ($examenQuestion) {
+                    ExamUserAnswer::create([
+                        'exam_user_id' => $this->examUser->id,
+                        'exam_question_id' => $examenQuestion->id,
+                        'answer_id' => $respuesta->id,
+                        'puntos' => $puntos,
+                    ]);
+                }
             }
         }
 
-        // Guarda los datos en la tabla exam_user_answers
-        ExamUserAnswer::insert($respuestasSeleccionadasArray);
+        $calificacion = ExamUserAnswer::where('exam_user_id', $this->examUser->id)
+            ->sum('puntos');
 
-        // Calcula la calificación sumando los puntos
-        $calificacion = array_sum(array_column($respuestasSeleccionadasArray, 'puntos'));
+        $this->examUser->update([
+            'calificacion' => $calificacion,
+            'status' => 'Culminado'
+        ]);
 
-        $ExamStatus = ExamUser::where('user_id', auth()->user()->id)->where('exam_id', $this->exam->id)->first();
-
-        if ($ExamStatus->status == 'Pendiente') {
-            $ExamStatus->update([
-                'calificacion' => $calificacion,
-                'status' => 'Culminado'
-            ]);
-
-            return redirect()->route('visitador.examenes.index');
-        } else {
-            return redirect()->route('visitador.examenes.index');
-        }
+        return redirect()->route('visitador.examenes.index');
     }
 
-
-    public function toggleAccordion($questionId)
+    public function rules()
     {
-        $this->openedAccordions = in_array($questionId, $this->openedAccordions)
-            ? array_diff($this->openedAccordions, [$questionId])
-            : array_merge($this->openedAccordions, [$questionId]);
+        return [
+            'respuestasSeleccionadas.' . $this->examenes[$this->currentQuestionIndex]->question->id => 'required',
+        ];
+    }
 
-        $this->dispatchBrowserEvent('toggleAccordion', ['questionId' => $questionId]);
+    public function tiempoFuera()
+    {
+        $this->submitExam(true);
     }
 }

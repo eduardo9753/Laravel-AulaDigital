@@ -12,9 +12,9 @@
                             @if (!$topic_id)
                                 <form wire:submit.prevent="create">
                                     <div class="form-group my-2">
-                                        <label for="">Agregar nueva Tema:</label>
+                                        <label for="">Tema del Examen:</label>
                                         <input wire:model="nombre" type="text" class="form-control"
-                                            placeholder="Estado Gaseoso">
+                                            placeholder="Circunferencia">
                                         @error('nombre')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

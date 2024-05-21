@@ -21,6 +21,8 @@ class Exams extends Component
     public function mount()
     {
         $this->exams = Exam::where('user_id', '=', auth()->user()->id)->where('estado', '=', Exam::PENDIENTE)->get();
+        $this->duracion = 10;
+        $this->publicacion = date('Y-m-d\TH:i:s');
     }
 
     public function render()
