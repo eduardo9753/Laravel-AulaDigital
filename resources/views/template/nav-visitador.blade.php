@@ -18,7 +18,7 @@
                             <li class="item">
                                 <form action="{{ route('mercadopago.suscription.cancel') }}" method="POST">
                                     @csrf
-                                    <input type="submit" class="btn btn-warning mt-3 w-100" value="Cencelar Plan">
+                                    <input type="submit" class="btn btn-warning mt-3 w-100" value="Cancelar Plan">
                                 </form>
                             </li>
                             <li class="item">
@@ -40,7 +40,7 @@
                             </li>
                             <form action="{{ route('mercadopago.suscription.school.cancel') }}" method="POST">
                                 @csrf
-                                <input type="submit" class="btn btn-warning mt-3 w-100" value="Cencelar Plan">
+                                <input type="submit" class="btn btn-warning mt-3 w-100" value="Cancelar Plan">
                             </form>
                             </li>
                             <li class="item">

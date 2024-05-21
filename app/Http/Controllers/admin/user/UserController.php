@@ -18,8 +18,7 @@ class UserController extends Controller
 
     public function index()
     {
-        //$users = User::whereNotIn('id', [2, 3, 4, 5, 7, 8, 15])->get();
-        $users = User::all();
+        $users = User::whereNotIn('id', [2, 3, 4, 5, 7, 8, 15])->get();
         return view('admin.user.index', [
             'users' => $users
         ]);
