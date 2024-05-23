@@ -62,6 +62,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&display=swap" rel="stylesheet">
 
     <link href="{{ asset('css/login/login.css') }}" rel="stylesheet">
+    <!-- Plyr CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+
+    <!-- Plyr JS -->
+    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
 
     <!-- ESTILOS LIVEWIRE -->
     @livewireStyles
@@ -114,7 +119,7 @@
     <!--SCCRIPT GENERALES-->
     <script src="{{ asset('js/dataTables.js') }}"></script>
 
-   
+
     <script src="{{ asset('js/login/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/login/main.js') }}"></script>
 
