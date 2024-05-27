@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\auth\LoginController;
 use App\Http\Controllers\admin\auth\LogoutController;
 use App\Http\Controllers\admin\auth\RecoverController;
 use App\Http\Controllers\admin\auth\RegisterController;
+use App\Http\Controllers\plan\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\visitador\contact\ContactController;
 use App\Http\Controllers\visitador\course\CourseController;
@@ -69,6 +70,7 @@ Route::post('/course/{course}/enrolled', [CourseController::class, 'enrolled'])-
 Route::get('/course-status/{course:slug}', [CourseController::class, 'status'])->middleware('auth')->name('visitador.course.status');
 Route::get('/list/course/student', [CourseController::class, 'courses'])->middleware('auth')->name('visitador.course.list');
 
+//PARA VER LOS RECURSOS DE CADA CURSO
 Route::get('/lectura', [ReadController::class, 'index'])->name('visitador.read.index');
 Route::get('/lectura/show/{archive}', [ReadController::class, 'show'])->name('visitador.read.show');
 
@@ -79,6 +81,9 @@ Route::get('/examen/{exam:slug}/enrolled', [ExamResponderController::class, 'enr
 Route::get('/examen/{exam:slug}/status/', [ExamResponderController::class, 'status'])->name('visitador.examenes.status');
 Route::get('/examen/{exam:slug}/culminate/show', [ExamResponderController::class , 'show'] )->name('visitador.examenes.show');
 
+
+//PARA VER MI PLAN DE SUSCRIPCION
+Route::get('/plan/{user}/starus/suscription', [PlanController::class , 'index'])->name('visitador.plan.index');
 
 //RUTAS PARA EL ADMIN
 require base_path('routes/admin.php');

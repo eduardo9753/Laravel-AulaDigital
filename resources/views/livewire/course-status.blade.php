@@ -95,26 +95,7 @@
             <div class="col-md-4">
                 <div class="card ">
                     <div class="card-body">
-                        <h1 class="lead">{{ $course->title }}</h1>
-
-                        {{-- DESCRICCION DEL COLABORADOR "profesor" --}}
-                        <div class="d-flex align-items-center mb-3">
-                            <figure>
-                                <img src="{{ $course->teacher->profile_photo_url }}" alt="">
-                            </figure>
-                            <div>
-                                <p>Colaborador:{{ $course->teacher->name }}</p>
-                                @if (optional($course->teacher->profile)->website)
-                                    <a href="{{ $course->teacher->profile->website }}" target="_blank">
-                                        {{ '@' . Str::slug($course->teacher->name, '') }}
-                                    </a>
-                                @else
-                                    <a href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
-                                @endif
-                            </div>
-                        </div>
-                        {{-- DESCRICCION DEL COLABORADOR "profesor" --}}
-
+                        <h1 class="lead mb-3">Curso de {{ $course->title }}</h1>
 
                         {{-- BARRA DE PROGRESO --}}
                         <div class="d-flex justify-content-between">
@@ -125,10 +106,10 @@
                                 @if ($current->completed)
                                     <i class='bx bxs-toggle-right'
                                         style='color:rgb(52, 152, 219);  font-size: 28px'></i>
-                                    <p class="cursor-status" style='font-size: 18px'>lección culminada</p>
+                                    <p class="cursor-status" style='font-size: 18px'>culminado</p>
                                 @else
                                     <i class='bx bx-toggle-left' style="font-size: 28px"></i>
-                                    <p class="cursor-status" style='font-size: 18px'>culminar lección</p>
+                                    <p class="cursor-status" style='font-size: 18px'>culminar</p>
                                 @endif
                             </div>
                             {{-- MARCAR COMO CULMINADA LA LECCION --}}
@@ -203,7 +184,7 @@
                                 <!-- Button trigger modal -->
                                 <button type="button" class="mi-boton general mt-3" data-bs-toggle="modal"
                                     data-bs-target="#MoldalReferenciaVideo">
-                                    Referencia del Video:
+                                    Referencia del vídeo:
                                 </button>
 
                                 <!-- Modal -->
@@ -239,7 +220,7 @@
 
                                                 <div class="alert alert-info alert-dismissible fade show"
                                                     role="alert">
-                                                    <strong>Referencia del Video:</strong>
+                                                    <strong>Referencia del vídeo:</strong>
                                                     <p>Material extraído de la Web - {{ $current->name }} [Video].
                                                         YouTube. Publicado
                                                         por el
