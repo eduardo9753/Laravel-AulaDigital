@@ -1,30 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\visitador\read;
+namespace App\Http\Controllers\visitador\compendium;
 
 use App\Http\Controllers\Controller;
 use App\Models\Archive;
 use App\Models\Course;
-use App\Models\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-class ReadController extends Controller
+class CompendiumController extends Controller
 {
     //
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function index()
     {
         $user = auth()->user();
 
-        // Verifica si el usuario tiene acceso a la suscripción pre-universitaria o universitaria
         if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
-            $courses = Course::all();
-            return view('visitador.read.index', [
+            // Cargar los cursos y filtrar archivos por type "C"
+            $courses = Course::with(['archives' => function ($query) {
+                $query->where('type', 'C');
+            }])->get();
+
+            return view('visitador.compendio.index', [
                 'courses' => $courses
             ]);
         } else {
@@ -40,7 +38,7 @@ class ReadController extends Controller
         if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
             $course = Course::find($archive->course_id);
 
-            return view('visitador.read.show', [
+            return view('visitador.compendio.show', [
                 'archive' => $archive,
                 'course' => $course
             ]);

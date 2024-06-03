@@ -51,7 +51,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="mb-3">
-                                        <label class="form-label">TIPO PLAN</label>
+                                        <label class="form-label">TIPO PLAN ({{$suscription->id}})</label>
                                         <input type="text" class="form-control"
                                             value="{{ $suscription->collection_status }}"
                                             placeholder="plan del estudiante" />

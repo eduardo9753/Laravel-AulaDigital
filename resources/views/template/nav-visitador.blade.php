@@ -40,6 +40,14 @@
                                 </a>
                             </li>
                             <li class="item">
+                                <a href="{{ route('visitador.compendio.index') }}">
+                                    <div class="d-flex align-items-center gap-1">
+                                        <i class='bx bxs-book-bookmark'></i>
+                                        <span>Mis Compendios</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="item">
                                 <a href="{{ route('profile.index', ['user' => auth()->user()]) }}">
                                     <div class="d-flex align-items-center gap-1">
                                         <i class='bx bxs-user-rectangle'></i>
@@ -87,6 +95,14 @@
                                     <div class="d-flex align-items-center gap-1">
                                         <i class='bx bxs-book-add'></i>
                                         <span>Mis recursos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="item">
+                                <a href="{{ route('visitador.compendio.index') }}">
+                                    <div class="d-flex align-items-center gap-1">
+                                        <i class='bx bxs-book-bookmark'></i>
+                                        <span>Mis Compendios</span>
                                     </div>
                                 </a>
                             </li>

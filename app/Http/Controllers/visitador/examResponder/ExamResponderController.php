@@ -26,7 +26,7 @@ class ExamResponderController extends Controller
     {
         $user = auth()->user();
         //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES
-        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user)) {
+        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
             $exams = Exam::where('estado', '=', 'activo')->get();
             return view('visitador.examResponder.index', [
                 'exams' => $exams
@@ -59,7 +59,7 @@ class ExamResponderController extends Controller
     {
         $user = auth()->user();
         //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES
-        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user)  && $this->authorize('enrolledExamUser', $exam)) {
+        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)  && $this->authorize('enrolledExamUser', $exam)) {
             $examUser = ExamUser::where('user_id', '=', auth()->user()->id)
                 ->where('exam_id', '=', $exam->id)
                 ->first();
@@ -81,7 +81,7 @@ class ExamResponderController extends Controller
     {
         $user = auth()->user();
         //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES Y  //METODO AUTORIZAR ENTRAR AL EXAMEN AL USUARIO AUTENTICADO
-        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user)  && $this->authorize('enrolledExamUser', $exam)) {
+        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user) && $this->authorize('enrolledExamUser', $exam)) {
             //examen usuario
             $examUser = ExamUser::where('user_id', '=', auth()->user()->id)->where('exam_id', '=', $exam->id)->first();
             //dd($examUser);

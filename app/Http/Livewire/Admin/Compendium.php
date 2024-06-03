@@ -7,7 +7,7 @@ use App\Models\Course;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Reads extends Component
+class Compendium extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -38,18 +38,13 @@ class Reads extends Component
                 'archives.image',
                 'archives.url'
             )
-            ->where(function ($query) {
-                $query->whereNull('archives.type')
-                    ->orWhere('archives.type', 'R');
-            })
+            ->whereIn('archives.type', ['', 'C'])
             ->paginate(10);
-
-        return view('livewire.admin.reads', [
+        return view('livewire.admin.compendium', [
             'courses' => $this->courses,
             'archives' => $archives, // Pasar los archivos paginados a la vista
         ]);
     }
-
     public function create()
     {
         $this->validate([
@@ -67,7 +62,7 @@ class Reads extends Component
             'cita' => $this->cita,
             'url' => $this->url,
             'description' => $this->description,
-            'type' => 'R' //lecturas
+            'type' => 'C' //compendios
         ]);
 
         $this->resetInputFields();
@@ -83,7 +78,7 @@ class Reads extends Component
         $this->cita = $archive->cita;
         $this->url = $archive->url;
         $this->description = $archive->description;
-        $this->type = 'R';
+        $this->type = 'C';
     }
 
     public function update()

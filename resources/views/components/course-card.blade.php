@@ -51,36 +51,8 @@
                                     </ul>
                                 </div>
 
-
-
-                                @if (optional($course->teacher->profile)->website)
-                                    <a href="{{ $course->teacher->profile->website }}" target="_blank">
-                                        <p class="contenido-bloques-parrafo mb-3 color-general">Colaborador:
-                                            {{ $course->teacher->name }}</p>
-                                    </a>
-                                @else
-                                    <p class="contenido-bloques-parrafo mb-3 color-general">Colaborador:
-                                        {{ $course->teacher->name }}</p>
-                                @endif
-
-
-
-                                {{--
-                                @if ($course->price->value == 0)
-                                    <p style="font-size: 22px;font-weight:bold" class="color-general">
-                                        {{ $course->price->name }}
-                                        S/.0</p>
-                                @else
-                                    <p style="font-size: 22px; font-weight:bold" class="color-general">
-                                        {{ $course->price->value }}
-                                        S/.</p>
-                                @endif 
-                                --}}
-
                                 <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
                                     class="mi-boton general mt-2 w-100">Detalles</a>
-
-
                             </div>
                         </div>
                     </div>

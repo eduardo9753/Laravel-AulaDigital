@@ -17,15 +17,19 @@ class PlanController extends Controller
 
     public function index(User $user)
     {
-        $suscription = Pay::where('estado', 'SUSCRITO')->first();
+        if ($user->id === auth()->user()->id) {
+            $suscription = Pay::where('estado', 'SUSCRITO')->where('user_id', auth()->user()->id)->first();
 
-        if (!$suscription) {
-            return redirect()->route('mercadopago.suscription.subscribe');
+            if (!$suscription) {
+                return redirect()->route('mercadopago.suscription.subscribe');
+            } else {
+                return view('visitador.plan.index', [
+                    'user' => $user,
+                    'suscription' => $suscription
+                ]);
+            }
         } else {
-            return view('visitador.plan.index', [
-                'user' => $user,
-                'suscription' => $suscription
-            ]);
+            echo "no puedes ver el plan de otro usuario :(";
         }
     }
 }

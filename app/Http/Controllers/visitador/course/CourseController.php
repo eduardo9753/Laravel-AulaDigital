@@ -55,7 +55,7 @@ class CourseController extends Controller
     //SE GUARDARA ESOS DATOS EN LA TABLA "course_user"
     $user = auth()->user();
 
-    if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user)) {
+    if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
       $course->students()->attach(auth()->user()->id);
       return redirect()->route('visitador.course.status', $course);
     } else {
@@ -79,7 +79,7 @@ class CourseController extends Controller
   {
     $user = auth()->user();
 
-    if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user)) {
+    if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
       $courseIds = DB::table('course_user')->where('user_id', '=', auth()->user()->id)->pluck('course_id');
       $courseUsers = Course::whereIn('id', $courseIds)->get();
       $courses = Course::where('status', '=', 3)->latest('id')->take(8)->get();

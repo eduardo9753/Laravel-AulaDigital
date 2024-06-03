@@ -2,7 +2,7 @@
     {{-- Be like water. --}}
     <section>
         <div class="contenedor pt-5">
-            <h1 class="lead mt-5">Lecturas: </h1>
+            <h1 class="lead mt-5">Compendios: </h1>
             <div class="row">
                 <div class="col-md-5">
                     <div class="card">
@@ -20,7 +20,7 @@
                                     </div>
 
                                     <div class="form-group my-2">
-                                        <label for="">Nombre de la lectura:</label>
+                                        <label for="">Nombre del compendio:</label>
                                         <input type="text" wire:model="name" class="form-control"
                                             placeholder="nombre lectura">
 
@@ -30,7 +30,7 @@
                                     </div>
 
                                     <div class="form-group my-2">
-                                        <label for="">Imagen de la lectura(Url):</label>
+                                        <label for="">Imagen del compendio(Url):</label>
                                         <input type="text" wire:model="image" class="form-control"
                                             placeholder="url de la imagen">
 
@@ -50,7 +50,7 @@
                                     </div>
 
                                     <div class="form-group my-2">
-                                        <label for="">Url de la lectura:</label>
+                                        <label for="">Url del compendio:</label>
                                         <textarea wire:model="url" class="form-control" placeholder="url"></textarea>
 
                                         @error('url')
@@ -85,7 +85,7 @@
                                     </div>
 
                                     <div class="form-group my-2">
-                                        <label for="">Nombre de la lectura:</label>
+                                        <label for="">Nombre del compendio:</label>
                                         <input type="text" wire:model="name" class="form-control"
                                             placeholder="nombre lectura">
 
@@ -95,7 +95,7 @@
                                     </div>
 
                                     <div class="form-group my-2">
-                                        <label for="">Imagen de la lectura(Url):</label>
+                                        <label for="">Imagen del compendio(Url):</label>
                                         <input type="text" wire:model="image" class="form-control"
                                             placeholder="url de la imagen">
 
@@ -115,7 +115,7 @@
                                     </div>
 
                                     <div class="form-group my-2">
-                                        <label for="">Url de la lectura:</label>
+                                        <label for="">Url del compendio:</label>
                                         <textarea wire:model="url" class="form-control" placeholder="url"></textarea>
 
                                         @error('url')
@@ -142,7 +142,7 @@
                 <div class="col-md-7">
                     <div class="card sombra">
                         <div class="card-header fondo-general">
-                            <h2 class="lead text-white">Recursos Descargables</h2>
+                            <h2 class="lead text-white">Compendios Descargables</h2>
                         </div>
                         <div class="card-body table-responsive">
                             <table class="table">
@@ -195,3 +195,4 @@
         </div>
     </section>
 </div>
+

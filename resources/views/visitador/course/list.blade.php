@@ -32,11 +32,9 @@
                                         </a>
                                     </div>
                                     <h4 class="contenido-bloques-titulo">{{ $course->title }}</h4>
-                                    <p class="contenido-bloques-parrafo mt-3 mt-3">Colaborador: {{ $course->teacher->name }}
-                                    </p>
                                     @can('enrolled', $course)
                                         <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
-                                            class="mi-boton rojo mt-3 w-100">Continuar con el curso</a>
+                                            class="mi-boton rojo w-100">Continuar con el curso</a>
                                     @endcan
                                 </div>
                             </div>

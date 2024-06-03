@@ -1,14 +1,8 @@
 @extends('layouts.app')
 
-
 @section('navegador')
     @include('template.nav-visitador')
 @endsection
-
-
-
-
-
 
 @section('main')
     <section class="" id="contenido-bloques">
@@ -43,7 +37,6 @@
                                     </div>
                                 </div>
                             </div>
-
 
                             <div class="card mt-3">
                                 <div class="card-body">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\category\CategoryController;
+use App\Http\Controllers\admin\compendium\CompendiumController;
 use App\Http\Controllers\admin\course\CourseController;
 use App\Http\Controllers\admin\level\LevelController;
 use App\Http\Controllers\admin\pay\PayController;
@@ -23,7 +24,7 @@ Route::put('/admin/role/update/{role}', [RoleController::class, 'update'])->name
 Route::get('/admin/role/edit/{role}', [RoleController::class, 'edit'])->name('admin.roles.edit');
 Route::delete('/admin/role/destroy/{role}', [RoleController::class, 'destroy'])->name('admin.roles.destroy');
 
-Route::get('/admin/profile/{user:name}', [ProfileController::class, 'index'])->name('admin.profile.index');
+Route::get('/admin/profile/{user}', [ProfileController::class, 'index'])->name('admin.profile.index');
 
 
 Route::get('/admin/user', [UserController::class, 'index'])->name('admin.users.index');
@@ -31,7 +32,6 @@ Route::get('/admin/user/create', [UserController::class, 'create'])->name('admin
 Route::post('/admin/user/store', [UserController::class, 'store'])->name('admin.users.store');
 Route::put('/admin/user/update/{user}', [UserController::class, 'update'])->name('admin.users.update');
 Route::get('/admin/user/edit/{user}', [UserController::class, 'edit'])->name('admin.users.edit');
-
 
 
 Route::get('/admin/course/index', [CourseController::class, 'index'])->name('admin.courses.index');
@@ -45,3 +45,5 @@ Route::get('/admin/level/index',[LevelController::class, 'index'])->name('admin.
 Route::get('/admin/resource/index', [ResourceController::class , 'index'])->name('admin.resources.index');
 Route::get('/admin/reads/index', [ReadController::class , 'index'])->name('admin.reads.index');
 Route::get('/admin/pays/index', [PayController::class , 'index'])->name('admin.pays.index');
+
+Route::get('/admin/compemdium/index', [CompendiumController::class , 'index'])->name('admin.compendiums.index');

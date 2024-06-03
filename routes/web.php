@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\auth\RecoverController;
 use App\Http\Controllers\admin\auth\RegisterController;
 use App\Http\Controllers\plan\PlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\visitador\compendium\CompendiumController;
 use App\Http\Controllers\visitador\contact\ContactController;
 use App\Http\Controllers\visitador\course\CourseController;
 use App\Http\Controllers\visitador\examResponder\ExamResponderController;
@@ -45,7 +46,7 @@ Route::post('/admin/SingIn', [LoginController::class, 'store'])->name('admin.log
 Route::get('/admin/Register', [RegisterController::class, 'index'])->name('admin.register.index');
 Route::post('/admin/Register/store', [RegisterController::class, 'store'])->name('admin.register.store');
 
-Route::get('/profile/{user:name}', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.index');
 
 Route::get('/admin/recover', [RecoverController::class, 'recover'])->name('admin.recover');
 Route::post('/admin/recover', [RecoverController::class, 'send'])->name('admin.send');
@@ -83,7 +84,12 @@ Route::get('/examen/{exam:slug}/culminate/show', [ExamResponderController::class
 
 
 //PARA VER MI PLAN DE SUSCRIPCION
-Route::get('/plan/{user}/starus/suscription', [PlanController::class , 'index'])->name('visitador.plan.index');
+Route::get('/plan/{user}/status/suscription', [PlanController::class , 'index'])->name('visitador.plan.index');
+
+
+//MIS COMPENDIOS
+Route::get('/compemdios',[CompendiumController::class , 'index'])->name('visitador.compendio.index');
+Route::get('/compemdios/show/{archive}', [CompendiumController::class , 'show'])->name('visitador.compendio.show');
 
 //RUTAS PARA EL ADMIN
 require base_path('routes/admin.php');

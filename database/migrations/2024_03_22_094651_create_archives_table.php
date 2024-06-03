@@ -26,7 +26,7 @@ class CreateArchivesTable extends Migration
             $table->string('cita');
             $table->text('url');
             $table->text('description');
-
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }
