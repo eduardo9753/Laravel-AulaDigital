@@ -79,6 +79,11 @@
                                 echo date('Y');
                             @endphp </p>
                 </div>
+
+                <div class="d-flex align-items-center">
+                    <p class="mb-0 text-small pt-1"><a href="{{ route('visitador.condition.index') }}"
+                            class="text-white">Terminos y Condiciones</a>
+                </div>
                 <div>
                     <div class="d-flex justify-content-start">
                         <p class="font-weight-medium text-center text-small">

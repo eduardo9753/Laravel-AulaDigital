@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\auth\LoginController;
 use App\Http\Controllers\admin\auth\LogoutController;
 use App\Http\Controllers\admin\auth\RecoverController;
 use App\Http\Controllers\admin\auth\RegisterController;
+use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\plan\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\visitador\compendium\CompendiumController;
@@ -90,6 +91,10 @@ Route::get('/plan/{user}/status/suscription', [PlanController::class , 'index'])
 //MIS COMPENDIOS
 Route::get('/compemdios',[CompendiumController::class , 'index'])->name('visitador.compendio.index');
 Route::get('/compemdios/show/{archive}', [CompendiumController::class , 'show'])->name('visitador.compendio.show');
+
+
+//TERMINOS Y CONDICIONES
+Route::get('/preunicursos/terminos-y-condiciones', [ConditionController::class , 'index'])->name('visitador.condition.index');
 
 //RUTAS PARA EL ADMIN
 require base_path('routes/admin.php');
