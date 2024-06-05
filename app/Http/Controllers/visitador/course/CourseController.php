@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\visitador\course;
 
 use App\Http\Controllers\Controller;
+use App\Mail\EnviarCorreoLinkCaido;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Lesson;
 use App\Models\Level;
+use App\Models\Section;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 
 class CourseController extends Controller
 {
@@ -91,6 +95,39 @@ class CourseController extends Controller
     } else {
       // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
       return redirect()->route('mercadopago.suscription.subscribe');
+    }
+  }
+
+  //metodo que va enviar la alerta del link caido a los administradores
+  public function alert(Request $request)
+  {
+
+    $id_lesson = $request->id_lesson;
+    $lesson = Lesson::find($id_lesson);
+
+    if ($lesson) {
+      $section = Section::find($lesson->section_id);
+      $course = Course::find($section->course_id);
+      //$administradores = ['anthony.anec@gmail.com'];
+      $administradores = ['richardanthonyalama@gmail.com', 'anthony.anec@gmail.com', 'Alonsozambranoh@gmail.com'];
+
+      Mail::to($administradores)->send(new EnviarCorreoLinkCaido($lesson, $section, $course));
+
+      return response()->json([
+        'code' => 1, //si hay daros
+        'msg' => [
+          'id' => $lesson->id,
+          'name' => $lesson->name,
+          'section_id' => $lesson->section_id,
+          'url' => $lesson->url,
+          'description' => $lesson->description,
+        ]
+      ]);
+    } else {
+      return response()->json([
+        'code' => 0,
+        'msg' => 'No se encontro datos'
+      ]);
     }
   }
 }

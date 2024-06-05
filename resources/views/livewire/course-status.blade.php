@@ -34,7 +34,7 @@
                 {{-- DESCRIPCION DE LA LECCION --}}
                 @if ($current->description)
                     <!-- Button trigger modal -->
-                    <button type="button" class="mi-boton general mt-3" data-bs-toggle="modal"
+                    <button type="button" class="mi-boton azul mt-3" data-bs-toggle="modal"
                         data-bs-target="#ModalMaterialReferencia">
                         Referencia del Material:
                     </button>
@@ -95,11 +95,11 @@
             <div class="col-md-4">
                 <div class="card ">
                     <div class="card-body">
-                        <h1 class="lead mb-3">Curso de {{ $course->title }}</h1>
+                        <h1 class="lead mb-3 color-general curso-status-title">Curso de {{ $course->title }}</h1>
 
                         {{-- BARRA DE PROGRESO --}}
                         <div class="d-flex justify-content-between">
-                            <p class="">{{ $this->advance . '%' }} Completado</p>
+                            <p class="text-success"><strong>{{ $this->advance . '%' }}</strong> Completado</p>
 
                             {{-- MARCAR COMO CULMINADA LA LECCION --}}
                             <div class="d-flex align-items-center cursor" wire:click="completed">
@@ -182,7 +182,7 @@
                         <div class="card my-3">
                             <div class="card-body">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="mi-boton general mt-3" data-bs-toggle="modal"
+                                <button type="button" class="mi-boton azul" data-bs-toggle="modal"
                                     data-bs-target="#MoldalReferenciaVideo">
                                     Referencia del vídeo:
                                 </button>
@@ -240,13 +240,23 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                {{-- link caido para dar aviso --}}
+                                <form action="{{ route('visitador.course.alert') }}" id="fromLinkCaido"
+                                    method="POST">
+                                    @csrf
+                                    <input type="text" name="id_lesson" value="{{ $current->id }}" hidden>
+                                    <button type="submit" class="mi-boton rojo btn-sm mt-3" id="alertButton">Alertar
+                                        Link caido</button>
+                                </form>
+
                             </div>
                         </div>
                         {{-- CITA DEL VIDEO --}}
 
 
                         @section('scripts')
-                            <script src="{{ asset('js/youtube.js') }}"></script>
+                            <script src="{{ asset('js/link-caido.js') }}"></script>
 
                             <!-- Plyr Initialization Script -->
                             <script>

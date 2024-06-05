@@ -96,6 +96,10 @@ Route::get('/compemdios/show/{archive}', [CompendiumController::class , 'show'])
 //TERMINOS Y CONDICIONES
 Route::get('/preunicursos/terminos-y-condiciones', [ConditionController::class , 'index'])->name('visitador.condition.index');
 
+//RUTA PARA LA LERTA DE LINK CAIDO
+Route::post('/alerta/link/caida/administrador', [CourseController::class , 'alert'])->name('visitador.course.alert');
+
+
 //RUTAS PARA EL ADMIN
 require base_path('routes/admin.php');
 

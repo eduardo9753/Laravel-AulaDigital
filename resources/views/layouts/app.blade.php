@@ -68,6 +68,9 @@
     <!-- Plyr JS -->
     <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
 
+    <!--CSS SWEEALERT2-->
+    <link rel="stylesheet" href="{{ asset('lib/sweetalert2/sweetalert2.min.css') }}">
+
     <!-- ESTILOS LIVEWIRE -->
     @livewireStyles
 </head>
@@ -123,6 +126,8 @@
     <script src="{{ asset('js/login/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/login/main.js') }}"></script>
 
+    <!--JS SWEEALERT2-->
+    <script src="{{ asset('lib/sweetalert2/sweetalert2.min.js') }}"></script>
 
     <script src="{{ asset('js/home/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('js/home/owl.carousel.js') }}"></script>
