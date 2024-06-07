@@ -50,18 +50,7 @@
                                             <p class="testimonial-destination">Estudiante</p>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="testimonial-item">
-                                            <img src="{{ asset('img/home/testimoniales.png') }}" alt="icon"
-                                                class="testimonial-icons">
-                                            <p>“La lista de temas son precisos y es muy útil para repasar lo esencial con
-                                                los
-                                                ejércitos en pdf.”
-                                            </p>
-                                            <h6 class="testimonial-author">Alonso</h6>
-                                            <p class="testimonial-destination">Estudiante</p>
-                                        </div>
-                                    </li>
+
                                     <li>
                                         <div class="testimonial-item">
                                             <img src="{{ asset('img/home/testimoniales.png') }}" alt="icon"
@@ -73,6 +62,19 @@
                                             <p class="testimonial-destination">Estudiante</p>
                                         </div>
                                     </li>
+
+                                    <li>
+                                        <div class="testimonial-item">
+                                            <img src="{{ asset('img/home/testimoniales.png') }}" alt="icon"
+                                                class="testimonial-icons">
+                                            <p>“Buen curso sobre todo cada lección final de cada capítulo tiene el material
+                                                de preguntas sobre el tema”
+                                            </p>
+                                            <h6 class="testimonial-author">solomaby</h6>
+                                            <p class="testimonial-destination">Estudiante</p>
+                                        </div>
+                                    </li>
+
                                     <li>
                                         <div class="testimonial-item">
                                             <img src="{{ asset('img/home/testimoniales.png') }}" alt="icon"
