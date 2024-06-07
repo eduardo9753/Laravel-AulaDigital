@@ -23,7 +23,9 @@ class ReadController extends Controller
 
         // Verifica si el usuario tiene acceso a la suscripción pre-universitaria o universitaria
         if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
-            $courses = Course::all();
+            $courses = Course::with(['archives' => function ($query) {
+                $query->where('type', '<>', 'C');
+            }])->get();
             return view('visitador.read.index', [
                 'courses' => $courses
             ]);
