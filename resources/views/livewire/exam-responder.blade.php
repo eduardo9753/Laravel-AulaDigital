@@ -1,7 +1,20 @@
 <div>
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="lead"><strong>Duración Estimada</strong></h1>
-        <p id="tiempoRestante" class="color-general" style="font-size: 30px"><strong>{{ $exam->duracion }} minutos</strong></p>
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="lead"><strong>Duración</strong></h1>
+                <p id="tiempoRestante" class="color-general" style="font-size: 30px">
+                    <strong>{{ $exam->duracion }} minutos</strong>
+                </p>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="lead"><strong>Preguntas</strong></h1>
+                <p class="color-general" style="font-size: 30px">
+                    <strong>({{ $totalQuestions }})</strong>
+                </p>
+            </div>
+        </div>
     </div>
 
     <div class="card">
@@ -33,12 +46,12 @@
                     @enderror
                 </div>
 
-                <div class="d-flex justify-content-between mt-4">
+                <div class="d-flex gap-4 mt-4">
                     @if ($currentQuestionIndex > 0)
                         <button type="button" class="mi-boton azul" wire:click="previousQuestion">Anterior</button>
                     @endif
 
-                    @if ($currentQuestionIndex < count($examenes) - 1)
+                    @if ($currentQuestionIndex < $totalQuestions - 1)
                         <button type="button" class="mi-boton rojo" wire:click="nextQuestion">Siguiente</button>
                     @else
                         <button type="submit" class="mi-boton verde">Culminar Examen</button>

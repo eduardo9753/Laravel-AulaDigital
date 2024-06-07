@@ -26,6 +26,7 @@ class ExamResponder extends Component
         $this->examUser = $examUser;
         $this->examenes = ExamQuestion::with('question.answers')
             ->where('exam_id', $this->exam->id)
+            ->inRandomOrder()
             ->get();
 
         foreach ($this->examenes as $examen) {
@@ -36,7 +37,8 @@ class ExamResponder extends Component
     public function render()
     {
         return view('livewire.exam-responder', [
-            'currentQuestion' => $this->examenes[$this->currentQuestionIndex]
+            'currentQuestion' => $this->examenes[$this->currentQuestionIndex],
+            'totalQuestions' => $this->examenes->count()
         ]);
     }
 

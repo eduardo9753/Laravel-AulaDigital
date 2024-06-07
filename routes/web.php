@@ -65,7 +65,7 @@ Route::get('/course/show/{course:slug}', [CourseController::class, 'show'])->nam
 Route::get('/contact-me', [ContactController::class, 'index'])->name('visitador.contact.index');
 
 //TESTIMONIALES
-Route::get('/testimoniales' , [TestimonialController::class ,'index'])->name('visitador.testimonial.index');
+Route::get('/testimoniales', [TestimonialController::class, 'index'])->name('visitador.testimonial.index');
 
 //PERSONAS MATRICULADAS AL CURSO Y SEGUIMIENTO DEL CURSO
 Route::post('/course/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('visitador.course.enrolled');
@@ -81,23 +81,23 @@ Route::get('/lectura/show/{archive}', [ReadController::class, 'show'])->name('vi
 Route::get('/examen/lista', [ExamResponderController::class, 'index'])->name('visitador.examenes.index');
 Route::get('/examen/{exam:slug}/enrolled', [ExamResponderController::class, 'enrolled'])->name('visitador.examenes.enrolled');
 Route::get('/examen/{exam:slug}/status/', [ExamResponderController::class, 'status'])->name('visitador.examenes.status');
-Route::get('/examen/{exam:slug}/culminate/show', [ExamResponderController::class , 'show'] )->name('visitador.examenes.show');
-
+Route::get('/examen/{exam:slug}/culminate/show', [ExamResponderController::class, 'show'])->name('visitador.examenes.show');
+Route::post('/examen/retomar/status/{exam:slug}/{examUser}', [ExamResponderController::class, 'reset'])->name('visitador.examenes.reset');
 
 //PARA VER MI PLAN DE SUSCRIPCION
-Route::get('/plan/{user}/status/suscription', [PlanController::class , 'index'])->name('visitador.plan.index');
+Route::get('/plan/{user}/status/suscription', [PlanController::class, 'index'])->name('visitador.plan.index');
 
 
 //MIS COMPENDIOS
-Route::get('/compemdios',[CompendiumController::class , 'index'])->name('visitador.compendio.index');
-Route::get('/compemdios/show/{archive}', [CompendiumController::class , 'show'])->name('visitador.compendio.show');
+Route::get('/compemdios', [CompendiumController::class, 'index'])->name('visitador.compendio.index');
+Route::get('/compemdios/show/{archive}', [CompendiumController::class, 'show'])->name('visitador.compendio.show');
 
 
 //TERMINOS Y CONDICIONES
-Route::get('/preunicursos/terminos-y-condiciones', [ConditionController::class , 'index'])->name('visitador.condition.index');
+Route::get('/preunicursos/terminos-y-condiciones', [ConditionController::class, 'index'])->name('visitador.condition.index');
 
 //RUTA PARA LA LERTA DE LINK CAIDO
-Route::post('/alerta/link/caida/administrador', [CourseController::class , 'alert'])->name('visitador.course.alert');
+Route::post('/alerta/link/caida/administrador', [CourseController::class, 'alert'])->name('visitador.course.alert');
 
 
 //RUTAS PARA EL ADMIN

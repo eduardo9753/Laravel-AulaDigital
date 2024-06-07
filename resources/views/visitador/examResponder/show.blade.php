@@ -20,6 +20,13 @@
     <section class="" id="contenido-bloques">
         <div class="contenedor">
             <div class="row">
+                @if (session('mensaje'))
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>¡Atención!</strong> {{ session('mensaje') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
                 <div class="col-md-3 my-2">
                     <div class="mi-card">
                         <div class="mi-card-content">
@@ -61,6 +68,18 @@
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    {{-- para poder realizar otra vez el examen --}}
+                    <div class="mi-card mt-2">
+                        <div class="mi-card-content">
+                            <form
+                                action="{{ route('visitador.examenes.reset', ['exam' => $exam, 'examUser' => $examUser]) }}"
+                                method="POST">
+                                @csrf
+                                <input type="submit" class="mi-boton rojo w-100" value="Retomar">
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -72,28 +72,31 @@
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="d-flex align-items-center mb-2 mb-md-0">
                     <p class="mb-0 text-small pt-1">Copyright © <a href="https://preunicursos.com/" class="text-white"
-                            target="_blank">PreuniCursos</a> @php
-                                echo date('Y');
-                            @endphp </p>
+                            target="_blank">PreuniCursos</a>
+                        @php
+                            echo date('Y');
+                        @endphp
+                    </p>
                 </div>
 
-                <div class="d-flex align-items-center">
-                    <p class="mb-0 text-small pt-1"><a href="{{ route('visitador.condition.index') }}"
-                            class="text-white">Términos y Condiciones</a>
+                <div class="d-flex align-items-center mb-2 mb-md-0">
+                    <p class="mb-0 text-small pt-1">
+                        <a href="{{ route('visitador.condition.index') }}" class="text-white">Términos y Condiciones</a>
+                    </p>
                 </div>
                 <div>
-                    <div class="d-flex justify-content-start">
+                    <div class="d-flex justify-content-start mb-2 mb-md-0">
                         <p class="font-weight-medium text-center text-small">
                             <a href="https://preunicursos.com/" target="_blank" class="text-white">Plataforma de
-                                Educación</a>,
-                            únete a la Comunidad
+                                Educación</a>, únete a la Comunidad
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </footer>

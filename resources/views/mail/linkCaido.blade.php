@@ -38,23 +38,7 @@ margin: 20px;">
             padding: 20px;">
                 <h1 style="color: blueviolet;">Cod-Lección: {{ $lesson->id }}</h1>
                 <p style="font-size: 18px;">¡Nombre de la lección, {{ $lesson->name }}!</p>
-            </div>
-
-            <div
-                style=" background-color: rgba(255, 255, 255, 0.842);
-        border-radius: 10px;
-        margin-bottom: 20px;
-        padding: 20px;">
-                <h1 style="color: blueviolet;">Cod-Sección: {{ $section->id }}</h1>
                 <p style="font-size: 18px;">¡Nombre de la sección: {{ $section->name }}!</p>
-            </div>
-
-            <div
-                style=" background-color: rgba(255, 255, 255, 0.842);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    padding: 20px;">
-                <h1 style="color: blueviolet;">Cod-Curso: {{ $course->id }}</h1>
                 <p style="font-size: 18px;">¡Nombre del Curso, {{ $course->title }}!</p>
             </div>
 
