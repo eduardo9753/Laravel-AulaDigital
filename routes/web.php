@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\auth\RegisterController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\plan\PlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\visitador\post\PostController;
 use App\Http\Controllers\visitador\compendium\CompendiumController;
 use App\Http\Controllers\visitador\contact\ContactController;
 use App\Http\Controllers\visitador\course\CourseController;
@@ -98,6 +99,9 @@ Route::get('/preunicursos/terminos-y-condiciones', [ConditionController::class, 
 
 //RUTA PARA LA LERTA DE LINK CAIDO
 Route::post('/alerta/link/caida/administrador', [CourseController::class, 'alert'])->name('visitador.course.alert');
+
+//RUTA PARA LAS PUBLICACIOPNES
+Route::get('/post/comunidad/estudiantes', [PostController::class , 'index'])->name('visitador.post.index');
 
 
 //RUTAS PARA EL ADMIN

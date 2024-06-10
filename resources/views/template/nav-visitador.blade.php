@@ -6,180 +6,13 @@
                 <ul class="menu-item">
                     @auth
                         {{-- PLAN PRE UNI --}}
-                        @can('viewSubscription', auth()->user())
-                            <li class="item">
-                                <a href="{{ route('visitador.course.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-slideshow'></i>
-                                        <span>Cursos</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.course.list') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-mouse-alt'></i>
-                                        <span>Mis cursos</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.read.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-book-add'></i>
-                                        <span>Mis recursos</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.examenes.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-book-reader'></i>
-                                        <span>Mis exámenes</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.compendio.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-book-bookmark'></i>
-                                        <span>Mis Compendios</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('profile.index', ['user' => auth()->user()]) }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-user-rectangle'></i>
-                                        <span> {{ auth()->user()->name }}</span>
-                                    </div>
-
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.plan.index', ['user' => auth()->user()]) }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-cool'></i>
-                                        <span> Mi plan</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <form action="{{ route('admin.logout') }}" method="POST">
-                                    @csrf
-                                    <input type="submit" class="btn btn-danger mt-4 w-100" value="Salir">
-                                </form>
-                            </li>
-                        @endcan
+                        @include('helpers.pre-uni')
 
                         {{-- PLAN ESCOLAR --}}
-                        @can('viewSubscriptionEscolar', auth()->user())
-                            <li class="item">
-                                <a href="{{ route('visitador.course.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-slideshow'></i>
-                                        <span>Cursos</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.course.list') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-mouse-alt'></i>
-                                        <span>Mis cursos</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.read.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-book-add'></i>
-                                        <span>Mis recursos</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.compendio.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-book-bookmark'></i>
-                                        <span>Mis Compendios</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('profile.index', ['user' => auth()->user()]) }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-user-rectangle'></i>
-                                        <span> {{ auth()->user()->name }}</span>
-                                    </div>
-
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.plan.index', ['user' => auth()->user()]) }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-cool'></i>
-                                        <span> Mi plan</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <form action="{{ route('admin.logout') }}" method="POST">
-                                    @csrf
-                                    <input type="submit" class="btn btn-danger w-100" value="Salir">
-                                </form>
-                            </li>
-                        @endcan
+                        @include('helpers.escolar')
 
                         {{-- SIN PLAN --}}
-                        @can('notSubscription', auth()->user())
-                            <li class="item">
-                                <a href="{{ route('visitador.home.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-home'></i>
-                                        <span>Casa</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.course.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-slideshow'></i>
-                                        <span>Cursos</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('visitador.contact.index') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-contact'></i>
-                                        <span>Contacto</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('mercadopago.suscription.subscribe') }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-label bx-fade-left'></i>
-                                        <span>Suscribete</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="{{ route('profile.index', ['user' => auth()->user()]) }}">
-                                    <div class="d-flex align-items-center gap-1">
-                                        <i class='bx bxs-user-rectangle'></i>
-                                        <span> {{ auth()->user()->name }}</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <form action="{{ route('admin.logout') }}" method="POST">
-                                    @csrf
-                                    <input type="submit" class="btn btn-danger w-100" value="Salir">
-                                </form>
-                            </li>
-                        @endcan
+                        @include('helpers.sin-plan')
                     @endauth
 
                     @guest
@@ -234,10 +67,9 @@
                     @endguest
                 </ul>
             </nav>
-            <label for="btn-menu"><svg xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-square-x" width="40" height="40" viewBox="0 0 24 24"
-                    stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
+            <label for="btn-menu"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-x"
+                    width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
                     <path d="M10 10l4 4m0 -4l-4 4" />

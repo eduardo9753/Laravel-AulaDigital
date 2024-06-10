@@ -12,15 +12,15 @@ class Comment extends Model
     //HABILITAR ASIGNACION MASIVA
     protected $guarded = ['id'];
 
+    //RELACION UNO A MUCHOS INVERSA
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
     public function commentable()
     {
         return $this->morphTo();
-    }
-
-    //UN COMENTARIO PUEDE HACER OTRO COMENTARIO
-    public function comments()
-    {
-        return $this->morphMany('App\Models\Comment', 'commentable');
     }
 
     //COMENTARIOS PUEDEN TENER REACCIONES
@@ -29,9 +29,14 @@ class Comment extends Model
         return $this->morphMany('App\Models\Reaction', 'reactionable');
     }
 
-    //RELACION UNO A MUCHOS INVERSA
-    public function user()
+    public function replies()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasMany(Comment::class , 'parent_id');
+    }
+
+    //UN COMENTARIO PUEDE HACER OTRO COMENTARIO
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Comment', 'commentable');
     }
 }

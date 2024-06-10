@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\compendium\CompendiumController;
 use App\Http\Controllers\admin\course\CourseController;
 use App\Http\Controllers\admin\level\LevelController;
 use App\Http\Controllers\admin\pay\PayController;
+use App\Http\Controllers\admin\post\PostController;
 use App\Http\Controllers\admin\price\PriceController;
 use App\Http\Controllers\admin\profile\ProfileController;
 use App\Http\Controllers\admin\read\ReadController;
@@ -47,3 +48,6 @@ Route::get('/admin/reads/index', [ReadController::class , 'index'])->name('admin
 Route::get('/admin/pays/index', [PayController::class , 'index'])->name('admin.pays.index');
 
 Route::get('/admin/compemdium/index', [CompendiumController::class , 'index'])->name('admin.compendiums.index');
+
+Route::get('/admin/post/index', [PostController::class , 'index'])->name('admin.posts.index');
+Route::post('/admin/post/store', [PostController::class , 'store'])->name('admin.posts.store');

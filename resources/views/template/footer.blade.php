@@ -63,6 +63,9 @@
                                         class="footer-link">Química</a></li>
                                 <li><a href="https://preunicursos.com/course/show/fisica" class="footer-link">Física</a>
                                 </li>
+                                <li><a href="https://preunicursos.com/course/show/biologia"
+                                        class="footer-link">Biología</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
