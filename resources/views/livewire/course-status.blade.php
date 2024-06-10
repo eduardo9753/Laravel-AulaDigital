@@ -9,77 +9,29 @@
                         allow="autoplay"></iframe>
                 </div>
 
-                <h1 class="color-general curso-status-title">{{ $current->name }}</h1>
-
-
-
-
                 {{-- NAVEGACiON DE LECCIONES --}}
-                <div class="mt-3 d-flex justify-content-between">
-                    @if ($this->index == 0)
-                        <a class="mi-boton azul" wire:click="changeLesson({{ $current }})">Primero</a>
-                    @else
-                        <a class="mi-boton general" wire:click="changeLesson({{ $this->previous }})">Anterior</a>
-                    @endif
-
-                    @if ($this->next)
-                        <a class="mi-boton general" wire:click="changeLesson({{ $this->next }})">Siguiente</a>
-                    @else
-                        <a class="mi-boton rojo" wire:click="changeLesson({{ $current }})">Último</a>
-                    @endif
-                </div>
-                {{-- NAVEGACiON DE LECCIONES --}}
-
-
-                {{-- DESCRIPCION DE LA LECCION --}}
-                @if ($current->description)
-                    <!-- Button trigger modal -->
-                    <button type="button" class="mi-boton azul mt-3" data-bs-toggle="modal"
-                        data-bs-target="#ModalMaterialReferencia">
-                        Referencia del Material:
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="ModalMaterialReferencia" tabindex="-1"
-                        aria-labelledby="ModalMaterialReferenciaLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="ModalMaterialReferenciaLabel">Referencia del
-                                        Material:</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                                <strong>Referencia del Material:</strong>
-                                                <p>
-                                                    Universidad Nacional Federico Villarreal. (2018).
-                                                    {{ $course->title }}.
-                                                    <strong>Recuperado de:</strong>
-                                                    <a target="_blank" href="{{ $current->description->name }}"
-                                                        title="{{ $current->description->name }}">
-                                                        {{ $current->description->name }}
-                                                    </a>
-                                                </p>
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Cerrar</button>
-                                </div>
+                <section id="contenido-bloques" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+                    <div class="mi-card">
+                        <div class="mi-card-content">
+                            <h1 class="color-general curso-status-title">{{ $current->name }}</h1>
+                            <div class="mt-3 d-flex justify-content-between">
+                                @if ($this->index == 0)
+                                    <a class="mi-boton azul" wire:click="changeLesson({{ $current }})">Primero</a>
+                                @else
+                                    <a class="mi-boton general"
+                                        wire:click="changeLesson({{ $this->previous }})">Anterior</a>
+                                @endif
+    
+                                @if ($this->next)
+                                    <a class="mi-boton general" wire:click="changeLesson({{ $this->next }})">Siguiente</a>
+                                @else
+                                    <a class="mi-boton rojo" wire:click="changeLesson({{ $current }})">Último</a>
+                                @endif
                             </div>
                         </div>
                     </div>
-                @endif
-                {{-- DESCRIPCION DE LA LECCION --}}
-
+                </section>
+                {{-- NAVEGACiON DE LECCIONES --}}
 
                 {{-- RECURSOS DE LA LECCION --}}
                 @if ($current->resource)
@@ -88,7 +40,6 @@
                     </iframe>
                 @endif
                 {{-- RECURSOS DE LA LECCION --}}
-
             </div>
 
 
@@ -99,7 +50,7 @@
 
                         {{-- BARRA DE PROGRESO --}}
                         <div class="d-flex justify-content-between">
-                            <p class="text-success"><strong>{{ $this->advance . '%' }}</strong> Completado</p>
+                            <p class="text-primary"><strong>{{ $this->advance . '%' }}</strong> Completado</p>
 
                             {{-- MARCAR COMO CULMINADA LA LECCION --}}
                             <div class="d-flex align-items-center cursor" wire:click="completed">
@@ -182,7 +133,7 @@
                         <div class="card my-3">
                             <div class="card-body">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="mi-boton azul" data-bs-toggle="modal"
+                                <button type="button" class="mi-boton azul btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#MoldalReferenciaVideo">
                                     Referencia del vídeo:
                                 </button>
@@ -241,6 +192,59 @@
                                     </div>
                                 </div>
 
+                                {{-- DESCRIPCION DE LA LECCION --}}
+                                @if ($current->description)
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="mi-boton azul btn-sm mt-3" data-bs-toggle="modal"
+                                        data-bs-target="#ModalMaterialReferencia">
+                                        Referencia del Material:
+                                    </button>
+
+                                    <!-- Modal cita del material-->
+                                    <div class="modal fade" id="ModalMaterialReferencia" tabindex="-1"
+                                        aria-labelledby="ModalMaterialReferenciaLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="ModalMaterialReferenciaLabel">
+                                                        Referencia del
+                                                        Material:</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <div class="alert alert-info alert-dismissible fade show"
+                                                                role="alert">
+                                                                <strong>Referencia del Material:</strong>
+                                                                <p>
+                                                                    Universidad Nacional Federico Villarreal. (2018).
+                                                                    {{ $course->title }}.
+                                                                    <strong>Recuperado de:</strong>
+                                                                    <a target="_blank"
+                                                                        href="{{ $current->description->name }}"
+                                                                        title="{{ $current->description->name }}">
+                                                                        {{ $current->description->name }}
+                                                                    </a>
+                                                                </p>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="alert"
+                                                                    aria-label="Close"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                {{-- DESCRIPCION DE LA LECCION --}}
+
                                 {{-- link caido para dar aviso --}}
                                 <form action="{{ route('visitador.course.alert') }}" id="fromLinkCaido"
                                     method="POST">
@@ -249,7 +253,6 @@
                                     <button type="submit" class="mi-boton rojo btn-sm mt-3" id="alertButton">Alertar
                                         Link caido</button>
                                 </form>
-
                             </div>
                         </div>
                         {{-- CITA DEL VIDEO --}}
