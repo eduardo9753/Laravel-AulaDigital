@@ -12,39 +12,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" data-aos="fade-up" data-aos-offset="-300">
-            <div class="col-sm-4">
-                <div class="pricing-box">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1010/1010711.png" style="width: 80px;height: 80px;"
-                        alt="starter">
-                    <h6 class="font-weight-medium title-text">Plan Escolar</h6>
-                    <h1 class="text-amount mb-4 mt-2">S/.25</h1>
-                    <ul class="pricing-list">
-                        <li>Acceso Ilimitado</li>
-                        <li>Acceso a todos los cursos</li>
-                        <li>Acceso a material educativo</li>
-                        <li><strong>Cobro cada 02 de cada mes</strong></li>
-                    </ul>
-                    @auth
-                        @can('viewSubscription', auth()->user())
-                            <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
-                        @else
-                            @can('viewSubscriptionEscolar', auth()->user())
-                                <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
-                            @else
-                                <form action="{{ route('mercadopago.suscription.school.index') }}" id="form-suscription-school" method="POST">
-                                    @csrf
-                                    <input type="submit" class="button-login" value="Suscribirme">
-                                </form>
-                            @endcan
-                        @endcan
-                    @endauth
-
-                    @guest
-                        <a href="{{ route('admin.register.index') }}" class="button-login text-white">Suscribirme</a>
-                    @endguest
-                </div>
-            </div>
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
             <div class="col-sm-4">
                 <div class="pricing-box selected" id="curso-show">
                     <div class="cube"></div>
@@ -56,13 +24,44 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png" style="width: 80px;height: 80px;"
                         alt="starter">
                     <h6 class="font-weight-medium title-text text-white">Plan Pre Universitario</h6>
-                    <h1 class="text-amount mb-4 mt-2">S/.35</h1>
+                    <h1 class="text-amount mb-4 mt-2 text-white"><strong>S/.35</strong></h1>
                     <ul class="pricing-list">
-                        <li class="text-white">Acceso Ilimitado</li>
-                        <li class="text-white">Acceso a todos los cursos</li>
-                        <li class="text-white">Acceso a material educativo</li>
-                        <li class="text-white">Acceso a exámenes</li>
-                        <li class="text-white"><strong>Cobro cada 02 de cada mes</strong></li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                <span>Acceso Ilimitado</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                <span>Acceso a todos los cursos</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                <span>Acceso a material educativo</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                <span>Acceso a exámenes</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                <span>Acceso a compendios</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bxs-check-circle' style="padding-top: 4px"></i>
+                                <span><strong>Cobro cada 02 de cada mes</strong></span>
+                            </div>
+                        </li>
                     </ul>
                     @auth
                         @can('viewSubscriptionEscolar', auth()->user())
@@ -73,34 +72,79 @@
                             @else
                                 <form action="{{ route('mercadopago.suscription.index') }}" id="form-suscription" method="POST">
                                     @csrf
-                                    <input type="submit" class="button-login" value="Suscribirme">
+                                    <input type="submit" class="mi-boton rojo mt-3 w-100" value="Suscribirme">
                                 </form>
                             @endcan
                         @endcan
                     @endauth
 
                     @guest
-                        <a href="{{ route('admin.register.index') }}" class="button-login text-white">Suscribirme</a>
+                        <a href="{{ route('admin.register.index') }}" class="mi-boton rojo mt-3 w-100">Suscribirme</a>
                     @endguest
                 </div>
             </div>
+
             <div class="col-sm-4">
-                <div class="pricing-box">
-                    <img src="https://cdn-icons-png.flaticon.com/512/13215/13215926.png"
-                        style="width: 80px;height: 80px;" alt="starter">
-                    <h6 class="font-weight-medium title-text">Universitario</h6>
-                    <h1 class="text-amount mb-4 mt-2">S/.45</h1>
+                <div class="pricing-box bg-primary">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1010/1010711.png" style="width: 80px;height: 80px;"
+                        alt="starter">
+                    <h6 class="font-weight-medium title-text text-white">Plan Escolar</h6>
+                    <h1 class="text-amount mb-4 mt-2 text-white"><strong>S/.25</strong></h1>
                     <ul class="pricing-list">
-                        <li>Acceso Ilimitado</li>
-                        <li>Acceso a todos los cursos</li>
-                        <li>Acceso a material educativo</li>
-                        <li>Acceso a exámenes</li>
-                        <li>Acceso a libros(PDF)</li>
-                        <li><strong>Cobro cada 02 de cada mes</strong></li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                <span>Acceso Ilimitado</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                <span>Acceso a todos los cursos</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                <span>Acceso a material educativo</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                <span>Acceso a compendios</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bxs-check-circle' style="padding-top: 4px"></i>
+                                <span><strong>Cobro cada 02 de cada mes</strong></span>
+                            </div>
+                        </li>
                     </ul>
-                    <input type="submit" class="mi-boton general mt-3 w-100" value="Proximamente">
+                    @auth
+                        @can('viewSubscription', auth()->user())
+                            <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
+                        @else
+                            @can('viewSubscriptionEscolar', auth()->user())
+                                <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
+                            @else
+                                <form action="{{ route('mercadopago.suscription.school.index') }}" id="form-suscription-school"
+                                    method="POST">
+                                    @csrf
+                                    <input type="submit" class="mi-boton azul mt-3 w-100" value="Suscribirme">
+                                </form>
+                            @endcan
+                        @endcan
+                    @endauth
+
+                    @guest
+                        <a href="{{ route('admin.register.index') }}" class="mi-boton azul mt-3 w-100">Suscribirme</a>
+                    @endguest
                 </div>
             </div>
+
         </div>
+
     </div>
 </section>

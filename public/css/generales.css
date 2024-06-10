@@ -56,16 +56,16 @@ p { margin-bottom: 0px !important;}
 }
 
 .azul {background-color: var(--blanco); border: 2px solid var(--azul); color: var(--azul);} 
-.azul:hover {background: #0b7dda; color: var(--blanco);}
+.azul:hover {background: var(--azul); color: var(--blanco);}
 
 .verde {background-color: var(--blanco); border: 2px solid var(--verde); color: var(--verde);} 
-.verde:hover {background-color: #46a049; color: var(--blanco);}
+.verde:hover {background-color: var(--verde); color: var(--blanco);}
 
 .amarillo {background-color: var(--blanco); border: 2px solid var(--amarillo); color: var(--amarillo);} 
-.amarillo:hover {background: #e68a00; color: var(--blanco);}
+.amarillo:hover {background: var(--amarillo); color: var(--blanco);}
 
 .rojo {background-color: var(--blanco); border: 2px solid var(--rojo); color: var(--rojo);} 
-.rojo:hover {background: #da190b; color: var(--blanco);}
+.rojo:hover {background: var(--rojo); color: var(--blanco);}
 
 .general {background-color: var(--blanco); border: 2px solid var(--general); color: var(--general);} 
 .general:hover {background: var(--general); color: var(--blanco);}
