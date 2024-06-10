@@ -68,7 +68,7 @@ p { margin-bottom: 0px !important;}
 .rojo:hover {background: #da190b; color: var(--blanco);}
 
 .general {background-color: var(--blanco); border: 2px solid var(--general); color: var(--general);} 
-.general:hover {background: #6f4ef6; color: var(--blanco);}
+.general:hover {background: var(--general); color: var(--blanco);}
 
 
 .fondo-general {background-color: var(--general) !important; color: var(--blanco);}

@@ -11,8 +11,8 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 my-1">
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">1. Introducción</h3>
                             <p class="text-justify">Bienvenido a <strong>PreuniCursos</strong> "Plataforma educativa diseñada
                                 para ti". Al
@@ -24,8 +24,8 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">2. Descripción de los Servicios</h3>
                             <p class="text-justify">La Plataforma ofrece cursos educativos en diversas materias como
                                 matemáticas, física,
@@ -76,8 +76,8 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">3. Registro y Cuentas</h3>
                             <p class="text-justify">Para acceder a nuestros servicios, siga los siguientes pasos:</p>
 
@@ -163,8 +163,8 @@
                     </div>
 
 
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">4. Uso del Contenido</h3>
                             <p class="text-justify">Todo el contenido proporcionado en la Plataforma, incluidos los videos,
                                 archivos PDF y
@@ -210,8 +210,8 @@
                     </div>
 
 
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">5. Derechos de Propiedad Intelectual</h3>
                             <p class="text-justify">Todos los derechos de propiedad intelectual en la Plataforma y su
                                 contenido (excepto el
@@ -260,8 +260,8 @@
                     </div>
 
 
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">6. Pagos y Facturación</h3>
                             <p class="text-justify">Las suscripciones <strong>se cobran mensualmente el día 2 de cada
                                     mes</strong>, comenzando
@@ -286,8 +286,8 @@
                     </div>
 
 
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">7. Cancelación y Reembolsos</h3>
                             <p class="text-justify">Usted puede cancelar su suscripción en cualquier momento a través de su
                                 cuenta en la
@@ -309,8 +309,8 @@
                     </div>
 
 
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">8. Responsabilidad y Garantías</h3>
                             <p class="text-justify">La Plataforma se proporciona "tal cual" y "según disponibilidad". No
                                 garantizamos que el
@@ -320,8 +320,8 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">9. Modificaciones a los Términos</h3>
                             <p class="text-justify">Nos reservamos el derecho de modificar estos Términos en cualquier
                                 momento. Publicaremos los
@@ -331,8 +331,8 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4">
-                        <div class="card-body py-3">
+                    <div class="mi-card mb-4">
+                        <div class="mi-card-content py-3">
                             <h3 class="card-title">10. Contacto</h3>
                             <p class="text-justify">Si tiene alguna pregunta o inquietud acerca de estos Términos, por
                                 favor contáctenos a

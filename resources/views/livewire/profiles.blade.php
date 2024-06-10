@@ -1,8 +1,8 @@
 <div>
     <div class="row">
         {{-- ACTUALIZAR USUARIO --}}
-        <div class="card">
-            <div class="card-body">
+        <div class="mi-card">
+            <div class="mi-card-content">
 
                 @if ($this->user_id)
                     <form wire:submit.prevent="updateUser">
@@ -46,11 +46,8 @@
         </div>
 
 
-
-
-        <div class="card mt-4">
-            <div class="card-body">
-
+        <div class="mi-card mt-4">
+            <div class="mi-card-content">
                 @if ($this->profile_id)
                     <form wire:submit.prevent="updateProfile">
                         <div class="row">
@@ -241,6 +238,5 @@
                 @endif
             </div>
         </div>
-
     </div>
 </div>

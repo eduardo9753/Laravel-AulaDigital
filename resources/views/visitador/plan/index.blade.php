@@ -22,8 +22,8 @@
             <div>
                 <div class="row">
                     {{-- ACTUALIZAR USUARIO --}}
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="mi-card">
+                        <div class="mi-card-content">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
@@ -43,8 +43,8 @@
                         </div>
                     </div>
 
-                    <div class="card mt-4">
-                        <div class="card-body">
+                    <div class="mi-card mt-4">
+                        <div class="mi-card-content">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="mb-3">

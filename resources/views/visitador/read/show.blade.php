@@ -15,8 +15,8 @@
         <div class="contenedor">
             <h2 class="contenido-bloques-titulo pt-4"></h2>
 
-            <div class="card">
-                <div class="card-body">
+            <div class="mi-card">
+                <div class="mi-card-content">
                     <div class="row">
 
                         <div class="col-md-8 my-1">
@@ -28,8 +28,8 @@
                         </div>
 
                         <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body">
+                            <div class="mi-card">
+                                <div class="mi-card-content">
                                     <div class="alert alert-info alert-dismissible fade show" role="alert">
                                         <p>
                                             <strong>Recuperado de:</strong>
@@ -45,8 +45,8 @@
                             </div>
 
 
-                            <div class="card mt-3">
-                                <div class="card-body">
+                            <div class="mi-card mt-3">
+                                <div class="mi-card-content">
                                     <div class="text-center">
                                         <img src="{{ $course->image->url }}" style="width: 120px;height: 120px;"
                                             alt="{{ $archive->course->title }}"
@@ -63,7 +63,7 @@
 
                                         @if ($fileId)
                                             <a href="https://drive.google.com/uc?export=download&id={{ $fileId }}"
-                                                class="btn btn-primary" download>Descargar Archivo</a>
+                                                class="mi-boton general" download>Descargar Archivo</a>
                                         @else
                                             <p>No se pudo generar el enlace de descarga.</p>
                                         @endif
