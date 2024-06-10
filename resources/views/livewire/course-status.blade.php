@@ -6,7 +6,7 @@
                 <!-- Plyr Video Embed -->
                 <div class="plyr__video-embed" id="player">
                     <iframe src="https://www.youtube.com/embed/{{ $current->iframe }}" allowfullscreen allowtransparency
-                        allow="autoplay" style="width: 100%; height: 450px;"></iframe>
+                        allow="autoplay" style="width: 100%; height: 450px !important;"></iframe>
                 </div>
 
                 {{-- NAVEGACiON DE LECCIONES --}}
