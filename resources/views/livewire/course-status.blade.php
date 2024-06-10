@@ -6,7 +6,7 @@
                 <!-- Plyr Video Embed -->
                 <div class="plyr__video-embed" id="player">
                     <iframe src="https://www.youtube.com/embed/{{ $current->iframe }}" allowfullscreen allowtransparency
-                        allow="autoplay"></iframe>
+                        allow="autoplay" style="width: 100%; height: 450px;"></iframe>
                 </div>
 
                 {{-- NAVEGACiON DE LECCIONES --}}
@@ -21,9 +21,10 @@
                                     <a class="mi-boton general"
                                         wire:click="changeLesson({{ $this->previous }})">Anterior</a>
                                 @endif
-    
+
                                 @if ($this->next)
-                                    <a class="mi-boton general" wire:click="changeLesson({{ $this->next }})">Siguiente</a>
+                                    <a class="mi-boton general"
+                                        wire:click="changeLesson({{ $this->next }})">Siguiente</a>
                                 @else
                                     <a class="mi-boton rojo" wire:click="changeLesson({{ $current }})">Último</a>
                                 @endif
