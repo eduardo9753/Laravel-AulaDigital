@@ -24,7 +24,7 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-envelope'></i></i></span>
-                        <input type="email" value="{{ old('email') }}" name="email" id="email" class="form-control"
+                        <input type="email" value="{{ old('email') }}" name="email" id="email" class="form-control-login"
                             placeholder="Tu Gmail" />
                         @error('email')
                             <p class="text-danger">{{ $message }}</p>
@@ -33,7 +33,7 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-barcode'></i></span>
-                        <input type="password" id="password" name="password" class="form-control"
+                        <input type="password" id="password" name="password" class="form-control-login"
                             placeholder="**********" />
                     </div>
                     {{-- validacon con validate --}}

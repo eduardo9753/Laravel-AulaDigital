@@ -101,8 +101,8 @@ Route::get('/preunicursos/terminos-y-condiciones', [ConditionController::class, 
 Route::post('/alerta/link/caida/administrador', [CourseController::class, 'alert'])->name('visitador.course.alert');
 
 //RUTA PARA LAS PUBLICACIOPNES
-Route::get('/post/comunidad/estudiantes', [PostController::class , 'index'])->name('visitador.post.index');
-
+Route::get('/post/comunidad/estudiantes', [PostController::class, 'index'])->name('visitador.post.index');
+Route::get('/post/comunidad/comment/{post}', [PostController::class, 'comment'])->name('visitador.post.comment');
 
 //RUTAS PARA EL ADMIN
 require base_path('routes/admin.php');

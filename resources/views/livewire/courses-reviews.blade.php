@@ -16,7 +16,7 @@
                                     @enderror
 
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="mi-boton general">Agregar Comentario</button>
+                                        <button type="submit" class="mi-boton general">Comentar</button>
 
                                         <ul class="d-flex">
                                             <li wire:click="$set('rating',1)">

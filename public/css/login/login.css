@@ -76,7 +76,7 @@
       .form-holder span.lnr-lock {
         left: 2px; }
   
-  .form-control {
+  .form-control-login {
     border: none;
     border-bottom: 1px solid #e6e6e6;
     display: block;
@@ -87,27 +87,27 @@
     color: #666;
     font-family: "Muli-SemiBold";
     font-size: 16px; }
-    .form-control::-webkit-input-placeholder {
+    .form-control-login::-webkit-input-placeholder {
       font-size: 14px;
       font-family: "Muli-Regular";
       color: #999;
       transform: translateY(1px); }
-    .form-control::-moz-placeholder {
+    .form-control-login::-moz-placeholder {
       font-size: 14px;
       font-family: "Muli-Regular";
       color: #999;
       transform: translateY(1px); }
-    .form-control:-ms-input-placeholder {
+    .form-control-login:-ms-input-placeholder {
       font-size: 14px;
       font-family: "Muli-Regular";
       color: #999;
       transform: translateY(1px); }
-    .form-control:-moz-placeholder {
+    .form-control-login:-moz-placeholder {
       font-size: 14px;
       font-family: "Muli-Regular";
       color: #999;
       transform: translateY(1px); }
-    .form-control:focus {
+    .form-control-login:focus {
       border-bottom: 1px solid #accffe; }
   
   .button-login {

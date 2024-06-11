@@ -24,7 +24,7 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-user-check'></i></span>
-                        <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}"
+                        <input type="text" id="name" name="name" class="form-control-login" value="{{ old('name') }}"
                             placeholder="Tu nombre o nombre de usuario" />
                     </div>
                     @error('name')
@@ -33,7 +33,7 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-envelope'></i></i></span>
-                        <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control"
+                        <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control-login"
                             placeholder="Tu Gmail" />
                     </div>
                     @error('email')
@@ -42,7 +42,7 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-barcode'></i></span>
-                        <input type="password" id="password" name="password" class="form-control"
+                        <input type="password" id="password" name="password" class="form-control-login"
                             placeholder="contraseña" />
                     </div>
                     @error('password')
@@ -51,7 +51,7 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-barcode'></i></span>
-                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control"
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control-login"
                             placeholder="repetir contraseña" />
                     </div>
                     @error('password_confirmation')
