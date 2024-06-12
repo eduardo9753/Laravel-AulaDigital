@@ -6,9 +6,9 @@
                 <small><strong>Por: {{ $post->user->name }}</strong></small>
             </div>
 
-
-            <h1 class="contenido-bloques-titulo"><strong>{{ $post->title }}</strong></h1>
-
+            <a href="{{ route('visitador.post.comment', ['post' => $post]) }}">
+                <h1><strong>{{ $post->title }}</strong></h1>
+            </a>
 
             @if (in_array($post->id, $expandedPosts))
                 <p>{!! $post->content !!}</p>

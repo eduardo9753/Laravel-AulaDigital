@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         //validaciones
         $this->validate($request, [
-            'title' => 'required|string|max:60',
+            'title' => 'required|string',
             'content' => 'required|string'
         ]);
 
