@@ -15,14 +15,14 @@
             <div class="row">
                 <div class="card">
                     <div class="card-header fondo-general">
-                        <a href="{{ route('admin.roles.index') }}">Lista de Roles</a>
+                        <a class="text-white" href="{{ route('admin.roles.index') }}">Lista de Roles</a>
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => 'admin.roles.store']) !!}
+                        {!! Form::open(['route' => 'admin.permissions.store']) !!}
 
                         @include('admin.role.partials.form')
 
-                        {!! Form::submit('Crear Role', ['class' => 'mi-boton azul mt-2']) !!}
+                        {!! Form::submit('Crear Permisos', ['class' => 'btn btn-success mt-2']) !!}
 
                         {!! Form::close() !!}
                     </div>

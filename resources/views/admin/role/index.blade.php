@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="card">
                     <div class="card-header fondo-general">
-                        <a class="text-white" href="{{ route('admin.roles.create') }}">Crear Nuevo Rol</a>
+                        <a class="text-white" href="{{ route('admin.permissions.create') }}">Crear Nuevo Permiso</a>
                     </div>
                     <div class="card-body">
                         @if (session('exito'))

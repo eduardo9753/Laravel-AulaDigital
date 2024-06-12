@@ -10,15 +10,16 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('can:Listar role')->only('index');
-        $this->middleware('can:Crear role')->only('create','store');
-        $this->middleware('can:Editar role')->only('edit','update');
+        $this->middleware('can:Crear role')->only('create', 'store');
+        $this->middleware('can:Editar role')->only('edit', 'update');
         $this->middleware('can:Eliminar role')->only('destroy');
     }
-    
+
     public function index()
     {
         $roles = Role::all();
@@ -40,18 +41,18 @@ class RoleController extends Controller
         //validaciones
         $this->validate($request, [
             'name' => 'required|min:3|max:30',
-            'permissions' => 'required'
         ]);
 
-        //CREANDO AL ROL
-        $role = Role::create([
+        //CREANDO EL NUEVO PERMISOS
+        $permisos = Permission::create([
             'name' => $request->name,
         ]);
 
-        //ASIGNANDO PERMISOS A ESE ROL
-        $role->permissions()->attach($request->permissions);
-
-        return redirect()->route('admin.roles.index')->with('exito', 'datos guardados correctamente');
+        if ($permisos) {
+            return redirect()->route('admin.permissions.create')->with('exito', 'datos guardados correctamente');
+        } else {
+            return redirect()->route('admin.permissions.create')->with('exito', 'datos no correctamente');
+        }
     }
 
     public function edit(Role $role, Request $request)
@@ -75,7 +76,7 @@ class RoleController extends Controller
         //metodo sync sincroniza los roles que se mandan
         $role->permissions()->sync($request->permissions);
 
-        return redirect()->route('admin.roles.edit', $role);
+        return redirect()->route('admin.roles.edit', $role)->with('exito', 'permisos asignados correctamente');;
     }
 
     public function destroy(Role $role)

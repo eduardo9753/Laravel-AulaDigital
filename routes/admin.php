@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 /**RUTA PARA LOS ROLES Y PERMISOS */
 Route::get('/admin/role', [RoleController::class, 'index'])->name('admin.roles.index');
-Route::get('/admin/role/create', [RoleController::class, 'create'])->name('admin.roles.create');
-Route::post('/admin/role/store', [RoleController::class, 'store'])->name('admin.roles.store');
-Route::put('/admin/role/update/{role}', [RoleController::class, 'update'])->name('admin.roles.update');
+Route::get('/admin/permisos/create', [RoleController::class, 'create'])->name('admin.permissions.create');
+Route::post('/admin/permisos/store', [RoleController::class, 'store'])->name('admin.permissions.store');
+Route::put('/admin/role/update/{role}', [RoleController::class, 'update'])->name('admin.permissions.update');
 Route::get('/admin/role/edit/{role}', [RoleController::class, 'edit'])->name('admin.roles.edit');
 Route::delete('/admin/role/destroy/{role}', [RoleController::class, 'destroy'])->name('admin.roles.destroy');
 

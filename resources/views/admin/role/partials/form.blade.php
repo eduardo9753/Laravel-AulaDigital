@@ -1,5 +1,5 @@
 <div class="form-group mb-3">
-    {!! Form::label('name', 'Nombre del rol', ['class' => 'mb-2']) !!}
+    {!! Form::label('name', 'Nombre', ['class' => 'mb-2']) !!}
     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Escriba el nombre']) !!}
 
     @error('name')
