@@ -1,13 +1,13 @@
 <div>
 
-    <div class="card mt-2">
-        <div class="card-body">
+    <div class="mi-card mt-2">
+        <div class="mi-card-content">
             <div class="d-flex justify-content-between align-items-center">
                 <small><strong>Por: {{ $post->user->name }}</strong></small>
             </div>
 
             <a href="{{ route('visitador.post.comment', ['post' => $post]) }}">
-                <h1 class="lead"><strong>{{ $post->title }}</strong></h1>
+                <h1><strong>{{ $post->title }}</strong></h1>
             </a>
 
             @if (in_array($post->id, $expandedPosts))
