@@ -2,8 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Plataforma educativa con cursos de álgebra, geometría, trigonometría, aritmética, física, química, biología, inglés, literatura, psicología, razonamiento verbal, historia del Perú, historia universal y lenguaje. Incluye recursos en PDF, compendios preuniversitarios, sistema de exámenes y publicaciones educativas.">
+    <meta name="keywords"
+        content="educación, cursos, matemáticas, álgebra, geometría, trigonometría, aritmética, física, química, biología, inglés, literatura, psicología, razonamiento verbal, historia del Perú, historia universal, lenguaje, exámenes, recursos PDF, compendios preuniversitarios, archivos, preguntas y respuestas, publicaciones, estudiantes">
+    <meta name="author" content="PreuniCursos">
 
     {{-- CON ESTE COMANDO SE ARREGLO ERROR: 419 --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
