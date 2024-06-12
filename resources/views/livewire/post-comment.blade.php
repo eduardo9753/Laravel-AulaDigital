@@ -7,7 +7,7 @@
             </div>
 
             <a href="{{ route('visitador.post.comment', ['post' => $post]) }}">
-                <h1><strong>{{ $post->title }}</strong></h1>
+                <h1 class="lead"><strong>{{ $post->title }}</strong></h1>
             </a>
 
             @if (in_array($post->id, $expandedPosts))
