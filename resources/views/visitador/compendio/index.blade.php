@@ -31,7 +31,7 @@
                                         <h2 class="contenido-bloques-titulo">{{ $archive->name }}</h2>
                                         <div class="text-center">
                                             <img style="width: 100px;height: 100px;"
-                                                src="https://cdn-icons-png.flaticon.com/512/207/207114.png" alt="">
+                                                src="https://cdn-icons-png.flaticon.com/512/3330/3330314.png" alt="">
                                         </div>
 
                                         <a href="{{ route('visitador.compendio.show', ['archive' => $archive]) }}"

@@ -7,13 +7,16 @@
                 </div>
 
                 <a href="{{ route('visitador.post.comment', ['post' => $post]) }}">
-                    <h1><strong>{{ $post->title }}</strong></h1>
+                    <div class="d-flex align-items-center">
+                        <i class='bx bx-link-alt color-general' style="font-size: 30px"></i>
+                        <h1 class="lead color-general" style="font-size: 30px"><strong>{{ $post->title }}</strong></h1>
+                    </div>
                 </a>
 
                 @if (in_array($post->id, $expandedPosts))
-                    <p>{!! $post->content !!}</p>
+                    <p class="mt-3">{!! $post->content !!}</p>
                 @else
-                    <p>{!! Str::limit($post->content, 150) !!}</p> <!-- Muestra solo los primeros 200 caracteres -->
+                    <p class="mt-3">{!! Str::limit($post->content, 150) !!}</p> <!-- Muestra solo los primeros 200 caracteres -->
                 @endif
                 <a href="#" wire:click.prevent="toggleExpand({{ $post->id }})">
                     @if (in_array($post->id, $expandedPosts))
@@ -38,14 +41,17 @@
             </div>
         </div>
     @else
-        <div wire:loading wire:target='loadMore' class="d-block text-center mt-2">
+        {{-- <div wire:loading wire:target='loadMore' class="d-block text-center mt-2">
             <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
+        </div> --}}
+        <div class="text-center mt-2">
+            <button wire:click="loadMore" class="mi-boton azul">Cargar más</button>
         </div>
     @endif
 
-    <script>
+    {{-- <script>
         document.addEventListener('livewire:load', function() {
             window.addEventListener('scroll', function() {
                 if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
@@ -53,5 +59,5 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 </div>

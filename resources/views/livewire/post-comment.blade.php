@@ -6,14 +6,17 @@
                 <small><strong>Por: {{ $post->user->name }}</strong></small>
             </div>
 
-            <a href="{{ route('visitador.post.comment', ['post' => $post]) }}">
-                <h1><strong>{{ $post->title }}</strong></h1>
-            </a>
+
+            <div class="d-flex align-items-center">
+                <i class='bx bx-link-alt color-general' style="font-size: 30px"></i>
+                <h1 class="lead color-general" style="font-size: 30px"><strong>{{ $post->title }}</strong></h1>
+            </div>
+
 
             @if (in_array($post->id, $expandedPosts))
-                <p>{!! $post->content !!}</p>
+                <p class="mt-3">{!! $post->content !!}</p>
             @else
-                <p>{!! Str::limit($post->content, 550) !!}</p> <!-- Muestra solo los primeros 200 caracteres -->
+                <p class="mt-3">{!! Str::limit($post->content, 550) !!}</p> <!-- Muestra solo los primeros 200 caracteres -->
             @endif
             <a href="#" wire:click.prevent="toggleExpand({{ $post->id }})">
                 @if (in_array($post->id, $expandedPosts))

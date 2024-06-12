@@ -22,37 +22,35 @@
         <div class="" id="contenido-bloques">
             <div class="contenedor">
                 <div class="row">
-                    <div id="accordion">
-                        @foreach ($courses as $course)
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading{{ $course->id }}">
-                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#{{ $course->id }}"
-                                        aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
-                                        aria-controls="{{ $course->id }}">
-                                        {{ $course->title }}
-                                    </button>
-                                </h2>
-                                <div id="{{ $course->id }}"
-                                    class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
-                                    aria-labelledby="heading{{ $course->id }}" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            @foreach ($course->archives as $archive)
-                                                <a href="{{ route('visitador.read.show', ['archive' => $archive]) }}">
-                                                    <li class="d-flex align-items-center my-1">
-                                                        <i class='bx bxs-file-pdf' style='color:#310fc7'></i>
-                                                        <p class="temario-parrafo">{{ $archive->name }}</p>
-                                                    </li>
-                                                </a>
-                                            @endforeach
-                                        </ul>
+
+                    @foreach ($courses as $course)
+                        <div class="col-md-12">
+                            <div class="mi-card">
+                                <div class="mi-card-content">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class='bx bx-link-alt color-general'></i>
+                                        <h1 class="lead color-general">Recurso del curso de {{ $course->title }}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @foreach ($course->archives as $archive)
+                            <div class="col-md-3 my-1">
+                                <div class="mi-card">
+                                    <div class="mi-card-content">
+
+                                        <a href="{{ route('visitador.read.show', ['archive' => $archive]) }}">
+                                            <li class="d-flex align-items-center my-1">
+                                                <i class='bx bxs-file-pdf' style='color:#310fc7'></i>
+                                                <p class="temario-parrafo">{{ $archive->name }}</p>
+                                            </li>
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
         </div>
