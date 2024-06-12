@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('can:gestion publicaciones');
+    }
+
     public function index()
     {
         return view('admin.post.index');
