@@ -24,7 +24,7 @@
                 <div class="row">
 
                     @foreach ($courses as $course)
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <div class="mi-card">
                                 <div class="mi-card-content">
                                     <div class="d-flex align-items-center gap-2">
@@ -35,17 +35,15 @@
                             </div>
                         </div>
                         @foreach ($course->archives as $archive)
-                            <div class="col-md-3 my-1">
+                            <div class="col-md-4 my-1">
                                 <div class="mi-card">
                                     <div class="mi-card-content">
-
                                         <a href="{{ route('visitador.read.show', ['archive' => $archive]) }}">
                                             <li class="d-flex align-items-center my-1">
                                                 <i class='bx bxs-file-pdf' style='color:#310fc7'></i>
                                                 <p class="temario-parrafo">{{ $archive->name }}</p>
                                             </li>
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
