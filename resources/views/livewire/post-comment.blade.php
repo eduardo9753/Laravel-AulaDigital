@@ -1,7 +1,7 @@
 <div>
 
-    <div class="mi-card mt-2">
-        <div class="mi-card-content">
+    <div class="card mt-2">
+        <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
                 <small><strong>Por: {{ $post->user->name }}</strong></small>
             </div>
