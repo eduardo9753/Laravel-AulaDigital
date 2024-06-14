@@ -50,9 +50,9 @@
                                     @enderror
                                 </div>
 
-                                <div class="form-group my-2">
+                                <div wire:ignore>
                                     <label for="titulo">Titulo de la pregunta:</label>
-                                    <input wire:model="titulo" class="form-control" type="text" id="titulo">
+                                    <textarea wire:model="titulo" id="description" cols="30" rows="5"></textarea>
                                     @error('titulo')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -170,7 +170,7 @@
                                 @foreach ($questions as $question)
                                     <tr>
                                         <td>{{ $question->id }}</td>
-                                        <td>{{ $question->titulo }}</td>
+                                        <td>{{ Str::slug(substr($question->titulo, 0, 60)) }}</td>
                                         <td>
                                             <button wire:click="delete({{ $question->id }})"
                                                 class="mi-boton rojo btn-sm"><i
@@ -192,4 +192,122 @@
             </div>
         </div>
     </div>
+
+    @section('scripts')
+        <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+        <script>
+            document.addEventListener('livewire:load', function() {
+                ClassicEditor
+                    .create(document.querySelector('#description'), {
+                        toolbar: [
+                            'heading', '|', 'bold', 'italic', 'link', 'blockQuote', 'imageUpload'
+                        ],
+                        heading: {
+                            options: [{
+                                    model: 'paragraph',
+                                    title: 'Paragraph',
+                                    class: 'ck-heading_paragraph'
+                                },
+                                {
+                                    model: 'heading1',
+                                    view: 'h1',
+                                    title: 'Heading 1',
+                                    class: 'ck-heading_heading1'
+                                },
+                                {
+                                    model: 'heading2',
+                                    view: 'h2',
+                                    title: 'Heading 2',
+                                    class: 'ck-heading_heading2'
+                                }
+                            ]
+                        },
+                        // Integración del adaptador de carga de archivos personalizado
+                        extraPlugins: [MyCustomUploadAdapterPlugin],
+                    })
+                    .then(editor => {
+                        editor.model.document.on('change:data', () => {
+                            @this.set('titulo', editor.getData());
+                        });
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+
+                // Función para el adaptador personalizado de carga de archivos
+                function MyCustomUploadAdapterPlugin(editor) {
+                    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                        return new MyUploadAdapter(loader);
+                    };
+                }
+
+                // Adaptador personalizado para la carga de archivos
+                class MyUploadAdapter {
+                    constructor(loader) {
+                        this.loader = loader;
+                    }
+
+                    upload() {
+                        return this.loader.file
+                            .then(file => new Promise((resolve, reject) => {
+                                const reader = new FileReader();
+                                reader.readAsDataURL(file);
+                                reader.onload = () => resolve({
+                                    default: reader.result
+                                });
+                                reader.onerror = error => reject(error);
+                            }));
+                    }
+
+                    abort() {
+                        // Manejo de la cancelación de carga
+                    }
+                }
+
+                Livewire.on('ckeditorReady', () => {
+                    if (typeof ClassicEditor !== 'undefined') {
+                        ClassicEditor.instances.forEach(instance => {
+                            instance.destroy();
+                        });
+
+                        ClassicEditor.create(document.querySelector('#description'), {
+                                toolbar: [
+                                    'heading', '|', 'bold', 'italic', 'link', 'blockQuote',
+                                    'imageUpload'
+                                ],
+                                heading: {
+                                    options: [{
+                                            model: 'paragraph',
+                                            title: 'Paragraph',
+                                            class: 'ck-heading_paragraph'
+                                        },
+                                        {
+                                            model: 'heading1',
+                                            view: 'h1',
+                                            title: 'Heading 1',
+                                            class: 'ck-heading_heading1'
+                                        },
+                                        {
+                                            model: 'heading2',
+                                            view: 'h2',
+                                            title: 'Heading 2',
+                                            class: 'ck-heading_heading2'
+                                        }
+                                    ]
+                                },
+                                extraPlugins: [MyCustomUploadAdapterPlugin],
+                            })
+                            .then(editor => {
+                                editor.model.document.on('change:data', () => {
+                                    @this.set('titulo', editor.getData());
+                                });
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                    }
+                });
+            });
+        </script>
+    @endsection
 </div>

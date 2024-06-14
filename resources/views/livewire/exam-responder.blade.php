@@ -21,7 +21,7 @@
         <div class="card-body">
             <form wire:submit.prevent="submitExam">
                 <div>
-                    <h2 class="mb-3">{{ $currentQuestion->question->titulo }}</h2>
+                    <h2 class="mb-3">{!! $currentQuestion->question->titulo !!}</h2>
                     <ul>
                         @foreach ($currentQuestion->question->answers as $respuesta)
                             <li>

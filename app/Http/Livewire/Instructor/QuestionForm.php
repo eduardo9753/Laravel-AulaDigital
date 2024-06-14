@@ -88,6 +88,7 @@ class QuestionForm extends Component
     public function addAnswer()
     {
         $this->respuestas[] = ['titulo' => '', 'es_correcta' => false];
+        $this->emit('ckeditorReady');
     }
 
     //PARA QUITAR UNA RESPUESTA
@@ -95,6 +96,7 @@ class QuestionForm extends Component
     {
         unset($this->respuestas[$index]);
         $this->respuestas = array_values($this->respuestas);
+        $this->emit('ckeditorReady');
     }
 
     //PARA GUARDAR LA PREGUNTA - RESPUESTA EN LAS TABLAS 
@@ -171,6 +173,8 @@ class QuestionForm extends Component
         $exam->update([
             'estado' => Exam::ACTIVO,
         ]);
+
+        return redirect()->route('admin.instructor.exam.index');
     }
 
     //PARA ANULAR EL EXAMEN
@@ -186,5 +190,6 @@ class QuestionForm extends Component
     public function resetInputFields()
     {
         $this->titulo = '';
+        $this->reset(['titulo']);
     }
 }

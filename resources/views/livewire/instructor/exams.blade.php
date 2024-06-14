@@ -84,7 +84,7 @@
                             <h2 class="lead text-white">Examen</h2>
                         </div>
                         <div class="card-body table-responsive">
-                            <table class="table">
+                            <table class="table" id="datatable">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -132,4 +132,15 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('livewire:load', function() {
+            let table = $('#datatable').DataTable();
+
+            Livewire.hook('message.processed', (message, component) => {
+                table.destroy();
+                table = $('#myTable').DataTable();
+            });
+        });
+    </script>
 </div>
