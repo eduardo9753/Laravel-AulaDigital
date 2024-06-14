@@ -9,7 +9,7 @@
     --azul: #3c37f1 ;
     --verde : #04AA6D;
     --amarillo: #ff9800;
-    --rojo: #f44336;
+    --rojo: #ff5574;
 
 
     --azul-login: #3c37f1;
@@ -18,7 +18,7 @@
     --celesteClaro: #accffe;
 
     /*colores gradiante curso show*/
-    --gradienteUno: #845ec2;
-    --gradienteDos : #d65db1;
-    --gradienteTres: #ff6f61;
+    --gradienteUno: #3c37f1;
+    --gradienteDos : #ff5574;
+    --gradienteTres: #c728ac;
 }

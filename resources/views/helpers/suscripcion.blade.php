@@ -65,10 +65,10 @@
                     </ul>
                     @auth
                         @can('viewSubscriptionEscolar', auth()->user())
-                            <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
+                            <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #ffffff"></i>
                         @else
                             @can('viewSubscription', auth()->user())
-                                <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
+                                <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #ffffff"></i>
                             @else
                                 <form action="{{ route('mercadopago.suscription.index') }}" id="form-suscription" method="POST">
                                     @csrf
@@ -85,7 +85,7 @@
             </div>
 
             <div class="col-sm-4">
-                <div class="pricing-box bg-primary">
+                <div class="pricing-box fondo-general">
                     <img src="https://cdn-icons-png.flaticon.com/512/1010/1010711.png" style="width: 80px;height: 80px;"
                         alt="starter">
                     <h6 class="font-weight-medium title-text text-white">Plan Escolar</h6>
@@ -124,10 +124,10 @@
                     </ul>
                     @auth
                         @can('viewSubscription', auth()->user())
-                            <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
+                            <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #ffffff"></i>
                         @else
                             @can('viewSubscriptionEscolar', auth()->user())
-                                <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #3c37f1"></i>
+                                <i class='bx bx-star bx-tada mt-3' style="font-size: 38px;color: #ffffff"></i>
                             @else
                                 <form action="{{ route('mercadopago.suscription.school.index') }}" id="form-suscription-school"
                                     method="POST">
