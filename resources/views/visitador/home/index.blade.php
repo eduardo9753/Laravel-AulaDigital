@@ -31,8 +31,7 @@
                                         @guest
                                             <div class="d-flex mt-1">
                                                 <a href="{{ route('admin.register.index') }}"
-                                                    class="btn btn-warning mt-3">Quiero
-                                                    Registrarme</a>
+                                                    class="btn btn-warning mt-3">Registrarme</a>
 
                                                 <a href="#plans" class="btn btn-secondary mt-3 ml-2">Suscribirse</a>
                                             </div>
@@ -51,16 +50,29 @@
                                                     </form>
                                                 </div>
                                             @else
-                                                <div class="d-flex mt-1">
-                                                    <div>
-                                                        <a href="#plans" class="btn btn-warning mt-3">Suscribirse</a>
-                                                    </div>
+                                                @can('viewSubscriptionEscolar', auth()->user())
+                                                    <div class="d-flex mt-1">
+                                                        <div>
+                                                            <a class="btn btn-warning mt-3">EresPremium</a>
+                                                        </div>
 
-                                                    <form action="{{ route('admin.logout') }}" method="POST">
-                                                        @csrf
-                                                        <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
-                                                    </form>
-                                                </div>
+                                                        <form action="{{ route('admin.logout') }}" method="POST">
+                                                            @csrf
+                                                            <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
+                                                        </form>
+                                                    </div>
+                                                @else
+                                                    <div class="d-flex mt-1">
+                                                        <div>
+                                                            <a href="#plans" class="btn btn-warning mt-3">Suscribirse</a>
+                                                        </div>
+
+                                                        <form action="{{ route('admin.logout') }}" method="POST">
+                                                            @csrf
+                                                            <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
+                                                        </form>
+                                                    </div>
+                                                @endcan
                                             @endcan
                                         @endauth
                                     </div>

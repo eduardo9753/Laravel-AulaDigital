@@ -17,8 +17,12 @@ class ProfileController extends Controller
 
     public function index(User $user)
     {
-        return view('admin.profile.index', [
-            'user' => $user
-        ]);
+        if ($user->id === auth()->user()->id) {
+            return view('admin.profile.index', [
+                'user' => $user
+            ]);
+        } else {
+            echo "este perfil no te pertenece :(";
+        }
     }
 }
