@@ -37,7 +37,7 @@
     @if ($posts->count() < $this->perPage)
         <div class="d-block text-center mt-2">
             <div class="spinner-grow" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="visually-hidden">...</span>
             </div>
         </div>
     @else
@@ -47,7 +47,7 @@
             </div>
         </div> --}}
         <div class="text-center mt-2">
-            <button wire:click="loadMore" class="mi-boton azul">Cargar más</button>
+            <button wire:click="loadMore" class="btn btn-primary">Cargar más</button>
         </div>
     @endif
 

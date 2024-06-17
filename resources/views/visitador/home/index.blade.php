@@ -24,41 +24,41 @@
                                         <div class="banner-title">
                                             <h3 class="font-weight-medium">Únete y forma parte de PreuniCursos</h3>
                                         </div>
-                                        <p class="my-2">Plataforma educativa diseñada para ti</p>
+                                        <p class="">Plataforma educativa diseñada para ti</p>
                                         <p class="my-3">Temario para el examen de admisión <strong>UNFV</strong>
                                         </p>
 
                                         @guest
-                                            <div class="d-flex mt-5">
+                                            <div class="d-flex mt-1">
                                                 <a href="{{ route('admin.register.index') }}"
-                                                    class="btn btn-outline-light">Quiero
+                                                    class="btn btn-warning mt-3">Quiero
                                                     Registrarme</a>
 
-                                                <a href="#plans" class="btn btn-warning ml-4">Suscribirse</a>
+                                                <a href="#plans" class="btn btn-secondary mt-3 ml-2">Suscribirse</a>
                                             </div>
                                         @endguest
 
                                         @auth
                                             @can('viewSubscription', auth()->user())
-                                                <div class="d-flex align-items-center mt-5 gap-3">
+                                                <div class="d-flex mt-1">
                                                     <div>
-                                                        <a class="btn btn-outline-light">EresPremium</a>
+                                                        <a class="btn btn-warning mt-3">EresPremium</a>
                                                     </div>
 
                                                     <form action="{{ route('admin.logout') }}" method="POST">
                                                         @csrf
-                                                        <input type="submit" class="btn btn-warning " value="Salir">
+                                                        <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
                                                     </form>
                                                 </div>
                                             @else
-                                                <div class="d-flex align-items-center mt-5 gap-3">
+                                                <div class="d-flex mt-1">
                                                     <div>
-                                                        <a href="#plans" class="btn btn-outline-light">Suscribirse</a>
+                                                        <a href="#plans" class="btn btn-warning mt-3">Suscribirse</a>
                                                     </div>
 
                                                     <form action="{{ route('admin.logout') }}" method="POST">
                                                         @csrf
-                                                        <input type="submit" class="btn btn-warning ml-4" value="Salir">
+                                                        <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
                                                     </form>
                                                 </div>
                                             @endcan
@@ -207,7 +207,7 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <h3 class="font-weight-medium text-dark ">Lista de Cursos</h3>
-                                <div><a href="{{ route('visitador.course.index') }}" class="btn-solid-sm p-4">Ver
+                                <div><a href="{{ route('visitador.course.index') }}" class="btn btn-outline-primary">Ver
                                         todos los cursos</a></div>
                             </div>
                         </div>

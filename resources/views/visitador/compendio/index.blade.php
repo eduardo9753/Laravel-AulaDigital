@@ -35,7 +35,7 @@
                                         </div>
 
                                         <a href="{{ route('visitador.compendio.show', ['archive' => $archive]) }}"
-                                            class="mi-boton general mt-2 w-100">Acceder</a>
+                                            class="btn btn-outline-primary mt-2 w-100">Acceder</a>
                                     </div>
                                 </div>
                             </div>

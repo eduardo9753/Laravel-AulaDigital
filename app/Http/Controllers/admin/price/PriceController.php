@@ -12,7 +12,7 @@ class PriceController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('gestion precios');
+        //$this->middleware('gestion precios');
     }
     
     public function index()

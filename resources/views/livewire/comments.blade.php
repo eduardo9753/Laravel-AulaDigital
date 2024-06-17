@@ -5,7 +5,7 @@
         @if (auth()->check())
             <form wire:submit.prevent='addComment'>
                 <textarea wire:model.defer="newComment" class="form-control" placeholder="Agregar comentario"></textarea>
-                <button type="submit" class="mi-boton azul mt-2 btn-sm">Comentar</button>
+                <button type="submit" class="btn btn-primary mt-2 ">Comentar</button>
             </form>
             @error('newComment')
                 <span class="text-danger">{{ $message }}</span>
@@ -30,7 +30,7 @@
                             <small><strong>Por: {{ $comment->user->name }} -
                                     {{ $comment->created_at->diffForHumans() }}</strong></small>
                             <button wire:click='setParentComment({{ $comment->id }})'
-                                class="mi-boton verde btn-sm">Responder</button>
+                                class="btn btn-outline-success btn-sm">Responder</button>
                         </div>
 
 

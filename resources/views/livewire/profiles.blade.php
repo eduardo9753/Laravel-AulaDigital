@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="mi-boton azul w-100">Actualizar</button>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
                     </form>
                 @endif
             </div>
@@ -138,7 +138,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <button class="mi-boton azul w-100">Actualizar</button>
+                        <button class="btn btn-primary">Actualizar</button>
                     </form>
                 @endif
 
@@ -233,7 +233,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <button class="mi-boton azul w-100">Guardar</button>
+                        <button class="btn btn-primary">Guardar</button>
                     </form>
                 @endif
             </div>

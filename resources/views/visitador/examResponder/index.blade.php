@@ -38,15 +38,15 @@
                                     @can('enrolledExamUser', $exam)
                                         @can('ExamUserStatus', $exam)
                                             <a href="{{ route('visitador.examenes.status', ['exam' => $exam]) }}"
-                                                class="mi-boton general mt-2 w-100">Continuar el Examen</a>
+                                                class="btn btn-primary mt-2 w-100">Continuar el Examen</a>
                                         @else
                                             <a href="{{ route('visitador.examenes.show', ['exam' => $exam]) }}"
-                                                class="mi-boton rojo mt-2 w-100">Ver Resultados</a>
+                                                class="btn btn-outline-danger mt-2 w-100">Ver Resultados</a>
                                         @endcan
                                     @else
                                         <a id="inscribirmeBtn_{{ $exam->id }}"
                                             href="{{ route('visitador.examenes.enrolled', ['exam' => $exam]) }}"
-                                            class="mi-boton general mt-2 w-100">Inscribirme</a>
+                                            class="btn btn-outline-primary mt-2 w-100">Inscribirme</a>
                                     @endcan
 
                                 </div>

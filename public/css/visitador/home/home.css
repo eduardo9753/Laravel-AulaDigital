@@ -8,6 +8,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
+    border: 1px solid #e1e5ea;
   }
 
   #contenido-bloques .mi-card-content {

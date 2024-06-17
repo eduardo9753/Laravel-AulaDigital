@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('bosstrap.css')
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+@endsection
 
 @section('navegador')
     @include('template.nav-visitador')
@@ -178,7 +183,7 @@
                     <section>
                         <div class="card">
                             <div class="card-body">
-                                <div class="d-flex item-center">
+                                <div class="d-flex item-center pb-2">
                                     <img src="{{ $course->teacher->profile_photo_url }}" alt="">
                                     <div>
                                         <p>Colaborador:{{ $course->teacher->name }}</p>
@@ -200,7 +205,7 @@
                                         {{-- VERIFICAMOS SI ESTA MATRICULADO EN EL CURSO QUE ESTA VIENDO --}}
                                         @can('enrolled', $course)
                                             <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
-                                                class="mi-boton general mt-3 w-100">CONTINUAR CURSO</a>
+                                                class="btn-solid-sm p-4 text-center mt-3 w-100">CONTINUAR CURSO</a>
                                         @else
                                             @if ($course->price->value == 0)
                                                 <p style="font-size: 22px;font-weight: bold" class="color-general">
@@ -208,7 +213,7 @@
                                                 <form action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
                                                     method="POST">
                                                     @csrf
-                                                    <button class="mi-boton general mt-1 w-100" type="submit">MATRICULATE
+                                                    <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">MATRICULATE
                                                         AHORA</button>
                                                 </form>
                                             @else
@@ -216,7 +221,7 @@
                                                 <form action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
                                                     method="POST">
                                                     @csrf
-                                                    <button class="mi-boton general mt-1 w-100" type="submit">MATRICULATE
+                                                    <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">MATRICULATE
                                                         AHORA</button>
                                                 </form>
                                             @endif
@@ -225,7 +230,7 @@
                                         @can('viewSubscriptionEscolar', auth()->user())
                                             @can('enrolled', $course)
                                                 <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
-                                                    class="mi-boton general mt-3 w-100">CONTINUAR CURSO</a>
+                                                    class="btn-solid-sm p-4 text-center mt-3 w-100">CONTINUAR CURSO</a>
                                             @else
                                                 @if ($course->price->value == 0)
                                                     <p style="font-size: 22px;font-weight: bold" class="color-general">
@@ -233,7 +238,7 @@
                                                     <form action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
                                                         method="POST">
                                                         @csrf
-                                                        <button class="mi-boton general mt-1 w-100" type="submit">MATRICULATE
+                                                        <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">MATRICULATE
                                                             AHORA</button>
                                                     </form>
                                                 @else
@@ -241,21 +246,21 @@
                                                     <form action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
                                                         method="POST">
                                                         @csrf
-                                                        <button class="mi-boton general mt-1 w-100" type="submit">MATRICULATE
+                                                        <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">MATRICULATE
                                                             AHORA</button>
                                                     </form>
                                                 @endif
                                             @endcan
                                         @else
                                             <a href="{{ route('mercadopago.suscription.subscribe') }}"
-                                                class="mi-boton general mt-1 w-100">SUSCRIBETE A NUESTROS PLANES</a>
+                                                class="btn-solid-sm p-4 text-center mt-3 w-100">SUSCRIBETE A NUESTROS PLANES</a>
                                         @endcan
                                     @endcan
                                 @endauth
 
                                 @guest
                                     <a href="{{ route('admin.register.index') }}"
-                                        class="mi-boton general mt-1 w-100">MATRICULATE AHORA</a>
+                                        class="btn-solid-sm p-4 text-center mt-1 w-100">MATRICULATE AHORA</a>
                                 @endguest
                             </div>
                         </div>
@@ -298,4 +303,11 @@
     <div class="mt-5">
         @include('template.footer')
     </div>
+
+@section('bosstrap.js')
+    <!-- CDN JS BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+@endsection
 @endsection

@@ -46,15 +46,15 @@
                     @enderror
                 </div>
 
-                <div class="d-flex gap-4 mt-4">
+                <div class="d-flex mt-4">
                     @if ($currentQuestionIndex > 0)
-                        <button type="button" class="mi-boton azul" wire:click="previousQuestion">Anterior</button>
+                        <button type="button" class="btn btn-primary mr-2" wire:click="previousQuestion">Anterior</button>
                     @endif
 
                     @if ($currentQuestionIndex < $totalQuestions - 1)
-                        <button type="button" class="mi-boton rojo" wire:click="nextQuestion">Siguiente</button>
+                        <button type="button" class="btn btn-danger" wire:click="nextQuestion">Siguiente</button>
                     @else
-                        <button type="submit" class="mi-boton verde">Culminar Examen</button>
+                        <button type="submit" class="btn btn-success">Culminar Examen</button>
                     @endif
                 </div>
             </form>

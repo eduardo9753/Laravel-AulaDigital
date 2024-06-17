@@ -11,7 +11,7 @@ class ResourceController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('can:gestion recursos');
+        //$this->middleware('can:gestion recursos');
     }
 
     public function index()

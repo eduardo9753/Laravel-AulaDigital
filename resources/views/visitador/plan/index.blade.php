@@ -83,7 +83,7 @@
                             <div class="mt-3">
                                 <form action="{{ route('mercadopago.suscription.cancel') }}" method="POST">
                                     @csrf
-                                    <input type="submit" class="mi-boton verde" value="Cancelar Plan">
+                                    <input type="submit" class="btn btn-outline-danger" value="Cancelar Plan">
                                 </form>
                             </div>
                         </div>

@@ -52,7 +52,7 @@
                                 </div>
 
                                 <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
-                                    class="mi-boton general mt-2 w-100">Detalles</a>
+                                    class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
                             </div>
                         </div>
                     </div>

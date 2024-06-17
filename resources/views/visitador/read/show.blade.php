@@ -63,7 +63,7 @@
 
                                         @if ($fileId)
                                             <a href="https://drive.google.com/uc?export=download&id={{ $fileId }}"
-                                                class="mi-boton general" download>Descargar Archivo</a>
+                                                class="btn btn-primary" download>Descargar Archivo</a>
                                         @else
                                             <p>No se pudo generar el enlace de descarga.</p>
                                         @endif
