@@ -196,7 +196,7 @@
                                 {{-- DESCRIPCION DE LA LECCION --}}
                                 @if ($current->description)
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-outline-primary btn-sm mt-3" data-bs-toggle="modal"
+                                    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#ModalMaterialReferencia">
                                         Referencia del Material:
                                     </button>
