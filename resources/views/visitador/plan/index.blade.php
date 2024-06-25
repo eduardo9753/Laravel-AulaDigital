@@ -19,73 +19,71 @@
 @section('main')
     <section class="" id="contenido-bloques">
         <div class="contenedor">
-            <div>
-                <div class="row">
-                    {{-- ACTUALIZAR USUARIO --}}
-                    <div class="mi-card">
-                        <div class="mi-card-content">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label class="form-label">Nombre</label>
-                                        <input type="text" value="{{ $user->name }}" class="form-control" />
-                                    </div>
-                                </div>
 
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label class="form-label">Correo</label>
-                                        <input type="email" readonly value="{{ auth()->user()->email }}"
-                                            class="form-control" />
-                                    </div>
+            <div class="row">
+                {{-- ACTUALIZAR USUARIO --}}
+                <div class="mi-card">
+                    <div class="mi-card-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Nombre</label>
+                                    <input type="text" value="{{ $user->name }}" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Correo</label>
+                                    <input type="email" readonly value="{{ auth()->user()->email }}"
+                                        class="form-control" />
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="mi-card mt-4">
-                        <div class="mi-card-content">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="mb-3">
-                                        <label class="form-label">TIPO PLAN ({{$suscription->id}})</label>
-                                        <input type="text" class="form-control"
-                                            value="{{ $suscription->collection_status }}"
-                                            placeholder="plan del estudiante" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="mb-3">
-                                        <label class="form-label">DESCRIPCIÓN</label>
-                                        <input type="text" value="{{ $suscription->status }}" class="form-control"
-                                            placeholder="resumen" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="mb-3">
-                                        <label class="form-label">FORMA</label>
-                                        <input type="text" value="{{ $suscription->processing_mode }}"
-                                            class="form-control" placeholder="elemento" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="mb-3">
-                                        <label class="form-label">PROCESO</label>
-                                        <input type="text" value="{{ $suscription->estado }}" class="form-control"
-                                            placeholder="categoria de pago" />
-                                    </div>
+                <div class="mi-card mt-4">
+                    <div class="mi-card-content">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label class="form-label">TIPO PLAN ({{ $suscription->id }})</label>
+                                    <input type="text" class="form-control" value="{{ $suscription->collection_status }}"
+                                        placeholder="plan del estudiante" />
                                 </div>
                             </div>
 
-                            <div class="mt-3">
-                                <form action="{{ route('mercadopago.suscription.cancel') }}" method="POST">
-                                    @csrf
-                                    <input type="submit" class="btn btn-outline-danger" value="Cancelar Plan">
-                                </form>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label class="form-label">DESCRIPCIÓN</label>
+                                    <input type="text" value="{{ $suscription->status }}" class="form-control"
+                                        placeholder="resumen" />
+                                </div>
                             </div>
+
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label class="form-label">FORMA</label>
+                                    <input type="text" value="{{ $suscription->processing_mode }}" class="form-control"
+                                        placeholder="elemento" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label class="form-label">PROCESO</label>
+                                    <input type="text" value="{{ $suscription->estado }}" class="form-control"
+                                        placeholder="categoria de pago" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <form action="{{ route('mercadopago.suscription.cancel') }}" method="POST">
+                                @csrf
+                                <input type="submit" class="btn btn-outline-danger" value="Cancelar Plan">
+                            </form>
                         </div>
                     </div>
                 </div>

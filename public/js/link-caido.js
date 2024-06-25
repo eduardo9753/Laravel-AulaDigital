@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     //alert(JSON.stringify(data.msg)); //USAS ESTO CUANDO SOLO RETORNAS TODO EL OBJETO DESDE TU METODO
                     //alert('Se dio aviso a los administradores del la lección : '+data.msg.name);
                     Swal.fire({
-                        position: "top-end",
+                        position: "bottom-end",
                         icon: "success",
                         title: 'tu alerta se envio: ' + data.msg.name,
                         showConfirmButton: false,
@@ -33,9 +33,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 } else {
                     alert(data.msg);
                     Swal.fire({
-                        position: "top-end",
+                        position: "bottom-end",
                         icon: "error",
-                        title: 'alerta enviada lección: ' + data.msg,
+                        title: 'alerta no enviada: ' + data.msg,
                         showConfirmButton: false,
                         timer: 1500
                     });

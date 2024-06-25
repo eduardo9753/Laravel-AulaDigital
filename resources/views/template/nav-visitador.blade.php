@@ -49,6 +49,14 @@
                             </a>
                         </li>
                         <li class="item">
+                            <a href="{{ route('visitador.plan.show') }}">
+                                <div class="d-flex align-items-center gap-1">
+                                    <i class='bx bxl-paypal'></i>
+                                    <span>Pasos Suscripción</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="item">
                             <a href="{{ route('login') }}">
                                 <div class="d-flex align-items-center gap-1">
                                     <i class='bx bxs-log-in'></i>

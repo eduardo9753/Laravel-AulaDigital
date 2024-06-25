@@ -87,6 +87,7 @@ Route::post('/examen/retomar/status/{exam:slug}/{examUser}', [ExamResponderContr
 
 //PARA VER MI PLAN DE SUSCRIPCION
 Route::get('/plan/{user}/status/suscription', [PlanController::class, 'index'])->name('visitador.plan.index');
+Route::get('/plan/pasos/video/suscription', [PlanController::class , 'show'])->name('visitador.plan.show');
 
 
 //MIS COMPENDIOS

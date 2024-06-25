@@ -181,6 +181,30 @@
             @include('helpers.suscripcion')
 
 
+
+            <!--video con los pasos de suscripcion-->
+            <section class="our-process section-home" id="plans">
+                <div class="container">
+                    <div class="row mb-3" data-aos="fade-up" data-aos-offset="-500">
+                        <div class="col-sm-12">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <h3 class="font-weight-medium text-dark mb-3">Pasos para tu Suscripción</h3>
+                                    <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
+                                        las 24 horas del día</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
+                        @include('helpers.video')
+                    </div>
+
+                </div>
+            </section>
+
+
             <section class="our-process section-home" id="about">
                 <div class="container">
                     <div class="row">

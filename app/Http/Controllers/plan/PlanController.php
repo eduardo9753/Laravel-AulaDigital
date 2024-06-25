@@ -12,11 +12,12 @@ class PlanController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
     public function index(User $user)
     {
+        $this->middleware('auth');
+
         if ($user->id === auth()->user()->id) {
             $suscription = Pay::where('estado', 'SUSCRITO')->where('user_id', auth()->user()->id)->first();
 
@@ -31,5 +32,10 @@ class PlanController extends Controller
         } else {
             echo "no puedes ver el plan de otro usuario :(";
         }
+    }
+
+    public function show()
+    {
+        return view('visitador.plan.show');
     }
 }

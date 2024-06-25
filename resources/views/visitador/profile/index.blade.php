@@ -19,9 +19,9 @@
 @section('main')
     <section class="" id="contenido-bloques">
         <div class="contenedor">
-            <div>
-                @livewire('profiles', ['user' => $user], key($user->id))
-            </div>
+
+            @livewire('profiles', ['user' => $user], key($user->id))
+
         </div>
     </section>
 @endsection
