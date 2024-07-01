@@ -11,6 +11,7 @@ class InstructorLessonController extends Controller
     //
     public function __construct()
     {
+        $this->middleware('can:Gestión leccion instructor');
         $this->middleware('auth');
     }
 

@@ -1,4 +1,4 @@
-<div class="col-md-8 text-center">
+<div class="col-md-12 text-center">
     <div class="mi-card">
         <div class="mi-card-content">
             <video width="100%" height="100%" autoplay loop muted>

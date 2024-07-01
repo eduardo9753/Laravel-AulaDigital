@@ -11,6 +11,7 @@ class instructorQuestionController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:Gestión preguntas instructor');
     }
 
     public function index()

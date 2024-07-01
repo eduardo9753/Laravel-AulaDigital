@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 class InstructorStudentController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Course $course)
     {
         //return $course->students;

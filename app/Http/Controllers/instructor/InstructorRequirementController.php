@@ -11,6 +11,7 @@ class InstructorRequirementController extends Controller
     //
     public function __construct()
     {
+        $this->middleware('can:Gestión requerimiento instruc');
         $this->middleware('auth');
     }
 

@@ -117,7 +117,12 @@
                                                         </div>
                                                         {{-- NOMBRE DE LA LECCION --}}
                                                         <a style="margin-top: 2px" class="cursor-status"
-                                                            wire:click="changeLesson({{ $lesson }})">{{ $lesson->name }}</a>
+                                                            wire:click="changeLesson({{ $lesson }})">{{ $lesson->name }}
+                                                            @if ($lesson->resource)
+                                                                <i class='bx bxs-file-pdf bx-burst'
+                                                                    style='color:#1112de'></i>
+                                                            @endif
+                                                        </a>
                                                     </li>
                                                 @endforeach
                                             </ul>
@@ -254,6 +259,29 @@
                                     <button type="submit" class="mi-boton rojo btn-sm mt-3" id="alertButton">Alertar
                                         Link caido</button>
                                 </form>
+
+                                <div>
+                                    @php
+                                        // Extraer el ID del archivo de Google Drive de la URL
+                                        $fileId = null;
+                                        if (
+                                            $current->resource &&
+                                            preg_match('/\/d\/([a-zA-Z0-9_-]+)/', $current->resource->url, $matches)
+                                        ) {
+                                            $fileId = $matches[1];
+                                        }
+                                    @endphp
+
+                                    @if ($fileId)
+                                        <a href="https://drive.google.com/uc?export=download&id={{ $fileId }}"
+                                            class="mi-boton verde btn-sm mt-3" download>Descargar Archivo</a>
+                                    @else
+                                        <p class="mt-3">
+                                            {{ $current->resource ? $current->resource->url : 'lección sin recurso' }}
+                                        </p>
+                                    @endif
+                                </div>
+
                             </div>
                         </div>
                         {{-- CITA DEL VIDEO --}}

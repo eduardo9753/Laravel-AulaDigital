@@ -11,6 +11,7 @@ class InstructorTopicController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:Gestión tema instructor');
     }
 
     public function index()

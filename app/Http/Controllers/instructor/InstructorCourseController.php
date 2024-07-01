@@ -18,6 +18,7 @@ class InstructorCourseController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:Gestión mis cursos instructor');
         $this->middleware('can:Listar cursos')->only('index');
         $this->middleware('can:Crear cursos')->only('create', 'store');
         $this->middleware('can:Editar cursos')->only('edit', 'update');

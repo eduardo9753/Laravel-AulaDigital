@@ -11,6 +11,7 @@ class InstructorGoalController extends Controller
     //
     public function __construct()
     {
+        $this->middleware('can:Gestión metas instructor');
         $this->middleware('auth');
     }
 

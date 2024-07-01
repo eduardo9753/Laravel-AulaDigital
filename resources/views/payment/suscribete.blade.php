@@ -21,5 +21,16 @@
         </div>
     </div>
 
+    <!--video con los pasos de suscripcion-->
+    <section class="our-process" id="plans">
+        <div class="container">
+
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
+                @include('helpers.video')
+            </div>
+
+        </div>
+    </section>
+
     @include('template.footer')
 @endsection

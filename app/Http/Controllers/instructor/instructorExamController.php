@@ -11,6 +11,7 @@ class instructorExamController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:Gestión examen instructor');
     }
 
     public function index()

@@ -11,7 +11,7 @@ class LevelController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        //$this->middleware('can:gestion nivel');
+        $this->middleware('can:gestion nivel');
     }
 
     public function index()
