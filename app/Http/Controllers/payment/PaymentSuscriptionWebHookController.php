@@ -57,6 +57,29 @@ class PaymentSuscriptionWebHookController extends Controller
                 }
             } else {
                 Log::error('Usuario no autenticado para guardar la suscripción');
+                // Crear un nuevo registro de pago
+                $pay = Pay::create([
+                    'user_id' => 1, //mi id para las isncripnes con webhook
+                    'collection_id' => '',
+                    'collection_status' => 'PLAN-PRE-UNI',
+                    'payment_id' => $preapprovalId,
+                    'status' => 'PAGO SUSCRIPCION',
+                    'external_reference' => '',
+                    'payment_type' => 'TARJETA',
+                    'merchant_order_id' => '',
+                    'preference_id' => $preapprovalId,
+                    'site_id' => 'MPE',
+                    'processing_mode' => 'ONLINE',
+                    'merchant_account_id' => '',
+                    'estado' => 'SUSCRITO',
+                ]);
+
+                // Enviar correo de confirmación
+                if ($pay) {
+                    Log::info('Suscripcion guardada en la bd correctamente');
+                } else {
+                    Log::error('Error al guardar la suscripción en la base de datos');
+                }
             }
         } else {
             Log::error('Datos incompletos o incorrectos recibidos del webhook: ' . $payloadRaw);
