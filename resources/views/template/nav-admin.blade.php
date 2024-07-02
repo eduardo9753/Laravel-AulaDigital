@@ -53,7 +53,17 @@
                         </ul>
                     </li>
 
-                    <li class="item"><a href="{{ route('admin.pays.index') }}">Pagos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Pagos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="item"><a href="{{ route('admin.pays.index') }}">Pagos</a></li>
+                            <li class="item"><a href="{{ route('admin.pays.list') }}">Lista por atender</a></li>
+                        </ul>
+                    </li>
+                    
                     <li class="item"><a
                             href="{{ route('admin.profile.index', ['user' => auth()->user()]) }}">Bienvenido:
                             {{ auth()->user()->name }}</a></li>

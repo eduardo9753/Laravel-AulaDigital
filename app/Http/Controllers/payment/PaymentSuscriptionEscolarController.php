@@ -86,7 +86,7 @@ class PaymentSuscriptionEscolarController extends Controller
                 'site_id' => 'MPE',
                 'processing_mode' => 'ONLINE',
                 'merchant_account_id' => '',
-                'estado' => 'SUSCRITO',
+                'estado' => 'POR ATENDER',
             ]);
 
             if ($pay) {

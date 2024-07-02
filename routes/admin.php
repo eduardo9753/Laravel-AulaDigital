@@ -46,6 +46,7 @@ Route::get('/admin/level/index',[LevelController::class, 'index'])->name('admin.
 Route::get('/admin/resource/index', [ResourceController::class , 'index'])->name('admin.resources.index');
 Route::get('/admin/reads/index', [ReadController::class , 'index'])->name('admin.reads.index');
 Route::get('/admin/pays/index', [PayController::class , 'index'])->name('admin.pays.index');
+Route::get('/admin/pays/por-atender', [PayController::class , 'list'])->name('admin.pays.list');
 
 Route::get('/admin/compemdium/index', [CompendiumController::class , 'index'])->name('admin.compendiums.index');
 
