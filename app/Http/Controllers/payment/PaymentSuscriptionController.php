@@ -55,8 +55,11 @@ class PaymentSuscriptionController extends Controller
 
         // Redirige al usuario al checkout de Mercado Pago para la suscripción
         if ($save) {
-            $init_point = 'https://www.mercadopago.com.pe/subscriptions/checkout?preapproval_plan_id=2c9380848e681d84018e7821538c0912';
+            //real
+            //$init_point = 'https://www.mercadopago.com.pe/subscriptions/checkout?preapproval_plan_id=2c9380848e681d84018e7821538c0912';
 
+            //prueba
+            $init_point = 'https://www.mercadopago.com.pe/subscriptions/checkout?preapproval_plan_id=2c93808490613c950190747d41ce050a';
             return response()->json([
                 'code' => 1,
                 'msg' => $init_point
