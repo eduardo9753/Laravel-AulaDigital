@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="card">
                     <div class="card-header fondo-general">
-                        <a class="text-white" href="{{ route('admin.permissions.create') }}">Crear Nuevo Permiso</a>
+                        <a class="text-white" href="#">#</a>
                     </div>
                     <div class="card-body">
                         @if (session('exito'))
@@ -47,18 +47,19 @@
                                             <td>{{ $pay->id }}</td>
                                             <td>{{ $pay->name }}</td>
                                             <td>{{ $pay->payment_id }}</td>
-
                                             <td>
+                                                <a href="">Asignar</a>
                                             </td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td>Sin pagos por atender por ahora</td>
+                                            <td colspan="4">Sin pagos por atender por ahora</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
                             </table>
                         </div>
+
                     </div>
                 </div>
             </div>
