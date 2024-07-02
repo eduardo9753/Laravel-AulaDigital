@@ -3,6 +3,7 @@
 use App\Http\Controllers\payment\PaymentController;
 use App\Http\Controllers\payment\PaymentSuscriptionController;
 use App\Http\Controllers\payment\PaymentSuscriptionEscolarController;
+use App\Http\Controllers\payment\PaymentSuscriptionWebHookController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,3 +34,6 @@ Route::get('/mercadopago/subscribete/school/academico-premium', [PaymentSuscript
 Route::post('/mercadopago/suscription/school/academico-premium/cancel', [PaymentSuscriptionEscolarController::class, 'cancel'])->name('mercadopago.suscription.school.cancel');
 
 Route::post('/yape/payment/{course}', [PaymentController::class, 'yape'])->name('yape.index');
+
+
+Route::post('/mercado/webhooks', [PaymentSuscriptionWebHookController::class, 'index'])->name('mercadopago.suscription.webhook.index');
