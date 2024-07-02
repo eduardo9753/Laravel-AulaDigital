@@ -23,35 +23,42 @@ class PaymentSuscriptionWebHookController extends Controller
         Log::info('Webhook Received (Raw):', ['payload' => $payloadRaw]);
 
         // Verificar si se ha recibido el webhook con los datos esperados
-        if (isset($webhookData['data']['id'])) {
-            $preapprovalId = $webhookData['data']['id'];
+        if (isset($payloadArray['data']['id'])) {
+            $preapprovalId = $payloadArray['data']['id'];
 
-            // Crear un nuevo registro de pago
-            $pay = Pay::create([
-                'user_id' => auth()->user()->id,
-                'collection_id' => '',
-                'collection_status' => 'PLAN-PRE-UNI',
-                'payment_id' => $preapprovalId,
-                'status' => 'PAGO SUSCRIPCION',
-                'external_reference' => '',
-                'payment_type' => 'TARJETA',
-                'merchant_order_id' => '',
-                'preference_id' => $preapprovalId,
-                'site_id' => 'MPE',
-                'processing_mode' => 'ONLINE',
-                'merchant_account_id' => '',
-                'estado' => 'SUSCRITO',
-            ]);
+            // Aquí debes buscar el usuario relacionado con el preapprovalId en tu base de datos
+            $user = auth()->user()->id;
 
-            // Enviar correo de confirmación
-            if ($pay) {
-                Mail::to([auth()->user()->email, 'anthony.anec@gmail.com'])->send(new EnviarCorreoSuscripcion(auth()->user()));
-                Log::info('Suscripcion guardada en la bd correctamente:');
+            if ($user) {
+                // Crear un nuevo registro de pago
+                $pay = Pay::create([
+                    'user_id' => $user,
+                    'collection_id' => '',
+                    'collection_status' => 'PLAN-PRE-UNI',
+                    'payment_id' => $preapprovalId,
+                    'status' => 'PAGO SUSCRIPCION',
+                    'external_reference' => '',
+                    'payment_type' => 'TARJETA',
+                    'merchant_order_id' => '',
+                    'preference_id' => $preapprovalId,
+                    'site_id' => 'MPE',
+                    'processing_mode' => 'ONLINE',
+                    'merchant_account_id' => '',
+                    'estado' => 'SUSCRITO',
+                ]);
+
+                // Enviar correo de confirmación
+                if ($pay) {
+                    Mail::to([$user->email, 'anthony.anec@gmail.com'])->send(new EnviarCorreoSuscripcion($user));
+                    Log::info('Suscripcion guardada en la bd correctamente');
+                } else {
+                    Log::info('Datos no guardados en la base de datos');
+                }
             } else {
-                Log::info('datos no guardados en la base de datos:');
+                Log::info('Usuario no encontrado para el preapproval_id: ' . $preapprovalId);
             }
         } else {
-            Log::info('Datos no recibidos: ' . json_encode($payloadArray));
+            Log::info('Datos no recibidos correctamente: ' . json_encode($payloadArray));
         }
 
         // Responder con HTTP 200 para indicar que el webhook fue recibido
