@@ -79,12 +79,22 @@
                             </div>
                         </div>
 
-                        <div class="mt-3">
-                            <form action="{{ route('mercadopago.suscription.cancel') }}" method="POST">
-                                @csrf
-                                <input type="submit" class="btn btn-outline-danger" value="Cancelar Plan">
-                            </form>
-                        </div>
+                        @if ($suscription->collection_status == 'PLAN-PRE-UNI')
+                            <div class="mt-3">
+                                <form action="{{ route('mercadopago.suscription.cancel') }}" method="POST">
+                                    @csrf
+                                    <input type="submit" class="btn btn-outline-danger" value="Cancelar Plan">
+                                </form>
+                            </div>
+                        @else
+                            <div class="mt-3">
+                                <form action="{{ route('mercadopago.suscription.school.cancel') }}" method="POST">
+                                    @csrf
+                                    <input type="submit" class="btn btn-outline-danger" value="Cancelar Plan">
+                                </form>
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
