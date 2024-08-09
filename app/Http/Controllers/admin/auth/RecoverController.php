@@ -20,18 +20,32 @@ class RecoverController extends Controller
     //formulario para recuperar contraseña
     public function send(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required'
-        ]);
+        try {
+            $this->validate($request, [
+                'email' => 'required'
+            ]);
 
-        //mandar  correo
-        $user = User::whereEmail($request->email)->first();
+            //mandar  correo
+            $user = User::whereEmail($request->email)->first();
 
-        if ($user) {
-            Mail::to($request->email)->send(new MailUserRecover($user));
-            return back()->with('mensaje', 'Se envio un mensaje al correo proporcionado');
-        } else {
-            return back()->with('sin_correo', 'El correo proporcionado no existe en nuestra base de datos');
+
+            if (!$user) {
+                return back()->with('mensaje', 'El correo proporcionado no existe en nuestra base de datos');
+            } else {
+                $roles = $user->getRoleNames();
+                if ($roles->contains('Admin') || $roles->constants('Instructor')) {
+                    return back()->with('mensaje', 'Ingrese su correo por favor, el correo proporcionado no es valido.');
+                } else {
+                    if ($user) {
+                        Mail::to($request->email)->send(new MailUserRecover($user));
+                        return back()->with('mensaje', 'Se envio un mensaje al correo proporcionado');
+                    } else {
+                        return back()->with('sin_correo', 'El correo proporcionado no existe en nuestra base de datos');
+                    }
+                }
+            }
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 
@@ -52,14 +66,27 @@ class RecoverController extends Controller
         //actualizamos los datos
         $user = User::whereEmail($request->email)->first();
 
-        if ($user) {
-            /*actualizamos datos*/
-            $user->update([
-                'password' => Hash::make($request->password)
-            ]);
-            return back()->with('mensaje', 'Se restablecio los datos correctamente');
+        if (!$user) {
+            return back()->with('mensaje', 'El correo proporcionado no existe en nuestra base de datos');
         } else {
-            return back()->with('mensaje', 'El correo proporcionado no existe');
+            $roles = $user->getRoleNames();
+            if ($roles->contains('Admin') || $roles->constants('Instructor')) {
+                return back()->with('mensaje', 'Ingrese su correo por favor, el correo proporcionado no es valido.');
+            } else {
+                if ($user) {
+                    /*actualizamos datos*/
+                    $user->update([
+                        'password' => Hash::make($request->password)
+                    ]);
+
+                    //aqui guarda los datos del update en una tabla para mayor seguridad, solo una vez que se pueda cambiar el correo
+                    //para la otra que te pidan para mayor seguridad
+
+                    return back()->with('mensaje', 'Se restablecio los datos correctamente');
+                } else {
+                    return back()->with('mensaje', 'El correo proporcionado no existe');
+                }
+            }
         }
     }
 }

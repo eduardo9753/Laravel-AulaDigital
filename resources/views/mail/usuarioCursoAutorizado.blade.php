@@ -16,7 +16,7 @@ margin: 20px;">
     justify-content: center;
     padding: 20px;">
         <div
-            style=" max-width: 600px;
+            style=" max-width: 90%;
         width: 100%;
         background-color: #fff;
         border-radius: 10px;

@@ -80,10 +80,10 @@
                                         <th>PAGO</th>
                                         <th>ESTADO</th>
                                         <th>
-                                            ACTIVAR</i>
+                                            ACTIVAR
                                         </th>
                                         <th>
-                                            CANCELAR</i>
+                                            CANCELAR
                                         </th>
                                     </tr>
                                 </thead>
