@@ -33,7 +33,7 @@ class RecoverController extends Controller
                 return back()->with('mensaje', 'El correo proporcionado no existe en nuestra base de datos');
             } else {
                 $roles = $user->getRoleNames();
-                if ($roles->contains('Admin') || $roles->constants('Instructor')) {
+                if ($roles->contains('Admin') || $roles->contains('Instructor')) {
                     return back()->with('mensaje', 'Ingrese su correo por favor, el correo proporcionado no es valido.');
                 } else {
                     if ($user) {
@@ -70,7 +70,7 @@ class RecoverController extends Controller
             return back()->with('mensaje', 'El correo proporcionado no existe en nuestra base de datos');
         } else {
             $roles = $user->getRoleNames();
-            if ($roles->contains('Admin') || $roles->constants('Instructor')) {
+            if ($roles->contains('Admin') || $roles->contains('Instructor')) {
                 return back()->with('mensaje', 'Ingrese su correo por favor, el correo proporcionado no es valido.');
             } else {
                 if ($user) {
