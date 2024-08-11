@@ -176,9 +176,30 @@
             </section>
 
 
+            <!--video con contenidos de la plataforma-->
+            <section class="our-process section-home" id="plans">
+                <div class="container">
+                    <div class="row mb-3" data-aos="fade-up" data-aos-offset="-500">
+                        <div class="col-sm-12">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <h3 class="font-weight-medium text-dark mb-3">con temario para el examen de admisión UNFV</h3>
+                                    <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
+                                        las 24 horas del día</h5>
+                                </div>
 
-            <!-- Ahora incluimos la vista suscripcion.blade.php -->
-            @include('helpers.suscripcion')
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
+                        @include('helpers.video', [
+                            'video' => asset('videos/Contenido.mp4'),
+                        ])
+                    </div>
+
+                </div>
+            </section>
+            <!--video con contenidos de la plataforma-->
 
 
 
@@ -198,11 +219,18 @@
                         </div>
                     </div>
                     <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
-                        @include('helpers.video')
+                        @include('helpers.video', [
+                            'video' => asset('videos/suscripción_preunicursos.mp4'),
+                        ])
                     </div>
 
                 </div>
             </section>
+            <!--video con los pasos de suscripcion-->
+
+
+            <!-- Ahora incluimos la vista suscripcion.blade.php -->
+            @include('helpers.suscripcion')
 
 
             <section class="our-process section-home" id="about">
