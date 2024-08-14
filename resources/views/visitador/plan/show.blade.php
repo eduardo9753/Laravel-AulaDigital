@@ -21,7 +21,9 @@
         <div class="contenedor">
 
             <div class="row justify-content-center">
-                @include('helpers.video')
+                @include('helpers.video', [
+                    'video' => asset('videos/Contenido.mp4'),
+                ])
             </div>
 
         </div>

@@ -79,7 +79,7 @@
                     @endauth
 
                     @guest
-                        <a href="{{ route('admin.register.index') }}" class="btn-solid-sm p-4 mt-3 w-100">Suscribirme</a>
+                        <a href="{{ route('admin.register.index') }}" class="btn-solid-sm p-4 mt-3 w-100 text-white">Suscribirme</a>
                     @endguest
                 </div>
             </div>
