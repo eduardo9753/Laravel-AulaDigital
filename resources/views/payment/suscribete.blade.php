@@ -26,7 +26,9 @@
         <div class="container">
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
-                @include('helpers.video')
+                @include('helpers.video', [
+                    'video' => asset('videos/Contenido.mp4'),
+                ])
             </div>
 
         </div>
