@@ -72,7 +72,7 @@
                             @else
                                 <form action="{{ route('mercadopago.suscription.index') }}" id="form-suscription" method="POST">
                                     @csrf
-                                    <input type="submit" class="btn-solid-sm p-4 mt-3 w-100" value="Suscribirme">
+                                    <input type="submit" class="btn-solid-sm p-4 mt-3 w-100 text-white" value="Suscribirme">
                                 </form>
                             @endcan
                         @endcan
@@ -132,14 +132,14 @@
                                 <form action="{{ route('mercadopago.suscription.school.index') }}" id="form-suscription-school"
                                     method="POST">
                                     @csrf
-                                    <input type="submit" class="btn btn-primary mt-3 w-100" value="Suscribirme">
+                                    <input type="submit" class="btn btn-primary mt-3 w-100 text-white" value="Suscribirme">
                                 </form>
                             @endcan
                         @endcan
                     @endauth
 
                     @guest
-                        <a href="{{ route('admin.register.index') }}" class="btn btn-primary mt-3 w-100">Suscribirme</a>
+                        <a href="{{ route('admin.register.index') }}" class="btn btn-primary mt-3 w-100 text-white">Suscribirme</a>
                     @endguest
                 </div>
             </div>
