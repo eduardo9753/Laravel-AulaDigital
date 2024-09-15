@@ -94,46 +94,67 @@
                         <div class="mi-card-content">
                             <h2 class="contenido-bloques-titulo">Tus Respuestas!</h2>
 
-                            @foreach ($questions as $key => $question)
-                                <div class="accordion accordion-flush" id="accordionFlushExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="flush-heading{{ $question->id }}">
-                                            <button
-                                                class="accordion-button @if ($key == 0) {{ 'collapsed' }} @endif"
-                                                type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#flush-collapse{{ $question->id }}"
-                                                aria-expanded="@if ($key == 0) {{ 'true' }}@else{{ 'false' }} @endif"
-                                                aria-controls="flush-collapse{{ $question->id }}">
-                                                {{ $question->titulo }}
-                                            </button>
-                                        </h2>
+                            @foreach ($userExamAnswers as $index => $userExamAnswer)
+                                <div class="card-block">
+                                    <div class="message-box contact-box">
+                                        <div class="message-widget contact-widget">
+                                            <div class="accordion" id="accordionExample">
+                                                <div class="card">
+                                                    <div class="card-header" id="heading{{ $index }}">
+                                                        <h2 class="mb-0 d-flex align-items-center">
+                                                            <div>
+                                                                <button class="btn btn-outline-info btn-rounded"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse{{ $index }}"
+                                                                    aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
+                                                                    aria-controls="collapse{{ $index }}">
+                                                                    Pregunta {{ $index + 1 }}:
+                                                                </button>
+                                                            </div>
 
-                                        <div id="flush-collapse{{ $question->id }}"
-                                            class="accordion-collapse collapse @if ($key == 0) {{ 'show' }} @endif"
-                                            aria-labelledby="flush-heading{{ $question->id }}"
-                                            data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">
-                                                @foreach ($answers->where('question_id', $question->id) as $answer)
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <i class='bx bx-registered'
-                                                                style='color:#4b22f4 ; font-size: 22px'></i>
-                                                            <p> {{ $answer->titulo }}</p>
-                                                        </div>
-                                                        <div>
-                                                            @if ($answer->es_correcta == 1)
-                                                                <strong class="text-primary">correcta</strong>
-                                                            @else
-                                                                <strong class="text-danger">incorrecta</strong>
-                                                            @endif
+                                                            <div class="ml-2">
+                                                                <p class="">{!! $userExamAnswer->examQuestion->question->titulo !!}</p>
+                                                            </div>
+                                                        </h2>
+                                                    </div>
+
+                                                    <div id="collapse{{ $index }}"
+                                                        class="collapse {{ $index == 0 ? 'show' : '' }}"
+                                                        aria-labelledby="heading{{ $index }}"
+                                                        data-parent="#accordionExample">
+                                                        <div class="card-body">
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item">
+                                                                    <strong>Respuestas:</strong>
+                                                                    <ul>
+                                                                        @foreach ($userExamAnswer->examQuestion->question->answers as $answer)
+                                                                            <li>
+                                                                                <strong>{{ $answer->titulo }}</strong>
+                                                                                @if ($answer->es_correcta)
+                                                                                    <span
+                                                                                        class="text-success"><small>(Correcta)</small></span>
+                                                                                @endif
+
+                                                                                @if ($userExamAnswer->answer->id == $answer->id)
+                                                                                    <span
+                                                                                        class="{{ $answer->es_correcta ? 'text-success' : 'text-danger' }}">
+                                                                                        <small>(Seleccionada)</small>
+                                                                                    </span>
+                                                                                @endif
+                                                                            </li>
+                                                                        @endforeach
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
                                                         </div>
                                                     </div>
-                                                @endforeach
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
+
 
                         </div>
                     </div>

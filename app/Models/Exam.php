@@ -22,5 +22,14 @@ class Exam extends Model
         'publicacion',
         'user_id',
     ];
+    
+    public function examUsers()
+    {
+        return $this->hasMany(ExamUser::class);
+    }
 
+    public function examQuestions()
+    {
+        return $this->hasMany(ExamQuestion::class);
+    }
 }

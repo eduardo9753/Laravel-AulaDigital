@@ -17,13 +17,18 @@ class ExamUserAnswer extends Model
     ];
 
 
+    public function examUser()
+    {
+        return $this->belongsTo(ExamUser::class);
+    }
+
     public function examQuestion()
     {
-        return $this->belongsTo(ExamQuestion::class, 'examen_question_id');
+        return $this->belongsTo(ExamQuestion::class);
     }
 
     public function answer()
     {
-        return $this->belongsTo(Answer::class, 'answer_id');
+        return $this->belongsTo(Answer::class);
     }
 }

@@ -22,7 +22,7 @@
 
             <div class="row justify-content-center">
                 @include('helpers.video', [
-                    'video' => asset('videos/Contenido.mp4'),
+                    'video' => asset('videos/suscripción_preunicursos.mp4'),
                 ])
             </div>
 

@@ -96,7 +96,7 @@ class ExamResponder extends Component
             'status' => 'Culminado'
         ]);
 
-        return redirect()->route('visitador.examenes.index');
+        return redirect()->route('visitador.examenes.show', $this->exam);
     }
 
     public function rules()

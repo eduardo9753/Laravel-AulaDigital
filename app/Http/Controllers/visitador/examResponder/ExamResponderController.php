@@ -51,7 +51,7 @@ class ExamResponderController extends Controller
         ]);
 
         //dirigiendo al alumno para resolver el examen
-        return redirect()->route('visitador.examenes.status', ['exam' => $exam, 'examUser' => $examUser]);
+        return redirect()->route('visitador.examenes.status', ['exam' => $exam]);
     }
 
     //para resolver el examen
@@ -64,11 +64,14 @@ class ExamResponderController extends Controller
                 ->where('exam_id', '=', $exam->id)
                 ->first();
             //dd($examUser);
-
-            return view('visitador.examResponder.estatus', [
-                'exam' => $exam,
-                'examUser' => $examUser
-            ]);
+            if ($examUser->status == 'Culminado') {
+                return redirect()->route('visitador.examenes.show', $exam);
+            } else {
+                return view('visitador.examResponder.estatus', [
+                    'exam' => $exam,
+                    'examUser' => $examUser
+                ]);
+            }
         } else {
             // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
             return redirect()->route('mercadopago.suscription.subscribe');
@@ -82,31 +85,15 @@ class ExamResponderController extends Controller
         $user = auth()->user();
         //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES Y  //METODO AUTORIZAR ENTRAR AL EXAMEN AL USUARIO AUTENTICADO
         if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) && $this->authorize('enrolledExamUser', $exam)) {
-            //examen usuario
-            $examUser = ExamUser::where('user_id', '=', auth()->user()->id)->where('exam_id', '=', $exam->id)->first();
-            //dd($examUser);
-
-            // Recorrido de las respuestas del alumno
-            $examUserAnswer = ExamUserAnswer::where('exam_user_id', $examUser->id)->get();
-
-            //ids de las preguntas y las preguntas
-            $idsAnswer = $examUserAnswer->pluck('answer_id')->toArray();
-            $answers = Answer::find($idsAnswer);
-
-            //ids de las respuestas tabla "exam_questions"
-            $idsExamQuestion = $examUserAnswer->pluck('exam_question_id')->toArray();
-            $examQuestion = ExamQuestion::find($idsExamQuestion);
-
-            //ids de la tabla questions
-            $idsQuestion = $examQuestion->pluck('question_id')->toArray();
-            $questions = Question::find($idsQuestion);
+            $examUser = ExamUser::where('user_id', auth()->user()->id)->where('exam_id', $exam->id)->first();
+            $userExamAnswers = ExamUserAnswer::where('exam_user_id', $examUser->id)
+                ->with(['answer', 'examQuestion.question.answers'])->get();
 
             //dd($questions);
             return view('visitador.examResponder.show', [
                 'exam' => $exam,
                 'examUser' => $examUser,
-                'answers' => $answers,
-                'questions' => $questions
+                'userExamAnswers' => $userExamAnswers
             ]);
         } else {
             // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta

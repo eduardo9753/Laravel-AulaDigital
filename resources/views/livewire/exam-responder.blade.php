@@ -22,9 +22,9 @@
             <form wire:submit.prevent="submitExam">
                 <div>
                     <h2 class="mb-3">{!! $currentQuestion->question->titulo !!}</h2>
-                    <ul>
+                    <ul class="list-group">
                         @foreach ($currentQuestion->question->answers as $respuesta)
-                            <li>
+                            <li class="list-group-item d-flex align-items-center">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio"
                                         name="marcar_{{ $currentQuestion->question->id }}"
@@ -32,7 +32,7 @@
                                         wire:model="respuestasSeleccionadas.{{ $currentQuestion->question->id }}"
                                         value="{{ $respuesta->id }}">
 
-                                    <label class="form-check-label"
+                                    <label class="form-check-label ml-2 w-100"
                                         for="marcar_{{ $currentQuestion->question->id }}_{{ $respuesta->id }}">
                                         {{ $respuesta->titulo }}
                                     </label>
@@ -41,18 +41,23 @@
                         @endforeach
                     </ul>
 
+
                     @error("respuestasSeleccionadas.{$currentQuestion->question->id}")
                         <span class="text-danger">Elija una respuesta</span>
                     @enderror
+
+                    <small>(Pregunta {{ $currentQuestionIndex + 1 }} de
+                        {{ $totalQuestions }})</small>
                 </div>
 
                 <div class="d-flex mt-4">
                     @if ($currentQuestionIndex > 0)
-                        <button type="button" class="btn btn-primary mr-2" wire:click="previousQuestion">Anterior</button>
+                        <button type="button" class="btn btn-primary mr-2"
+                            wire:click="previousQuestion">Anterior</button>
                     @endif
 
                     @if ($currentQuestionIndex < $totalQuestions - 1)
-                        <button type="button" class="btn btn-danger" wire:click="nextQuestion">Siguiente</button>
+                        <button type="button" class="btn btn-danger text-white" wire:click="nextQuestion">Siguiente</button>
                     @else
                         <button type="submit" class="btn btn-success">Culminar Examen</button>
                     @endif
