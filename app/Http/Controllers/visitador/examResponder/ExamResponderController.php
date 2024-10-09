@@ -47,7 +47,7 @@ class ExamResponderController extends Controller
             ->where('exam_id', '=', $exam->id)
             ->first();
         //dd($examUser);
-        if ($examUser->status == 'Culminado') {
+        if ($examUser && $examUser->status == 'Culminado') {
             return redirect()->route('visitador.examenes.show', $exam);
         } else {
             $examUser = ExamUser::create([
@@ -73,7 +73,7 @@ class ExamResponderController extends Controller
                 ->where('exam_id', '=', $exam->id)
                 ->first();
             //dd($examUser);
-            if ($examUser->status == 'Culminado') {
+            if ($examUser && $examUser->status == 'Culminado') {
                 return redirect()->route('visitador.examenes.show', $exam);
             } else {
                 return view('visitador.examResponder.estatus', [
