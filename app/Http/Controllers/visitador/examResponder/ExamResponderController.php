@@ -49,6 +49,8 @@ class ExamResponderController extends Controller
         //dd($examUser);
         if ($examUser && $examUser->status == 'Culminado') {
             return redirect()->route('visitador.examenes.show', $exam);
+        } else if ($examUser && $examUser->status == 'Pendiente') {
+            return redirect()->route('visitador.examenes.status', ['exam' => $exam]);
         } else {
             $examUser = ExamUser::create([
                 'calificacion' => '0',
