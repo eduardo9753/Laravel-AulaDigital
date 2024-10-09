@@ -128,8 +128,8 @@ class ExamResponderController extends Controller
                     $deleteExamUserAnswer->delete();
                 }
 
-                // Elimina el registro del usuario del examen
-                $deleteExmenUser->delete();
+                // actualizar el registro del usuario del examen
+                $deleteExmenUser->update(['status' => 'Pendiente']);
 
                 // Redirige a la ruta indicada con éxito
                 return redirect()->route('visitador.examenes.enrolled', ['exam' => $exam]);
