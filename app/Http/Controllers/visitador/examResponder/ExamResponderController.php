@@ -42,16 +42,25 @@ class ExamResponderController extends Controller
     {
         //agregado al alumno con el examen
         //dd($exam);
-        $examUser = ExamUser::create([
-            'calificacion' => '0',
-            'observaciones' => '',
-            'status' => 'Pendiente',
-            'exam_id' => $exam->id,
-            'user_id' => auth()->user()->id,
-        ]);
 
-        //dirigiendo al alumno para resolver el examen
-        return redirect()->route('visitador.examenes.status', ['exam' => $exam]);
+        $examUser = ExamUser::where('user_id', '=', auth()->user()->id)
+            ->where('exam_id', '=', $exam->id)
+            ->first();
+        //dd($examUser);
+        if ($examUser->status == 'Culminado') {
+            return redirect()->route('visitador.examenes.show', $exam);
+        } else {
+            $examUser = ExamUser::create([
+                'calificacion' => '0',
+                'observaciones' => '',
+                'status' => 'Pendiente',
+                'exam_id' => $exam->id,
+                'user_id' => auth()->user()->id,
+            ]);
+
+            //dirigiendo al alumno para resolver el examen
+            return redirect()->route('visitador.examenes.status', ['exam' => $exam]);
+        }
     }
 
     //para resolver el examen
@@ -105,25 +114,32 @@ class ExamResponderController extends Controller
     // para volver a tomar el examen
     public function reset(Exam $exam, ExamUser $examUser)
     {
-        try {
-            // Encuentra el usuario del examen o lanza una excepción si no existe
-            $deleteExmenUser = ExamUser::findOrFail($examUser->id);
+        $user = auth()->user();
+        //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES Y  //METODO AUTORIZAR ENTRAR AL EXAMEN AL USUARIO AUTENTICADO
+        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) && $this->authorize('enrolledExamUser', $exam)) {
+            try {
+                // Encuentra el usuario del examen o lanza una excepción si no existe
+                $deleteExmenUser = ExamUser::findOrFail($examUser->id);
 
-            // Elimina las respuestas del usuario del examen
-            $deleteExamUserAnswer = ExamUserAnswer::where('exam_user_id', $examUser->id);
+                // Elimina las respuestas del usuario del examen
+                $deleteExamUserAnswer = ExamUserAnswer::where('exam_user_id', $examUser->id);
 
-            if ($deleteExamUserAnswer->exists()) {
-                $deleteExamUserAnswer->delete();
+                if ($deleteExamUserAnswer->exists()) {
+                    $deleteExamUserAnswer->delete();
+                }
+
+                // Elimina el registro del usuario del examen
+                $deleteExmenUser->delete();
+
+                // Redirige a la ruta indicada con éxito
+                return redirect()->route('visitador.examenes.enrolled', ['exam' => $exam]);
+            } catch (\Exception $e) {
+                // Maneja cualquier excepción y redirige con un mensaje de error
+                return redirect()->back()->with('mensaje', 'Ocurrió un error al intentar reiniciar el examen: ' . $e->getMessage());
             }
-
-            // Elimina el registro del usuario del examen
-            $deleteExmenUser->delete();
-
-            // Redirige a la ruta indicada con éxito
-            return redirect()->route('visitador.examenes.enrolled', ['exam' => $exam]);
-        } catch (\Exception $e) {
-            // Maneja cualquier excepción y redirige con un mensaje de error
-            return redirect()->back()->with('mensaje', 'Ocurrió un error al intentar reiniciar el examen: ' . $e->getMessage());
+        } else {
+            // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
+            return redirect()->route('mercadopago.suscription.subscribe');
         }
     }
 }

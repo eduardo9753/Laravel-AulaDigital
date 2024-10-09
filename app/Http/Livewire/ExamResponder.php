@@ -8,6 +8,7 @@ use App\Models\ExamQuestion;
 use App\Models\ExamUser;
 use App\Models\ExamUserAnswer;
 use Livewire\Component;
+use phpDocumentor\Reflection\Types\This;
 
 class ExamResponder extends Component
 {
@@ -55,6 +56,15 @@ class ExamResponder extends Component
             $this->currentQuestionIndex--;
         }
     }
+
+    public function selectQuestion($index)
+    {
+        // Asegurarse de que el índice esté dentro del rango de preguntas disponibles
+        if ($index >= 0 && $index < count($this->examenes)) {
+            $this->currentQuestionIndex = $index;
+        }
+    }
+
 
     public function submitExam($tiempoFuera = false)
     {
@@ -104,6 +114,15 @@ class ExamResponder extends Component
         return [
             'respuestasSeleccionadas.' . $this->examenes[$this->currentQuestionIndex]->question->id => 'required',
         ];
+    }
+
+    public function validateExamenStatus()
+    {
+        //$data = $this->examUser->status;
+        //@dump($data);
+        if($this->examUser->status == 'Culminado'){
+            return redirect()->route('visitador.examenes.show', $this->exam);
+        }
     }
 
     public function tiempoFuera()

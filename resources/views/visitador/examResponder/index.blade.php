@@ -44,17 +44,22 @@
                                                 class="btn btn-outline-danger mt-2 w-100">Ver Resultados</a>
                                         @endcan
                                     @else
-                                        <a id="inscribirmeBtn_{{ $exam->id }}"
-                                            href="{{ route('visitador.examenes.enrolled', ['exam' => $exam]) }}"
-                                            class="btn btn-outline-primary mt-2 w-100">Inscribirme</a>
+                                        <form id="inscribirmeForm_{{ $exam->id }}"
+                                            action="{{ route('visitador.examenes.enrolled', ['exam' => $exam]) }}"
+                                            method="GET">
+                                            <button type="submit"
+                                                class="btn btn-outline-primary mt-2 w-100 inscribirme-btn">Inscribirme</button>
+                                        </form>
                                     @endcan
-
                                 </div>
 
+                                <!-- Script para desactivar el botón después de hacer clic -->
                                 <script>
                                     $(document).ready(function() {
-                                        $('a[id^="inscribirmeBtn_"]').on('click', function() {
-                                            $(this).attr('disabled', true);
+                                        $('#inscribirmeForm_{{ $exam->id }}').on('submit', function() {
+                                            // Desactivar el botón inmediatamente después de hacer clic
+                                            var $button = $(this).find('button');
+                                            $button.prop('disabled', true).text('Inscribiendo...');
                                         });
                                     });
                                 </script>

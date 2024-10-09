@@ -57,7 +57,8 @@
                     @endif
 
                     @if ($currentQuestionIndex < $totalQuestions - 1)
-                        <button type="button" class="btn btn-danger text-white" wire:click="nextQuestion">Siguiente</button>
+                        <button type="button" class="btn btn-danger text-white"
+                            wire:click="nextQuestion">Siguiente</button>
                     @else
                         <button type="submit" class="btn btn-success">Culminar Examen</button>
                     @endif
@@ -65,6 +66,34 @@
             </form>
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="overflow-scroll" style="max-height: 400px;"> <!-- Contenedor con scroll -->
+                @foreach ($this->examenes as $index => $examen)
+                    @php
+                        // Verificar si la pregunta ya fue respondida
+                        $respondida = $respuestasSeleccionadas[$examen->question->id] !== null;
+                    @endphp
+
+                    <button type="button" class="btn mb-2 {{ $respondida ? 'btn-success' : 'btn-secondary' }}"
+                        wire:click="selectQuestion({{ $index }})">
+                        Ver preg {{ $index + 1 }}
+                    </button>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .overflow-scroll {
+            overflow-y: auto;
+            /* Habilita el desplazamiento vertical */
+            overflow-x: hidden;
+            /* Oculta el desplazamiento horizontal */
+        }
+    </style>
+
 
     @section('scripts')
         <script>

@@ -77,16 +77,21 @@
                     </div>
 
                     {{-- para poder realizar otra vez el examen --}}
-                    <div class="mi-card mt-2">
-                        <div class="mi-card-content">
-                            <form
-                                action="{{ route('visitador.examenes.reset', ['exam' => $exam, 'examUser' => $examUser]) }}"
-                                method="POST">
-                                @csrf
-                                <input type="submit" class="mi-boton rojo w-100" value="Retomar">
-                            </form>
+                    @if ($examUser->status == 'Culminado')
+                        <div class="mi-card mt-2">
+                            <div class="mi-card-content">
+                                <form
+                                    action="{{ route('visitador.examenes.reset', ['exam' => $exam, 'examUser' => $examUser]) }}"
+                                    method="POST">
+                                    @csrf
+                                    <input type="submit" class="mi-boton rojo w-100" value="Retomar">
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    @else
+                        <a href="{{ route('visitador.examenes.index') }}" class="btn btn-outline-danger mt-2 w-100">Mis exámenes</a>
+                    @endif
+
                 </div>
 
                 <div class="col-md-9 my-2">
