@@ -6,6 +6,16 @@
 
 body { font-family: 'Mulish', sans-serif !important; color: #6c7293 !important;}
 
+/*para desactivar el boton de descarga de los documentos*/
+ /* Estilo cuando el enlace está deshabilitado */
+ .disabled-link {
+    pointer-events: none;
+    /* Deshabilita clics */
+    opacity: 0.6;
+    /* Hace el botón más transparente */
+    cursor: not-allowed;
+    /* Cambia el cursor a "no permitido" */
+}
 
 .contenedor {
     width: 90%;

@@ -22,7 +22,8 @@
                             @endphp
 
                             @if ($fileId)
-                                <a href="https://drive.google.com/uc?export=download&id={{ $fileId }}"
+                                <a id="downloadLink"
+                                    href="https://drive.google.com/uc?export=download&id={{ $fileId }}"
                                     class="btn btn-primary" download>Descargar Archivo</a>
                             @else
                                 <p>No se pudo generar el enlace de descarga.</p>
@@ -36,7 +37,36 @@
 
                         <div class="card-footer">
                             <p>{{ $archive->name }}</p>
-                          </div>
+                        </div>
+
+                        <script>
+                            $(document).ready(function() {
+                                $('#downloadLink').on('click', function(event) {
+                                    var $button = $(this);
+
+                                    // Cambiar texto para indicar que se está descargando
+                                    $button.text('Descargando archivo...');
+
+                                    // Añadir clase 'disabled-link' para desactivar el enlace visualmente y funcionalmente
+                                    $button.addClass('disabled-link');
+
+                                    // Deshabilitar más clics previniendo la acción predeterminada
+                                    event.preventDefault();
+
+                                    // Iniciar la descarga manualmente después de un breve retraso
+                                    setTimeout(function() {
+                                        window.location.href = $button.attr('href');
+                                    }, 500); // Inicia la descarga después de 0.5 segundos
+
+                                    // Rehabilitar el enlace después de 6 segundos
+                                    setTimeout(function() {
+                                        // Restaurar el texto original y remover la clase 'disabled-link' para volver a habilitar el enlace
+                                        $button.text('Descargar Archivo');
+                                        $button.removeClass('disabled-link');
+                                    }, 7000); // 6 segundos
+                                });
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
@@ -44,16 +74,14 @@
             <div class="col-md-12">
                 <div class="mi-card">
                     <div class="mi-card-content">
-                        <div class="alert alert-info alert-dismissible fade show" role="alert">
-                            <p>
-                                <strong>Recuperado de:</strong>
-                                <a target="_blank" href="{{ $archive->cita }}" title="{{ $archive->cita }}">
-                                    {{ $archive->cita }}
-                                </a>
-                            </p>
-
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Recuperado de!</strong> <a target="_blank" href="{{ $archive->cita }}"
+                                title="{{ $archive->cita }}">
+                                {{ $archive->cita }}
+                            </a>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     </div>
                 </div>
