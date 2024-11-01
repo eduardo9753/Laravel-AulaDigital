@@ -72,7 +72,8 @@ class PaymentSuscriptionController extends Controller
 
     public function success(Request $request)
     {
-        Log::info('payment Received:', $request);
+        Log::info('payment Received:', $request->all());
+
         if (isset($request->preapproval_id)) {
             $pay = Pay::create([
                 'user_id' => auth()->user()->id,
