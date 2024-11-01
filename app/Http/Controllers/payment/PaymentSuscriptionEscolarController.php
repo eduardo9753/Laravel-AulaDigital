@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\EnviarCorreoSuscripcion;
 use Illuminate\Http\Request;
 use App\Models\Pay;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use MercadoPago\SDK;
 use MercadoPago\Preapproval;
@@ -72,6 +73,7 @@ class PaymentSuscriptionEscolarController extends Controller
 
     public function success(Request $request)
     {
+        Log::info('payment Received:', $request);
         if (isset($request->preapproval_id)) {
             $pay = Pay::create([
                 'user_id' => auth()->user()->id,

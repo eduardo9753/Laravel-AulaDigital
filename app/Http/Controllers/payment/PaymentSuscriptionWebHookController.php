@@ -8,6 +8,8 @@ use App\Models\Pay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use MercadoPago\Preapproval;
+use MercadoPago\SDK;
 
 class PaymentSuscriptionWebHookController extends Controller
 {
@@ -16,76 +18,92 @@ class PaymentSuscriptionWebHookController extends Controller
     {
         // Obtener el payload del webhook en formato JSON
         $payloadRaw = $request->getContent();
-
-        // Decodificar el JSON del payload
         $payloadArray = json_decode($payloadRaw, true);
 
-        // Registra los datos en el log para depuración (puedes eliminar esto en producción)
-        Log::info('Webhook Received (Array):', $payloadArray);
+        Log::info('Webhook Received:', $payloadArray);
 
-        // Verificar si se ha recibido el webhook con los datos esperados
-        if (isset($payloadArray['data']['id'])) {
+        // Verificar si el webhook tiene el ID de suscripción y el tipo de evento
+        if (isset($payloadArray['data']['id']) && isset($payloadArray['type'])) {
             $preapprovalId = $payloadArray['data']['id'];
+            $eventType = $payloadArray['type'];
 
-            // Verificar si el usuario está autenticado
-            if (auth()->check()) {
-                $user = auth()->user();
+            // Consultar el estado de la suscripción desde la API de Mercado Pago
+            $paymentInfo = $this->obtenerDetallePago($preapprovalId);
 
-                // Crear un nuevo registro de pago
-                $pay = Pay::create([
-                    'user_id' => $user->id,
-                    'collection_id' => '',
-                    'collection_status' => 'PLAN-PRE-UNI',
-                    'payment_id' => $preapprovalId,
-                    'status' => 'PAGO SUSCRIPCION',
-                    'external_reference' => '',
-                    'payment_type' => 'TARJETA',
-                    'merchant_order_id' => '',
-                    'preference_id' => $preapprovalId,
-                    'site_id' => 'MPE',
-                    'processing_mode' => 'ONLINE',
-                    'merchant_account_id' => '',
-                    'estado' => 'POR ATENDER',
-                ]);
+            //consultar si tiene el iddel pago en mi tabla
+            $payUser = $this->payUsuario($preapprovalId);
 
-                // Enviar correo de confirmación
-                if ($pay) {
-                    Mail::to([$user->email, 'anthony.anec@gmail.com'])->send(new EnviarCorreoSuscripcion($user));
-                    Log::info('Suscripcion guardada en la bd correctamente');
-                } else {
-                    Log::error('Error al guardar la suscripción en la base de datos');
+            if ($paymentInfo && isset($paymentInfo->status)) {
+                if ($paymentInfo->status === 'authorized') {
+                    // Registro de primer pago o actualización de pago recurrente
+                    $pay = Pay::updateOrCreate(
+                        ['payment_id' => $preapprovalId],
+                        [
+                            'user_id' => $payUser->user_id ?? '1', // Puedes cambiar a `$paymentInfo->payer->id` si el ID del pagador está disponible
+                            'collection_id' => $paymentInfo->id ?? '', // Asegúrate de asignar los valores correctos
+                            'collection_status' => $payUser->collection_status ?? '',
+                            'status' => 'PAGO SUSCRIPCION',
+                            'external_reference' => $paymentInfo->external_reference ?? '',
+                            'payment_type' => 'TARJETA',
+                            'merchant_order_id' => $paymentInfo->order->id ?? '',
+                            'preference_id' => $preapprovalId,
+                            'site_id' => 'MPE',
+                            'processing_mode' => 'ONLINE',
+                            'merchant_account_id' => $paymentInfo->merchant_account_id ?? '',
+                            'estado' => 'POR ATENDER',
+                        ]
+                    );
+
+                    if ($pay) {
+                        Log::info('Pago recurrente registrado o actualizado correctamente.');
+                    } else {
+                        Log::error('Error al registrar el pago recurrente en la base de datos.');
+                    }
+                } elseif ($paymentInfo->status === 'rejected' || $paymentInfo->status === 'cancelled') {
+                    // Actualizar estado si el pago fue rechazado o cancelado
+                    $suscripcion = Pay::where('payment_id', $preapprovalId)->first();
+
+                    if ($suscripcion) {
+                        $suscripcion->update(['estado' => 'CANCELADO']); // Cambiar el estado a inactivo
+                        Log::info('Suscripción actualizada a inactivo debido a pago fallido.');
+                    }
                 }
             } else {
-                Log::error('Usuario no autenticado para guardar la suscripción');
-                // Crear un nuevo registro de pago
-                $pay = Pay::create([
-                    'user_id' => 1, //mi id para las isncripnes con webhook
-                    'collection_id' => '',
-                    'collection_status' => 'PLAN-PRE-UNI',
-                    'payment_id' => $preapprovalId,
-                    'status' => 'PAGO SUSCRIPCION',
-                    'external_reference' => '',
-                    'payment_type' => 'TARJETA',
-                    'merchant_order_id' => '',
-                    'preference_id' => $preapprovalId,
-                    'site_id' => 'MPE',
-                    'processing_mode' => 'ONLINE',
-                    'merchant_account_id' => '',
-                    'estado' => 'POR ATENDER',
-                ]);
-
-                // Enviar correo de confirmación
-                if ($pay) {
-                    Log::info('Suscripcion guardada en la bd correctamente');
-                } else {
-                    Log::error('Error al guardar la suscripción en la base de datos');
-                }
+                Log::error('No se pudo obtener información del pago.');
             }
         } else {
             Log::error('Datos incompletos o incorrectos recibidos del webhook: ' . $payloadRaw);
         }
 
-        // Responder con HTTP 200 para indicar que el webhook fue recibido y procesado correctamente
         return response()->json(['status' => 'success'], 200);
+    }
+
+    // Función para consultar el estado del pago de la suscripción
+    private function obtenerDetallePago($preapprovalId)
+    {
+        try {
+            // Configura las credenciales de Mercado Pago
+            SDK::setAccessToken(config('mercadopago.token'));
+
+            // Obtén la instancia de Preapproval
+            $preapproval = Preapproval::find_by_id($preapprovalId);
+
+            // Retornando datos
+            return $preapproval;
+        } catch (\Throwable $th) {
+            Log::error("Error al obtener los detalles del pago: " . $th->getMessage());
+            return null;
+        }
+    }
+
+    //obtener el usuario por medio del pago
+    private function payUsuario($preapprovalId)
+    {
+        try {
+            $pay = Pay::where('payment_id', $preapprovalId)->first();
+            return $pay;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }
