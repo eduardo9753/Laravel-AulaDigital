@@ -74,11 +74,16 @@
             <div class="col-md-12">
                 <div class="mi-card">
                     <div class="mi-card-content">
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Recuperado de!</strong> <a target="_blank" href="{{ $archive->cita }}"
-                                title="{{ $archive->cita }}">
-                                {{ $archive->cita }}
-                            </a>.
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>Referencia del Material:</strong>
+                            <p>
+                                Material extraído de la Web
+                                {{ $archive->cita }}.
+                                <strong>Recuperado de:</strong>
+                                <a target="_blank" href="{{ $archive->cita }}" title="{{ $archive->cita }}">
+                                    {{ $archive->cita }}
+                                </a>
+                            </p>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

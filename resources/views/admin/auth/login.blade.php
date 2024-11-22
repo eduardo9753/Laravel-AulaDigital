@@ -17,8 +17,8 @@
                             {{ session('mensaje') }}
                         </div>
                     @endif
-                    <div class="d-flex justify-content-between">
-                        <h3 class="h3-login">Acceder</h3>
+                    <div class="d-flex justify-content-between mb-3">
+                        <div> <a class="btn-solid-sm" href="{{ route('admin.register.index') }}">Registrarme</a></div>
                         <div> <a class="btn-solid-sm" href="{{ route('visitador.home.index') }}">Casa</a></div>
                     </div>
 

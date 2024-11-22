@@ -1,41 +1,38 @@
 window.addEventListener('DOMContentLoaded', () => {
     $('#fromLinkCaido').on('submit', function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Previene el comportamiento predeterminado del formulario.
 
         var form = this;
-        var alertButton = document.getElementById('alertButton');
-
-        // Desactivar el botón
-        alertButton.disabled = true;
+        var alertButton = $('#alertButton'); // Selección del botón con jQuery.
 
         $.ajax({
             url: $(form).attr('action'),
             method: $(form).attr('method'),
-            data: new FormData(form), //datos del formulario
+            data: new FormData(form),
             processData: false,
             contentType: false,
             dataType: 'json',
 
-            beforeSend: function () { },
+            beforeSend: function () {
+                // Cambia el texto del botón y lo desactiva.
+                alertButton.prop('disabled', true).text('Procesando...');
+            },
 
             success: function (data) {
                 console.log(data);
-                if (data.code == 1) {
-                    //alert(JSON.stringify(data.msg)); //USAS ESTO CUANDO SOLO RETORNAS TODO EL OBJETO DESDE TU METODO
-                    //alert('Se dio aviso a los administradores del la lección : '+data.msg.name);
+                if (data.code === 1) {
                     Swal.fire({
                         position: "bottom-end",
                         icon: "success",
-                        title: 'tu alerta se envio: ' + data.msg.name,
+                        title: 'Tu alerta se envió: ' + data.msg.name,
                         showConfirmButton: false,
                         timer: 1500
                     });
                 } else {
-                    alert(data.msg);
                     Swal.fire({
                         position: "bottom-end",
                         icon: "error",
-                        title: 'alerta no enviada: ' + data.msg,
+                        title: 'Alerta no enviada: ' + data.msg,
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -43,13 +40,20 @@ window.addEventListener('DOMContentLoaded', () => {
             },
 
             complete: function () {
-                // Habilitar el botón nuevamente si es necesario
-                alertButton.disabled = false;
+                // Reactivar el botón y restaurar el texto.
+                alertButton.prop('disabled', false).text('Alertar Link caido');
             },
 
             error: function () {
-                // En caso de error, habilitar el botón nuevamente
-                alertButton.disabled = false;
+                Swal.fire({
+                    position: "bottom-end",
+                    icon: "error",
+                    title: 'Ocurrió un error al enviar la alerta',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                alertButton.prop('disabled', false).text('Alertar Link caido');
             }
         });
     });

@@ -109,7 +109,7 @@ class CourseController extends Controller
       $section = Section::find($lesson->section_id);
       $course = Course::find($section->course_id);
       //$administradores = ['anthony.anec@gmail.com'];
-      $administradores = ['richardanthonyalama@gmail.com', 'anthony.anec@gmail.com', 'Alonsozambranoh@gmail.com'];
+      $administradores = ['richardanthonyalama@gmail.com', 'anthony.anec@gmail.com'];
 
       Mail::to($administradores)->send(new EnviarCorreoLinkCaido($lesson, $section, $course));
 
