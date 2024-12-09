@@ -224,13 +224,13 @@
                                 ])
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-4 mt-2">
                                 @include('helpers.video', [
                                     'video' => asset('videos/contenido_06_compendios_descargables.mp4'),
                                 ])
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-4 mt-2">
                                 @include('helpers.video', [
                                     'video' => asset('videos/contenido_08_examenes.mp4'),
                                 ])
