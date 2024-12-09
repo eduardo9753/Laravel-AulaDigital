@@ -170,7 +170,6 @@
                                     Pago.</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -183,7 +182,8 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3">Con temario para el examen de admisión UNFV</h3>
+                                    <h3 class="font-weight-medium text-dark mb-3">Con temario para el examen de admisión
+                                        UNFV</h3>
                                     <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
                                 </div>
@@ -196,11 +196,51 @@
                             'video' => asset('videos/Contenido.mp4'),
                         ])
                     </div>
-
                 </div>
             </section>
             <!--video con contenidos de la plataforma-->
 
+
+
+             <!--video para contenido 04 de plataforma -->
+             <section class="our-process section-home" id="plans">
+                <div class="container">
+                    <div class="row mb-3" data-aos="fade-up" data-aos-offset="-500">
+                        <div class="col-sm-12">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <h3 class="font-weight-medium text-dark mb-3">Suscríbete ahora y ten</h3>
+                                    <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
+                                        las 24 horas del día</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
+                        <div class="row">
+                            <div class="col-md-4">
+                                @include('helpers.video', [
+                                    'video' => asset('videos/contenido_04.mp4'),
+                                ])
+                            </div>
+
+                            <div class="col-md-4">
+                                @include('helpers.video', [
+                                    'video' => asset('videos/contenido_06_compendios_descargables.mp4'),
+                                ])
+                            </div>
+
+                            <div class="col-md-4">
+                                @include('helpers.video', [
+                                    'video' => asset('videos/contenido_08_examenes.mp4'),
+                                ])
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--video para contenido 04 de plataforma -->
+            
 
 
             <!--video con los pasos de suscripcion-->
@@ -223,11 +263,11 @@
                             'video' => asset('videos/suscripción_preunicursos.mp4'),
                         ])
                     </div>
-
                 </div>
             </section>
             <!--video con los pasos de suscripcion-->
 
+           
 
             <!-- Ahora incluimos la vista suscripcion.blade.php -->
             @include('helpers.suscripcion')

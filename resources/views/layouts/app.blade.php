@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Plataforma educativa con cursos de álgebra, geometría, trigonometría, aritmética, física, química, biología, inglés, literatura, psicología, razonamiento verbal, historia del Perú, historia universal y lenguaje. Incluye recursos en PDF, compendios preuniversitarios, sistema de exámenes y publicaciones educativas.">
+        content="PreuniCursos: Plataforma educativa para preuniversitarios que aspiran a la UNFV. Cursos completos, recursos PDF, compendios, exámenes y videos alineados con la malla curricular del examen.">
     <meta name="keywords"
-        content="educación, cursos, matemáticas, álgebra, geometría, trigonometría, aritmética, física, química, biología, inglés, literatura, psicología, razonamiento verbal, historia del Perú, historia universal, lenguaje, exámenes, recursos PDF, compendios preuniversitarios, archivos, preguntas y respuestas, publicaciones, estudiantes">
+        content="PreuniCursos, preunicursos, plataforma educativa, UNFV, ceprevi ,cursos preuniversitarios, álgebra, geometría, trigonometría, física, química, biología, literatura, razonamiento verbal, historia del Perú, malla curricular, exámenes, recursos PDF, compendios, publicaciones educativas, educación online, preparación universitaria, aprendizaje virtual">
     <meta name="author" content="PreuniCursos">
 
     {{-- CON ESTE COMANDO SE ARREGLO ERROR: 419 --}}

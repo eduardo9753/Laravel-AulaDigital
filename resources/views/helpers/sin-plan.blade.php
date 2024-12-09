@@ -16,6 +16,14 @@
         </a>
     </li>
     <li class="item">
+        <a href="{{ route('visitador.read.index') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bxs-book-add'></i>
+                <span>Mis recursos</span>
+            </div>
+        </a>
+    </li>
+    <li class="item">
         <a href="{{ route('visitador.contact.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-contact'></i>

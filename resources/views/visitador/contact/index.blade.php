@@ -41,7 +41,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
-                                        <a href="#" class="btn-solid-sm">ENVIAR</a>
+                                        <button disabled class="btn-solid-sm">Enviar</button>
                                     </div>
                                 </div>
                             </form>

@@ -19,38 +19,31 @@ class ReadController extends Controller
 
     public function index()
     {
-        $user = auth()->user();
-
-        // Verifica si el usuario tiene acceso a la suscripción pre-universitaria o universitaria
-        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
+        try {
             $courses = Course::with(['archives' => function ($query) {
                 $query->where('type', '<>', 'C')
-                      ->orWhereNull('type');
+                    ->orWhereNull('type');
             }])->get();
-            
+
             return view('visitador.read.index', [
                 'courses' => $courses
             ]);
-        } else {
-            // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
-            return redirect()->route('mercadopago.suscription.subscribe');
+        } catch (\Throwable $th) {
+            //throw $th;
         }
     }
 
     public function show(Archive $archive)
     {
-        $user = auth()->user();
-        // Verifica si el usuario tiene acceso a la suscripción pre-universitaria o universitaria
-        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
+        try {
             $course = Course::find($archive->course_id);
 
             return view('visitador.read.show', [
                 'archive' => $archive,
                 'course' => $course
             ]);
-        } else {
-            // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
-            return redirect()->route('mercadopago.suscription.subscribe');
+        } catch (\Throwable $th) {
+            //throw $th;
         }
     }
 }
