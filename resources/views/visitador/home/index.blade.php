@@ -202,8 +202,8 @@
 
 
 
-             <!--video para contenido 04 de plataforma -->
-             <section class="our-process section-home" id="plans">
+            <!--video para contenido 04 de plataforma -->
+            <section class="our-process section-home" id="contenido-bloques">
                 <div class="container">
                     <div class="row mb-3" data-aos="fade-up" data-aos-offset="-500">
                         <div class="col-sm-12">
@@ -240,7 +240,7 @@
                 </div>
             </section>
             <!--video para contenido 04 de plataforma -->
-            
+
 
 
             <!--video con los pasos de suscripcion-->
@@ -267,7 +267,7 @@
             </section>
             <!--video con los pasos de suscripcion-->
 
-           
+
 
             <!-- Ahora incluimos la vista suscripcion.blade.php -->
             @include('helpers.suscripcion')
