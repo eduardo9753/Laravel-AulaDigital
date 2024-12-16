@@ -10,7 +10,7 @@
     <header class="header-pago-fondo" id="header-pago">
         <div class="contenedor text-center">
             <h3 class="ultimos-cursos-titulo text-white">{{ auth()->user()->name }}</h3>
-            <p class="ultimos-cursos-parrafo text-white">Mis Cursos premium</p>
+            <p class="ultimos-cursos-parrafo text-white">Mis Cursos Gratis</p>
         </div>
     </header>
 @endsection
@@ -27,7 +27,7 @@
                             <div class="mi-card">
                                 <div class="mi-card-content">
                                     <div class="text-center">
-                                        <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
+                                        <a href="{{ route('visitador.course.free.show', ['course' => $course]) }}">
                                             <img class="imagen" src="{{ $course->image->url }}" alt="">
                                         </a>
                                     </div>

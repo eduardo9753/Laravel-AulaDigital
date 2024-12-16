@@ -87,4 +87,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Reaction');
     }
+
+    //PARA TRAER ALMENOS UN PAGO DE LA TABLA Y VALIDAMOS EN LA PLANTILLA
+    public function userSuscriptionUrl()
+    {
+        return $this->hasOne(Pay::class)
+            ->where('estado', 'SUSCRITO')
+            ->first();
+    }
 }

@@ -8,9 +8,15 @@
                             <div class="mi-card-content">
                                 <h2 class="contenido-bloques-titulo">{{ $course->title }}</h2>
                                 <div class="text-center">
-                                    <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
-                                        <img class="imagen" src="{{ $course->image->url }}" alt="">
-                                    </a>
+                                    @if ($url === 'gratis')
+                                        <a href="{{ route('visitador.course.free.show', ['course' => $course]) }}">
+                                            <img class="imagen" src="{{ $course->image->url }}" alt="">
+                                        </a>
+                                    @else
+                                        <a href="{{ route('visitador.course.show', ['course' => $course]) }}">
+                                            <img class="imagen" src="{{ $course->image->url }}" alt="">
+                                        </a>
+                                    @endif
                                 </div>
 
                                 {{-- <p class="contenido-bloques-parrafo">{!! Str::limit($course->description, 50) !!}</p> --}}
@@ -50,9 +56,20 @@
                                         </div>
                                     </ul>
                                 </div>
+                                {{-- PARA VALIDAR QUE EL USUARIO ESTE AUTENTICADO Y CON ELLO PODER DIRIGIRLE A SU RESPECTIVA RUTA DE TIPO DE PAGOS --}}
+                                @if (auth()->check())
+                                    @if (auth()->user()->userSuscriptionUrl())
+                                        <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
+                                            class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                    @else
+                                        <a href="{{ route('visitador.course.free.show', ['course' => $course]) }}"
+                                            class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                    @endif
+                                @else
+                                    <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
+                                        class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                @endif
 
-                                <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
-                                    class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
         <a href="{{ route('visitador.course.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-slideshow'></i>
-                <span>Cursos</span>
+                <span>Cursos Premium</span>
             </div>
         </a>
     </li>
@@ -11,7 +11,7 @@
         <a href="{{ route('visitador.course.list') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-mouse-alt'></i>
-                <span>Mis cursos</span>
+                <span>Mis Cursos Premium</span>
             </div>
         </a>
     </li>
@@ -19,7 +19,7 @@
         <a href="{{ route('visitador.read.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-book-add'></i>
-                <span>Mis recursos</span>
+                <span>Mis Recursos</span>
             </div>
         </a>
     </li>
@@ -35,7 +35,7 @@
         <a href="{{ route('visitador.post.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-book-bookmark'></i>
-                <span>publicaciones</span>
+                <span>Publicaciones</span>
             </div>
         </a>
     </li>
@@ -52,7 +52,7 @@
         <a href="{{ route('visitador.plan.index', ['user' => auth()->user()]) }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-cool'></i>
-                <span> Mi plan</span>
+                <span>Mi plan</span>
             </div>
         </a>
     </li>

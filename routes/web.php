@@ -11,6 +11,7 @@ use App\Http\Controllers\visitador\post\PostController;
 use App\Http\Controllers\visitador\compendium\CompendiumController;
 use App\Http\Controllers\visitador\contact\ContactController;
 use App\Http\Controllers\visitador\course\CourseController;
+use App\Http\Controllers\visitador\course\CourseFreeController;
 use App\Http\Controllers\visitador\examResponder\ExamResponderController;
 use App\Http\Controllers\visitador\home\HomeController;
 use App\Http\Controllers\visitador\read\ReadController;
@@ -60,6 +61,16 @@ Route::post('/admin/logout', [LogoutController::class, 'logout'])->name('admin.l
 //BUSQUEDA DEL CURSO Y MOSTRAR CURSO CON SU CONTENIDO
 Route::get('/course', [CourseController::class, 'index'])->name('visitador.course.index');
 Route::get('/course/show/{course:slug}', [CourseController::class, 'show'])->name('visitador.course.show');
+Route::post('/course/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('visitador.course.enrolled');
+Route::get('/course-status/{course:slug}', [CourseController::class, 'status'])->middleware('auth')->name('visitador.course.status');
+Route::get('/list/course/student', [CourseController::class, 'courses'])->middleware('auth')->name('visitador.course.list');
+
+
+//RUTA DE LOS CURSOS GRATIS PARA QUE SE INSCRIBAN SIN PAGAR
+Route::get('/course/free', [CourseFreeController::class, 'index'])->name('visitador.course.free.index');
+Route::get('/course/free/show/{course:slug}', [CourseFreeController::class, 'show'])->name('visitador.course.free.show');
+Route::post('/course/free/{course:slug}/enrolled', [CourseFreeController::class, 'enrolled'])->middleware('auth')->name('visitador.course.free.enrolled');
+Route::get('/list/course/free/student', [CourseFreeController::class, 'courses'])->middleware('auth')->name('visitador.course.free.list');
 
 
 //CONTACTOS
@@ -67,11 +78,6 @@ Route::get('/contact-me', [ContactController::class, 'index'])->name('visitador.
 
 //TESTIMONIALES
 Route::get('/testimoniales', [TestimonialController::class, 'index'])->name('visitador.testimonial.index');
-
-//PERSONAS MATRICULADAS AL CURSO Y SEGUIMIENTO DEL CURSO
-Route::post('/course/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('visitador.course.enrolled');
-Route::get('/course-status/{course:slug}', [CourseController::class, 'status'])->middleware('auth')->name('visitador.course.status');
-Route::get('/list/course/student', [CourseController::class, 'courses'])->middleware('auth')->name('visitador.course.list');
 
 //PARA VER LOS RECURSOS DE CADA CURSO
 Route::get('/lectura', [ReadController::class, 'index'])->name('visitador.read.index');
@@ -87,7 +93,7 @@ Route::post('/examen/retomar/status/{exam:slug}/{examUser}', [ExamResponderContr
 
 //PARA VER MI PLAN DE SUSCRIPCION
 Route::get('/plan/{user}/status/suscription', [PlanController::class, 'index'])->name('visitador.plan.index');
-Route::get('/plan/pasos/video/suscription', [PlanController::class , 'show'])->name('visitador.plan.show');
+Route::get('/plan/pasos/video/suscription', [PlanController::class, 'show'])->name('visitador.plan.show');
 
 
 //MIS COMPENDIOS

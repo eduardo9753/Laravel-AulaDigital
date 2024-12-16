@@ -23,7 +23,7 @@
 
 @section('main')
     <section id="ultimos-cursos" class="text-center">
-        <h3 class="ultimos-cursos-titulo color-general">Cursos Premium</h3>
+        <h3 class="ultimos-cursos-titulo color-general">Cursos gratis</h3>
         <p class="ultimos-cursos-parrafo color-general"></p>
 
         {{-- MENSAJE DE ALERTA CUANDO TE SUSCRIBES --}}
@@ -37,9 +37,9 @@
         </div>
 
         <div class="">
-            {{-- LLAMADA DEL COMPONENTE COURSE CARD PREMIUM--}}
+            {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE--}}
             @if (auth()->check())
-                <x-course-card :courses="$courses" url="premium"></x-course-card>
+                <x-course-card :courses="$courses" url="gratis"></x-course-card>
             @else
                 <x-course-card :courses="$courses" url="premium"></x-course-card>
             @endif

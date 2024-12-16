@@ -12,10 +12,12 @@ class CourseCard extends Component
      * @return void
      */
     public $courses;
-    public function __construct($courses)
+    public $url;
+    public function __construct($courses,$url)
     {
         //
         $this->courses = $courses;
+        $this->url = $url;
     }
 
     /**

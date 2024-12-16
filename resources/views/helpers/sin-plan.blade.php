@@ -11,7 +11,23 @@
         <a href="{{ route('visitador.course.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-slideshow'></i>
-                <span>Cursos</span>
+                <span>Cursos Premium</span>
+            </div>
+        </a>
+    </li>
+    <li class="item">
+        <a href="{{ route('visitador.course.free.index') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bxs-slideshow'></i>
+                <span>Cursos Gratis</span>
+            </div>
+        </a>
+    </li>
+    <li class="item">
+        <a href="{{ route('visitador.course.free.list') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bxs-mouse-alt'></i>
+                <span>Mis Cursos Gratis</span>
             </div>
         </a>
     </li>
@@ -27,15 +43,7 @@
         <a href="{{ route('visitador.post.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-book-bookmark'></i>
-                <span>publicaciones</span>
-            </div>
-        </a>
-    </li>
-    <li class="item">
-        <a href="{{ route('visitador.contact.index') }}">
-            <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-contact'></i>
-                <span>Contacto</span>
+                <span>Publicaciones</span>
             </div>
         </a>
     </li>
