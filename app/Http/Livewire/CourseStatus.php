@@ -33,8 +33,8 @@ class CourseStatus extends Component
             $this->current = $course->lessons->last();
         }
 
-        //METODO AUTORIZAR ENTRAR AL CURSO AL USUARIO AUTENTICADO
-        $this->authorize('enrolled', $course);
+        //METODO AUTORIZAR ENTRAR AL CURSO AL USUARIO AUTENTICADO Y QUE VALIDE EN LAS DOS TABLAS
+        $this->authorize('insideCourse', $course);
     }
 
     public function render()

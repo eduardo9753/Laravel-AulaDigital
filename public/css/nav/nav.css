@@ -90,7 +90,7 @@
 
 .contenido-menu nav .menu-item a {
     display: block; /*para que cubra todo su espacio de su caja*/
-    padding: 18px;  /*su relleno*/
+    padding: 14px !important;  /*su relleno*/
     color: var(--blanco);  /*color de letra*/
 }
 

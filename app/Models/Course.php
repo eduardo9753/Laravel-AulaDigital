@@ -38,7 +38,7 @@ class Course extends Model
         } else {
             return 5; // o el valor predeterminado que desees
         }
-    }    
+    }
 
     //RELACION UNO A MUCHOS INVERSA "me retorna al usuario que a dictado el curso"
     public function teacher()
@@ -116,5 +116,10 @@ class Course extends Model
     public function archives()
     {
         return $this->hasMany(Archive::class);
+    }
+
+    public function freeStudents()
+    {
+        return $this->belongsToMany('App\Models\User', 'course_user_free', 'course_id', 'user_id');
     }
 }

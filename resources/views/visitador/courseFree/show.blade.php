@@ -200,7 +200,7 @@
                                 {{-- POLICY PARA VERIFICAR SI YA ESTOY MATRICULADO EN EL CURSO --}}
                                 @auth
                                     {{-- VERIFICAMOS SI ESTA MATRICULADO EN EL CURSO QUE ESTA VIENDO --}}
-                                    @can('enrolled', $course)
+                                    @can('enrolledFree', $course)
                                         <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
                                             class="btn-solid-sm p-4 text-center mt-3 w-100">CONTINUAR CURSO</a>
                                     @else
@@ -209,8 +209,7 @@
                                             action="{{ route('visitador.course.free.enrolled', ['course' => $course]) }}"
                                             method="POST">
                                             @csrf
-                                            <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">MATRICULATE
-                                                AHORA</button>
+                                            <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR AHORA</button>
                                         </form>
                                     @endCan
                                 @endauth

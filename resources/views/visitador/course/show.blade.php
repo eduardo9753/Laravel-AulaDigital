@@ -214,7 +214,7 @@
                                                     action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
                                                     method="POST">
                                                     @csrf
-                                                    <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">MATRICULATE
+                                                    <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
                                                         AHORA</button>
                                                 </form>
                                             @else
@@ -223,7 +223,7 @@
                                                     action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
                                                     method="POST">
                                                     @csrf
-                                                    <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">MATRICULATE
+                                                    <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
                                                         AHORA</button>
                                                 </form>
                                             @endif
@@ -241,7 +241,7 @@
                                                         action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
                                                         method="POST">
                                                         @csrf
-                                                        <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">MATRICULATE
+                                                        <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
                                                             AHORA</button>
                                                     </form>
                                                 @else
@@ -250,14 +250,14 @@
                                                         action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
                                                         method="POST">
                                                         @csrf
-                                                        <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">MATRICULATE
+                                                        <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
                                                             AHORA</button>
                                                     </form>
                                                 @endif
                                             @endcan
                                         @else
                                             <a href="{{ route('mercadopago.suscription.subscribe') }}"
-                                                class="btn-solid-sm p-4 text-center mt-3 w-100">SUSCRIBETE A NUESTROS PLANES</a>
+                                                class="btn-solid-sm p-4 text-center mt-3 w-100">SUSCRIBETE Y ACCEDE</a>
                                         @endcan
                                     @endcan
                                 @endauth

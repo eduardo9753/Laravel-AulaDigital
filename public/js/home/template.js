@@ -77,7 +77,7 @@
 		});
 
 		// counter Satisfied clients
-		var maxScVal = 20;
+		var maxScVal = 45;
 		var isc = parseInt($('.scVal').text());
 		var tim;
 		function run() {
@@ -93,7 +93,7 @@
 		//Counters
 
 		// counter finished Projects
-		var maxfPVal = 4;
+		var maxfPVal = 15;
 		var ifP = parseInt($('.fpVal').text());
 		var timfP;
 		function runfP() {

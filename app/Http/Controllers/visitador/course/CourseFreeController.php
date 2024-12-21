@@ -58,16 +58,16 @@ class CourseFreeController extends Controller
     //METODO CON AUTENTICACION PARA ACCEDER A EL
     public function enrolled(Course $course)
     {
-        //hay que validar que no sea usuario premiuan para la matricula de cursos
+        //tabla pivot nueva de cursos gratis
         //echo $course->id;
-        $course->students()->attach(auth()->user()->id);
+        $course->freeStudents()->syncWithoutDetaching(auth()->user()->id);
         return redirect()->route('visitador.course.status', $course);
     }
 
     //MI CURSOS EN DONDE ME INSCRITO GRATIS
     public function courses()
     {
-        $courseIds = DB::table('course_user')->where('user_id', '=', auth()->user()->id)->pluck('course_id');
+        $courseIds = DB::table('course_user_free')->where('user_id', '=', auth()->user()->id)->pluck('course_id');
         $courseUsers = Course::whereIn('id', $courseIds)->get();
         $courses = Course::where('status', '=', 3)->whereIn('id', [22])->get(); //LISTA DE CURSOS GRATIS
 

@@ -32,6 +32,18 @@ class CoursePolicy
         return $course->students->contains($user->id);
     }
 
+    public function enrolledFree(User $user, Course $course)
+    {
+        //VERIFICAMOS SI EL USUARIO ESTA CONTENIDO DENTRO DE LA TABLA "course_user"
+        //DEVUELVE TRUE O FALSE - SI ES TRUE MOSTRAMOS "Continuar con el curso"
+        return $course->freeStudents->contains($user->id);
+    }
+
+    public function insideCourse(User $user, Course $course)
+    {
+        return $course->freeStudents->contains($user->id) || $course->students->contains($user->id);
+    }
+
     //PARA QUE EL USUARIO NO ABRA CURSO DE ESTADO DIFERENTE DE PUBLICADO
     public function published(?User $user, Course $course)
     {

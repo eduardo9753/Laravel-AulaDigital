@@ -95,4 +95,9 @@ class User extends Authenticatable
             ->where('estado', 'SUSCRITO')
             ->first();
     }
+
+    public function freeCourses()
+    {
+        return $this->belongsToMany('App\Models\Course', 'course_user_free', 'user_id', 'course_id');
+    }
 }
