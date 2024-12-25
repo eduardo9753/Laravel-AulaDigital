@@ -32,7 +32,7 @@
                                         </a>
                                     </div>
                                     <h4 class="contenido-bloques-titulo">{{ $course->title }}</h4>
-                                    @can('enrolled', $course)
+                                    @can('enrolledFree', $course)
                                         <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
                                             class="btn btn-primary w-100">Continuar con el curso</a>
                                     @endcan
