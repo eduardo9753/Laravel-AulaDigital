@@ -32,7 +32,7 @@
         </div>
 
         <div class="">
-            {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE--}}
+            {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE --}}
             @if (auth()->check())
                 <x-course-card :courses="$courses" url="gratis"></x-course-card>
             @else
@@ -41,7 +41,27 @@
         </div>
     </section>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+                    <strong>Suscribete:</strong>
+                    <p>
+                        Suscríbete a nuestros planes y obtén acceso ilimitado a todos los cursos, material
+                        educativo,
+                        contenidos
+                        académicos, al sistema de exámenes y mucho más:<a class="btn btn-primary text-white" target="_blank"
+                            href="{{ route('mercadopago.suscription.subscribe') }}" title="suscripcion">
+                            suscribirme
+                        </a>
+                    </p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @include('template.footer')
-
-
 @endsection

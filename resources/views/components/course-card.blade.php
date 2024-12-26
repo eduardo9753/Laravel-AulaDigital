@@ -58,11 +58,11 @@
                                 </div>
                                 {{-- PARA VALIDAR QUE EL USUARIO ESTE AUTENTICADO Y CON ELLO PODER DIRIGIRLE A SU RESPECTIVA RUTA DE TIPO DE PAGOS --}}
                                 @if (auth()->check())
-                                    @if (auth()->user()->userSuscriptionUrl())
-                                        <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
+                                    @if ($url === 'gratis')
+                                        <a href="{{ route('visitador.course.free.show', ['course' => $course]) }}"
                                             class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
                                     @else
-                                        <a href="{{ route('visitador.course.free.show', ['course' => $course]) }}"
+                                        <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
                                             class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
                                     @endif
                                 @else

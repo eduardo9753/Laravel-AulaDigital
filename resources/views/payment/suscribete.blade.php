@@ -16,7 +16,9 @@
                 <strong>¡Importante!</strong> ¡Una vez completado el pago de tu suscripción, asegúrate de hacer clic en el
                 botón 'Volver al sitio' para finalizar el proceso y así acceder a todos los beneficios de nuestra
                 plataforma. ¡Gracias!
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         </div>
     </div>
