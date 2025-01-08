@@ -16,10 +16,14 @@ class Question extends Model
         'dificultad',
         'puntos',
         'estado',
-        'topic_id',
+        'section_id',
         'user_id'
     ];
 
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
+    }
 
     public function answers()
     {
@@ -29,5 +33,10 @@ class Question extends Model
     public function examQuestions()
     {
         return $this->hasMany(ExamQuestion::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

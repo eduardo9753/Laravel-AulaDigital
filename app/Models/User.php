@@ -100,4 +100,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Course', 'course_user_free', 'user_id', 'course_id');
     }
+
+    /**
+     * Relación: Un usuario puede crear muchos exámenes.
+     */
+    public function exams()
+    {
+        return $this->hasMany(Exam::class);
+    }
 }

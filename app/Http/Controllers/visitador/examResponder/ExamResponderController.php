@@ -4,6 +4,7 @@ namespace App\Http\Controllers\visitador\examResponder;
 
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
+use App\Models\Course;
 use App\Models\Exam;
 use App\Models\ExamQuestion;
 use App\Models\ExamUser;
@@ -28,8 +29,10 @@ class ExamResponderController extends Controller
         //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES
         if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user)) {
             $exams = Exam::where('estado', '=', 'activo')->get();
+            $courses = Course::where('status',3)->get();
             return view('visitador.examResponder.index', [
-                'exams' => $exams
+                'exams' => $exams,
+                'courses' => $courses
             ]);
         } else {
             // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta

@@ -122,4 +122,12 @@ class Course extends Model
     {
         return $this->belongsToMany('App\Models\User', 'course_user_free', 'course_id', 'user_id');
     }
+
+    /**
+     * Relación: Un curso tiene muchos exámenes.
+     */
+    public function exams()
+    {
+        return $this->hasMany(Exam::class);
+    }
 }

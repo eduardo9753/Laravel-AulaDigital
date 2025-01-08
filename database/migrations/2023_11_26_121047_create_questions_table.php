@@ -23,11 +23,11 @@ class CreateQuestionsTable extends Migration
             $table->string('estado');
         
             // Clave foránea
-            $table->unsignedBigInteger('topic_id');
+            $table->unsignedBigInteger('section_id');
             $table->unsignedBigInteger('user_id');
         
             // Restricción de clave foránea
-            $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();

@@ -6,69 +6,87 @@ use Livewire\Component;
 use App\Models\Topic; // Asegúrate de importar el modelo Topic
 use App\Models\Question; // Asegúrate de importar el modelo Question
 use App\Models\Answer; // Asegúrate de importar el modelo Answer
+use App\Models\Course;
 use App\Models\Exam;
+use App\Models\Section;
 use Illuminate\Support\Facades\DB;
 
 class QuestionForm extends Component
 {
     //tabla 
     public $questions = [];
+    public $courses;
     public $exams;
+    public $sections;
 
 
+    public $course_id;
     public $exam_id;
-
-    public $selectedTopicId;
+    public $section_id;
 
     public $titulo;
     public $comentario;
     public $dificultad = 'Facil';
     public $puntos = 1;
     public $estado;
-    public $topic_id;
     public $respuestas = [];
 
 
     public function mount()
     {
         $this->firstExam();
-        $this->firstTopic();
+        $this->firstCourse();
 
-        $this->selectedTopicId = $this->topic_id;
-
-        $this->loadQuestions();
+        $this->courses = Course::where('status', 3)->get();
         $this->exams = Exam::where('user_id', '=', auth()->user()->id)->where('estado', '=', 'pendiente')->get();
+
+        $this->filterCourseBySection();
+        $this->loadQuestions();
     }
 
 
     public function render()
     {
-        $topics = Topic::where('estado', '=', 'activo')->get();
-        return view('livewire.instructor.question-form', compact('topics'));
+        return view('livewire.instructor.question-form');
     }
 
 
     private function loadQuestions()
     {
-        $this->questions = Question::join('topics', 'questions.topic_id', '=', 'topics.id')
+        $this->questions = Question::join('exam_questions', 'questions.id', '=', 'exam_questions.question_id') // Relacionar preguntas con exam_questions
+            ->join('exams', 'exam_questions.exam_id', '=', 'exams.id') // Relacionar exam_questions con exámenes
+            ->join('sections', 'questions.section_id', '=', 'sections.id') // Relacionar preguntas con sections
+           
             ->select(
                 'questions.id',
                 'questions.titulo',
                 'questions.dificultad',
                 'questions.puntos'
             )
-            ->where('questions.user_id', '=', auth()->user()->id)
-            ->where('questions.topic_id', '=', $this->selectedTopicId)
-            ->where('topics.estado', '=', 'activo')
+            ->where('questions.user_id', '=', auth()->user()->id) // Filtrar por usuario
+            ->where('exams.id', '=', $this->exam_id) // Filtrar por el examen actual
+            ->where('exams.estado', '=', 'pendiente') // Filtrar sections activos
             ->get();
     }
 
-
-    public function updatedSelectedTopicId()
+    public function updatedSelectedSectionId()
     {
         $this->loadQuestions();
     }
 
+    //METODO DEL SELECT PARA FILTRAR SECTIONS POR COURSE
+    public function filterCourseBySection()
+    {
+        $course_id = $this->course_id;
+
+        if ($course_id) {
+            $sections = Section::where('course_id', $course_id)->get();
+        } else {
+            $sections = [];
+        }
+        $this->sections = $sections;
+        //@dump($this->topics);
+    }
 
     //Obtener el primer tema y asignar su id a $exam_id
     public function firstExam()
@@ -77,11 +95,10 @@ class QuestionForm extends Component
         $this->exam_id = $firstExam ? $firstExam->id : null;
     }
 
-    // Obtener el primer tema y asignar su id a $topic_id
-    public function firstTopic()
+    public function firstCourse()
     {
-        $firstTopic = Topic::where('estado', '=', 'activo')->latest()->first();
-        $this->topic_id = $firstTopic ? $firstTopic->id : null;
+        $firstCourse = Course::where('status', 3)->first(); // Obtiene el primer curso
+        $this->course_id = $firstCourse ? $firstCourse->id : null; // Accede al id si el curso existe
     }
 
     //PARA AÑADIR UNA NUEVA RESPUESTA
@@ -106,7 +123,7 @@ class QuestionForm extends Component
         $this->validate([
             'titulo' => 'required',
             'exam_id' => 'required',
-            'topic_id' => 'required',
+            'section_id' => 'required',
             'respuestas.*.titulo' => 'required', // Validar que al menos una respuesta tenga un título
             'respuestas.*.es_correcta' => 'nullable|boolean', // Validar que al menos una respuesta sea marcada como correcta
         ], [
@@ -121,7 +138,7 @@ class QuestionForm extends Component
             'dificultad' => $this->dificultad,
             'puntos' => $this->puntos,
             'estado' => 'activo',
-            'topic_id' => $this->selectedTopicId,
+            'section_id' => $this->section_id, //se cambio topic_id por section_id
             'user_id' => auth()->user()->id
         ]);
 
@@ -157,18 +174,13 @@ class QuestionForm extends Component
     //RECARGAR DATOS
     public function reload()
     {
-        $this->updatedSelectedTopicId();
+        $this->updatedSelectedSectionId();
         $this->exams = Exam::where('user_id', '=', auth()->user()->id)->where('estado', '=', 'pendiente')->get();
     }
 
     //PARA PUBLICAR EL EXAMEN
-    public function publishExam($topic_id, $exam_id)
+    public function publishExam($section_id, $exam_id)
     {
-        $topic = Topic::find($topic_id);
-        $topic->update([
-            'estado' => 'inactivo',
-        ]);
-
         $exam = Exam::find($exam_id);
         $exam->update([
             'estado' => Exam::ACTIVO,
@@ -178,11 +190,8 @@ class QuestionForm extends Component
     }
 
     //PARA ANULAR EL EXAMEN
-    public function deleteExamen($topic_id, $exam_id)
+    public function deleteExamen($section_id, $exam_id)
     {
-        $topic = Topic::find($topic_id);
-        $topic->delete();
-
         $exam = Exam::find($exam_id);
         $exam->delete();
     }

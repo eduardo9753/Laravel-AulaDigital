@@ -21,53 +21,61 @@
     <section>
         <div class="" id="contenido-bloques">
             <div class="contenedor">
-                <div class="row">
-
-                    @foreach ($exams as $exam)
-                        <div class="col-md-3 my-2">
-                            <div class="mi-card">
-                                <div class="mi-card-content">
-                                    <h2 class="contenido-bloques-titulo">{{ $exam->nombre }}</h2>
-                                    <div class="text-center">
-                                        <img style="width: 100px;height: 100px;"
-                                            src="https://cdn-icons-png.flaticon.com/512/10510/10510645.png" alt="">
-                                    </div>
-                                    <p class="contenido-bloques-parrafo mt-2">Tiempo estimado : {{ $exam->duracion }}
-                                        minutos</p>
-
-                                    @can('enrolledExamUser', $exam)
-                                        @can('ExamUserStatus', $exam)
-                                            <a href="{{ route('visitador.examenes.status', ['exam' => $exam]) }}"
-                                                class="btn btn-primary mt-2 w-100">Continuar el Examen</a>
-                                        @else
-                                            <a href="{{ route('visitador.examenes.show', ['exam' => $exam]) }}"
-                                                class="btn btn-outline-danger mt-2 w-100">Ver Resultados</a>
-                                        @endcan
-                                    @else
-                                        <form id="inscribirmeForm_{{ $exam->id }}"
-                                            action="{{ route('visitador.examenes.enrolled', ['exam' => $exam]) }}"
-                                            method="GET">
-                                            <button type="submit"
-                                                class="btn btn-outline-primary mt-2 w-100 inscribirme-btn">Inscribirme</button>
-                                        </form>
-                                    @endcan
-                                </div>
-
-                                <!-- Script para desactivar el botón después de hacer clic -->
-                                <script>
-                                    $(document).ready(function() {
-                                        $('#inscribirmeForm_{{ $exam->id }}').on('submit', function() {
-                                            // Desactivar el botón inmediatamente después de hacer clic
-                                            var $button = $(this).find('button');
-                                            $button.prop('disabled', true).text('Inscribiendo...');
-                                        });
-                                    });
-                                </script>
+                @foreach ($courses as $course)
+                    <div class="col-md-1111111112 my-2">
+                        <div class="mi-card">
+                            <div class="mi-card-content">
+                                <h2 class="contenido-bloques-titulo">Exámenes de {{ $course->title }}</h2>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                    <div class="row">
+                        @foreach ($course->exams as $exam)
+                            <div class="col-md-3 my-2">
+                                <div class="mi-card">
+                                    <div class="mi-card-content">
+                                        <h2 class="contenido-bloques-titulo">{{ $exam->nombre }}</h2>
+                                        <div class="text-center">
+                                            <img style="width: 100px;height: 100px;"
+                                                src="https://cdn-icons-png.flaticon.com/512/10510/10510645.png"
+                                                alt="">
+                                        </div>
+                                        <p class="contenido-bloques-parrafo mt-2">Tiempo estimado : {{ $exam->duracion }}
+                                            minutos</p>
 
-                </div>
+                                        @can('enrolledExamUser', $exam)
+                                            @can('ExamUserStatus', $exam)
+                                                <a href="{{ route('visitador.examenes.status', ['exam' => $exam]) }}"
+                                                    class="btn btn-primary mt-2 w-100">Continuar el Examen</a>
+                                            @else
+                                                <a href="{{ route('visitador.examenes.show', ['exam' => $exam]) }}"
+                                                    class="btn btn-outline-danger mt-2 w-100">Ver Resultados</a>
+                                            @endcan
+                                        @else
+                                            <form id="inscribirmeForm_{{ $exam->id }}"
+                                                action="{{ route('visitador.examenes.enrolled', ['exam' => $exam]) }}"
+                                                method="GET">
+                                                <button type="submit"
+                                                    class="btn btn-outline-primary mt-2 w-100 inscribirme-btn">Inscribirme</button>
+                                            </form>
+                                        @endcan
+                                    </div>
+
+                                    <!-- Script para desactivar el botón después de hacer clic -->
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#inscribirmeForm_{{ $exam->id }}').on('submit', function() {
+                                                // Desactivar el botón inmediatamente después de hacer clic
+                                                var $button = $(this).find('button');
+                                                $button.prop('disabled', true).text('Inscribiendo...');
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -44,7 +44,7 @@ class PaymentSuscriptionWebHookController extends Controller
             return response()->json(['status' => 'error', 'message' => 'Payment information not found'], 404);
         }
 
-        if ($paymentInfo->status === 'authorized') {
+        if ($paymentInfo->status === 'authorized' || $preapprovalId) {
             // Registro de primer pago o actualización de pago recurrente
             $pay = Pay::updateOrCreate(
                 ['payment_id' => $preapprovalId],

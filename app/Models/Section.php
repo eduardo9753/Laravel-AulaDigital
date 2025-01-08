@@ -23,4 +23,12 @@ class Section extends Model
     {
         return $this->hasMany('App\Models\Lesson');
     }
+
+    /**
+     * Relación: Una sección tiene muchas preguntas.
+     */
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

@@ -12,12 +12,12 @@
         <div class="d-flex justify-content-between mb-3">
             <div>
                 {{-- null: es que no hay tema con estado activo --}}
-                @if ($this->topic_id != null)
+                @if ($this->section_id != null)
                     <a class="mi-boton rojo"
-                        wire:click="deleteExamen({{ $this->topic_id }},{{ $this->exam_id }})">Eliminar
+                        wire:click="deleteExamen({{ $this->section_id }},{{ $this->exam_id }})">Eliminar
                         Examen</a>
                 @else
-                    <p>id topic {{ $this->topic_id }}</p>
+                    <p>id topic {{ $this->section_id }}</p>
                 @endif
             </div>
 
@@ -25,7 +25,7 @@
                 {{-- null: es que no hay examen con estado pendiente --}}
                 @if ($this->exam_id != null)
                     <a class="mi-boton verde"
-                        wire:click="publishExam({{ $this->topic_id }},{{ $this->exam_id }})">Publicar
+                        wire:click="publishExam({{ $this->section_id }},{{ $this->exam_id }})">Publicar
                         Examen</a>
                 @else
                     <p>id examen {{ $this->exam_id }}</p>
@@ -60,7 +60,7 @@
 
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group my-2">
                                             <label for="dificultad">Dificultad:</label>
                                             <select wire:model="dificultad" class="form-select" id="dificultad">
@@ -71,7 +71,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group my-2">
                                             <label for="puntos">Puntos:</label>
                                             <select wire:model="puntos" class="form-select" id="puntos">
@@ -82,15 +82,38 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <div class="form-group my-2">
-                                            <label for="topic_id">Tema:</label>
-                                            <select wire:model="selectedTopicId" class="form-select" id="topic_id">
-                                                @foreach ($topics as $topic)
-                                                    <option value="{{ $topic->id }}">{{ $topic->nombre }}</option>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">cursos</label>
+                                            <select wire:model='course_id' wire:change='filterCourseBySection'
+                                                class="form-control">
+                                                @foreach ($courses as $course)
+                                                    <option value="{{ $course->id }}">{{ $course->title }}</option>
                                                 @endforeach
                                             </select>
-                                            @error('topic_id')
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="section_id">Secciones del curso seleccionado:</label>
+                                            @if ($course_id)
+                                                <select wire:model="section_id" class="form-select" id="section_id">
+                                                    <option value="" disabled selected>SELECCIONE</option>
+                                                    @foreach ($sections as $section)
+                                                        <option value="{{ $section->id }}">{{ $section->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            @else
+                                                <select class="form-select" id="section_id">
+                                                    <option value="" disabled selected>
+                                                        SELECCIONE SECCION
+                                                    </option>
+                                                </select>
+                                            @endif
+
+                                            @error('section_id')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>

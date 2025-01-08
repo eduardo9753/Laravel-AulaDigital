@@ -21,8 +21,25 @@ class Exam extends Model
         'estado',
         'publicacion',
         'user_id',
+        'course_id'
     ];
-    
+
+    /**
+     * Relación: Un examen pertenece a un usuario (autor).
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Relación: Un examen pertenece a un curso.
+     */
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
     public function examUsers()
     {
         return $this->hasMany(ExamUser::class);

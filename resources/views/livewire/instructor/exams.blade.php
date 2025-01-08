@@ -11,12 +11,21 @@
                             @if (!$exam_id)
                                 <form wire:submit.prevent="create">
                                     <div class="form-group my-2">
-                                        <label for="">Materia o curso:</label>
+                                        <label for="">Nombre de la prueba a crear:</label>
                                         <input wire:model="nombre" type="text" class="form-control"
-                                            placeholder="Geometría plana">
+                                            placeholder="Geometría-T0001">
                                         @error('nombre')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
+                                    </div>
+
+                                    <div class="form-group my-2">
+                                        <label for="">curso:</label>
+                                        <select wire:model="course_id" class="form-select" id="course_id">
+                                            @foreach ($courses as $course)
+                                                <option value="{{ $course->id }}">{{ $course->title }} - materia</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                     <div class="form-group my-2">
