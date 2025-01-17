@@ -45,15 +45,15 @@
 
                                         @can('enrolledExamUser', $exam)
                                             @can('ExamUserStatus', $exam)
-                                                <a href="{{ route('visitador.examenes.status', ['exam' => $exam]) }}"
+                                                <a href="{{ route('visitador.examenes.free.status', ['exam' => $exam]) }}"
                                                     class="btn btn-primary mt-2 w-100">Continuar el Examen</a>
                                             @else
-                                                <a href="{{ route('visitador.examenes.show', ['exam' => $exam]) }}"
+                                                <a href="{{ route('visitador.examenes.free.show', ['exam' => $exam]) }}"
                                                     class="btn btn-outline-danger mt-2 w-100">Ver Resultados</a>
                                             @endcan
                                         @else
                                             <form id="inscribirmeForm_{{ $exam->id }}"
-                                                action="{{ route('visitador.examenes.enrolled', ['exam' => $exam]) }}"
+                                                action="{{ route('visitador.examenes.free.enrolled', ['exam' => $exam]) }}"
                                                 method="GET">
                                                 <button type="submit"
                                                     class="btn btn-outline-primary mt-2 w-100 inscribirme-btn">Inscribirme</button>

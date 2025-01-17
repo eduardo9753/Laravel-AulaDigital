@@ -91,9 +91,7 @@ class User extends Authenticatable
     //PARA TRAER ALMENOS UN PAGO DE LA TABLA Y VALIDAMOS EN LA PLANTILLA
     public function userSuscriptionUrl()
     {
-        return $this->hasOne(Pay::class)
-            ->where('estado', 'SUSCRITO')
-            ->first();
+        return $this->hasOne(Pay::class)->where('estado', 'SUSCRITO');
     }
 
     public function freeCourses()

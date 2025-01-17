@@ -80,16 +80,26 @@
                     @if ($examUser->status == 'Culminado')
                         <div class="mi-card mt-2">
                             <div class="mi-card-content">
-                                <form
-                                    action="{{ route('visitador.examenes.reset', ['exam' => $exam, 'examUser' => $examUser]) }}"
-                                    method="POST">
-                                    @csrf
-                                    <input type="submit" class="mi-boton rojo w-100" value="Retomar">
-                                </form>
+                                @if (auth()->user()->userSuscriptionUrl()->exists())
+                                    <form
+                                        action="{{ route('visitador.examenes.reset', ['exam' => $exam, 'examUser' => $examUser]) }}"
+                                        method="POST">
+                                        @csrf
+                                        <input type="submit" class="mi-boton rojo w-100" value="Retomar">
+                                    </form>
+                                @else
+                                    <form
+                                        action="{{ route('visitador.examenes.free.reset', ['exam' => $exam, 'examUser' => $examUser]) }}"
+                                        method="POST">
+                                        @csrf
+                                        <input type="submit" class="mi-boton rojo w-100" value="Retomar">
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     @else
-                        <a href="{{ route('visitador.examenes.index') }}" class="btn btn-outline-danger mt-2 w-100">Mis exámenes</a>
+                        <a href="{{ route('visitador.examenes.index') }}" class="btn btn-outline-danger mt-2 w-100">Mis
+                            exámenes</a>
                     @endif
 
                 </div>

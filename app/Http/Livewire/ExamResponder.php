@@ -106,7 +106,11 @@ class ExamResponder extends Component
             'status' => 'Culminado'
         ]);
 
-        return redirect()->route('visitador.examenes.show', $this->exam);
+        if (auth()->user()->userSuscriptionUrl()->exists()) {
+            return redirect()->route('visitador.examenes.show', $this->exam);
+        } else {
+            return redirect()->route('visitador.examenes.free.show', $this->exam);
+        }
     }
 
     public function rules()
@@ -120,8 +124,12 @@ class ExamResponder extends Component
     {
         //$data = $this->examUser->status;
         //@dump($data);
-        if($this->examUser->status == 'Culminado'){
-            return redirect()->route('visitador.examenes.show', $this->exam);
+        if ($this->examUser->status == 'Culminado') {
+            if (auth()->user()->userSuscriptionUrl()->exists()) {
+                return redirect()->route('visitador.examenes.show', $this->exam);
+            } else {
+                return redirect()->route('visitador.examenes.free.show', $this->exam);
+            }
         }
     }
 

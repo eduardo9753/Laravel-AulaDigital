@@ -95,6 +95,11 @@ Route::post('/examen/retomar/status/{exam:slug}/{examUser}', [ExamResponderContr
 
 //EXAMENES GRATIS
 Route::get('/examen/free/lista', [ExamFreeResponder::class , 'index'])->name('visitador.examenes.free.index');
+Route::get('/examen/free/{exam:slug}/enrolled', [ExamFreeResponder::class, 'enrolled'])->name('visitador.examenes.free.enrolled');
+Route::get('/examen/free/{exam:slug}/status/', [ExamFreeResponder::class, 'status'])->name('visitador.examenes.free.status');
+Route::get('/examen/free/{exam:slug}/culminate/show', [ExamFreeResponder::class, 'show'])->name('visitador.examenes.free.show');
+Route::post('/examen/free/retomar/status/{exam:slug}/{examUser}', [ExamFreeResponder::class, 'reset'])->name('visitador.examenes.free.reset');
+
 
 //PARA VER MI PLAN DE SUSCRIPCION
 Route::get('/plan/{user}/status/suscription', [PlanController::class, 'index'])->name('visitador.plan.index');
