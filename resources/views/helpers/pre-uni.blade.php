@@ -16,18 +16,18 @@
         </a>
     </li>
     <li class="item">
-        <a href="{{ route('visitador.read.index') }}">
-            <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-book-add'></i>
-                <span>Mis Recursos</span>
-            </div>
-        </a>
-    </li>
-    <li class="item">
         <a href="{{ route('visitador.examenes.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-book-reader'></i>
                 <span>Mis Exámenes</span>
+            </div>
+        </a>
+    </li>
+    <li class="item">
+        <a href="{{ route('visitador.read.index') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bxs-book-add'></i>
+                <span>Mis Recursos</span>
             </div>
         </a>
     </li>

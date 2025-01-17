@@ -24,6 +24,13 @@
                 <div class="row">
 
                     @foreach ($courses as $course)
+                        <div class="col-md-12 my-2">
+                            <div class="mi-card">
+                                <div class="mi-card-content">
+                                    <h2 class="contenido-bloques-titulo">Compendios de {{ $course->title }}</h2>
+                                </div>
+                            </div>
+                        </div>
                         @foreach ($course->archives as $archive)
                             <div class="col-md-3 my-2">
                                 <div class="mi-card">
@@ -31,8 +38,7 @@
                                         <h2 class="contenido-bloques-titulo">{{ $archive->name }}</h2>
                                         <div class="text-center">
                                             <img style="width: 100%;height: 100px;"
-                                                src="https://i.postimg.cc/fW6Dh1fk/Captura.png"
-                                                alt="">
+                                                src="https://i.postimg.cc/fW6Dh1fk/Captura.png" alt="">
                                         </div>
 
                                         <a href="{{ route('visitador.compendio.show', ['archive' => $archive]) }}"

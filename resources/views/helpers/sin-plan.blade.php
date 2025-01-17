@@ -1,12 +1,5 @@
 @can('notSubscription', auth()->user())
-    <li class="item">
-        <a href="{{ route('visitador.home.index') }}">
-            <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-home'></i>
-                <span>Casa</span>
-            </div>
-        </a>
-    </li>
+  
     <li class="item">
         <a href="{{ route('visitador.course.index') }}">
             <div class="d-flex align-items-center gap-1">
@@ -28,6 +21,14 @@
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-mouse-alt'></i>
                 <span>Mis Cursos Gratis</span>
+            </div>
+        </a>
+    </li>
+    <li class="item">
+        <a href="{{ route('visitador.examenes.free.index') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bxs-book-reader'></i>
+                <span>Exámenes Gratis</span>
             </div>
         </a>
     </li>

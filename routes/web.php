@@ -12,6 +12,7 @@ use App\Http\Controllers\visitador\compendium\CompendiumController;
 use App\Http\Controllers\visitador\contact\ContactController;
 use App\Http\Controllers\visitador\course\CourseController;
 use App\Http\Controllers\visitador\course\CourseFreeController;
+use App\Http\Controllers\visitador\examResponder\ExamFreeResponder;
 use App\Http\Controllers\visitador\examResponder\ExamResponderController;
 use App\Http\Controllers\visitador\home\HomeController;
 use App\Http\Controllers\visitador\read\ReadController;
@@ -90,6 +91,10 @@ Route::get('/examen/{exam:slug}/enrolled', [ExamResponderController::class, 'enr
 Route::get('/examen/{exam:slug}/status/', [ExamResponderController::class, 'status'])->name('visitador.examenes.status');
 Route::get('/examen/{exam:slug}/culminate/show', [ExamResponderController::class, 'show'])->name('visitador.examenes.show');
 Route::post('/examen/retomar/status/{exam:slug}/{examUser}', [ExamResponderController::class, 'reset'])->name('visitador.examenes.reset');
+
+
+//EXAMENES GRATIS
+Route::get('/examen/free/lista', [ExamFreeResponder::class , 'index'])->name('visitador.examenes.free.index');
 
 //PARA VER MI PLAN DE SUSCRIPCION
 Route::get('/plan/{user}/status/suscription', [PlanController::class, 'index'])->name('visitador.plan.index');

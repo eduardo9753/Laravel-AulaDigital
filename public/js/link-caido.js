@@ -57,4 +57,13 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+
+
+    //PARA DESACTIVAR EL BOTON DE DESCARGA
+    $('#descargaArchivoCourseStatus').on('submit', function() {
+        // Desactivar el botón inmediatamente después de hacer clic
+        var $button = $(this).find('button');
+        $button.prop('disabled', true).text('Inscribiendo...');
+    });
 });

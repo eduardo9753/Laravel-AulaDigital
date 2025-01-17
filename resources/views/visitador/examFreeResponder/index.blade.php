@@ -80,6 +80,29 @@
         </div>
     </section>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+                    <strong>Suscribete:</strong>
+                    <p>
+                        Suscríbete a nuestros planes y obtén acceso ilimitado a todos los cursos, material
+                        educativo,
+                        contenidos
+                        académicos, <strong>al sistema de exámenes de todos los cursos</strong> y mucho más:<a
+                            class="btn btn-primary text-white" target="_blank"
+                            href="{{ route('mercadopago.suscription.subscribe') }}" title="suscripcion">
+                            suscribirme
+                        </a>
+                    </p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     @include('template.footer')
 @endsection
