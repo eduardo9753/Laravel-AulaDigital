@@ -61,9 +61,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     //PARA DESACTIVAR EL BOTON DE DESCARGA
-    $('#descargaArchivoCourseStatus').on('submit', function() {
-        // Desactivar el botón inmediatamente después de hacer clic
-        var $button = $(this).find('button');
-        $button.prop('disabled', true).text('Inscribiendo...');
+    $('#descargaArchivoCourseStatus').on('click', function (event) {
+        var $button = $(this);
+
+        // Cambiar texto para indicar que se está descargando
+        $button.text('Descargando archivo...');
+
+        // Añadir clase 'disabled-link' para desactivar el enlace visualmente y funcionalmente
+        $button.addClass('disabled-link');
+
+        // Deshabilitar más clics previniendo la acción predeterminada
+        event.preventDefault();
+
+        // Iniciar la descarga manualmente después de un breve retraso
+        setTimeout(function () {
+            window.location.href = $button.attr('href');
+        }, 5000); // Inicia la descarga después de 5 segundos
+
+        // Rehabilitar el enlace después de 7 segundos
+        setTimeout(function () {
+            // Restaurar el texto original y remover la clase 'disabled-link' para volver a habilitar el enlace
+            $button.text('Descargar Archivo');
+            $button.removeClass('disabled-link');
+        }, 7000); // 6 segundos
     });
 });
