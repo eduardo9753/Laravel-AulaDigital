@@ -21,15 +21,20 @@
     <section>
         <div class="" id="contenido-bloques">
             <div class="contenedor">
-                @foreach ($courses as $course)
-                    <div class="col-md-12 my-2">
-                        <div class="mi-card">
-                            <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">Exámenes de {{ $course->title }}</h2>
+                <div class="row">
+
+                    @foreach ($courses as $course)
+                        <div class="col-md-12 mb-2">
+                            <div class="mi-card">
+                                <div class="mi-card-content">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class='bx bx-link-alt color-general'></i>
+                                        <h1 class="lead color-general">Exámenes de {{ $course->title }}</h1>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+
                         @foreach ($course->exams as $exam)
                             <div class="col-md-3 my-2">
                                 <div class="mi-card">
@@ -40,7 +45,8 @@
                                                 src="https://cdn-icons-png.flaticon.com/512/10510/10510645.png"
                                                 alt="">
                                         </div>
-                                        <p class="contenido-bloques-parrafo mt-2">Tiempo estimado : {{ $exam->duracion }}
+                                        <p class="contenido-bloques-parrafo mt-2">Tiempo estimado :
+                                            {{ $exam->duracion }}
                                             minutos</p>
 
                                         @can('enrolledExamUser', $exam)
@@ -74,8 +80,8 @@
                                 </div>
                             </div>
                         @endforeach
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>

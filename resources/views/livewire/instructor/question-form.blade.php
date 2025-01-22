@@ -35,32 +35,25 @@
         <div class="row">
             <form wire:submit.prevent="saveQuestion">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="form-group my-2">
-                                    <label for="exam_id">Exámen:</label>
-                                    <select wire:model="exam_id" class="form-select" id="exam_id">
-                                        @foreach ($exams as $exam)
-                                            <option value="{{ $exam->id }}">{{ $exam->nombre }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('exam_id')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-
-                                <div wire:ignore>
-                                    <label for="titulo">Titulo de la pregunta:</label>
-                                    <textarea wire:model="titulo" id="description" cols="30" rows="5"></textarea>
-                                    @error('titulo')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-
-
                                 <div class="row">
                                     <div class="col-md-6">
+                                        <div class="form-group my-2">
+                                            <label for="exam_id">Exámen:</label>
+                                            <select wire:model="exam_id" class="form-select" id="exam_id">
+                                                @foreach ($exams as $exam)
+                                                    <option value="{{ $exam->id }}">{{ $exam->nombre }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('exam_id')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
                                         <div class="form-group my-2">
                                             <label for="dificultad">Dificultad:</label>
                                             <select wire:model="dificultad" class="form-select" id="dificultad">
@@ -71,7 +64,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-group my-2">
                                             <label for="puntos">Puntos:</label>
                                             <select wire:model="puntos" class="form-select" id="puntos">
@@ -81,7 +74,10 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
 
+
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">cursos</label>
@@ -119,11 +115,19 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div wire:ignore>
+                                    <label for="titulo">Titulo de la pregunta:</label>
+                                    <textarea wire:model="titulo" id="description" cols="30" rows="5"></textarea>
+                                    @error('titulo')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
@@ -157,14 +161,19 @@
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
-                                    <button type="button" class="mi-boton azul mt-3 w-100"
-                                        wire:click="addAnswer">Generar Respuesta</button>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button type="button" class="mi-boton azul mt-3 w-100"
+                                                wire:click="addAnswer">Generar Respuesta</button>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <button class="mi-boton rojo mt-3 w-100" type="submit">Guardar
+                                                Pregunta</button>
+                                        </div>
+                                    </div>
                                 </div>
 
-
-                                <div>
-                                    <button class="mi-boton rojo mt-3 w-100" type="submit">Guardar Pregunta</button>
-                                </div>
                             </div>
                         </div>
                     </div>
