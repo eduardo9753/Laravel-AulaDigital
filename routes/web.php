@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\auth\LoginController;
 use App\Http\Controllers\admin\auth\LogoutController;
 use App\Http\Controllers\admin\auth\RecoverController;
 use App\Http\Controllers\admin\auth\RegisterController;
+use App\Http\Controllers\admin\auth\SocialAuthController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\plan\PlanController;
 use App\Http\Controllers\ProfileController;
@@ -41,6 +42,9 @@ use App\Http\Livewire\CourseStatus;
 Route::get('/', [HomeController::class, 'index'])->name('visitador.home.index');
 Route::get('/contenido/{resource}', [HomeController::class, 'contenido'])->name('visitador.contenido');
 
+//AUTH CON GOOGLE 
+Route::get('/auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.auth.redirect');
+Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('google.auth.callback');
 
 
 //LOGIN Y REGISTER

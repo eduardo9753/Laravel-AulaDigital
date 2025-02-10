@@ -24,8 +24,8 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-envelope'></i></i></span>
-                        <input type="email" value="{{ old('email') }}" name="email" id="email" class="form-control-login"
-                            placeholder="Tu Gmail" />
+                        <input type="email" value="{{ old('email') }}" name="email" id="email"
+                            class="form-control-login" placeholder="Tu Gmail" />
                         @error('email')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -57,10 +57,19 @@
                         </div>
                     </div>
 
-                    <button class="button-login">
+                    <button class="button-login button-login-blue">
                         <span>Ingresar</span>
                     </button>
+
+                    <div class="col mt-2 d-flex flex-column align-items-center">
+                        <a href="{{ route('google.auth.redirect') }}">
+                            <img src="https://cdn-icons-png.flaticon.com/64/5968/5968534.png" alt="Gmail">
+                        </a>
+                        <p class="mt-2 text-center">Iniciar con Gmail</p>
+                    </div>
+
                 </form>
+
                 <img src="{{ asset('img/login/image-2.png') }}" alt="" class="image-2">
             </div>
 

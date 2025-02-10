@@ -24,8 +24,8 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-user-check'></i></span>
-                        <input type="text" id="name" name="name" class="form-control-login" value="{{ old('name') }}"
-                            placeholder="Tu nombre o nombre de usuario" />
+                        <input type="text" id="name" name="name" class="form-control-login"
+                            value="{{ old('name') }}" placeholder="Tu nombre o nombre de usuario" />
                     </div>
                     @error('name')
                         <p class="text-danger">{{ $message }}</p>
@@ -33,8 +33,8 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-envelope'></i></i></span>
-                        <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control-login"
-                            placeholder="Tu Gmail" />
+                        <input type="email" name="email" value="{{ old('email') }}" id="email"
+                            class="form-control-login" placeholder="Tu Gmail" />
                     </div>
                     @error('email')
                         <p class="text-danger">{{ $message }}</p>
@@ -51,17 +51,25 @@
 
                     <div class="form-holder">
                         <span><i class='bx bx-barcode'></i></span>
-                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control-login"
-                            placeholder="repetir contraseña" />
+                        <input type="password" id="password_confirmation" name="password_confirmation"
+                            class="form-control-login" placeholder="repetir contraseña" />
                     </div>
                     @error('password_confirmation')
                         {{-- alerta de error --}}
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
 
-                    <button class="button-login" id="btn-register">
+                    <button class="button-login button-login-blue" id="btn-register">
                         <span>Registrarme</span>
                     </button>
+
+                    <div class="col mt-2 d-flex flex-column align-items-center">
+                        <a href="{{ route('google.auth.redirect') }}">
+                            <img src="https://cdn-icons-png.flaticon.com/64/5968/5968534.png" alt="Gmail">
+                        </a>
+                        <p class="mt-2 text-center">Iniciar con Gmail</p>
+                    </div>
+
                 </form>
                 <img src="{{ asset('img/login/image-2.png') }}" alt="" class="image-2">
             </div>

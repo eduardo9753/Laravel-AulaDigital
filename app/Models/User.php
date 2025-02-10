@@ -25,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'google_id'
     ];
 
     /**
@@ -105,5 +106,19 @@ class User extends Authenticatable
     public function exams()
     {
         return $this->hasMany(Exam::class);
+    }
+
+    //METODO PARA REDIRIGIR A LOS USUARIOS
+    public function redirectToDashboard()
+    {
+        $roles = $this->getRoleNames(); // Obtiene los roles del usuario
+
+        if ($roles->contains('Admin')) {
+            return redirect()->route('admin.roles.index');
+        } else if ($roles->contains('Instructor')) {
+            return redirect()->route('admin.instructor.course.index');
+        } else {
+            return redirect()->route('visitador.course.list');
+        }
     }
 }

@@ -7,6 +7,7 @@ use App\Mail\MailUserBienvenida;
 use App\Mail\MailUserRecover;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -29,30 +30,26 @@ class RegisterController extends Controller
         ]);
 
         //creamos al usuario
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'imagen' => '',
             'password' => Hash::make($request->password) //encriptando
         ]);
 
-        //autenticando al usuario
+        /*autenticando al usuario
         auth()->attempt([
             'email' => $request->email,
             'password' => $request->password
-        ]);
+        ]); */
 
-        $user = User::find(auth()->user()->id);
-        $roles = $user->getRoleNames();
-        //return $roles;
-        if ($roles->contains('Admin')) {
-            return redirect()->route('admin.roles.index');
-        } else if ($roles->contains('Instructor')) {
-            Mail::to($request->email)->send(new MailUserBienvenida($user));
-            return redirect()->route('admin.instructor.course.index');
-        } else {
-            Mail::to($request->email)->send(new MailUserBienvenida($user));
-            return redirect()->route('visitador.course.list');
-        }
+        // Autenticar usuario
+        Auth::login($user);
+
+        // Enviar correo de bienvenida solo a usuarios nuevos
+        Mail::to($user->email)->send(new MailUserBienvenida($user));
+
+        // Usuario autenticado
+        return auth()->user()->redirectToDashboard();
     }
 }
