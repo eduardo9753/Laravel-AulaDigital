@@ -65,7 +65,8 @@
                         <a href="{{ route('google.auth.redirect') }}">
                             <img src="https://cdn-icons-png.flaticon.com/64/5968/5968534.png" alt="Gmail">
                         </a>
-                        <p class="mt-2 text-center">Iniciar con Gmail</p>
+
+                        <a href="{{ route('google.auth.redirect') }}">Iniciar con Gmail</a>
                     </div>
 
                 </form>
