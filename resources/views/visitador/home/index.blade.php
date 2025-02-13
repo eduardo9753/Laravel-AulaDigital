@@ -244,7 +244,7 @@
 
 
             <!--video con los pasos de suscripcion-->
-            <section class="our-process section-home" id="plans">
+            <section class="our-process section-home" id="">
                 <div class="container">
                     <div class="row mb-3" data-aos="fade-up" data-aos-offset="-500">
                         <div class="col-sm-12">
