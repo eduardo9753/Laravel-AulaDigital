@@ -63,12 +63,15 @@
                         <span>Registrarme</span>
                     </button>
 
-                    <div class="col mt-2 d-flex flex-column align-items-center">
-                        <a href="{{ route('google.auth.redirect') }}">
-                            <img src="https://cdn-icons-png.flaticon.com/64/5968/5968534.png" alt="Gmail">
-                        </a>
-
-                        <a href="{{ route('google.auth.redirect') }}">Iniciar con Gmail</a>
+                    <div class="d-flex justify-content-center text-center mx-auto my-3">
+                        <!-- Botón de Google -->
+                        <div class="text-center">
+                            <a href="{{ route('google.auth.redirect') }}">
+                                <img src="https://cdn-icons-png.flaticon.com/64/5968/5968534.png" alt="Gmail">
+                            </a>
+                            <a class="mt-1 d-block fw-bold text-dark" href="{{ route('google.auth.redirect') }}">Iniciar
+                                con Gmail</a>
+                        </div>
                     </div>
 
                 </form>
