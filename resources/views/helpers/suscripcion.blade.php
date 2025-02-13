@@ -24,7 +24,7 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png" style="width: 80px;height: 80px;"
                         alt="starter">
                     <h6 class="font-weight-medium title-text text-white">Plan Pre Universitario</h6>
-                    <h1 class="text-amount mb-4 mt-2 text-white"><strong>S/.35</strong></h1>
+                    <h1 class="text-amount mb-4 mt-2 text-white"><strong>S/25.90</strong></h1>
                     <ul class="pricing-list">
                         <li class="text-white">
                             <div class="d-flex">
@@ -47,19 +47,19 @@
                         <li class="text-white">
                             <div class="d-flex">
                                 <i class='bx bx-check-circle' style="padding-top: 4px"></i>
-                                <span>Acceso a exámenes</span>
-                            </div>
-                        </li>
-                        <li class="text-white">
-                            <div class="d-flex">
-                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
                                 <span>Acceso a compendios</span>
                             </div>
                         </li>
                         <li class="text-white">
                             <div class="d-flex">
+                                <i class='bx bx-check-circle' style="padding-top: 4px; color:yellow"></i>
+                                <span style="color:yellow">Acceso a exámenes</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
                                 <i class='bx bxs-check-circle' style="padding-top: 4px"></i>
-                                <span><strong>Cobro cada 02 de cada mes</strong></span>
+                                <span><strong>Renovación automática 02 de cada mes</strong></span>
                             </div>
                         </li>
                     </ul>
@@ -72,14 +72,14 @@
                             @else
                                 <form action="{{ route('mercadopago.suscription.index') }}" id="form-suscription" method="POST">
                                     @csrf
-                                    <input type="submit" class="btn-solid-sm p-4 mt-3 w-100 text-white" value="Suscribirme">
+                                    <input type="submit" class="btn-solid-sm p-4 mt-3 w-100 text-white" value="Quiero estudiar ya">
                                 </form>
                             @endcan
                         @endcan
                     @endauth
 
                     @guest
-                        <a href="{{ route('admin.register.index') }}" class="btn-solid-sm p-4 mt-3 w-100 text-white">Suscribirme</a>
+                        <a href="{{ route('admin.register.index') }}" class="btn-solid-sm p-4 mt-3 w-100 text-white">Quiero estudiar ya</a>
                     @endguest
                 </div>
             </div>
@@ -89,7 +89,7 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/1010/1010711.png" style="width: 80px;height: 80px;"
                         alt="starter">
                     <h6 class="font-weight-medium title-text text-white">Plan Escolar</h6>
-                    <h1 class="text-amount mb-4 mt-2 text-white"><strong>S/.25</strong></h1>
+                    <h1 class="text-amount mb-4 mt-2 text-white"><strong>S/15.90</strong></h1>
                     <ul class="pricing-list">
                         <li class="text-white">
                             <div class="d-flex">
@@ -118,7 +118,7 @@
                         <li class="text-white">
                             <div class="d-flex">
                                 <i class='bx bxs-check-circle' style="padding-top: 4px"></i>
-                                <span><strong>Cobro cada 02 de cada mes</strong></span>
+                                <span><strong>Renovación automática 02 de cada mes</strong></span>
                             </div>
                         </li>
                     </ul>
@@ -132,14 +132,14 @@
                                 <form action="{{ route('mercadopago.suscription.school.index') }}" id="form-suscription-school"
                                     method="POST">
                                     @csrf
-                                    <input type="submit" class="btn btn-primary mt-3 w-100 text-white" value="Suscribirme">
+                                    <input type="submit" class="btn btn-primary mt-3 w-100 text-white" value="Quiero estudiar ya">
                                 </form>
                             @endcan
                         @endcan
                     @endauth
 
                     @guest
-                        <a href="{{ route('admin.register.index') }}" class="btn btn-primary mt-3 w-100 text-white">Suscribirme</a>
+                        <a href="{{ route('admin.register.index') }}" class="btn btn-primary mt-3 w-100 text-white">Quiero estudiar ya</a>
                     @endguest
                 </div>
             </div>

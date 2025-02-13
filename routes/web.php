@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\auth\LogoutController;
 use App\Http\Controllers\admin\auth\RecoverController;
 use App\Http\Controllers\admin\auth\RegisterController;
 use App\Http\Controllers\admin\auth\SocialAuthController;
+use App\Http\Controllers\admin\auth\SocialFacebookAuthController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\plan\PlanController;
 use App\Http\Controllers\ProfileController;
@@ -45,6 +46,11 @@ Route::get('/contenido/{resource}', [HomeController::class, 'contenido'])->name(
 //AUTH CON GOOGLE 
 Route::get('/auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.auth.redirect');
 Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('google.auth.callback');
+
+
+//AUTH CON FACEBOOK 
+Route::get('/auth/facebook', [SocialFacebookAuthController::class, 'redirectToFacebook'])->name('facebook.auth.redirect');
+Route::get('/auth/facebook/callback', [SocialFacebookAuthController::class, 'handleFacebookCallback'])->name('facebook.auth.callback');
 
 
 //LOGIN Y REGISTER

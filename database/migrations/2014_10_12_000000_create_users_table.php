@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('google_id'); //nuevo campo
+            $table->string('google_id')->nullable()->unique();   //  NULL y hacer único
+            $table->string('facebook_id')->nullable()->unique(); //  NULL y hacer único
             $table->rememberToken();
             $table->timestamps();
         });
