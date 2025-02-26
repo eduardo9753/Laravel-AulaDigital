@@ -40,15 +40,18 @@ Route::get('/admin/course/show/{course:slug}', [CourseController::class, 'show']
 Route::post('/admin/course/approved/{course:slug}', [CourseController::class, 'approved'])->name('admin.courses.approved');
 
 
-Route::get('/admin/price/index', [PriceController::class , 'index'])->name('admin.prices.index');
+Route::get('/admin/price/index', [PriceController::class, 'index'])->name('admin.prices.index');
 Route::get('/admin/category/index', [CategoryController::class, 'index'])->name('admin.categories.index');
-Route::get('/admin/level/index',[LevelController::class, 'index'])->name('admin.levels.index');
-Route::get('/admin/resource/index', [ResourceController::class , 'index'])->name('admin.resources.index');
-Route::get('/admin/reads/index', [ReadController::class , 'index'])->name('admin.reads.index');
-Route::get('/admin/pays/index', [PayController::class , 'index'])->name('admin.pays.index');
-Route::get('/admin/pays/por-atender', [PayController::class , 'list'])->name('admin.pays.list');
+Route::get('/admin/level/index', [LevelController::class, 'index'])->name('admin.levels.index');
+Route::get('/admin/resource/index', [ResourceController::class, 'index'])->name('admin.resources.index');
+Route::get('/admin/reads/index', [ReadController::class, 'index'])->name('admin.reads.index');
+Route::get('/admin/pays/index', [PayController::class, 'index'])->name('admin.pays.index');
+Route::get('/admin/pays/por-atender', [PayController::class, 'list'])->name('admin.pays.list');
 
-Route::get('/admin/compemdium/index', [CompendiumController::class , 'index'])->name('admin.compendiums.index');
+Route::get('/admin/compemdium/index', [CompendiumController::class, 'index'])->name('admin.compendiums.index');
 
-Route::get('/admin/post/index', [PostController::class , 'index'])->name('admin.posts.index');
-Route::post('/admin/post/store', [PostController::class , 'store'])->name('admin.posts.store');
+Route::get('/admin/post/index', [PostController::class, 'index'])->name('admin.posts.index');
+Route::post('/admin/post/store', [PostController::class, 'store'])->name('admin.posts.store');
+Route::get('/admin/post/list', [PostController::class, 'list'])->name('admin.posts.list');
+Route::get('/admin/post/show/{post}', [PostController::class, 'show'])->name('admin.posts.show');
+Route::put('/admin/post/update/{post}', [PostController::class , 'update'])->name('admin.posts.update');

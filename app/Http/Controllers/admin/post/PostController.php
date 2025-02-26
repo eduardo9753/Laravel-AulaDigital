@@ -12,7 +12,7 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('can:gestion publicaciones');
+        //$this->middleware('can:gestion publicaciones');
     }
 
     public function index()
@@ -39,5 +39,32 @@ class PostController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function list()
+    {
+        $posts = Post::all();
+        return view('admin.post.list', [
+            'posts' => $posts
+        ]);
+    }
+
+    public function show(Post $post)
+    {
+        return view('admin.post.show', [
+            'post' => $post
+        ]);
+    }
+
+    public function update(Post $post, Request $request)
+    {
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->content,
+            'status' => 1, //activo
+            'user_id' => auth()->user()->id
+        ]);
+
+        return redirect()->route('admin.posts.list');
     }
 }

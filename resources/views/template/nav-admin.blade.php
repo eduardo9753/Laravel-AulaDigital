@@ -49,7 +49,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="item"><a href="{{ route('admin.posts.index') }}">Crear post</a></li>
-                            <li class="item"><a href="#">Lista</a></li>
+                            <li class="item"><a href="{{ route('admin.posts.list') }}">Lista</a></li>
                         </ul>
                     </li>
 
@@ -63,7 +63,7 @@
                             <li class="item"><a href="{{ route('admin.pays.list') }}">Lista por atender</a></li>
                         </ul>
                     </li>
-                    
+
                     <li class="item"><a
                             href="{{ route('admin.profile.index', ['user' => auth()->user()]) }}">Bienvenido:
                             {{ auth()->user()->name }}</a></li>
