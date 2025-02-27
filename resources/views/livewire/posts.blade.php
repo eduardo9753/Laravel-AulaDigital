@@ -16,7 +16,7 @@
                 @if (in_array($post->id, $expandedPosts))
                     <p class="mt-3">{!! $post->content !!}</p>
                 @else
-                    <p class="mt-3">{!! Str::limit($post->content, 100) !!}</p> <!-- Muestra solo los primeros 200 caracteres -->
+                    <p class="mt-3">{!! Str::limit($post->content, 150) !!}</p> <!-- Muestra solo los primeros 200 caracteres -->
                 @endif
                 <a href="#" wire:click.prevent="toggleExpand({{ $post->id }})">
                     @if (in_array($post->id, $expandedPosts))
