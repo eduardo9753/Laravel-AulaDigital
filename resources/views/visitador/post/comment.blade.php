@@ -17,28 +17,30 @@
             </div>
         </div>
 
-        <div class="row">
-            @foreach ($randomPosts as $post)
-                <div class="col-md-4">
-                    <div class="mi-card my-2">
-                        <div class="mi-card-content">
-                            <a href="{{ route('visitador.post.comment', ['post' => $post]) }}">
-                                <div class="d-flex align-items-center">
-                                    <i class='bx bx-link-alt color-general' style="font-size: 15px"></i>
-                                    <h1 class="lead color-general" style="font-size: 16px">
-                                        <strong>{{ $post->title }}</strong>
-                                    </h1>
-                                </div>
-                            </a>
+        <div class="contenedor">
+            <div class="row">
+                @foreach ($randomPosts as $post)
+                    <div class="col-md-4">
+                        <div class="mi-card my-2">
+                            <div class="mi-card-content">
+                                <a href="{{ route('visitador.post.comment', ['post' => $post]) }}">
+                                    <div class="d-flex align-items-center">
+                                        <i class='bx bx-link-alt color-general' style="font-size: 15px"></i>
+                                        <h1 class="lead color-general" style="font-size: 16px">
+                                            <strong>{{ $post->title }}</strong>
+                                        </h1>
+                                    </div>
+                                </a>
 
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small><strong>Por: {{ $post->user->name }} -
-                                        {{ $post->created_at->diffForHumans() }}</strong></small>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small><strong>Por: {{ $post->user->name }} -
+                                            {{ $post->created_at->diffForHumans() }}</strong></small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </section>
 
