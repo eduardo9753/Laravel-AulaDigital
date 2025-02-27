@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="contenedor">
+        <div class="container">
             <div class="row">
                 @foreach ($randomPosts as $post)
                     <div class="col-md-4">
