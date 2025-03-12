@@ -24,7 +24,7 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png" style="width: 80px;height: 80px;"
                         alt="starter">
                     <h6 class="font-weight-medium title-text text-white">Plan Pre Universitario</h6>
-                    <h1 class="text-amount mb-4 mt-2 text-white"><strong>S/25.90</strong></h1>
+                    <h1 class="text-amount mb-4 mt-2 text-white"><strong>S/19.90</strong></h1>
                     <ul class="pricing-list">
                         <li class="text-white">
                             <div class="d-flex">
