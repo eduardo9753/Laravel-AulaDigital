@@ -18,6 +18,9 @@ class CourseStatus extends Component
     public $course;
     public $current;
 
+    // Extraer el ID del archivo de Google Drive de la URL
+    public $fileId = null;
+
     public function mount(Course $course)
     {
         $this->course = $course;
@@ -65,6 +68,12 @@ class CourseStatus extends Component
         //REFREZCANDO LAS LECCIONES CULMINADAS
         $this->current = Lesson::find($this->current->id);
         $this->course = Course::find($this->course->id);
+
+        //nos vamos a la siguiente leccion
+        $nextLesson = $this->getNextProperty(); // nos retorna la leccion siguiente
+        if ($nextLesson) {
+            $this->current = $nextLesson;
+        }
 
         // Emitir un evento de Livewire para actualizar la interfaz
         $this->emit('lessonChanged', $this->current->section_id);
@@ -114,5 +123,17 @@ class CourseStatus extends Component
 
         $advance = ($i * 100) / ($this->course->lessons->count());
         return round($advance, 2);
+    }
+
+    //para la descarga de archivos
+    public function uploadField()
+    {
+        //$matches => parametro brindado por preg_match
+        if (
+            $this->current->resource &&
+            preg_match('/\/d\/([a-zA-Z0-9_-]+)/', $this->current->resource->url, $matches)
+        ) {
+            $this->fileId = $matches[1];
+        }
     }
 }
