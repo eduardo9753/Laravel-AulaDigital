@@ -38,6 +38,9 @@ class CourseStatus extends Component
 
         //METODO AUTORIZAR ENTRAR AL CURSO AL USUARIO AUTENTICADO Y QUE VALIDE EN LAS DOS TABLAS
         $this->authorize('insideCourse', $course);
+
+        //para mostrar el boton de descarga de archivo
+        $this->uploadField();
     }
 
     public function render()
@@ -128,12 +131,10 @@ class CourseStatus extends Component
     //para la descarga de archivos
     public function uploadField()
     {
-        //$matches => parametro brindado por preg_match
-        if (
-            $this->current->resource &&
-            preg_match('/\/d\/([a-zA-Z0-9_-]+)/', $this->current->resource->url, $matches)
-        ) {
-            $this->fileId = $matches[1];
+        if ($this->current && $this->current->resource) {
+            $this->fileId = $this->current->resource->url; // Verificar la URL
+        } else {
+            $this->fileId = null;
         }
     }
 }
