@@ -131,10 +131,16 @@ class CourseStatus extends Component
     //para la descarga de archivos
     public function uploadField()
     {
-        if ($this->current && $this->current->resource->url) {
-            $this->fileId = $this->current->resource->url; // Verificar la URL
+        // Verificamos si $current existe y si tiene un recurso
+        if ($this->current && $this->current->resource) {
+            // Verificamos si la URL del recurso es válida
+            if (preg_match('/\/d\/([a-zA-Z0-9_-]+)/', $this->current->resource->url, $matches)) {
+                $this->fileId = $matches[1];
+            } else {
+                $this->fileId = null; // No se encontró un ID válido
+            }
         } else {
-            $this->fileId = null;
+            $this->fileId = null; // No hay recurso
         }
     }
 }
