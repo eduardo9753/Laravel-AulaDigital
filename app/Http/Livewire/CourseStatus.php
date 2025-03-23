@@ -131,7 +131,7 @@ class CourseStatus extends Component
     //para la descarga de archivos
     public function uploadField()
     {
-        if ($this->current && $this->current->resource) {
+        if ($this->current && $this->current->resource->url) {
             $this->fileId = $this->current->resource->url; // Verificar la URL
         } else {
             $this->fileId = null;
