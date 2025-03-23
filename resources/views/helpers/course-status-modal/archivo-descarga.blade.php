@@ -4,7 +4,7 @@
             class="mi-boton verde btn-sm mt-3" download>Descargar Archivo</a>
     @else
         <p class="mt-3">
-            {{ $current->resource ? $current->resource->url : 'lección sin recurso' }} -
+            lección sin recurso
         </p>
     @endif
 </div>
