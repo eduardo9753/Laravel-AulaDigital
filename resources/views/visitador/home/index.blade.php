@@ -50,29 +50,16 @@
                                                     </form>
                                                 </div>
                                             @else
-                                                @can('viewSubscriptionEscolar', auth()->user())
-                                                    <div class="d-flex mt-1">
-                                                        <div>
-                                                            <a class="btn btn-warning mt-3">EresPremium</a>
-                                                        </div>
-
-                                                        <form action="{{ route('admin.logout') }}" method="POST">
-                                                            @csrf
-                                                            <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
-                                                        </form>
+                                                <div class="d-flex mt-1">
+                                                    <div>
+                                                        <a href="#plans" class="btn btn-warning mt-3">Suscribirse</a>
                                                     </div>
-                                                @else
-                                                    <div class="d-flex mt-1">
-                                                        <div>
-                                                            <a href="#plans" class="btn btn-warning mt-3">Suscribirse</a>
-                                                        </div>
 
-                                                        <form action="{{ route('admin.logout') }}" method="POST">
-                                                            @csrf
-                                                            <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
-                                                        </form>
-                                                    </div>
-                                                @endcan
+                                                    <form action="{{ route('admin.logout') }}" method="POST">
+                                                        @csrf
+                                                        <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
+                                                    </form>
+                                                </div>
                                             @endcan
                                         @endauth
                                     </div>

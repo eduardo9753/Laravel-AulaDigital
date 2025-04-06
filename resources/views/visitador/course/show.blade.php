@@ -229,36 +229,8 @@
                                             @endif
                                         @endcan
                                     @else
-                                        @can('viewSubscriptionEscolar', auth()->user())
-                                            @can('enrolled', $course)
-                                                <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
-                                                    class="btn-solid-sm p-4 text-center mt-3 w-100">CONTINUAR CURSO</a>
-                                            @else
-                                                @if ($course->price->value == 0)
-                                                    <p style="font-size: 22px;font-weight: bold" class="color-general">
-                                                        {{ $course->price->name }} S/.0</p>
-                                                    <form id="matricularmeFrm"
-                                                        action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
-                                                            AHORA</button>
-                                                    </form>
-                                                @else
-                                                    {{-- SI NO LO ESTA LLEVA EL CURSO POR SER PREMIUM --}}
-                                                    <form id="matricularmeFrm"
-                                                        action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
-                                                            AHORA</button>
-                                                    </form>
-                                                @endif
-                                            @endcan
-                                        @else
-                                            <a href="{{ route('mercadopago.suscription.subscribe') }}"
-                                                class="btn-solid-sm p-4 text-center mt-3 w-100">SUSCRIBETE Y ACCEDE</a>
-                                        @endcan
+                                        <a href="{{ route('mercadopago.suscription.subscribe') }}"
+                                            class="btn-solid-sm p-4 text-center mt-3 w-100">SUSCRIBETE Y ACCEDE</a>
                                     @endcan
                                 @endauth
 

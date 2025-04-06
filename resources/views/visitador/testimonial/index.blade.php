@@ -58,7 +58,7 @@
                                             <p>“Bien condensado, y la inclusión de archivos PDF al final de cada lección
                                                 resulta muy útil.”
                                             </p>
-                                            <h6 class="testimonial-author">Anthony Nuñez</h6>
+                                            <h6 class="testimonial-author">Yerandy</h6>
                                             <p class="testimonial-destination">Estudiante</p>
                                         </div>
                                     </li>
@@ -82,7 +82,7 @@
                                             <p>“Bien condensado, y la inclusión de archivos PDF al final de cada lección
                                                 resulta muy útil.”
                                             </p>
-                                            <h6 class="testimonial-author">Anthony Nuñez</h6>
+                                            <h6 class="testimonial-author">Darly Rico</h6>
                                             <p class="testimonial-destination">Estudiante</p>
                                         </div>
                                     </li>

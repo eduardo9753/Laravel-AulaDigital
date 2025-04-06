@@ -25,13 +25,14 @@ Route::get('/mercadopago/subscribete/academico-premium', [PaymentSuscriptionCont
 Route::post('/mercadopago/suscription/academico-premium/cancel', [PaymentSuscriptionController::class , 'cancel'])->name('mercadopago.suscription.cancel');
 
 
-//RUTAS PARA SUSCRIPTION CON MERCADOPAGO PLAN ESCOLAR
+/*RUTAS PARA SUSCRIPTION CON MERCADOPAGO PLAN ESCOLAR
 Route::post('/mercadopago/suscription/school/academico-premium', [PaymentSuscriptionEscolarController::class, 'school'])->name('mercadopago.suscription.school.index');
 Route::get('/mercadopago/suscription/school/academico-premium/success', [PaymentSuscriptionEscolarController::class, 'success'])->name('mercadopago.suscription.school.success');
 Route::get('/mercadopago/suscription/school/academico-premium/failure', [PaymentSuscriptionEscolarController::class, 'failure'])->name('mercadopago.suscription.school.failure');
 Route::get('/mercadopago/suscription/school/academico-premium/pending', [PaymentSuscriptionEscolarController::class, 'pending'])->name('mercadopago.suscription.school.pending');
 Route::get('/mercadopago/subscribete/school/academico-premium', [PaymentSuscriptionEscolarController::class, 'subscribe'])->name('mercadopago.suscription.school.subscribe');
 Route::post('/mercadopago/suscription/school/academico-premium/cancel', [PaymentSuscriptionEscolarController::class, 'cancel'])->name('mercadopago.suscription.school.cancel');
+*/
 
 Route::post('/yape/payment/{course}', [PaymentController::class, 'yape'])->name('yape.index');
 
