@@ -41,15 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             },
 
-            error: function () {
+            error: function (xhr, status, error) {
+                console.log(xhr.responseText);
                 alert('Ocurrió un error al procesar la solicitud.');
                 $button.val('Error, inténtalo de nuevo');
-
+            
                 // Reactiva el botón después de 6 segundos
                 setTimeout(() => {
                     $button.prop('disabled', false).val('Suscribirme');
                 }, 6000);
             }
+            
         });
     });
 });

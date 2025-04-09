@@ -35,7 +35,7 @@ class PaymentSuscriptionController extends Controller
             [
                 'title' => 'PreuniCursos - Plan Pre Universitario',
                 'quantity' => 1,
-                'unit_price' => 35
+                'unit_price' => 14.90
             ]
         ];
 
