@@ -90,7 +90,7 @@
                         educativo,
                         contenidos
                         académicos, <strong>al sistema de exámenes de todos los cursos</strong> y mucho más:<a
-                            class="btn btn-primary text-white" target="_blank"
+                            class="btn btn-primary text-white"
                             href="{{ route('mercadopago.suscription.subscribe') }}" title="suscripcion">
                             suscribirme
                         </a>

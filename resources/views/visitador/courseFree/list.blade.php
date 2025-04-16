@@ -71,7 +71,7 @@
                             Suscríbete a nuestros planes y obtén acceso ilimitado a todos los cursos, material
                             educativo,
                             contenidos
-                            académicos, al sistema de exámenes y mucho más:<a class="btn btn-primary text-white" target="_blank" href="{{ route('mercadopago.suscription.subscribe') }}"
+                            académicos, al sistema de exámenes y mucho más:<a class="btn btn-primary text-white" href="{{ route('mercadopago.suscription.subscribe') }}"
                                 title="suscripcion">
                                 suscribirme
                             </a>
