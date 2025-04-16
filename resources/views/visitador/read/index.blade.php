@@ -23,32 +23,43 @@
             <div class="contenedor">
                 <div class="row">
 
-                    @foreach ($courses as $course)
-                        <div class="col-md-12 mb-2">
-                            <div class="mi-card">
-                                <div class="mi-card-content">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <i class='bx bx-link-alt color-general'></i>
-                                        <h1 class="lead color-general">Recurso del curso de {{ $course->title }}</h1>
+                    @foreach ($courses as $index => $course)
+                        <div class="col-md-12 my-2">
+                            <div id="accordion{{ $index }}">
+                                <div class="card">
+                                    <div class="card-header" id="heading{{ $index }}">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link text-decoration-none" data-toggle="collapse"
+                                                data-target="#collapse{{ $index }}"
+                                                aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
+                                                aria-controls="collapse{{ $index }}">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <i class='bx bx-link-alt color-general' style="font-size: 35px"></i>
+                                                    <h1 class="lead color-general" style="font-size: 35px">Recurso del curso de {{ $course->title }}</h1>
+                                                </div>
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapse{{ $index }}" class="collapse {{ $index == 0 ? 'show' : '' }}"
+                                        aria-labelledby="heading{{ $index }}"
+                                        data-parent="#accordion{{ $index }}">
+                                        @foreach ($course->archives as $archive)
+                                            <a href="{{ route('visitador.read.show', ['archive' => $archive]) }}">
+                                                <li class="d-flex align-items-center my-1">
+                                                    <i class='bx bxs-file-pdf'
+                                                        style='color:#310fc7; font-size: 45px; border-radius: 50%'></i>
+                                                    <p class="temario-parrafo" style="font-size: 27px">{{ $archive->name }}</p>
+                                                </li>
+                                            </a>
+                                            <hr>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        @foreach ($course->archives as $archive)
-                            <div class="col-md-4 my-1">
-                                <div class="mi-card">
-                                    <div class="mi-card-content">
-                                        <a href="{{ route('visitador.read.show', ['archive' => $archive]) }}">
-                                            <li class="d-flex align-items-center my-1">
-                                                <i class='bx bxs-file-pdf' style='color:#310fc7'></i>
-                                                <p class="temario-parrafo">{{ $archive->name }}</p>
-                                            </li>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
                     @endforeach
+
                 </div>
             </div>
         </div>

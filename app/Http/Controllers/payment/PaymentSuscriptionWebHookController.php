@@ -51,7 +51,7 @@ class PaymentSuscriptionWebHookController extends Controller
                 [
                     'user_id' => $payUser->user_id ?? '1', // Puedes ajustar el valor predeterminado
                     'collection_id' => $paymentInfo->id ?? '',
-                    'collection_status' => $payUser->collection_status ?? '',
+                    'collection_status' => $payUser->collection_status ?? 'PLAN-PRE-UNI',
                     'status' => 'PAGO SUSCRIPCION',
                     'external_reference' => $paymentInfo->external_reference ?? '',
                     'payment_type' => 'TARJETA',

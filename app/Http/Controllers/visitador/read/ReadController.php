@@ -20,21 +20,15 @@ class ReadController extends Controller
     public function index()
     {
         try {
-            $user = auth()->user();
 
-            if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
-                $courses = Course::with(['archives' => function ($query) {
-                    $query->where('type', '<>', 'C')
-                        ->orWhereNull('type');
-                }])->get();
+            $courses = Course::with(['archives' => function ($query) {
+                $query->where('type', '<>', 'C')
+                    ->orWhereNull('type');
+            }])->get();
 
-                return view('visitador.read.index', [
-                    'courses' => $courses
-                ]);
-            } else {
-                // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
-                return redirect()->route('mercadopago.suscription.subscribe');
-            }
+            return view('visitador.read.index', [
+                'courses' => $courses
+            ]);
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -43,19 +37,11 @@ class ReadController extends Controller
     public function show(Archive $archive)
     {
         try {
-            $user = auth()->user();
-
-            if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionUniversitario', $user) || Gate::allows('viewSubscriptionEscolar', $user)) {
-                $course = Course::find($archive->course_id);
-
-                return view('visitador.read.show', [
-                    'archive' => $archive,
-                    'course' => $course
-                ]);
-            } else {
-                // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
-                return redirect()->route('mercadopago.suscription.subscribe');
-            }
+            $course = Course::find($archive->course_id);
+            return view('visitador.read.show', [
+                'archive' => $archive,
+                'course' => $course
+            ]);
         } catch (\Throwable $th) {
             //throw $th;
         }

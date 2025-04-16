@@ -15,7 +15,7 @@ class CourseFreeController extends Controller
     public function index(Request $request)
     {
         //JALANDO LOS CURSOS QUE PONDRE GRATIS POR ID
-        $courses = Course::where('status', '=', 3)->whereIn('id', [22,12,14])->get(); //LISTA DE CURSOS GRATIS
+        $courses = Course::where('status', '=', 3)->whereIn('id', [22,12,14,17])->get(); //LISTA DE CURSOS GRATIS
         $categories = Category::all();
         $levels = Level::all();
 
@@ -69,7 +69,7 @@ class CourseFreeController extends Controller
     {
         $courseIds = DB::table('course_user_free')->where('user_id', '=', auth()->user()->id)->pluck('course_id');
         $courseUsers = Course::whereIn('id', $courseIds)->get();
-        $courses = Course::where('status', '=', 3)->whereIn('id', [22,12,14])->get(); //LISTA DE CURSOS GRATIS
+        $courses = Course::where('status', '=', 3)->whereIn('id', [22,12,14,17])->get(); //LISTA DE CURSOS GRATIS
 
         return view('visitador.courseFree.list', [
             'courseUsers' => $courseUsers,

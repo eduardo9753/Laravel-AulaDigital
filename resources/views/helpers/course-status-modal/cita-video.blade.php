@@ -41,6 +41,14 @@
                          <strong>{{ $channelName }}</strong>. Disponible en: <a target="_blank"
                              href="{{ $current->url }}" title="{{ $channelName }}">{{ $url }}</a>
                      </p>
+                     <p class="mb-0">
+                         <em>
+                             <strong>Este material no es de propiedad de esta plataforma. Se cita la fuente para
+                                 reconocer la veracidad y autenticidad del documento, con fines exclusivamente
+                                 educativos y en beneficio de la comunidad estudiantil de
+                                 <a href="https://preunicursos.com/">PreuniCursos.com</a>.</strong>
+                         </em>
+                     </p>
                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                  </div>
              </div>

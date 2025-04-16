@@ -19,7 +19,7 @@ class ExamFreeResponder extends Controller
 
     public function index()
     {
-        $courses = Course::where('status', 3)->whereIn('id', [12,14])->get();
+        $courses = Course::where('status', 3)->whereIn('id', [12,14.17])->get();
 
         return view('visitador.examFreeResponder.index', [
             'courses' => $courses
