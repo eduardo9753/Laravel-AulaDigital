@@ -40,7 +40,7 @@ class CourseFreeController extends Controller
 
         //PARA VALIDAR SI EL CURSO QUE MANDA COMO PARAMETRO ESTA DENTRO DE LOS CURSOS GRATIS
         $isFreeCourse = Course::where('status', '=', 3)
-            ->whereIn('id', [22,12,14])
+            ->whereIn('id', [22,12,14,17])
             ->where('id', $course->id)
             ->exists();
 
