@@ -59,7 +59,7 @@
     <li class="item">
         <form action="{{ route('admin.logout') }}" method="POST">
             @csrf
-            <input type="submit" class="btn btn-primary mt-2 w-100 btn-rounded" value="Salir">
+            <input type="submit" class="mi-boton general mt-2 w-100 btn-rounded" value="Salir">
         </form>
     </li>
 @endcan

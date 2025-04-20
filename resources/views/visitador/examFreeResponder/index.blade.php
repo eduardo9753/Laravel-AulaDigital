@@ -37,7 +37,7 @@
                                         <h2 class="contenido-bloques-titulo">{{ $exam->nombre }}</h2>
                                         <div class="text-center">
                                             <img style="width: 100px;height: 100px;"
-                                                src="https://cdn-icons-png.flaticon.com/512/10510/10510645.png"
+                                                src="{{ asset('img/home/pruebas.png') }}"
                                                 alt="">
                                         </div>
                                         <p class="contenido-bloques-parrafo mt-2">Tiempo estimado : {{ $exam->duracion }}

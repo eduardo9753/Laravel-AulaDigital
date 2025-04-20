@@ -8588,7 +8588,7 @@
   --gray-lighter: #e8eff4;
   --gray-lightest: #e6e9ed;
   --black: #000000;
-  --primary: #3c37f1;
+  --primary: var(--naranja);
   --secondary: #1998ff;
   --success: #00d663;
   --info: #00b3ff;
@@ -10913,8 +10913,8 @@ fieldset:disabled a.btn {
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #3c37f1;
-  border-color: #3c37f1;
+  background-color: var(--naranja);
+  border-color: var(--naranja);
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
@@ -11204,15 +11204,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #3c37f1;
+  color: var(--naranja);
   background-color: transparent;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: #3c37f1;
-  border-color: #3c37f1;
+  background-color: var(--naranja);
+  border-color: var(--naranja);
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
@@ -13401,7 +13401,7 @@ a.badge:hover, a.badge:focus {
 
 .badge-primary {
   color: #fff;
-  background-color: #3c37f1;
+  background-color: var(--naranja);
 }
 
 a.badge-primary:hover, a.badge-primary:focus {
@@ -14898,7 +14898,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #3c37f1 !important;
+  background-color: var(--naranja) !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -15026,7 +15026,7 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-  border-color: #3c37f1 !important;
+  border-color: var(--naranja) !important;
 }
 
 .border-secondary {
@@ -18084,7 +18084,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #3c37f1 !important;
+  color: var(--naranja) !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -18633,7 +18633,7 @@ h6, .h6 {
 .navbar {
   width: 100%;
   padding: 1.875rem 1rem;
-  background: #3c37f1;
+  background: var(--naranja);
 }
 
 @media (max-width: 991px) {
@@ -18801,7 +18801,7 @@ h6, .h6 {
   padding: .875rem .1rem;
   position: static;
   z-index: auto;
-  background: #3c37f1;
+  background: var(--naranja);
 }
 
 @media (max-width: 991px) {
@@ -19027,7 +19027,7 @@ html {
 }
 
 .pricing-box .text-amount {
-  color: #3c37f1;
+  color: var(--naranja);
 }
 
 .pricing-box img {
@@ -19126,7 +19126,7 @@ html {
 }
 
 .toggle-switch input:checked + .toggle-slider {
-  background-color: #3c37f1;
+  background-color: var(--naranja);
 }
 
 .toggle-switch input:checked + .toggle-slider:before {
@@ -19189,11 +19189,11 @@ html {
   -webkit-backface-visibility: visible;
   transition: opacity .2s ease;
   border-radius: 3;
-  border: solid 2px #3c37f1;
+  border: solid 2px var(--naranja);
 }
 
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-  background: #3c37f1;
+  background: var(--naranja);
 }
 
 .owl-theme.owl-carousel-testimonial .owl-dots {
