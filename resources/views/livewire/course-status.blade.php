@@ -57,7 +57,7 @@
                             <div class="d-flex align-items-center cursor" wire:click="completed">
                                 @if ($current->completed)
                                     <i class='bx bxs-toggle-right'
-                                        style='color:rgb(52, 152, 219);  font-size: 28px'></i>
+                                        style='color:rgb(240, 118, 19);  font-size: 28px'></i>
                                     <p class="cursor-status" style='font-size: 18px'>culminado</p>
                                 @else
                                     <i class='bx bx-toggle-left' style="font-size: 28px"></i>
@@ -67,9 +67,12 @@
                             {{-- MARCAR COMO CULMINADA LA LECCION --}}
                         </div>
                         <div class="progress mt-2" style="width: 100% !important;">
-                            <div class="progress-bar" role="progressbar" style="width: {{ $this->advance . '%' }}"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar"
+                                style="width: {{ $this->advance . '%' }}; background-color: #f07613;"
+                                aria-valuenow="{{ $this->advance }}" aria-valuemin="0" aria-valuemax="100">
+                            </div>
                         </div>
+
                         {{-- BARRA DE PROGRESO --}}
 
 
@@ -99,11 +102,11 @@
                                                                 {{-- SI EL CURSO ESTA COMPLETO Y ESTAMOS EN ESA POSICION BORDEAMOS EL CIRCULO --}}
                                                                 @if ($current->id == $lesson->id)
                                                                     <i class='bx bx-play-circle bx-burst'
-                                                                        style='color:rgb(52, 152, 219); font-size: 22px'></i>
+                                                                        style='color:rgb(240, 118, 19); font-size: 22px'></i>
                                                                 @else
                                                                     {{-- DE LO CONTRARIO QUE  ME PINTE DE VERDE --}}
                                                                     <i class='bx bx-check-circle'
-                                                                        style='color:rgb(52, 152, 219); font-size: 22px'></i>
+                                                                        style='color:rgb(240, 118, 19); font-size: 22px'></i>
                                                                 @endif
                                                             @else
                                                                 @if ($current->id == $lesson->id)
