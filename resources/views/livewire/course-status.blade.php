@@ -51,7 +51,7 @@
 
                         {{-- BARRA DE PROGRESO --}}
                         <div class="d-flex justify-content-between">
-                            <p class="text-primary"><strong>{{ $this->advance . '%' }}</strong> Completado</p>
+                            <p style='color:rgb(240, 118, 19);'><strong>{{ $this->advance . '%' }}</strong> Completado</p>
 
                             {{-- MARCAR COMO CULMINADA LA LECCION --}}
                             <div class="d-flex align-items-center cursor" wire:click="completed">
