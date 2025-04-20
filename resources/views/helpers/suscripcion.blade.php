@@ -4,7 +4,7 @@
             <div class="col-sm-12">
                 <div class="d-sm-flex justify-content-between align-items-center mb-2">
                     <div>
-                        <h3 class="font-weight-medium text-dark mb-3">Nuestro Plan</h3>
+                        <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Nuestro Plan</h3>
                         <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
                             las 24 horas del día</h5>
                     </div>

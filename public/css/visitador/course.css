@@ -7,7 +7,7 @@
 
 /*ESTILOS CURSO SHOW*/
 #curso-show {
-  background: linear-gradient(90deg, var(--gradienteUno), var(--gradienteDos), var(--gradienteTres));
+  background: linear-gradient(90deg, var(--naranja), var(--gradienteDos), var(--gradienteTres));
   padding: 30px;
   background-size: 300% 300%;
   animation: gradient 5s ease infinite;
@@ -21,7 +21,7 @@
   left: 45vw;
   width: 10px;
   height: 10px;
-  border: solid 1px #003298;
+  border: solid 1px var(--blanco);
   -webkit-transform-origin: top left;
           transform-origin: top left;
   -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);

@@ -75,7 +75,7 @@
     <li class="item">
         <form action="{{ route('admin.logout') }}" method="POST">
             @csrf
-            <input type="submit" class="btn btn-danger mt-2 w-100" value="Salir">
+            <input type="submit" class="btn btn-outline-primary mt-2 text-white" value="Salir">
         </form>
     </li>
 @endcan

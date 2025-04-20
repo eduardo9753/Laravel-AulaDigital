@@ -108,7 +108,7 @@
                                                             @else
                                                                 @if ($current->id == $lesson->id)
                                                                     <i class='bx bx-play-circle bx-burst'
-                                                                        style='color:#1112de; font-size: 22px'></i>
+                                                                        style='color:#da920f; font-size: 22px'></i>
                                                                 @else
                                                                     <i class='bx bx-bolt-circle'
                                                                         style='color:#99a29b; font-size: 22px'></i>
@@ -120,7 +120,7 @@
                                                             wire:click="changeLesson({{ $lesson }})">{{ $lesson->name }}
                                                             @if ($lesson->resource)
                                                                 <i class='bx bxs-file-pdf bx-burst'
-                                                                    style='color:#1112de'></i>
+                                                                    style='color:#da920f'></i>
                                                             @endif
                                                         </a>
                                                     </li>

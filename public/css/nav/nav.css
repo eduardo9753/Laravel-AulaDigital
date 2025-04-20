@@ -71,7 +71,7 @@
     padding-top: 3.3rem; /*para alejarlo del la "X" para cerrar el emnu lateral*/
     width: 25%;
     height: 100vh;
-    background-color: var(--general);
+    background-color: var(--naranja);
     transition: all 500ms ease;
 
     /*position relative para acomodar el label*/

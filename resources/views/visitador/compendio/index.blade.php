@@ -49,7 +49,7 @@
                                             <a href="{{ route('visitador.read.show', ['archive' => $archive]) }}">
                                                 <li class="d-flex align-items-center my-1">
                                                     <i class='bx bxs-file-pdf'
-                                                        style='color:#310fc7; font-size: 45px; border-radius: 50%'></i>
+                                                        style='color:#da920f; font-size: 45px; border-radius: 50%'></i>
                                                     <p class="temario-parrafo" style="font-size: 27px">{{ $archive->name }}
                                                     </p>
                                                 </li>

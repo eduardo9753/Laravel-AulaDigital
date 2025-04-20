@@ -22,7 +22,7 @@
                     <div class="card-body">
 
                         <div class="d-flex align-items-center">
-                            <i class='bx bx-comment-dots bx-tada' style='color:#342bbd'></i>
+                            <i class='bx bx-comment-dots bx-tada' style='color:#da920f'></i>
                             <p>{{ $comment->content }} </p>
                         </div>
 
@@ -59,7 +59,7 @@
                             <div class="card mt-2 ml-4">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
-                                        <i class='bx bx-message-rounded-dots bx-tada' style='color:#342bbd'></i>
+                                        <i class='bx bx-message-rounded-dots bx-tada' style='color:#da920f'></i>
                                         <p>{{ $reply->content }}</p>
                                     </div>
 

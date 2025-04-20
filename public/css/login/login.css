@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--azul-login); }
+    background: var(--naranja); }
   
   .inner {
     position: relative;
@@ -110,8 +110,8 @@
     .form-control-login:focus {
       border-bottom: 1px solid #accffe; }
   
-  .button-login-blue {  background: var(--azul-login);}    
-  .button-login-pink {  background: var(--rosa);}    
+  .button-login-blue {  background: var(--naranja);}    
+  .button-login-pink {  background: var(--naranja);}    
   .button-login {
     border: none;
     width: 100%;
@@ -142,7 +142,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      background-color: rgba(52, 152, 253, 0.25);
+      background-color: rgba(240, 118, 19, 1);
       -webkit-transition: all 0.3s;
       -moz-transition: all 0.3s;
       -o-transition: all 0.3s;
@@ -185,9 +185,9 @@
       .btn-solid-sm {
         display: inline-block;
         padding: 1rem 1.5rem 1rem 1.5rem;
-        border: 1px solid var(--rosa);
+        border: 1px solid var(--naranja);
         border-radius: 30px;
-        background-color: var(--rosa);
+        background-color: var(--naranja);
         color: #ffffff;
         font-weight: 600;
         font-size: 0.875rem;
@@ -198,7 +198,7 @@
 
     .btn-solid-sm:hover {
       background-color: transparent;
-      color: var(--rosa);
+      color: var(--naranja);
       text-decoration: none;
   }
   /*# sourceMappingURL=style.css.map */

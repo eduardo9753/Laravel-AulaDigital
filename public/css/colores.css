@@ -2,8 +2,10 @@
     --blanco : #fff;
     --negro : #000;
     --gris : #f6fbff;
-    --general : #4b22f4;
-    --generalTransparente : rgba(75, 34, 244,0.2);
+    --general : #f07613;
+    --generalTransparente : rgba(240, 118, 19,0.2);
+
+    --naranja : #f07613;
 
 
     --azul: #3c37f1 ;

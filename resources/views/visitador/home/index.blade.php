@@ -31,9 +31,9 @@
                                         @guest
                                             <div class="d-flex mt-1">
                                                 <a href="{{ route('admin.register.index') }}"
-                                                    class="btn btn-warning mt-3">Registrarme</a>
+                                                    class="btn btn-primary mt-3 ml-2 text-white mt-3">Registrarme</a>
 
-                                                <a href="#plans" class="btn btn-secondary mt-3 ml-2">Suscribirse</a>
+                                                <a href="#plans" class="btn btn-primary mt-3 ml-2 text-white">Suscribirse</a>
                                             </div>
                                         @endguest
 
@@ -41,23 +41,23 @@
                                             @can('viewSubscription', auth()->user())
                                                 <div class="d-flex mt-1">
                                                     <div>
-                                                        <a class="btn btn-warning mt-3">EresPremium</a>
+                                                        <a class="btn btn-primary mt-3">EresPremium</a>
                                                     </div>
 
                                                     <form action="{{ route('admin.logout') }}" method="POST">
                                                         @csrf
-                                                        <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
+                                                        <input type="submit" class="btn btn-primary mt-3 ml-2" value="Salir">
                                                     </form>
                                                 </div>
                                             @else
                                                 <div class="d-flex mt-1">
                                                     <div>
-                                                        <a href="#plans" class="btn btn-warning mt-3">Suscribirse</a>
+                                                        <a href="#plans" class="btn btn-primary mt-3">Suscribirse</a>
                                                     </div>
 
                                                     <form action="{{ route('admin.logout') }}" method="POST">
                                                         @csrf
-                                                        <input type="submit" class="btn btn-secondary mt-3 ml-2" value="Salir">
+                                                        <input type="submit" class="btn btn-primary mt-3 ml-2" value="Salir">
                                                     </form>
                                                 </div>
                                             @endcan
@@ -79,8 +79,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h5 class="text-dark">Beneficios</h5>
-                            <h3 class="font-weight text-dark mb-5">en PreuniCursos</h3>
+                            <h5 class="text-dark" style="color: #da920f !important;">Beneficios</h5>
+                            <h3 class="font-weight text-dark mb-5" style="color: #da920f !important;">en PreuniCursos</h3>
                         </div>
                     </div>
                     <div class="row" data-aos="fade-up">
@@ -169,9 +169,9 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3">Con temario para el examen de admisión
+                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Con temario para el examen de admisión
                                         UNFV</h3>
-                                    <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
+                                    <h5 class="text-dark">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
                                 </div>
 
@@ -196,8 +196,8 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3">Suscríbete ahora y ten</h3>
-                                    <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
+                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Suscríbete ahora y ten</h3>
+                                    <h5 class="text-dark">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
                                 </div>
                             </div>
@@ -237,7 +237,7 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3">Pasos para tu Suscripción</h3>
+                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Pasos para tu Suscripción</h3>
                                     <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
                                 </div>
@@ -265,7 +265,7 @@
                     <div class="row">
                         <div class="col-sm-6" data-aos="fade-up">
                             <h5 class="text-dark">Únete a nuestra comunidad estudiantil</h5>
-                            <h3 class="font-weight-medium text-dark">¡Descubre PreuniCursos!</h3>
+                            <h3 class="font-weight-medium text-dark" style="color: #da920f !important;">¡Descubre PreuniCursos!</h3>
                             <h5 class="text-dark mb-3">y diviertete</h5>
                             <p class="font-weight-medium mb-4"> Aprende en tus tiempos libres, <br>
                                 de una forma diferente en nuestra plataforma
@@ -297,7 +297,7 @@
                     <div class="row mb-5">
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                                <h3 class="font-weight-medium text-dark ">Lista de Cursos</h3>
+                                <h3 class="font-weight-medium text-dark" style="color: #da920f !important;">Lista de Cursos</h3>
                                 <div><a href="{{ route('visitador.course.index') }}" class="btn btn-outline-primary">Ver
                                         todos los cursos</a></div>
                             </div>

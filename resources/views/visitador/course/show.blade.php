@@ -66,7 +66,7 @@
                                             <div class="d-flex ">
                                                 <div>
                                                     <i class='bx bx-label color-general'
-                                                        style='color:#4b22f4;margin-right: 3px; margin-top:5px'></i>
+                                                        style='color:#f07613;margin-right: 3px; margin-top:5px'></i>
                                                 </div>
 
                                                 <li class="">{{ $goal->name }}</li>
@@ -88,7 +88,7 @@
                         @foreach ($course->sections as $section)
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading{{ $section->id }}">
-                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button"
+                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" style="color: #da920f !important;" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#{{ $section->id }}"
                                         aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
                                         aria-controls="{{ $section->id }}">
@@ -102,7 +102,7 @@
                                         <ul>
                                             @foreach ($section->lessons as $lesson)
                                                 <li class="d-flex my-1">
-                                                    <i class='bx bxs-videos' style='color:#4b22f4 ; font-size: 22px'></i>
+                                                    <i class='bx bxs-videos' style='color:#f07613 ; font-size: 22px'></i>
                                                     <p class="temario-parrafo">{{ $lesson->name }}</p>
                                                 </li>
                                             @endforeach
@@ -124,7 +124,7 @@
                                     @foreach ($course->requirements as $requirement)
                                         <div class="d-flex">
                                             <i class='bx bx-check'
-                                                style='color:#4b22f4;margin-right: 3px; margin-top:5px;'></i>
+                                                style='color:#f07613;margin-right: 3px; margin-top:5px;'></i>
                                             <li>{{ $requirement->name }}</li>
                                         </div>
                                     @endforeach
@@ -141,7 +141,7 @@
                             <div class="card-body">
                                 <h3 class="mb-3 color-general">Descripción</h3>
                                 <div class="d-flex align-items-center">
-                                    <i class='bx bxs-hand-right' style='color:#4b22f4;margin-right: 3px'></i>
+                                    <i class='bx bxs-hand-right' style='color:#f07613;margin-right: 3px'></i>
                                     <p class="">{!! $course->description !!}</p>
                                 </div>
                             </div>
@@ -159,7 +159,7 @@
                                     @foreach ($course->audiences as $audience)
                                         <div class="d-flex">
                                             <i class='bx bxs-pin'
-                                                style='color:#4b22f4;margin-right: 3px; margin-top:5px'></i>
+                                                style='color:#f07613;margin-right: 3px; margin-top:5px'></i>
                                             <li>{{ $audience->name }}</li>
                                         </div>
                                     @endforeach
@@ -186,13 +186,13 @@
                                 <div class="d-flex item-center pb-2">
                                     <img src="{{ $course->teacher->profile_photo_url }}" alt="">
                                     <div>
-                                        <p>Colaborador:{{ $course->teacher->name }}</p>
+                                        <p style="font-size: 20px">Colaborador:{{ $course->teacher->name }}</p>
                                         @if (optional($course->teacher->profile)->website)
-                                            <a href="{{ $course->teacher->profile->website }}" target="_blank">
+                                            <a style="color: #da920f !important;" href="{{ $course->teacher->profile->website }}" target="_blank">
                                                 {{ '@' . Str::slug($course->teacher->name, '') }}
                                             </a>
                                         @else
-                                            <a href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
+                                            <a style="color: #da920f !important;" href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
                                         @endif
                                     </div>
                                 </div>
@@ -263,7 +263,7 @@
                                 </a>
 
                                 <div style="margin-left: 12px">
-                                    <h3 style="font-size: 15px; text-align: justify;"><a
+                                    <h3 style="font-size: 15px; text-align: justify;"><a style="color: #da920f !important;"
                                             href="{{ route('visitador.course.show', ['course' => $similar]) }}">{{ Str::limit($similar->title, 40) }}</a>
                                     </h3>
 
