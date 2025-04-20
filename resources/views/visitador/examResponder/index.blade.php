@@ -41,9 +41,9 @@
                                     <div class="mi-card-content">
                                         <h2 class="contenido-bloques-titulo">{{ $exam->nombre }}</h2>
                                         <div class="text-center">
-                                            <img style="width: 100px;height: 100px;"
-                                                src="https://cdn-icons-png.flaticon.com/512/10510/10510645.png"
-                                                alt="">
+                                            <img class="img-fluid"
+                                                src="{{ asset('img/home/pruebas.png') }}"
+                                                alt="Imagene de la prueba">
                                         </div>
                                         <p class="contenido-bloques-parrafo mt-2">Tiempo estimado :
                                             {{ $exam->duracion }}
