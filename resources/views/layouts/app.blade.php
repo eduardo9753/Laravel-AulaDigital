@@ -75,6 +75,9 @@
     <!--CSS SWEEALERT2-->
     <link rel="stylesheet" href="{{ asset('lib/sweetalert2/sweetalert2.min.css') }}">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
     <!-- ESTILOS LIVEWIRE -->
     @livewireStyles
 </head>

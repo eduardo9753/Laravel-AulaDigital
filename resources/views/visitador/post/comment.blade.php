@@ -33,8 +33,14 @@
                                 </a>
 
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small><strong>Por: {{ $post->user->name }} -
-                                            {{ $post->created_at->diffForHumans() }}</strong></small>
+                                    <small>Por:
+                                        <strong
+                                            style="display: inline-block; width: 25px; height: 25px; background-color: orange; color: white; border-radius: 50%; text-align: center; line-height: 25px; font-weight: bold;">
+                                            {{ strtoupper(substr($post->user->name, 0, 1)) }}
+                                        </strong>
+                                    </small>
+
+                                    <div>{{ $post->created_at->diffForHumans() }}</div>
                                 </div>
                             </div>
                         </div>

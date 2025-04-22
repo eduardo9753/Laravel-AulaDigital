@@ -22,11 +22,17 @@
                                 <div class="d-sm-flex justify-content-between">
                                     <div data-aos="zoom-in-up">
                                         <div class="banner-title">
-                                            <h3 class="font-weight-medium">Únete y forma parte de PreuniCursos</h3>
+                                            <h3 class="font-weight-medium">🚀 ¡Prepárate para tu ingreso a la UNFV!</h3>
                                         </div>
-                                        <p class="">Plataforma educativa diseñada para ti</p>
-                                        <p class="my-3">Temario para el examen de admisión <strong>UNFV</strong>
+                                        <p class="lead animate__animated animate__fadeInUp animate__delay-1s">
+                                            Únete a <strong>PreuniCursos</strong>, la plataforma educativa <span
+                                                class="text-warning">hecha para futuros ingresantes</span>.
                                         </p>
+                                        <p class="my-3 animate__animated animate__fadeInUp animate__delay-2s">
+                                            Aprende con clases en video, material en PDF y exámenes por lección, todo basado
+                                            en el temario oficial para el <strong>Examen de Admisión UNFV</strong>.
+                                        </p>
+
 
                                         @guest
                                             <div class="d-flex mt-1">
@@ -169,7 +175,8 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Con temario para el examen de admisión
+                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Con
+                                        temario para el examen de admisión
                                         UNFV</h3>
                                     <h5 class="text-dark">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
@@ -196,7 +203,8 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Suscríbete ahora y ten</h3>
+                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">
+                                        Suscríbete ahora y ten</h3>
                                     <h5 class="text-dark">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
                                 </div>
@@ -205,21 +213,9 @@
                     </div>
                     <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 @include('helpers.video', [
                                     'video' => asset('videos/contenido_04.mp4'),
-                                ])
-                            </div>
-
-                            <div class="col-md-4 mt-2">
-                                @include('helpers.video', [
-                                    'video' => asset('videos/contenido_06_compendios_descargables.mp4'),
-                                ])
-                            </div>
-
-                            <div class="col-md-4 mt-2">
-                                @include('helpers.video', [
-                                    'video' => asset('videos/contenido_08_examenes.mp4'),
                                 ])
                             </div>
                         </div>
@@ -237,7 +233,8 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Pasos para tu Suscripción</h3>
+                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Pasos
+                                        para tu Suscripción</h3>
                                     <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
                                 </div>
@@ -265,7 +262,8 @@
                     <div class="row">
                         <div class="col-sm-6" data-aos="fade-up">
                             <h5 class="text-dark">Únete a nuestra comunidad estudiantil</h5>
-                            <h3 class="font-weight-medium text-dark" style="color: #da920f !important;">¡Descubre PreuniCursos!</h3>
+                            <h3 class="font-weight-medium text-dark" style="color: #da920f !important;">¡Descubre
+                                PreuniCursos!</h3>
                             <h5 class="text-dark mb-3">y diviertete</h5>
                             <p class="font-weight-medium mb-4"> Aprende en tus tiempos libres, <br>
                                 de una forma diferente en nuestra plataforma
@@ -297,7 +295,8 @@
                     <div class="row mb-5">
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                                <h3 class="font-weight-medium text-dark" style="color: #da920f !important;">Lista de Cursos</h3>
+                                <h3 class="font-weight-medium text-dark" style="color: #da920f !important;">Lista de
+                                    Cursos</h3>
                                 <div><a href="{{ route('visitador.course.index') }}" class="btn btn-outline-primary">Ver
                                         todos los cursos</a></div>
                             </div>

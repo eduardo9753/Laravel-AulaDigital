@@ -20,19 +20,26 @@
             @foreach ($comments as $comment)
                 <div class="card mt-2">
                     <div class="card-body">
-
-                        <div class="d-flex align-items-center">
-                            <i class='bx bx-comment-dots bx-tada' style='color:#da920f'></i>
-                            <p>{{ $comment->content }} </p>
-                        </div>
-
                         <div class="d-flex justify-content-between align-items-center">
-                            <small><strong>Por: {{ $comment->user->name }} -
-                                    {{ $comment->created_at->diffForHumans() }}</strong></small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong
+                                        style="display: inline-block; width: 25px; height: 25px; background-color: orange; color: white; border-radius: 50%; text-align: center; line-height: 25px; font-weight: bold;">
+                                        {{ strtoupper(substr($post->user->name, 0, 1)) }}
+                                    </strong>
+                                    {{ $comment->user->name }}
+                                </div>
+
+                                <small>- <strong>{{ $comment->created_at->diffForHumans() }}</strong></small>
+                            </div>
                             <button wire:click='setParentComment({{ $comment->id }})'
                                 class="btn btn-outline-success btn-sm">Responder</button>
                         </div>
 
+                        <div class="d-flex align-items-center">
+                            <i class='bx bx-comment-dots bx-tada' style='color:#da920f'></i>
+                            <p><strong>{{ $comment->content }}</strong> </p>
+                        </div>
 
                         {{-- COMPONENTE DE REACTIONS PARA LOS COMENTARIOS GENERALES --}}
                         @livewire('reactions', ['commentId' => $comment->id], key($comment->id))
@@ -58,14 +65,21 @@
                         @foreach ($comment->replies as $reply)
                             <div class="card mt-2 ml-4">
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <i class='bx bx-message-rounded-dots bx-tada' style='color:#da920f'></i>
-                                        <p>{{ $reply->content }}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong
+                                                style="display: inline-block; width: 25px; height: 25px; background-color: orange; color: white; border-radius: 50%; text-align: center; line-height: 25px; font-weight: bold;">
+                                                {{ strtoupper(substr($post->user->name, 0, 1)) }}
+                                            </strong>
+                                            {{ $comment->user->name }}
+                                        </div>
+
+                                        <small> <strong>{{ $comment->created_at->diffForHumans() }}</strong></small>
                                     </div>
 
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small><strong>Por: {{ $reply->user->name }} -
-                                                {{ $reply->created_at->diffForHumans() }}</strong></small>
+                                    <div class="d-flex align-items-center">
+                                        <i class='bx bx-message-rounded-dots bx-tada' style='color:#da920f'></i>
+                                        <p><strong>{{ $reply->content }}</strong></p>
                                     </div>
 
                                     {{-- COMPONENTE DE REACTIONS PARA LOS COMENTARIOS DE LOS REPLIES --}}
