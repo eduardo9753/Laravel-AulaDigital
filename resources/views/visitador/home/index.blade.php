@@ -212,14 +212,16 @@
                         </div>
                     </div>
                     <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
-                        <div class="row">
-                            <div class="col-md-12">
+                        <div class="col-md-3 text-center"> {{-- Más pequeño que col-md-4 --}}
+                            <div class="ratio ratio-16x9">
                                 @include('helpers.video', [
                                     'video' => asset('videos/contenido_04.mp4'),
                                 ])
                             </div>
                         </div>
                     </div>
+                    
+
                 </div>
             </section>
             <!--video para contenido 04 de plataforma -->
