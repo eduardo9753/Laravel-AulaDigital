@@ -25,7 +25,7 @@
                         alt="starter">
                     <h6 class="font-weight-medium title-text text-white">Plan Pre Universitario</h6>
                     <h1 class="text-amount mb-4 mt-2 text-white">
-                        S/<strong>9</strong>.<small style="font-size: 0.6em; vertical-align: super;">90</small>
+                        S/<strong>14</strong>.<small style="font-size: 0.6em; vertical-align: super;">99</small>
                     </h1>
 
                     <ul class="pricing-list">
