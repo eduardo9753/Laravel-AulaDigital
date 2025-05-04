@@ -66,8 +66,13 @@
                                             class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
                                     @endif
                                 @else
-                                    <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
-                                        class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                    @if ($url == 'gratis')
+                                        <a href="{{ route('visitador.course.free.show', ['course' => $course]) }}"
+                                            class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                    @else
+                                        <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
+                                            class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                    @endif
                                 @endif
 
                             </div>
