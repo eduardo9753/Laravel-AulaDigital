@@ -202,20 +202,51 @@
 
                                 {{-- POLICY PARA VERIFICAR SI YA ESTOY MATRICULADO EN EL CURSO --}}
                                 @auth
-                                    {{-- VERIFICAMOS SI ESTA MATRICULADO EN EL CURSO QUE ESTA VIENDO --}}
-                                    @can('enrolledFree', $course)
-                                        <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
-                                            class="btn-solid-sm p-4 text-center mt-3 w-100">CONTINUAR CURSO</a>
+                                    {{-- VERIFICAMOS SI TIENE UNA SUSCRIPCION --}}
+                                    @can('viewSubscription', auth()->user())
+                                        {{-- Aquí verificamos la suscripción regular --}}
+                                        {{-- VERIFICAMOS SI ESTA MATRICULADO EN EL CURSO QUE ESTA VIENDO --}}
+                                        @can('enrolled', $course)
+                                            <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
+                                                class="btn-solid-sm p-4 text-center mt-3 w-100">CONTINUAR CURSO</a>
+                                        @else
+                                            @if ($course->price->value == 0)
+                                                <p style="font-size: 22px;font-weight: bold" class="color-general">
+                                                    {{ $course->price->name }} S/.0</p>
+                                                <form id="matricularmeFrm"
+                                                    action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
+                                                        AHORA</button>
+                                                </form>
+                                            @else
+                                                {{-- SI NO LO ESTA LLEVA EL CURSO POR SER PREMIUM --}}
+                                                <form id="matricularmeFrm"
+                                                    action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
+                                                        AHORA</button>
+                                                </form>
+                                            @endif
+                                        @endcan
                                     @else
-                                        {{-- SI NO LO ESTA LLEVA EL CURSO POR SER PREMIUM --}}
-                                        <form id="matricularmeFrm"
-                                            action="{{ route('visitador.course.free.enrolled', ['course' => $course]) }}"
-                                            method="POST">
-                                            @csrf
-                                            <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
-                                                AHORA</button>
-                                        </form>
-                                    @endCan
+                                        {{-- VERIFICAMOS SI ESTA MATRICULADO EN EL CURSO QUE ESTA VIENDO --}}
+                                        @can('enrolledFree', $course)
+                                            <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
+                                                class="btn-solid-sm p-4 text-center mt-3 w-100">CONTINUAR CURSO</a>
+                                        @else
+                                            {{-- SI NO LO ESTA LLEVA EL CURSO POR SER PREMIUM --}}
+                                            <form id="matricularmeFrm"
+                                                action="{{ route('visitador.course.free.enrolled', ['course' => $course]) }}"
+                                                method="POST">
+                                                @csrf
+                                                <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
+                                                    AHORA</button>
+                                            </form>
+                                        @endCan
+                                    @endcan
                                 @endauth
 
                                 @guest
