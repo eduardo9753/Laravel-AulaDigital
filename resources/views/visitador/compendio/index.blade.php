@@ -34,8 +34,8 @@
                                                 aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
                                                 aria-controls="collapse{{ $index }}">
                                                 <div class="d-flex align-items-center gap-2">
-                                                    <i class='bx bx-link-alt color-general' style="font-size: 35px"></i>
-                                                    <h1 class="lead color-general" style="font-size: 35px">Recurso del curso
+                                                    <i class='bx bx-link-alt color-general' style="font-size: 25px"></i>
+                                                    <h1 class="lead color-general" style="font-size: 25px">Recurso del curso
                                                         de {{ $course->title }}</h1>
                                                 </div>
                                             </button>
@@ -50,7 +50,7 @@
                                                 <li class="d-flex align-items-center my-1">
                                                     <i class='bx bxs-file-pdf'
                                                         style='color:#da920f; font-size: 45px; border-radius: 50%'></i>
-                                                    <p class="temario-parrafo" style="font-size: 27px;color:#da920f;">{{ $archive->name }}
+                                                    <p class="temario-parrafo" style="font-size: 18px;color:#da920f;">{{ $archive->name }}
                                                     </p>
                                                 </li>
                                             </a>
