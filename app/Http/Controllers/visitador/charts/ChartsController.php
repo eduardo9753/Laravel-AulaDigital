@@ -36,7 +36,7 @@ class ChartsController extends Controller
                 $advance = 0;
             } else {
                 $completed = $course->lessons->filter(function ($lesson) use ($user) {
-                    return $lesson->users->contains(6);
+                    return $lesson->users->contains($user->id);
                 })->count();
 
                 $advance = ($completed * 100) / $totalLessons;
