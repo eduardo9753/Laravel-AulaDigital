@@ -66,7 +66,7 @@
                                             <div class="d-flex ">
                                                 <div>
                                                     <i class='bx bx-label color-general'
-                                                        style='color:#f07613;margin-right: 3px; margin-top:5px'></i>
+                                                        style='margin-right: 3px; margin-top:5px'></i>
                                                 </div>
 
                                                 <li class="">{{ $goal->name }}</li>
@@ -186,13 +186,15 @@
                                 <div class="d-flex item-center pb-2">
                                     <img src="{{ $course->teacher->profile_photo_url }}" alt="">
                                     <div>
-                                        <p>Colaborador:{{ $course->teacher->name }}</p>
+                                        <p style="font-size: 20px">Colaborador:{{ $course->teacher->name }}</p>
                                         @if (optional($course->teacher->profile)->website)
-                                            <a href="{{ $course->teacher->profile->website }}" target="_blank">
+                                            <a style="color: #f07613 !important;"
+                                                href="{{ $course->teacher->profile->website }}" target="_blank">
                                                 {{ '@' . Str::slug($course->teacher->name, '') }}
                                             </a>
                                         @else
-                                            <a href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
+                                            <a style="color: #f07613 !important;"
+                                                href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
                                         @endif
                                     </div>
                                 </div>
@@ -209,7 +211,8 @@
                                             action="{{ route('visitador.course.free.enrolled', ['course' => $course]) }}"
                                             method="POST">
                                             @csrf
-                                            <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR AHORA</button>
+                                            <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
+                                                AHORA</button>
                                         </form>
                                     @endCan
                                 @endauth
@@ -244,6 +247,7 @@
 
                                 <div style="margin-left: 12px">
                                     <h3 style="font-size: 15px; text-align: justify;"><a
+                                            style="color: #f07613 !important;"
                                             href="{{ route('visitador.course.show', ['course' => $similar]) }}">{{ Str::limit($similar->title, 40) }}</a>
                                     </h3>
 
@@ -254,7 +258,7 @@
                                     </div>
 
                                     <p class="mt-2"><i class='bx bxs-star'
-                                            style='color:#da920f'></i>{{ $similar->rating }}</p>
+                                            style='color:#f07613'></i>{{ $similar->rating }}</p>
                                 </div>
                             </article>
                         @endforeach

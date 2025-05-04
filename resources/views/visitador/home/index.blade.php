@@ -81,12 +81,37 @@
             </section>
 
 
+            <section id="ultimos-cursos" class="text-center">
+                <h3 class="ultimos-cursos-titulo color-general">Cursos gratis</h3>
+                <p class="ultimos-cursos-parrafo color-general"></p>
+
+                {{-- MENSAJE DE ALERTA CUANDO TE SUSCRIBES --}}
+                <div class="contenedor">
+                    @if (session('mensaje'))
+                        <div class="alert alert-info mt-2 alert-dismissible fade show" role="alert">
+                            <strong>Importante!:</strong> {{ session('mensaje') }}.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                </div>
+
+                <div class="">
+                    {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE --}}
+                    @if (auth()->check())
+                        <x-course-card :courses="$coursesFree" url="gratis"></x-course-card>
+                    @else
+                        <x-course-card :courses="$courses" url="premium"></x-course-card>
+                    @endif
+                </div>
+            </section>
+
+
             <section class="our-services section-home" id="services">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h5 class="text-dark" style="color: #da920f !important;">Beneficios</h5>
-                            <h3 class="font-weight text-dark mb-5" style="color: #da920f !important;">en PreuniCursos</h3>
+                            <h5 class="text-dark color-general" >Beneficios</h5>
+                            <h3 class="font-weight mb-5 color-general" >en PreuniCursos</h3>
                         </div>
                     </div>
                     <div class="row" data-aos="fade-up">
@@ -175,7 +200,7 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Con
+                                    <h3 class="font-weight-medium color-general mb-3">Con
                                         temario para el examen de admisión
                                         UNFV</h3>
                                     <h5 class="text-dark">Acceso ilimitado a cursos, exámenes y material educativo
@@ -203,7 +228,7 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">
+                                    <h3 class="font-weight-medium color-general mb-3">
                                         Suscríbete ahora y ten</h3>
                                     <h5 class="text-dark">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
@@ -220,8 +245,6 @@
                             </div>
                         </div>
                     </div>
-                    
-
                 </div>
             </section>
             <!--video para contenido 04 de plataforma -->
@@ -235,7 +258,7 @@
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
-                                    <h3 class="font-weight-medium text-dark mb-3" style="color: #da920f !important;">Pasos
+                                    <h3 class="font-weight-medium color-general mb-3">Pasos
                                         para tu Suscripción</h3>
                                     <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
@@ -264,23 +287,23 @@
                     <div class="row">
                         <div class="col-sm-6" data-aos="fade-up">
                             <h5 class="text-dark">Únete a nuestra comunidad estudiantil</h5>
-                            <h3 class="font-weight-medium text-dark" style="color: #da920f !important;">¡Descubre
+                            <h3 class="font-weight-medium color-general">¡Descubre
                                 PreuniCursos!</h3>
                             <h5 class="text-dark mb-3">y diviertete</h5>
-                            <p class="font-weight-medium mb-4"> Aprende en tus tiempos libres, <br>
+                            <p class="font-weight-medium mb-4 text-dark"> Aprende en tus tiempos libres, <br>
                                 de una forma diferente en nuestra plataforma
                             </p>
                             <div class="d-flex justify-content-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="mb-0">Material de estudio y exámenes</p>
+                                <p class="mb-0 text-dark" >Material de estudio y exámenes</p>
                             </div>
                             <div class="d-flex justify-content-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="mb-0">Acceso de por vida con soporte las 24 horas</p>
+                                <p class="mb-0 text-dark">Acceso de por vida con soporte las 24 horas</p>
                             </div>
                             <div class="d-flex justify-content-start">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="mb-0">Actualización constante de la plataforma para mejorar tus estudios.</p>
+                                <p class="mb-0 text-dark">Actualización constante de la plataforma para mejorar tus estudios.</p>
                             </div>
                         </div>
                         <div class="col-sm-6 text-right" data-aos="flip-left" data-aos-easing="ease-out-cubic"
@@ -297,7 +320,7 @@
                     <div class="row mb-5">
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                                <h3 class="font-weight-medium text-dark" style="color: #da920f !important;">Lista de
+                                <h3 class="font-weight-medium color-general">Lista de
                                     Cursos</h3>
                                 <div><a href="{{ route('visitador.course.index') }}" class="btn btn-outline-primary">Ver
                                         todos los cursos</a></div>

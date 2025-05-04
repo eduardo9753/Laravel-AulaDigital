@@ -66,7 +66,7 @@
                                             <div class="d-flex ">
                                                 <div>
                                                     <i class='bx bx-label color-general'
-                                                        style='color:#f07613;margin-right: 3px; margin-top:5px'></i>
+                                                        style='margin-right: 3px; margin-top:5px'></i>
                                                 </div>
 
                                                 <li class="">{{ $goal->name }}</li>
@@ -88,8 +88,8 @@
                         @foreach ($course->sections as $section)
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading{{ $section->id }}">
-                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" style="color: #da920f !important;" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#{{ $section->id }}"
+                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }} color-general"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#{{ $section->id }}"
                                         aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
                                         aria-controls="{{ $section->id }}">
                                         {{ $section->name }}
@@ -188,11 +188,13 @@
                                     <div>
                                         <p style="font-size: 20px">Colaborador:{{ $course->teacher->name }}</p>
                                         @if (optional($course->teacher->profile)->website)
-                                            <a style="color: #da920f !important;" href="{{ $course->teacher->profile->website }}" target="_blank">
+                                            <a style="color: #f07613 !important;"
+                                                href="{{ $course->teacher->profile->website }}" target="_blank">
                                                 {{ '@' . Str::slug($course->teacher->name, '') }}
                                             </a>
                                         @else
-                                            <a style="color: #da920f !important;" href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
+                                            <a style="color: #f07613 !important;"
+                                                href="#">{{ '@' . Str::slug($course->teacher->name, '') }}</a>
                                         @endif
                                     </div>
                                 </div>
@@ -263,7 +265,8 @@
                                 </a>
 
                                 <div style="margin-left: 12px">
-                                    <h3 style="font-size: 15px; text-align: justify;"><a style="color: #da920f !important;"
+                                    <h3 style="font-size: 15px; text-align: justify;"><a
+                                            style="color: #f07613 !important;"
                                             href="{{ route('visitador.course.show', ['course' => $similar]) }}">{{ Str::limit($similar->title, 40) }}</a>
                                     </h3>
 
@@ -274,7 +277,7 @@
                                     </div>
 
                                     <p class="mt-2"><i class='bx bxs-star'
-                                            style='color:#da920f'></i>{{ $similar->rating }}</p>
+                                            style='color:#f07613'></i>{{ $similar->rating }}</p>
                                 </div>
                             </article>
                         @endforeach

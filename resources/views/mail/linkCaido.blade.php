@@ -4,63 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Link Caido - Aviso para los Administradores!</title>
+    <title>¡Link Caído - Aviso para los Administradores!</title>
 </head>
 
-<body style="font-family: 'Arial', sans-serif;
-background-color: #f1eff1e0;
-margin: 0;
-padding: 0;
-margin: 20px;">
-    <div style=" display: flex;
-    justify-content: center;
-    padding: 20px;">
-        <div
-            style=" max-width: 90%;
-        width: 100%;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-top: 20px;
-        margin-bottom: 20px;">
-            <div style="text-align: center;
-            margin-bottom: 20px;">
-                <img src="{{ asset('img/logo/logo.png') }}" style=" width: 150px;
-                height: 150px;"
-                    alt="Logo">
-            </div>
-
-            <div
-                style=" background-color: rgba(255, 255, 255, 0.842);
-            border-radius: 10px;
-            margin-bottom: 20px;
-            padding: 20px;">
-                <h1 style="color: blueviolet;">Cod-Lección: {{ $lesson->id }}</h1>
-                <p style="font-size: 18px;">¡Nombre de la lección, {{ $lesson->name }}!</p>
-                <p style="font-size: 18px;">¡Nombre de la sección: {{ $section->name }}!</p>
-                <p style="font-size: 18px;">¡Nombre del Curso, {{ $course->title }}!</p>
-            </div>
-
-            <div
-                style=" margin-top: 20px;
-            background-color: rgba(255, 255, 255, 0.842);
-            border-radius: 10px;
-            padding: 20px;">
-                <h2 style="color: blueviolet;
-                font-size: 20px;">Soporte</h2>
-                <ul style="list-style: none;
-                padding: 0;
-                margin: 0;">
-                    <li style="margin-bottom: 5px;"><a target="_bank"
-                            href="https://www.linkedin.com/in/anthony-eduardo-nu%C3%B1ez-canchari-05b1371a0/">+51 924
-                            080 517<i class='bx bxl-linkedin-square tamanio-icon' style='color:#2229c7'></i></a></li>
-                    <li style="margin-bottom: 5px;"><i class='bx bxl-whatsapp tamanio-icon'
-                            style='color:#26c942'></i>preunicursos@gmail.com</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<body style="font-family: Arial, sans-serif; background-color: #f1eff1e0; margin: 0; padding: 0;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" border="0"
+                    style="width: 100%; max-width: 600px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 20px;">
+                    <tr>
+                        <td align="center" style="padding-bottom: 20px;">
+                            <img src="{{ asset('img/logo/logo.png') }}" alt="Logo" width="150" height="150"
+                                style="display: block;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="background-color: rgba(255,255,255,0.842); border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                            <h1 style="color: #f07613; margin-top: 0;">Cod-Lección: {{ $lesson->id }}</h1>
+                            <p style="font-size: 18px; margin: 5px 0;">Nombre de la lección: {{ $lesson->name }}</p>
+                            <p style="font-size: 18px; margin: 5px 0;">Nombre de la sección: {{ $section->name }}</p>
+                            <p style="font-size: 18px; margin: 5px 0;">Nombre del Curso: {{ $course->title }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: rgba(255,255,255,0.842); border-radius: 10px; padding: 20px;">
+                            <h2 style="color: #f07613; font-size: 20px; margin-top: 0;">Soporte</h2>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 5px;">
+                                    <a href="https://www.linkedin.com/in/anthony-eduardo-nu%C3%B1ez-canchari-05b1371a0/"
+                                        target="_blank" style="color: #f07613; text-decoration: none;">
+                                        +51 924 080 517
+                                    </a>
+                                </li>
+                                <li style="margin-bottom: 5px; color: #26c942;">preunicursos@gmail.com</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>

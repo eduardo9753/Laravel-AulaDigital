@@ -69,19 +69,17 @@
 
                         <figure class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
-                                <img style="width: 15px;height: 15px;"
-                                    src="https://cdn-icons-png.flaticon.com/512/560/560277.png" alt="">
+                                <small>Por:
+                                    <strong
+                                        style="display: inline-block; width: 25px; height: 25px; background-color: orange; color: white; border-radius: 50%; text-align: center; line-height: 25px; font-weight: bold;">
+                                        {{ strtoupper(substr($review->user->name, 0, 1)) }}
+                                    </strong>
+                                </small>
 
-                                <p class="pr-2"><b>{{ $review->user->name }}</b>
-                                </p>
+                                <div>{{ $review->created_at->diffForHumans() }}</div>
                             </div>
 
                             <p class="pr-2">{{ $review->rating }}<i class='bx bxs-star' style='color:#da920f'></i>
-                                @if ($review->created_at)
-                                    - <strong>{{ $review->created_at->diffForHumans() }}</strong>
-                                @else
-                                    <strong>(Fecha no disponible)</strong>
-                                @endif
                             </p>
                         </figure>
 

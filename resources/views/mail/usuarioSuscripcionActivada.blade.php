@@ -36,7 +36,7 @@ margin: 20px;">
             border-radius: 10px;
             margin-bottom: 20px;
             padding: 20px;">
-                <h1 style="color: blueviolet;">{{ $user->name }}</h1>
+                <h1 style="color: #f07613;">{{ $user->name }}</h1>
                 <p style="font-size: 18px;">¡Gracias por suscribirte con nosotros, {{ $user->email }}!</p>
                 <p style="font-size: 18px;">Nos llena de alegría verte suscrito a nuestra plataforma educativa en línea!
                     Ahora tendrás acceso completo a todas nuestras lecciones, exámenes y recursos educativos. Estamos
@@ -44,7 +44,7 @@ margin: 20px;">
 
                     Recuerda que estamos aquí para ayudarte en todo momento. Si tienes alguna pregunta o necesitas
                     asistencia, no dudes en ponerte en contacto con nosotros a través de correo electrónico en
-                    <strong>academico2023edu@gmail.com</strong>.
+                    <strong>preunicursos@gmail.com</strong>.
 
                     ¡Bienvenido a bordo y que disfrutes al máximo de tu experiencia educativa con nosotros!
                 </p>
@@ -56,7 +56,7 @@ margin: 20px;">
             background-color: rgba(255, 255, 255, 0.842);
             border-radius: 10px;
             padding: 20px;">
-                <h2 style="color: blueviolet;
+                <h2 style="color: #f07613;
                 font-size: 20px;">Soporte</h2>
                 <ul style="list-style: none;
                 padding: 0;

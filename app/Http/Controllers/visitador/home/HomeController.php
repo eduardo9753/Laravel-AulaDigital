@@ -30,9 +30,13 @@ class HomeController extends Controller
             ->whereIn('resourceable_id', $courseIds)
             ->get();
 
+        //CURSOS GRATIS    
+        $coursesFree = Course::where('status', '=', 3)->whereIn('id', [22, 12, 14, 17])->get(); //LISTA DE CURSOS GRATIS
+
         //para mostrarlo de forma ascendente "de las mas actualizada y que me traiga solo 8"
         $courses = Course::where('status', '=', 3)->latest('id')->take(16)->get();
         return view('visitador.home.index', [
+            'coursesFree' => $coursesFree,
             'courses' => $courses,
             'contenidos' => $contenidos
         ]);
