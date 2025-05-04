@@ -97,11 +97,7 @@
 
                 <div class="">
                     {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE --}}
-                    @if (auth()->check())
-                        <x-course-card :courses="$coursesFree" url="gratis"></x-course-card>
-                    @else
-                        <x-course-card :courses="$courses" url="premium"></x-course-card>
-                    @endif
+                    <x-course-card :courses="$coursesFree" url="gratis"></x-course-card>
                 </div>
             </section>
 
@@ -110,8 +106,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h5 class="text-dark color-general" >Beneficios</h5>
-                            <h3 class="font-weight mb-5 color-general" >en PreuniCursos</h3>
+                            <h5 class="text-dark color-general">Beneficios</h5>
+                            <h3 class="font-weight mb-5 color-general">en PreuniCursos</h3>
                         </div>
                     </div>
                     <div class="row" data-aos="fade-up">
@@ -295,7 +291,7 @@
                             </p>
                             <div class="d-flex justify-content-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="mb-0 text-dark" >Material de estudio y exámenes</p>
+                                <p class="mb-0 text-dark">Material de estudio y exámenes</p>
                             </div>
                             <div class="d-flex justify-content-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
@@ -303,7 +299,8 @@
                             </div>
                             <div class="d-flex justify-content-start">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="mb-0 text-dark">Actualización constante de la plataforma para mejorar tus estudios.</p>
+                                <p class="mb-0 text-dark">Actualización constante de la plataforma para mejorar tus
+                                    estudios.</p>
                             </div>
                         </div>
                         <div class="col-sm-6 text-right" data-aos="flip-left" data-aos-easing="ease-out-cubic"
