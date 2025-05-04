@@ -40,9 +40,17 @@
         </a>
     </li>
     <li class="item">
+        <a href="{{ route('visitador.graficos.index') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bx-bar-chart-alt-2 bx-tada'></i>
+                <span>Mi Seguimiento</span>
+            </div>
+        </a>
+    </li>
+    <li class="item">
         <a href="{{ route('visitador.post.index') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-book-bookmark'></i>
+                <i class='bx bx-message-dots bx-burst'></i>
                 <span>Publicaciones</span>
             </div>
         </a>

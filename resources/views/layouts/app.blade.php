@@ -19,6 +19,9 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+    <!-- Agrega Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     {{-- links css mapa leaflet --}}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -139,7 +142,7 @@
     <script src="{{ asset('js/home/jquery.flipster.min.js') }}"></script>
     <script src="{{ asset('js/home/template.js') }}"></script>
 
-    <script src="{{ asset('js/mercadopagoSuscripcion.js') }}"></script> 
+    <script src="{{ asset('js/mercadopagoSuscripcion.js') }}"></script>
     <!--<script src="{{ asset('js/mercadopagoSuscripcionSchool.js') }}"></script> -->
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

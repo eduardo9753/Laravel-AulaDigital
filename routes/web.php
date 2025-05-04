@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\auth\SocialFacebookAuthController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\plan\PlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\visitador\charts\ChartsController;
 use App\Http\Controllers\visitador\post\PostController;
 use App\Http\Controllers\visitador\compendium\CompendiumController;
 use App\Http\Controllers\visitador\contact\ContactController;
@@ -120,6 +121,10 @@ Route::get('/plan/pasos/video/suscription', [PlanController::class, 'show'])->na
 Route::get('/compemdios', [CompendiumController::class, 'index'])->name('visitador.compendio.index');
 Route::get('/compemdios/show/{archive}', [CompendiumController::class, 'show'])->name('visitador.compendio.show');
 
+
+//RUTA DE LOS GRAFICOS
+Route::get('/graficos/index', [ChartsController::class , 'index'])->name('visitador.graficos.index');
+Route::get('/graficos/data', [ChartsController::class , 'dataChart'])->name('visitador.graficos.dataChart');
 
 //TERMINOS Y CONDICIONES
 Route::get('/preunicursos/terminos-y-condiciones', [ConditionController::class, 'index'])->name('visitador.condition.index');

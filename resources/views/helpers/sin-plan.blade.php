@@ -1,5 +1,4 @@
 @can('notSubscription', auth()->user())
-  
     <li class="item">
         <a href="{{ route('visitador.course.index') }}">
             <div class="d-flex align-items-center gap-1">
@@ -51,7 +50,7 @@
     <li class="item">
         <a href="{{ route('visitador.post.index') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-book-bookmark'></i>
+                <i class='bx bx-message-dots bx-burst'></i>
                 <span>Publicaciones</span>
             </div>
         </a>
