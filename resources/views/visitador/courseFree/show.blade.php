@@ -88,8 +88,9 @@
                         @foreach ($course->sections as $section)
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading{{ $section->id }}">
-                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#{{ $section->id }}"
+                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
+                                        style="color: #f07613 !important;" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#{{ $section->id }}"
                                         aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
                                         aria-controls="{{ $section->id }}">
                                         {{ $section->name }}
