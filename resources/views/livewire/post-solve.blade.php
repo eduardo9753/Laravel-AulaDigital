@@ -2,10 +2,6 @@
 
     <div class="mi-card mt-2">
         <div class="mi-card-content">
-            <div>
-                <a class="mi-boton amarillo btn-sm" href="{{ route('visitador.resolve.index', ['post' => $post]) }}">Resolver Pregunta</a>
-            </div>
-            <hr>
 
             <div class="d-flex justify-content-between align-items-center">
                 <small>Por:
@@ -47,9 +43,9 @@
             {{-- COMPONENTE LIVEWIRE DE REACCIONES --}}
 
 
-            {{-- COMPONENTE LIVEWIRE DE COMMENTS-MULTIPLES --}}
-            @livewire('comments', ['post' => $post], key('comments-' . $post->id))
-            {{-- COMPONENTE LIVEWIRE DE COMMENTS-MULTIPLES --}}
+            {{-- PIZARRA PARA PODER RESOLVER EL PROBLEMA --}}
+
+            {{-- PIZARRA PARA PODER RESOLVER EL PROBLEMA --}}
         </div>
     </div>
 </div>

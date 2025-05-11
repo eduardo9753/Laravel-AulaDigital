@@ -33,16 +33,17 @@
                                 <small>- <strong>{{ $comment->created_at->diffForHumans() }}</strong></small>
                             </div>
                             <button wire:click='setParentComment({{ $comment->id }})'
-                                class="btn btn-outline-success btn-sm">Responder</button>
+                                class="mi-boton amarillo btn-sm">Responder</button>
                         </div>
 
                         <div class="d-flex align-items-center">
                             <i class='bx bx-comment-dots bx-tada' style='color:#da920f'></i>
-                            <p><strong>{{ $comment->content }}</strong> </p>
+                            <p style="padding-left: 7px"><strong>{{ $comment->content }}</strong> </p>
                         </div>
 
                         {{-- COMPONENTE DE REACTIONS PARA LOS COMENTARIOS GENERALES --}}
                         @livewire('reactions', ['commentId' => $comment->id], key($comment->id))
+                        <hr>
                         {{-- COMPONENTE DE REACTIONS PARA LOS COMENTARIOS GENERALES --}}
 
 

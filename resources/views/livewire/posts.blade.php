@@ -3,7 +3,7 @@
         <div class="mi-card mt-2">
             <div class="mi-card-content">
                 <div class="d-flex justify-content-between align-items-center">
-                    <small>Por: 
+                    <small>Por:
                         <strong
                             style="display: inline-block; width: 25px; height: 25px; background-color: orange; color: white; border-radius: 50%; text-align: center; line-height: 25px; font-weight: bold;">
                             {{ strtoupper(substr($post->user->name, 0, 1)) }}
@@ -31,10 +31,12 @@
                     @endif
                 </a>
 
+                {{-- COMPONETE LIVEWIRE DE REACCIONES --}}
                 <div class="d-flex justify-content-between align-items-center mt-2">
                     @livewire('reactions', ['postId' => $post->id], key($post->id))
                     <p class="text-bold"><strong>{{ $post->created_at->diffForHumans() }}</strong></p>
                 </div>
+                {{-- COMPONENTE LIVEWIRE DE REACCIONES --}}
             </div>
         </div>
     @endforeach

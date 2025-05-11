@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\auth\SocialFacebookAuthController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\plan\PlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\visitador\bot\BotController;
 use App\Http\Controllers\visitador\charts\ChartsController;
 use App\Http\Controllers\visitador\post\PostController;
 use App\Http\Controllers\visitador\compendium\CompendiumController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\visitador\examResponder\ExamFreeResponder;
 use App\Http\Controllers\visitador\examResponder\ExamResponderController;
 use App\Http\Controllers\visitador\home\HomeController;
 use App\Http\Controllers\visitador\read\ReadController;
+use App\Http\Controllers\visitador\solve\SolveController;
 use App\Http\Controllers\visitador\testimonial\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
@@ -135,6 +137,12 @@ Route::post('/alerta/link/caida/administrador', [CourseController::class, 'alert
 //RUTA PARA LAS PUBLICACIOPNES
 Route::get('/post/comunidad/estudiantes', [PostController::class, 'index'])->name('visitador.post.index');
 Route::get('/post/comunidad/comment/{post}', [PostController::class, 'comment'])->name('visitador.post.comment');
+
+//RUTA PARA RESOLVER EL EXAMEN
+Route::get('/post/resolve/{post}', [SolveController::class , 'index'])->name('visitador.resolve.index');
+
+//RUTA DEL CHAT BOT
+Route::get('/bot/user/meesage', [BotController::class , 'index'])->name('visitador.bot.index');
 
 //RUTAS PARA EL ADMIN
 require base_path('routes/admin.php');
