@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\read\ReadController;
 use App\Http\Controllers\admin\resource\ResourceController;
 use App\Http\Controllers\admin\role\RoleController;
 use App\Http\Controllers\admin\user\UserController;
+use App\Http\Controllers\admin\whatsapp\WhatsAppController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -55,3 +56,8 @@ Route::post('/admin/post/store', [PostController::class, 'store'])->name('admin.
 Route::get('/admin/post/list', [PostController::class, 'list'])->name('admin.posts.list');
 Route::get('/admin/post/show/{post}', [PostController::class, 'show'])->name('admin.posts.show');
 Route::put('/admin/post/update/{post}', [PostController::class , 'update'])->name('admin.posts.update');
+
+
+//ruta para mandar mensajes de whasap
+Route::get('/admin/whatsapp/index', [WhatsAppController::class , 'index'])->name('admin.whatsapp.index');
+Route::post('/admin/whatsapp/send', [WhatsAppController::class , 'send'])->name('admin.whatsapp.send');

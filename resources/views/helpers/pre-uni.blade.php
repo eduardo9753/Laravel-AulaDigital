@@ -56,6 +56,15 @@
         </a>
     </li>
     <li class="item">
+        <a href="{{ route('visitador.bot.index') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bx-bot bx-burst'></i>
+                <span>Bot PreuniCursos</span>
+            </div>
+        </a>
+    </li>
+
+    <li class="item">
         <a href="{{ route('profile.index', ['user' => auth()->user()]) }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-user-rectangle'></i>
