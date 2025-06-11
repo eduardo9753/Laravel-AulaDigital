@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class WhatsAppsSchedule extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'phone',
+        'day',
+        'time'
+    ];
 }
