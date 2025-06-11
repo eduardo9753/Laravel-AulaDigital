@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Twilio;
 use App\Http\Controllers\Controller;
 use App\Models\Question;
 use App\Models\WhatsAppsSchedule;
+use App\Models\WhatsAppsUserQuestionSchedule;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Log;
@@ -37,12 +38,17 @@ class WhatsAppWebHookController extends Controller
 
             if ($schedule->day && $schedule->time) {
                 $question = Question::inRandomOrder()->first();
-                //dd($question);
                 $answers = $question->answers;
-                //dd($answers);
+
+                //guardar la pregunta que se manddo al usuario
+                WhatsAppsUserQuestionSchedule::updateOrCreate(
+                    ['phone' => $fromNumber],
+                    ['question_id' => $question->id]
+                );
+
                 $mensaje = "🧠 *Pregunta del día:*\n";
                 $mensaje .= "{$question->titulo}\n\n";
-                //dd('Pregunta: ', $mensaje);
+
                 //lista respuestas
                 foreach ($answers as $index => $answer) {
                     $mensaje .= ($index + 1) . "." . $answer->titulo . "\n";
@@ -51,7 +57,37 @@ class WhatsAppWebHookController extends Controller
             } else {
                 $mensaje = "⚠️ Antes de comenzar, por favor escribe *hola* para registrar tu día y hora preferidos.";
             }
+        } elseif (preg_match('/^[1-5]$/', $body)) {
+            $registro = WhatsAppsUserQuestionSchedule::where('phone', $fromNumber)->first();
 
+            if ($registro && $registro->question_id) {
+                $question = Question::find($registro->question_id);
+
+                if ($question) {
+                    $answers = $question->answers;
+                    $respuestaUsuario = intval($body) - 1; //incide del array
+                    $respuestaSeleccionada = $answers[$respuestaUsuario] ?? null;
+
+                    if ($respuestaSeleccionada) {
+                        if ($respuestaSeleccionada->es_correcta) {
+                            $mensaje = "✅ ¡Correcto! 🎉\nHas elegido la opción correcta.";
+                        } else {
+                            $respuestaCorrecta = $answers->firstWhere('es_correcta', true);
+                            $indexCorrecto = $answers->search($respuestaCorrecta) + 1;
+                            $mensaje = "❌ Incorrecto.\nLa respuesta correcta era:\n{$indexCorrecto}. {$respuestaCorrecta->titulo}";
+                        }
+
+                        //eliminar registro para que no se reutilice la misma pregunta
+                        $registro->delete();
+                    } else {
+                        $mensaje = "⚠️ Opción no válida. Responde con un número entre 1 y " . count($answers) . ".";
+                    }
+                } else {
+                    $mensaje = "⚠️ No se pudo encontrar la pregunta anterior. Escribe *pregúntame* para recibir una nueva.";
+                }
+            } else {
+                $mensaje = "⚠️ No hay ninguna pregunta activa para ti. Escribe *pregúntame* para comenzar.";
+            }
             //si dice "hola" y tiene todo sus datos le mandamos a escribir "preguntame"
         } elseif ($body === 'hola' && $schedule->day && $schedule->time) {
             $mensaje = "👋 ¡Hola {$schedule->phone}! Bienvenido/a nuevamente al entrenamiento médico.\n\nTus datos ya están guardados. Escribe *pregúntame* para comenzar.";
@@ -95,6 +131,7 @@ class WhatsAppWebHookController extends Controller
         Log::info("Mensaje de bienvenida enviado a $from");
     }
 
+    //BUSCANDO LAS PREGUNTAS CON SUS RESPUESTAS
     public function questions()
     {
         $question = Question::inRandomOrder()->first();
