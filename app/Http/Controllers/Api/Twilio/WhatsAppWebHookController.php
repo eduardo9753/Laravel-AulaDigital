@@ -77,10 +77,20 @@ class WhatsAppWebHookController extends Controller
         }
 
         //dispara el mensaje
-        $twilio->messages->create($from, [
-            'from' => $fromTwilio,
-            'body' => $mensaje
-        ]);
+        if (strlen($mensaje) > 1500) {
+            $partes = str_split($mensaje, 1500);
+            foreach ($partes as $parte) {
+                $twilio->messages->create($from, [
+                    'from' => $fromTwilio,
+                    'body' => $parte
+                ]);
+            }
+        } else {
+            $twilio->messages->create($from, [
+                'from' => $fromTwilio,
+                'body' => $mensaje
+            ]);
+        }
 
         Log::info("Mensaje de bienvenida enviado a $from");
     }
