@@ -143,7 +143,6 @@ Route::get('/post/resolve/{post}', [SolveController::class , 'index'])->name('vi
 
 //RUTA DEL CHAT BOT
 Route::get('/bot/user/meesage', [BotController::class , 'index'])->name('visitador.bot.index');
-Route::get('/bot/test-read-pdf', [BotController::class , 'readBook'])->name('visitador.bot.read');
 
 
 //RUTAS PARA EL ADMIN

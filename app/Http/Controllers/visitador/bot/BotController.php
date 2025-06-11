@@ -4,7 +4,6 @@ namespace App\Http\Controllers\visitador\bot;
 
 use App\Http\Controllers\Controller;
 use Smalot\PdfParser\Parser;
-use Illuminate\Http\Request;
 
 class BotController extends Controller
 {
