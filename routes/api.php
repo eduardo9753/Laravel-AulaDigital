@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //PRUEBAS AUTOMATICAS EN TWILIO
 Route::post('/webhook/whatsapp', [WhatsAppWebHookController::class, 'handle'])->name('webhook.twilio');
+
+Route::get('/webhook/whatsapp/questions', [WhatsAppWebHookController::class, 'questions'])->name('webhook.questions');

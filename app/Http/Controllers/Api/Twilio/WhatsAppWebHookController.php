@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Twilio;
 
 use App\Http\Controllers\Controller;
+use App\Models\Question;
 use App\Models\WhatsAppsSchedule;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
@@ -31,11 +32,31 @@ class WhatsAppWebHookController extends Controller
         //detectar si ya tenemos registro
         $schedule = WhatsAppsSchedule::firstOrCreate(['phone' => $fromNumber]);
 
-        //si dice "hola" le respondemos esto
-        if (preg_match('/^hola+$/', $body)) {
-            $mensaje = "👋 ¡Hola! Bienvenido/a al entrenamiento médico. 
-                            Por favor responde con un *día de la semana* 
-                            (ej: martes) en que desees recibir tus preguntas.";
+        //test para enviar la pregunta y esta sus datos guardado en la base de datos
+        if ($body === 'pregúntame' || $body === 'preguntame') {
+
+            if ($schedule->day && $schedule->time) {
+                $question = Question::inRandomOrder()->first();
+                //dd($question);
+                $answers = $question->answers;
+                //dd($answers);
+                $mensaje = "🧠 *Pregunta del día:*\n";
+                $mensaje .= "{$question->titulo}\n\n";
+                //dd('Pregunta: ', $mensaje);
+                //lista respuestas
+                foreach ($answers as $index => $answer) {
+                    $mensaje .= ($index + 1) . "." . $answer->titulo . "\n";
+                }
+                $mensaje .= "\n📩 Responde con el número de la opción correcta (1-" . count($answers) . ")";
+            } else {
+                $mensaje = "⚠️ Antes de comenzar, por favor escribe *hola* para registrar tu día y hora preferidos.";
+            }
+
+            //si dice "hola" y tiene todo sus datos le mandamos a escribir "preguntame"
+        } elseif ($body === 'hola' && $schedule->day && $schedule->time) {
+            $mensaje = "👋 ¡Hola {$schedule->phone}! Bienvenido/a nuevamente al entrenamiento médico.\n\nTus datos ya están guardados. Escribe *pregúntame* para comenzar.";
+        } elseif ($body === 'hola') {
+            $mensaje = "👋 ¡Hola! Bienvenido/a al entrenamiento médico.\n\nPor favor responde con un *día de la semana* (ej: martes) en que desees recibir tus preguntas.";
 
             //pasa al siguiente validamos que no tenga dia registrada , cuando el usuario pone el dia validamos y guardamos                
         } elseif (!$schedule->day && in_array($body, ['lunes', 'martes', 'miércoles', 'miercoles', 'jueves', 'viernes', 'sábado', 'sabado', 'domingo'])) {
@@ -55,11 +76,31 @@ class WhatsAppWebHookController extends Controller
             $mensaje = "⚠️ Por favor escribe 'hola' para comenzar, o sigue las instrucciones.";
         }
 
+        //dispara el mensaje
         $twilio->messages->create($from, [
             'from' => $fromTwilio,
             'body' => $mensaje
         ]);
 
         Log::info("Mensaje de bienvenida enviado a $from");
+    }
+
+    public function questions()
+    {
+        $question = Question::inRandomOrder()->first();
+        //dd($question);
+        $answers = $question->answers;
+        //dd($answers);
+        $mensaje = "Pregunta del día: \n";
+        $mensaje .= $question->titulo . "\n\n";
+
+        //dd('Pregunta: ', $mensaje);
+        //lista respuestas
+        foreach ($answers as $index => $answer) {
+            $mensaje .= ($index + 1) . "." . $answer->titulo . "\n";
+        }
+
+        //qui guarda la lista del recorrido
+        echo $mensaje .= "\n📩 Responde con el número de la opción correcta (1-5)";
     }
 }
