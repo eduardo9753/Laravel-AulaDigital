@@ -203,7 +203,7 @@
                                 {{-- POLICY PARA VERIFICAR SI YA ESTOY MATRICULADO EN EL CURSO --}}
                                 @auth
                                     {{-- VERIFICAMOS SI TIENE UNA SUSCRIPCION --}}
-                                    @can('viewSubscription', auth()->user())
+                                    @canany(['viewSubscription', 'viewSubscriptionSixMonth'], auth()->user())
                                         {{-- Aquí verificamos la suscripción regular --}}
                                         {{-- VERIFICAMOS SI ESTA MATRICULADO EN EL CURSO QUE ESTA VIENDO --}}
                                         @can('enrolled', $course)
@@ -246,7 +246,7 @@
                                                     AHORA</button>
                                             </form>
                                         @endCan
-                                    @endcan
+                                    @endcanany
                                 @endauth
 
                                 @guest

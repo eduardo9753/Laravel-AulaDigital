@@ -5,7 +5,7 @@
             <h3 class="color-general">Reseñas <small>({{ $course->reviews->count() }})</small> </h3>
 
             <div style="max-height: 300px; overflow-y: auto;">
-                @can('viewSubscription', auth()->user())
+                @canany(['viewSubscription', 'viewSubscriptionSixMonth'], auth()->user())
                     @can('enrolled', $course)
                         <article class="my-3">
                             @can('valued', $course)
@@ -60,7 +60,7 @@
                         <strong>Hola!</strong> ¡Inscríbete en el curso y comparte tu opinión! 😊.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                @endcan
+                @endcanany
 
 
 

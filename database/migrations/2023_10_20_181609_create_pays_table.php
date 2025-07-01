@@ -35,6 +35,9 @@ class CreatePaysTable extends Migration
             $table->string('merchant_account_id')->nullable();
             $table->string('estado')->nullable();
 
+            $table->date('date_start')->nullable();
+            $table->date('date_end')->nullable();
+
             $table->timestamps();
         });
     }

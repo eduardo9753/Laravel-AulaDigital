@@ -31,6 +31,17 @@ class UserSubscriptionPolicy
         return $subscription ? true : false;
     }
 
+    //SUSCRIPCION DE 6 MESES
+    public function viewSubscriptionSixMonth(User $user)
+    {
+        $subscription = Pay::where('user_id', $user->id)
+            ->where('collection_status', 'PLAN-SEIS-MESES')
+            ->where('estado', 'SUSCRITO')
+            ->first();
+
+        return $subscription ? true : false;
+    }
+
     //SUSCRIPCION UNIVERSITARIO
     public function viewSubscriptionUniversitario(User $user)
     {

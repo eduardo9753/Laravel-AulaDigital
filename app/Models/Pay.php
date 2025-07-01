@@ -24,5 +24,7 @@ class Pay extends Model
         'processing_mode',
         'merchant_account_id',
         'estado',
+        'date_start',
+        'date_end'
     ];
 }

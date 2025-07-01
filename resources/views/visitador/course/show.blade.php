@@ -203,7 +203,7 @@
                                 {{-- POLICY PARA VERIFICAR SI YA ESTOY MATRICULADO EN EL CURSO --}}
                                 @auth
                                     {{-- VERIFICAMOS SI TIENE UNA SUSCRIPCION --}}
-                                    @can('viewSubscription', auth()->user())
+                                    @canany(['viewSubscription', 'viewSubscriptionSixMonth'], auth()->user())
                                         {{-- Aquí verificamos la suscripción regular --}}
                                         {{-- VERIFICAMOS SI ESTA MATRICULADO EN EL CURSO QUE ESTA VIENDO --}}
                                         @can('enrolled', $course)
@@ -234,7 +234,7 @@
                                     @else
                                         <a href="{{ route('mercadopago.suscription.subscribe') }}"
                                             class="btn-solid-sm p-4 text-center mt-3 w-100">SUSCRIBETE Y ACCEDE</a>
-                                    @endcan
+                                    @endcanany
                                 @endauth
 
                                 @guest
