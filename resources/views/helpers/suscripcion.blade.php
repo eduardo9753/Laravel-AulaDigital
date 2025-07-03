@@ -220,7 +220,7 @@
                         @canany(['viewSubscription', 'viewSubscriptionSixMonth', 'viewSubscriptionYear'], auth()->user())
                             <i class='bx bx-star bx-tada mt-3' style="font-size: 38px; color: #ffffff"></i>
                         @else
-                            <form action="{{ route('mercadopago.suscription.six.index') }}" id="form-suscription-doce-meses"
+                            <form action="{{ route('mercadopago.suscription.year.index') }}" id="form-suscription-doce-meses"
                                 method="POST">
                                 @csrf
                                 <input type="submit" class="btn-solid-sm p-4 mt-3 w-100 text-white"
