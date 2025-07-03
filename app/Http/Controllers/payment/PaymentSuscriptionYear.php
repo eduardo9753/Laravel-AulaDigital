@@ -98,7 +98,7 @@ class PaymentSuscriptionYear extends Controller
                 'merchant_account_id' => $request->merchant_account_id?? '',
                 'estado' => 'SUSCRITO',
                 'date_start' => Carbon::now()->toDateString(),
-                'date_end' => Carbon::now()->addMonths(6)->toDateString(),
+                'date_end' => Carbon::now()->addMonths(12)->toDateString(),
             ]);
 
             if ($pay) {
