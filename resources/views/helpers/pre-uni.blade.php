@@ -1,4 +1,4 @@
-@can('viewSubscription', auth()->user())
+@canany(['viewSubscription', 'viewSubscriptionSixMonth', 'viewSubscriptionYear'], auth()->user())
     <li class="item">
         <a href="{{ route('visitador.course.index') }}">
             <div class="d-flex align-items-center gap-1">
@@ -87,4 +87,4 @@
             <input type="submit" class="mi-boton general mt-2 w-100 btn-rounded" value="Salir">
         </form>
     </li>
-@endcan
+@endcanany
