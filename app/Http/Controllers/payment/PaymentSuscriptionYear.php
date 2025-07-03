@@ -80,7 +80,7 @@ class PaymentSuscriptionYear extends Controller
 
     public function success(Request $request)
     {
-        Log::info('payment Received seis meses:', $request->all());
+        Log::info('payment Received 12 meses:', $request->all());
 
         if (isset($request->preapproval_id)) {
             $pay = Pay::create([
