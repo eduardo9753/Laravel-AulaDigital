@@ -5,7 +5,7 @@
             <h3 class="color-general">Reseñas <small>({{ $course->reviews->count() }})</small> </h3>
 
             <div style="max-height: 300px; overflow-y: auto;">
-                @canany(['viewSubscription', 'viewSubscriptionSixMonth'], auth()->user())
+                @canany(['viewSubscription', 'viewSubscriptionSixMonth', 'viewSubscriptionYear'], auth()->user())
                     @can('enrolled', $course)
                         <article class="my-3">
                             @can('valued', $course)

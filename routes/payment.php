@@ -5,6 +5,7 @@ use App\Http\Controllers\payment\PaymentSixMonth;
 use App\Http\Controllers\payment\PaymentSuscriptionController;
 use App\Http\Controllers\payment\PaymentSuscriptionEscolarController;
 use App\Http\Controllers\payment\PaymentSuscriptionWebHookController;
+use App\Http\Controllers\payment\PaymentSuscriptionYear;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,6 +32,12 @@ Route::post('/mercadopago/suscription/academico-premium/seis-meses', [PaymentSix
 Route::get('/mercadopago/suscription/academico-premium/seis-meses/success', [PaymentSixMonth::class, 'success'])->name('mercadopago.suscription.six.success');
 Route::get('/mercadopago/suscription/academico-premium/seis-meses/failure', [PaymentSixMonth::class, 'failure'])->name('mercadopago.suscription.six.failure');
 Route::get('/mercadopago/suscription/academico-premium/seis-meses/pending', [PaymentSixMonth::class, 'pending'])->name('mercadopago.suscription.six.pending');
+
+//PAGO POR 12 MESES PARA PREUNICURSOS
+Route::post('/mercadopago/suscription/academico-premium/anual-meses', [PaymentSuscriptionYear::class, 'suscription'])->name('mercadopago.suscription.year.index');
+Route::get('/mercadopago/suscription/academico-premium/anual-meses/success', [PaymentSuscriptionYear::class, 'success'])->name('mercadopago.suscription.year.success');
+Route::get('/mercadopago/suscription/academico-premium/anual-meses/failure', [PaymentSuscriptionYear::class, 'failure'])->name('mercadopago.suscription.year.failure');
+Route::get('/mercadopago/suscription/academico-premium/anual-meses/pending', [PaymentSuscriptionYear::class, 'pending'])->name('mercadopago.suscription.year.pending');
 
 
 /*RUTAS PARA SUSCRIPTION CON MERCADOPAGO PLAN ESCOLAR

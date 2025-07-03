@@ -203,7 +203,8 @@
                                 {{-- POLICY PARA VERIFICAR SI YA ESTOY MATRICULADO EN EL CURSO --}}
                                 @auth
                                     {{-- VERIFICAMOS SI TIENE UNA SUSCRIPCION --}}
-                                    @canany(['viewSubscription', 'viewSubscriptionSixMonth'], auth()->user())
+                                    @canany(['viewSubscription', 'viewSubscriptionSixMonth', 'viewSubscriptionYear'],
+                                        auth()->user())
                                         {{-- Aquí verificamos la suscripción regular --}}
                                         {{-- VERIFICAMOS SI ESTA MATRICULADO EN EL CURSO QUE ESTA VIENDO --}}
                                         @can('enrolled', $course)

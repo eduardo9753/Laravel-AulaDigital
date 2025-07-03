@@ -142,10 +142,11 @@
     <script src="{{ asset('js/home/jquery.flipster.min.js') }}"></script>
     <script src="{{ asset('js/home/template.js') }}"></script>
 
-    
+
     <script src="{{ asset('js/mercadopagoSuscripcion.js') }}"></script>
-     <script src="{{ asset('js/mercadopagoSuscripcionSeisMeses.js') }}"></script>
-    <!--<script src="{{ asset('js/mercadopagoSuscripcionSchool.js') }}"></script> -->
+    <script src="{{ asset('js/mercadopagoSuscripcionSeisMeses.js') }}"></script>
+    <script src="{{ asset('js/mercadopagoSuscripcionSeisMeses.js') }}"></script>
+    <!--<script src="{{ asset('js/mercadopagoSuscripcionaAnual.js') }}"></script> -->
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
