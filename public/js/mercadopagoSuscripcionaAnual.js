@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    $('#form-suscription-anual').on('submit', function (e) {
+    $('#form-suscription-doce-meses').on('submit', function (e) {
         e.preventDefault(); // Previene el envío tradicional del formulario.
 
         var form = this; // Referencia al formulario.
