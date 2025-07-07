@@ -83,23 +83,23 @@ class PaymentSixMonth extends Controller
     {
         Log::info('payment Received seis meses:', $request->all());
 
-        if (isset($request->preapproval_id)) {
+        if (isset($request->collection_id)) {
             $pay = Pay::create([
                 'user_id' => auth()->user()->id,
                 'collection_id' => $request->collection_id ?? '',
-                'collection_status' => 'PLAN-SEIS-MESES',
-                'payment_id' => $request->preapproval_id ?? '',
+                'collection_status' => 'PLAN-DOCE-MESES',
+                'payment_id' => $request->payment_id ?? '',
                 'status' => 'PAGO SUSCRIPCION',
-                'external_reference' =>  $request->external_reference?? '',
-                'payment_type' => 'TARJETA',
-                'merchant_order_id' => $request->merchant_order_id?? '',
-                'preference_id' => $request->preapproval_id?? '',
+                'external_reference' =>  $request->external_reference ?? '',
+                'payment_type' => $request->payment_type ?? '',
+                'merchant_order_id' => $request->merchant_order_id ?? '',
+                'preference_id' => $request->preference_id ?? '',
                 'site_id' => 'MPE',
                 'processing_mode' => 'ONLINE',
-                'merchant_account_id' => $request->merchant_account_id?? '',
+                'merchant_account_id' => $request->merchant_account_id ?? '',
                 'estado' => 'SUSCRITO',
                 'date_start' => Carbon::now()->toDateString(),
-                'date_end' => Carbon::now()->addMonths(6)->toDateString(),
+                'date_end' => Carbon::now()->addMonths(12)->toDateString(),
             ]);
 
             if ($pay) {
