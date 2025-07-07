@@ -59,7 +59,7 @@ class CourseController extends Controller
     //SE GUARDARA ESOS DATOS EN LA TABLA "course_user"
     $user = auth()->user();
 
-    if (Gate::allows('viewSubscription', $user)) {
+    if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
       $course->students()->attach(auth()->user()->id);
       return redirect()->route('visitador.course.status', $course);
     } else {
@@ -83,7 +83,7 @@ class CourseController extends Controller
   {
     $user = auth()->user();
 
-    if (Gate::allows('viewSubscription', $user)) {
+    if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
       $courseIds = DB::table('course_user')->where('user_id', '=', auth()->user()->id)->pluck('course_id');
       $courseUsers = Course::whereIn('id', $courseIds)->get();
       $courses = Course::where('status', '=', 3)->latest('id')->take(8)->get();
@@ -108,7 +108,7 @@ class CourseController extends Controller
     if ($lesson) {
       $section = Section::find($lesson->section_id);
       $course = Course::find($section->course_id);
-      
+
       $administradores = ['richardanthonyalama@gmail.com', 'anthony.anec@gmail.com'];
 
       Mail::to($administradores)->send(new EnviarCorreoLinkCaido($lesson, $section, $course));

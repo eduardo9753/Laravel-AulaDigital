@@ -13,7 +13,7 @@ class ChartsController extends Controller
     {
         $user = auth()->user();
 
-        if (Gate::allows('viewSubscription', $user)) {
+        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
 
             return view('visitador.chart.index');
         } else {
