@@ -87,11 +87,18 @@
                                 </form>
                             </div>
                         @else
+                            <div class="card">
+                                <div class="card-body">
+                                    <p> {{ $suscription->collection_status }} </p>
+                                </div>
+                            </div>
                             <div class="mt-3">
+                                {{--
                                 <form action="{{ route('mercadopago.suscription.school.cancel') }}" method="POST">
                                     @csrf
                                     <input type="submit" class="btn btn-outline-danger" value="Cancelar Plan">
                                 </form>
+                                --}}
                             </div>
                         @endif
 
