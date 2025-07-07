@@ -1,4 +1,6 @@
 @canany(['viewSubscription', 'viewSubscriptionSixMonth', 'viewSubscriptionYear'], auth()->user())
+    {{-- PLAN CON SUSCRIPCIÓN --}}
+
     <li class="item">
         <a href="{{ route('visitador.course.index') }}">
             <div class="d-flex align-items-center gap-1">
@@ -63,14 +65,12 @@
             </div>
         </a>
     </li>
-
     <li class="item">
         <a href="{{ route('profile.index', ['user' => auth()->user()]) }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-user-rectangle'></i>
-                <span> {{ auth()->user()->name }}</span>
+                <span>{{ auth()->user()->name }}</span>
             </div>
-
         </a>
     </li>
     <li class="item">
@@ -87,4 +87,7 @@
             <input type="submit" class="mi-boton general mt-2 w-100 btn-rounded" value="Salir">
         </form>
     </li>
+@else
+    {{-- SIN PLAN --}}
+    @include('helpers.sin-plan')
 @endcanany

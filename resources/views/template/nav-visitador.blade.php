@@ -11,8 +11,7 @@
                         {{-- PLAN ESCOLAR 
                         @include('helpers.escolar')--}}
 
-                        {{-- SIN PLAN --}}
-                        @include('helpers.sin-plan')
+                        
                     @endauth
 
                     @guest
