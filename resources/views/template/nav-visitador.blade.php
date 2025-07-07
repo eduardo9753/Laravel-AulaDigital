@@ -8,8 +8,8 @@
                         {{-- PLAN PRE UNI --}}
                         @include('helpers.pre-uni')
 
-                        {{-- PLAN ESCOLAR --}}
-                        @include('helpers.escolar')
+                        {{-- PLAN ESCOLAR 
+                        @include('helpers.escolar')--}}
 
                         {{-- SIN PLAN --}}
                         @include('helpers.sin-plan')
