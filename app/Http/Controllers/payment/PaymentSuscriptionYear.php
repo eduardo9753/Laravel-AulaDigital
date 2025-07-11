@@ -32,7 +32,7 @@ class PaymentSuscriptionYear extends Controller
             $item->title = 'PLAN-DOCE-MESES';
             $item->description = 'Pago suscripción preunicursos 12 meses';
             $item->quantity = $count;
-            $item->unit_price = 2.88; //179.88
+            $item->unit_price = 179.88; //179.88
             $count = $count + 1;
 
             $curso[] = $item;
