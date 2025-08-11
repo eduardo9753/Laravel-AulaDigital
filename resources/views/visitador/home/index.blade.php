@@ -233,7 +233,7 @@
                         </div>
                     </div>
                     <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
-                        <div class="col-md-3 text-center"> {{-- Más pequeño que col-md-4 --}}
+                        <div class="col-md-12 text-center"> {{-- Más pequeño que col-md-4 --}}
                             <div class="ratio ratio-16x9">
                                 @include('helpers.video', [
                                     'video' => asset('videos/IA.mp4'),
