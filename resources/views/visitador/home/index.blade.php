@@ -225,7 +225,7 @@
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <div>
                                     <h3 class="font-weight-medium color-general mb-3">
-                                        Suscríbete ahora y ten</h3>
+                                        Suscríbete ahora</h3>
                                     <h5 class="text-dark">Acceso ilimitado a cursos, exámenes y material educativo
                                         las 24 horas del día</h5>
                                 </div>
@@ -236,7 +236,7 @@
                         <div class="col-md-3 text-center"> {{-- Más pequeño que col-md-4 --}}
                             <div class="ratio ratio-16x9">
                                 @include('helpers.video', [
-                                    'video' => asset('videos/contenido_04.mp4'),
+                                    'video' => asset('videos/IA.mp4'),
                                 ])
                             </div>
                         </div>
