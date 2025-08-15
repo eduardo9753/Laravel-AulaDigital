@@ -101,6 +101,9 @@
                 </div>
             </section>
 
+             <!-- Ahora incluimos la vista suscripcion.blade.php -->
+            @include('helpers.suscripcion')
+
 
             <section class="our-services section-home" id="services">
                 <div class="container">
@@ -274,8 +277,7 @@
 
 
 
-            <!-- Ahora incluimos la vista suscripcion.blade.php -->
-            @include('helpers.suscripcion')
+           
 
 
             <section class="our-process section-home" id="about">

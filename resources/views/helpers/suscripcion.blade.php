@@ -48,18 +48,7 @@
                                 <span>Acceso a material educativo</span>
                             </div>
                         </li>
-                        <li class="text-white">
-                            <div class="d-flex">
-                                <i class='bx bx-check-circle' style="padding-top: 4px"></i>
-                                <span>Acceso a compendios</span>
-                            </div>
-                        </li>
-                        <li class="text-white">
-                            <div class="d-flex">
-                                <i class='bx bx-check-circle' style="padding-top: 4px; color:yellow"></i>
-                                <span style="color:yellow">Acceso a exámenes</span>
-                            </div>
-                        </li>
+
                         <li class="text-white">
                             <div class="d-flex">
                                 <i class='bx bxs-check-circle' style="padding-top: 4px"></i>
@@ -97,7 +86,10 @@
                     <div class="cube"></div>
                     <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png" style="width: 80px;height: 80px;"
                         alt="starter">
-                    <h6 class="font-weight-medium title-text text-white">Plan 6 meses</h6>
+                    <span class="ahorro-suscripcion">
+                        💰 Ahorra S/ 30
+                    </span>
+                    <h6 class="font-weight-medium title-text text-white">Plan Semestral</h6>
                     <h1 class="text-amount mb-4 mt-2 text-white">
                         S/<strong>89</strong>.<small style="font-size: 0.6em; vertical-align: super;">99</small>
                     </h1>
@@ -173,6 +165,9 @@
                     <div class="cube"></div>
                     <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png"
                         style="width: 80px;height: 80px;" alt="starter">
+                    <span class="ahorro-suscripcion">
+                        💰 Ahorra S/ 60
+                    </span>
                     <h6 class="font-weight-medium title-text text-white">Plan Anual</h6>
                     <h1 class="text-amount mb-4 mt-2 text-white">
                         S/<strong>179</strong>.<small style="font-size: 0.6em; vertical-align: super;">88</small>
@@ -203,6 +198,19 @@
                                 <span>Acceso a compendios</span>
                             </div>
                         </li>
+                         <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-news' style="padding-top: 4px"></i>
+                                <span>Acceso a Publicaciones Educativas</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-bot bx-burst' style="padding-top: 4px"></i>
+                                <span>Acceso a Bot PreuniCursos</span>
+                            </div>
+                        </li>
+
                         <li class="text-white">
                             <div class="d-flex">
                                 <i class='bx bx-check-circle' style="padding-top: 4px; color:yellow"></i>

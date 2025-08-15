@@ -33,14 +33,18 @@
             </div>
         </a>
     </li>
-    <li class="item">
-        <a href="{{ route('visitador.compendio.index') }}">
-            <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-book-bookmark'></i>
-                <span>Mis Compendios</span>
-            </div>
-        </a>
-    </li>
+
+    @canany(['viewSubscriptionSixMonth', 'viewSubscriptionYear'], auth()->user())
+        <li class="item">
+            <a href="{{ route('visitador.compendio.index') }}">
+                <div class="d-flex align-items-center gap-1">
+                    <i class='bx bxs-book-bookmark'></i>
+                    <span>Mis Compendios</span>
+                </div>
+            </a>
+        </li>
+    @endcanany
+
     <li class="item">
         <a href="{{ route('visitador.graficos.index') }}">
             <div class="d-flex align-items-center gap-1">
@@ -49,22 +53,30 @@
             </div>
         </a>
     </li>
-    <li class="item">
-        <a href="{{ route('visitador.post.index') }}">
-            <div class="d-flex align-items-center gap-1">
-                <i class='bx bx-message-dots bx-burst'></i>
-                <span>Publicaciones</span>
-            </div>
-        </a>
-    </li>
-    <li class="item">
-        <a href="{{ route('visitador.bot.index') }}">
-            <div class="d-flex align-items-center gap-1">
-                <i class='bx bx-bot bx-burst'></i>
-                <span>Bot PreuniCursos</span>
-            </div>
-        </a>
-    </li>
+
+    {{-- SOLO PARA PLAN 12 MESES --}}
+    @can('viewSubscriptionYear', auth()->user())
+        <li class="item">
+            <a href="{{ route('visitador.post.index') }}">
+                <div class="d-flex align-items-center gap-1">
+                    <i class='bx bx-message-dots bx-burst'></i>
+                    <span>Publicaciones</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="item">
+            <a href="{{ route('visitador.bot.index') }}">
+                <div class="d-flex align-items-center gap-1">
+                    <i class='bx bx-bot bx-burst'></i>
+                    <span>Bot PreuniCursos</span>
+                </div>
+            </a>
+        </li>
+    @endcan
+
+
+
     <li class="item">
         <a href="{{ route('profile.index', ['user' => auth()->user()]) }}">
             <div class="d-flex align-items-center gap-1">

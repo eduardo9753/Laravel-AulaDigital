@@ -4,13 +4,20 @@ namespace App\Http\Controllers\visitador\bot;
 
 use App\Http\Controllers\Controller;
 use Smalot\PdfParser\Parser;
+use Illuminate\Support\Facades\Gate;
 
 class BotController extends Controller
 {
     //
     public function index()
     {
-        return view('visitador.bot.index');
+        $user = auth()->user();
+        if (Gate::allows('viewSubscriptionYear', $user)) {
+            return view('visitador.bot.index');
+        } else {
+            // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
+            return redirect()->route('mercadopago.suscription.subscribe');
+        }
     }
 
     public function readBook()

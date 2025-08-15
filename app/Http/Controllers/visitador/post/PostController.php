@@ -18,17 +18,31 @@ class PostController extends Controller
     //lista de publicaciones y que le den linke o dislike
     public function index()
     {
-        return view('visitador.post.index');
+        $user = auth()->user();
+
+        if (Gate::allows('viewSubscriptionYear', $user)) {
+            return view('visitador.post.index');
+        } else {
+            // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
+            return redirect()->route('mercadopago.suscription.subscribe');
+        }
     }
 
     //para ver cada publicacion y poder comentar
     public function comment(Post $post)
     {
         //dd($post);
-        $randomPosts = Post::inRandomOrder()->limit(4)->get();
-        return view('visitador.post.comment', [
-            'post' => $post,
-            'randomPosts' => $randomPosts
-        ]);
+        $user = auth()->user();
+
+        if (Gate::allows('viewSubscriptionYear', $user)) {
+            $randomPosts = Post::inRandomOrder()->limit(4)->get();
+            return view('visitador.post.comment', [
+                'post' => $post,
+                'randomPosts' => $randomPosts
+            ]);
+        } else {
+            // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
+            return redirect()->route('mercadopago.suscription.subscribe');
+        }
     }
 }
