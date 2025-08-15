@@ -22,9 +22,9 @@
                     <div class="cube"></div>
                     <div class="cube"></div>
                     <div class="cube"></div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png" style="width: 80px;height: 80px;"
-                        alt="starter">
-                    <h6 class="font-weight-medium title-text text-white">Plan Pre Universitario</h6>
+                    <img src="https://cdn-icons-png.flaticon.com/512/10017/10017625.png"
+                        style="width: 80px;height: 80px;" alt="starter">
+                    <h6 class="font-weight-medium title-text text-white">Plan Mensual</h6>
                     <h1 class="text-amount mb-4 mt-2 text-white">
                         S/<strong>19</strong>.<small style="font-size: 0.6em; vertical-align: super;">99</small>
                     </h1>
@@ -84,7 +84,7 @@
                     <div class="cube"></div>
                     <div class="cube"></div>
                     <div class="cube"></div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png" style="width: 80px;height: 80px;"
+                    <img src="https://cdn-icons-png.flaticon.com/512/1921/1921604.png" style="width: 80px;height: 80px;"
                         alt="starter">
                     <span class="ahorro-suscripcion">
                         💰 Ahorra S/ 30
@@ -163,7 +163,7 @@
                     <div class="cube"></div>
                     <div class="cube"></div>
                     <div class="cube"></div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/4207/4207253.png"
+                    <img src="https://cdn-icons-png.flaticon.com/512/6807/6807175.png"
                         style="width: 80px;height: 80px;" alt="starter">
                     <span class="ahorro-suscripcion">
                         💰 Ahorra S/ 60
@@ -198,7 +198,7 @@
                                 <span>Acceso a compendios</span>
                             </div>
                         </li>
-                         <li class="text-white">
+                        <li class="text-white">
                             <div class="d-flex">
                                 <i class='bx bx-news' style="padding-top: 4px"></i>
                                 <span>Acceso a Publicaciones Educativas</span>
