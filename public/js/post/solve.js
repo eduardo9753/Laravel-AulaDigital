@@ -61,7 +61,7 @@ $(function () {
             Swal.fire({
                 position: 'top-end',
                 icon: 'warning',
-                title: 'Por favor, firme el documento antes de enviar.',
+                title: 'Por favor, realice la solución del problema para publicarlo.',
                 showConfirmButton: true
             });
             return;
