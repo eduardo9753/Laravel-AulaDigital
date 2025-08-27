@@ -13,6 +13,10 @@
     {{-- CON ESTE COMANDO SE ARREGLO ERROR: 419 --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Signature Pad (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+
     <title>PreuniCursos</title>
 
     <!-- CDN JQUERY -->
@@ -128,6 +132,7 @@
 
     <!--SCCRIPT GENERALES-->
     <script src="{{ asset('js/dataTables.js') }}"></script>
+    <script src="{{ asset('js/post/solve.js') }}"></script>
 
 
     <script src="{{ asset('js/login/jquery-3.3.1.min.js') }}"></script>

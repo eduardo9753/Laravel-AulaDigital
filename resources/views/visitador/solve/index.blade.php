@@ -7,7 +7,6 @@
 
 
 @section('main')
-
     <section class="mt-4" id="contenido-bloques">
         <div class="contenedor">
             <div class="row justify-content-center">
@@ -15,6 +14,9 @@
                     @livewire('post-solve', ['post' => $post], key('post-solve-' . $post->id))
                 </div>
             </div>
+
+            {{-- PIZARRA --}}
+            @include('helpers.pizarra')
         </div>
     </section>
 

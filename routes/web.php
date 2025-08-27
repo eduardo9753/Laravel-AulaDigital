@@ -140,6 +140,9 @@ Route::get('/post/comunidad/comment/{post}', [PostController::class, 'comment'])
 
 //RUTA PARA RESOLVER EL EXAMEN
 Route::get('/post/resolve/{post}', [SolveController::class , 'index'])->name('visitador.resolve.index');
+Route::post('/post/resolve/publish', [SolveController::class, 'firmar'])->name('visitador.solve.publish.save');
+
+
 
 //RUTA DEL CHAT BOT
 Route::get('/bot/user/meesage', [BotController::class , 'index'])->name('visitador.bot.index');

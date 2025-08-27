@@ -3,7 +3,7 @@
     <div class="mi-card mt-2">
         <div class="mi-card-content">
             <div>
-                <a class="mi-boton amarillo btn-sm" href="{{ route('visitador.resolve.index', ['post' => $post]) }}">Resolver Pregunta</a>
+                <a class="btn btn-primary mt-2" href="{{ route('visitador.resolve.index', ['post' => $post]) }}">Resolver Pregunta</a>
             </div>
             <hr>
 

@@ -38,7 +38,15 @@
 
                         <div class="d-flex align-items-center">
                             <i class='bx bx-comment-dots bx-tada' style='color:#da920f'></i>
-                            <p style="padding-left: 7px"><strong>{{ $comment->content }}</strong> </p>
+                            <p style="padding-left: 7px">
+                                @if (Str::startsWith($comment->content, 'data:image'))
+                                    {{-- Mostrar como imagen --}}
+                                    <img src="{{ $comment->content }}" alt="Imagen">
+                                @else
+                                    {{-- Mostrar como texto --}}
+                                    <strong>{{ $comment->content }}</strong>
+                                @endif
+                            </p>
                         </div>
 
                         {{-- COMPONENTE DE REACTIONS PARA LOS COMENTARIOS GENERALES --}}
@@ -47,7 +55,7 @@
                         {{-- COMPONENTE DE REACTIONS PARA LOS COMENTARIOS GENERALES --}}
 
 
-                        {{-- FORMULARIO PARA PODER COMENTAR A ALGUN USUARIOS --}}
+                        {{-- FORMULARIO PARA PODER COMENTAR A ALGUN USUARIO QUE PUBLICO ALGUN COMENTARIO --}}
                         @if ($this->parentCommentId === $comment->id)
                             <form wire:submit.prevent='addComment'>
                                 <textarea wire:model.defer="newComment" class="form-control mt-2" placeholder="Agregar comentario"></textarea>
@@ -59,7 +67,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         @endif
-                        {{-- FORMULARIO PARA PODER COMENTAR A ALGUN USUARIOS --}}
+                        {{-- FORMULARIO PARA PODER COMENTAR A ALGUN USUARIO QUE PUBLICO ALGUN COMENTARIO --}}
 
 
                         {{-- BUCLE PARA LISTAR LOS COMENTARIOS DE LOS USUARIOS --}}

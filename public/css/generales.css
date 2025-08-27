@@ -6,16 +6,34 @@
 
 body { font-family: 'Mulish', sans-serif !important; color: #6c7293 !important;}
 
+
+ /* ESTILOS DE LA PIZARRA */
+.signature-container {
+    width: 100%;          /* que siempre ocupe el ancho del contenedor */
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    background: #f07613;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.signature-pad {
+    width: 100% !important;   /* canvas ocupa todo el ancho */
+    height: 550px;            /* altura fija en móvil (ajústalo a gusto) */
+    display: block;
+}
+
 .ahorro-suscripcion {
     position: absolute;
-        top: 6px;
-        right: 10px;
-        background-color: #ff9800;
-        color: white;
-        font-size: 1em;
-        padding: 4px 8px;
-        border-radius: 12px;
-        font-weight: bold;
+    top: 6px;
+    right: 10px;
+    background-color: #ff9800;
+    color: white;
+    font-size: 1em;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: bold;
 }
 
 /*para desactivar el boton de descarga de los documentos*/
