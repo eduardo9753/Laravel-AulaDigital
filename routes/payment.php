@@ -6,6 +6,7 @@ use App\Http\Controllers\payment\PaymentSuscriptionController;
 use App\Http\Controllers\payment\PaymentSuscriptionEscolarController;
 use App\Http\Controllers\payment\PaymentSuscriptionWebHookController;
 use App\Http\Controllers\payment\PaymentSuscriptionYear;
+use App\Http\Controllers\payment\PayPlanController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -39,6 +40,8 @@ Route::get('/mercadopago/suscription/academico-premium/anual-meses/success', [Pa
 Route::get('/mercadopago/suscription/academico-premium/anual-meses/failure', [PaymentSuscriptionYear::class, 'failure'])->name('mercadopago.suscription.year.failure');
 Route::get('/mercadopago/suscription/academico-premium/anual-meses/pending', [PaymentSuscriptionYear::class, 'pending'])->name('mercadopago.suscription.year.pending');
 
+//PARA LOS DESCUENTOS 
+Route::get('/mercadopago/descuento-anuel/academico-premiun/anual-meses/{plan}', [PayPlanController::class, 'descuentoPlanPreunicursos'])->name('mercadopago.descuento.suscription.year.index');
 
 /*RUTAS PARA SUSCRIPTION CON MERCADOPAGO PLAN ESCOLAR
 Route::post('/mercadopago/suscription/school/academico-premium', [PaymentSuscriptionEscolarController::class, 'school'])->name('mercadopago.suscription.school.index');

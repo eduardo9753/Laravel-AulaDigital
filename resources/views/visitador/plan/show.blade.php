@@ -29,5 +29,8 @@
         </div>
     </section>
 
+    <!-- Ahora incluimos la vista suscripcion.blade.php -->
+    @include('helpers.suscripcion')
+
     @include('template.footer')
 @endsection

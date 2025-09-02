@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\compendium\CompendiumController;
 use App\Http\Controllers\admin\course\CourseController;
 use App\Http\Controllers\admin\level\LevelController;
 use App\Http\Controllers\admin\pay\PayController;
+use App\Http\Controllers\admin\plan\PlanController;
 use App\Http\Controllers\admin\post\PostController;
 use App\Http\Controllers\admin\price\PriceController;
 use App\Http\Controllers\admin\profile\ProfileController;
@@ -56,6 +57,14 @@ Route::post('/admin/post/store', [PostController::class, 'store'])->name('admin.
 Route::get('/admin/post/list', [PostController::class, 'list'])->name('admin.posts.list');
 Route::get('/admin/post/show/{post}', [PostController::class, 'show'])->name('admin.posts.show');
 Route::put('/admin/post/update/{post}', [PostController::class , 'update'])->name('admin.posts.update');
+
+
+//rutas de cupones y planes
+Route::get('/admin/plan/preunicursos', [PlanController::class, 'index'])->name('admin.plan.index');
+Route::get('/admin/plan/create', [PlanController::class, 'create'])->name('admin.plan.create');
+Route::post('/admin/plan/store', [PlanController::class , 'store'])->name('admin.plan.store');
+Route::get('/admin/plan/edit/{plan}', [PlanController::class, 'edit'])->name('admin.plan.edit');
+Route::delete('/admin/plan/destroy/{plan}', [PlanController::class, 'destroy'])->name('admin.plan.destroy');
 
 
 //ruta para mandar mensajes de whasap

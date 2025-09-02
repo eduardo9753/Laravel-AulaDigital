@@ -4,7 +4,7 @@
             <div class="col-sm-12">
                 <div class="d-sm-flex justify-content-between align-items-center mb-2">
                     <div>
-                        <h3 class="font-weight-medium color-general mb-3">Nuestro Plan</h3>
+                        <h3 class="font-weight-medium color-general mb-3">Nuestro Planes</h3>
                         <h5 class="text-dark ">Acceso ilimitado a cursos, exámenes y material educativo
                             las 24 horas del día</h5>
                     </div>
@@ -26,7 +26,8 @@
                         style="width: 80px;height: 80px;" alt="starter">
                     <h6 class="font-weight-medium title-text text-white">Plan Mensual</h6>
                     <h1 class="text-amount mb-4 mt-2 text-white">
-                        S/<strong>19</strong>.<small style="font-size: 0.6em; vertical-align: super;">99</small>
+                        S/<strong> {{ env('PLAN_MENSUAL') }} </strong><small
+                            style="font-size: 0.6em; vertical-align: super;"></small>
                     </h1>
 
                     <ul class="pricing-list">
@@ -91,7 +92,8 @@
                     </span>
                     <h6 class="font-weight-medium title-text text-white">Plan Semestral</h6>
                     <h1 class="text-amount mb-4 mt-2 text-white">
-                        S/<strong>89</strong>.<small style="font-size: 0.6em; vertical-align: super;">99</small>
+                        S/<strong> {{ env('PLAN_SEIS_MES') }} </strong><small
+                            style="font-size: 0.6em; vertical-align: super;"></small>
                     </h1>
 
                     <ul class="pricing-list">
@@ -170,7 +172,8 @@
                     </span>
                     <h6 class="font-weight-medium title-text text-white">Plan Anual</h6>
                     <h1 class="text-amount mb-4 mt-2 text-white">
-                        S/<strong>179</strong>.<small style="font-size: 0.6em; vertical-align: super;">88</small>
+                        S/<strong> {{ env('PLAN_ANUAL') }} </strong><small
+                            style="font-size: 0.6em; vertical-align: super;"></small>
                     </h1>
 
                     <ul class="pricing-list">

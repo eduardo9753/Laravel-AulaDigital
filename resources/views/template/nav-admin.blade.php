@@ -64,6 +64,17 @@
                         </ul>
                     </li>
 
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Planes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="item"><a href="{{ route('admin.plan.index') }}">Planes</a></li>
+                           
+                        </ul>
+                    </li>
+
                     <li class="item"><a
                             href="{{ route('admin.profile.index', ['user' => auth()->user()]) }}">Bienvenido:
                             {{ auth()->user()->name }}</a></li>
