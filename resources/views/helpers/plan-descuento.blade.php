@@ -31,13 +31,11 @@
             </form>
         @endforeach
     </div>
-
-
 </div>
 
 <!-- Música -->
 <audio id="musica" loop>
-    <source src="https://verito-amor-aniversario.netlify.app/assets/musica/amor.mp3" type="audio/mpeg">
+    <source src="{{ asset('musica/musica.mp3') }}" type="audio/mpeg">
 </audio>
 
 <!-- Disparador oculto -->
