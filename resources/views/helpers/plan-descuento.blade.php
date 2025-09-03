@@ -14,6 +14,15 @@
     <div class="popup-container">
         <input type="hidden" id="disparador" value="1">
         @foreach ($planes as $plan)
+            @php
+                if ($plan->promo_code === 'SEMESTRAL20') {
+                    $precioOriginal = config('mercadopago.plan_seis_meses');
+                } else {
+                    $precioOriginal = config('mercadopago.plan_doce_meses');
+                }
+                $precioDescuento = $precioOriginal - $precioOriginal * ($plan->percentage / 100);
+            @endphp
+
             <form action="{{ route('mercadopago.descuento.suscription.year.index', ['plan' => $plan->id]) }}"
                 method="POST" class="form-suscription">
                 @csrf
@@ -26,7 +35,7 @@
                     <p class="mb-3 text-white">Usa el cupón:</p>
 
                     <input type="submit" class="btn-solid-sm p-4 mt-3 w-100 text-white"
-                        value="SUSCRIBIRME ({{ strtoupper($plan->promo_code) }})">
+                        value="S/ {{ $precioDescuento }} ({{ strtoupper($plan->promo_code) }})">
                 </div>
             </form>
         @endforeach
