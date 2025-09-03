@@ -87,7 +87,7 @@ class PaymentSixMonth extends Controller
             $pay = Pay::create([
                 'user_id' => auth()->user()->id,
                 'collection_id' => $request->collection_id ?? '',
-                'collection_status' => 'PLAN-DOCE-MESES',
+                'collection_status' => 'PLAN-SEIS-MESES',
                 'payment_id' => $request->payment_id ?? '',
                 'status' => 'PAGO SUSCRIPCION',
                 'external_reference' =>  $request->external_reference ?? '',
@@ -99,7 +99,7 @@ class PaymentSixMonth extends Controller
                 'merchant_account_id' => $request->merchant_account_id ?? '',
                 'estado' => 'SUSCRITO',
                 'date_start' => Carbon::now()->toDateString(),
-                'date_end' => Carbon::now()->addMonths(12)->toDateString(),
+                'date_end' => Carbon::now()->addMonths(6)->toDateString(),
             ]);
 
             if ($pay) {
