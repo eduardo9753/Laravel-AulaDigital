@@ -41,7 +41,7 @@ Route::get('/mercadopago/suscription/academico-premium/anual-meses/failure', [Pa
 Route::get('/mercadopago/suscription/academico-premium/anual-meses/pending', [PaymentSuscriptionYear::class, 'pending'])->name('mercadopago.suscription.year.pending');
 
 //PARA LOS DESCUENTOS 
-Route::get('/mercadopago/descuento-anuel/academico-premiun/anual-meses/{plan}', [PayPlanController::class, 'descuentoPlanPreunicursos'])->name('mercadopago.descuento.suscription.year.index');
+Route::post('/mercadopago/descuento-anuel/academico-premiun/anual-meses/{plan}', [PayPlanController::class, 'descuentoPlanPreunicursos'])->name('mercadopago.descuento.suscription.year.index');
 
 /*RUTAS PARA SUSCRIPTION CON MERCADOPAGO PLAN ESCOLAR
 Route::post('/mercadopago/suscription/school/academico-premium', [PaymentSuscriptionEscolarController::class, 'school'])->name('mercadopago.suscription.school.index');

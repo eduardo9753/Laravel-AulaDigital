@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="{{ asset('css/visitador/home/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/visitador/home/jquery.flipster.css') }}">
     <link rel="stylesheet" href="{{ asset('css/visitador/home/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/visitador/plan.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/visitador/course.css') }}">
 
@@ -151,6 +152,7 @@
     <script src="{{ asset('js/mercadopagoSuscripcion.js') }}"></script>
     <script src="{{ asset('js/mercadopagoSuscripcionSeisMeses.js') }}"></script>
     <script src="{{ asset('js/mercadopagoSuscripcionaAnual.js') }}"></script>
+    <script src="{{ asset('js/mercadopagoPlans.js') }}"></script>
     <!--<script src="{{ asset('js/mercadopagoSuscripcionSchool.js') }}"></script> -->
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

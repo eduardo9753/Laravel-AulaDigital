@@ -17,7 +17,7 @@ class PayPlanController extends Controller
     public function descuentoPlanPreunicursos(Plan $plan)
     {
         $plan = Plan::find($plan->id);
-        if ($plan->promo_code === 'promo_seis_mese_preuni') {
+        if ($plan->promo_code === 'SEMESTRAL20') {
             $precioOriginal  = config('mercadopago.plan_seis_meses');
         } else {
             $precioOriginal  = config('mercadopago.plan_doce_meses');
@@ -44,7 +44,7 @@ class PayPlanController extends Controller
         //dd($curso);
         $preference->items = $curso;
 
-        if ($plan->promo_code === 'promo_seis_mese_preuni') {
+        if ($plan->promo_code === 'SEMESTRAL20') {
             $preference->back_urls = [
                 'success' => route('mercadopago.suscription.six.success'),
                 'failure' => route('mercadopago.suscription.six.failure'),

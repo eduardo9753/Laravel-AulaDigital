@@ -5,6 +5,7 @@ namespace App\Http\Controllers\payment;
 use App\Http\Controllers\Controller;
 use App\Mail\EnviarCorreoSuscripcion;
 use App\Models\Pay;
+use App\Models\Plan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -55,7 +56,7 @@ class PaymentSuscriptionController extends Controller
         $save = $preference->save();
 
         // Redirige al usuario al checkout de Mercado Pago para la suscripción
-        if ($save) {       
+        if ($save) {
             $init_point = 'https://www.mercadopago.com.pe/subscriptions/checkout?preapproval_plan_id=2c9380848e681d84018e7821538c0912';
 
             return response()->json([
@@ -115,7 +116,10 @@ class PaymentSuscriptionController extends Controller
 
     public function subscribe()
     {
-        return view('payment.suscribete');
+        $planes = Plan::all();
+        return view('payment.suscribete', [
+            'planes' => $planes
+        ]);
     }
 
     //PARA CANCELAR LA SUSCRIPCION DE PLAN PRE UNI

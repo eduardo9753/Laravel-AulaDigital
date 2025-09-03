@@ -79,7 +79,7 @@ class UserSubscriptionPolicy
     public function notSubscription(User $user)
     {
         $subscription = Pay::where('user_id', $user->id)
-            ->whereIn('collection_status', ['PLAN-PRE-UNI', 'PLAN-ESCOLAR', 'PLAN-UNI'])
+            ->whereIn('collection_status', ['PLAN-PRE-UNI', 'PLAN-DOCE-MESES', 'PLAN-SEIS-MESES'])
             ->where('estado', 'SUSCRITO')
             ->first();
 
