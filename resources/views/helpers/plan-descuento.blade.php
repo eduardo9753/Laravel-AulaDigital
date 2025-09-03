@@ -32,7 +32,7 @@
                         ¡Aprovecha un <strong>{{ $plan->percentage }}% de descuento</strong>
                         en el plan <b>{{ $plan->name }}</b>!
                     </p>
-                    <p class="mb-3 text-white">Usa el cupón:</p>
+                    <p class="text-white">Usa el cupón:</p>
 
                     <input type="submit" class="btn-solid-sm p-4 mt-3 w-100 text-white"
                         value="S/ {{ $precioDescuento }} ({{ strtoupper($plan->promo_code) }})">
