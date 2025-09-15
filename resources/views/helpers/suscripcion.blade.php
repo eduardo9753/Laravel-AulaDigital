@@ -10,10 +10,6 @@
                 que transformarán tu preparación:
                 acceso a material premium, simulacros avanzados, estadísticas personalizadas ¡y mucho más! 🎯
             </p>
-            <p class="mb-0 mt-2">
-                Una vez completado el pago, recuerda hacer clic en <strong>“Volver al sitio”</strong> para activar
-                tu acceso inmediato.
-            </p>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

@@ -28,5 +28,5 @@
         </div>
     </div>
     <input type="hidden" name="signature" id="signature" />
-    <input type="submit" class="btn btn-outline-primary mt-1 w-100" value="Guardar Resoluación">
+    <input type="submit" class="btn btn-outline-primary mt-1 w-100" value="Guardar Resolución">
 </form>
