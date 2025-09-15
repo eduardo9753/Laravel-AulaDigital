@@ -98,16 +98,15 @@ class ExamResponder extends Component
             }
         }
 
-        $calificacion = ExamUserAnswer::where('exam_user_id', $this->examUser->id)
+        // Calcular cuántas correctas tuvo
+        $correctas = ExamUserAnswer::where('exam_user_id', $this->examUser->id)
             ->sum('puntos');
 
-        // 2. Puntaje máximo posible
-        $maxPuntos = ExamQuestion::where('exam_id', $this->exam->id)
-            ->join('questions', 'exam_questions.question_id', '=', 'questions.id')
-            ->sum('questions.puntos');
+        // Total de preguntas del examen
+        $totalPreguntas = ExamQuestion::where('exam_id', $this->exam->id)->count();
 
-        // 3. Normalizar sobre 20
-        $nota20 = $maxPuntos > 0 ? ($calificacion / $maxPuntos) * 20 : 0;
+        // Nota sobre 20
+        $nota20 = $totalPreguntas > 0 ? ($correctas / $totalPreguntas) * 20 : 0;
 
         $this->examUser->update([
             'calificacion' => round($nota20, 2),
