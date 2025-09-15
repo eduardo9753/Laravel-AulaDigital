@@ -20,6 +20,7 @@ class Exam extends Model
         'duracion',
         'estado',
         'publicacion',
+        'type',
         'user_id',
         'course_id'
     ];

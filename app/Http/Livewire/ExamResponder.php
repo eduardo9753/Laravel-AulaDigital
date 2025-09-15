@@ -101,8 +101,16 @@ class ExamResponder extends Component
         $calificacion = ExamUserAnswer::where('exam_user_id', $this->examUser->id)
             ->sum('puntos');
 
+        // 2. Puntaje máximo posible
+        $maxPuntos = ExamQuestion::where('exam_id', $this->exam->id)
+            ->join('questions', 'exam_questions.question_id', '=', 'questions.id')
+            ->sum('questions.puntos');
+
+        // 3. Normalizar sobre 20
+        $nota20 = $maxPuntos > 0 ? ($calificacion / $maxPuntos) * 20 : 0;
+
         $this->examUser->update([
-            'calificacion' => $calificacion,
+            'calificacion' => round($nota20, 2),
             'status' => 'Culminado'
         ]);
 

@@ -20,6 +20,7 @@ use App\Http\Controllers\visitador\examResponder\ExamFreeResponder;
 use App\Http\Controllers\visitador\examResponder\ExamResponderController;
 use App\Http\Controllers\visitador\home\HomeController;
 use App\Http\Controllers\visitador\read\ReadController;
+use App\Http\Controllers\visitador\simulacrum\SimulacrumController;
 use App\Http\Controllers\visitador\solve\SolveController;
 use App\Http\Controllers\visitador\testimonial\TestimonialController;
 use Illuminate\Support\Facades\Route;
@@ -107,7 +108,7 @@ Route::post('/examen/retomar/status/{exam:slug}/{examUser}', [ExamResponderContr
 
 
 //EXAMENES GRATIS
-Route::get('/examen/free/lista', [ExamFreeResponder::class , 'index'])->name('visitador.examenes.free.index');
+Route::get('/examen/free/lista', [ExamFreeResponder::class, 'index'])->name('visitador.examenes.free.index');
 Route::get('/examen/free/{exam:slug}/enrolled', [ExamFreeResponder::class, 'enrolled'])->name('visitador.examenes.free.enrolled');
 Route::get('/examen/free/{exam:slug}/status/', [ExamFreeResponder::class, 'status'])->name('visitador.examenes.free.status');
 Route::get('/examen/free/{exam:slug}/culminate/show', [ExamFreeResponder::class, 'show'])->name('visitador.examenes.free.show');
@@ -125,8 +126,8 @@ Route::get('/compemdios/show/{archive}', [CompendiumController::class, 'show'])-
 
 
 //RUTA DE LOS GRAFICOS
-Route::get('/graficos/index', [ChartsController::class , 'index'])->name('visitador.graficos.index');
-Route::get('/graficos/data', [ChartsController::class , 'dataChart'])->name('visitador.graficos.dataChart');
+Route::get('/graficos/index', [ChartsController::class, 'index'])->name('visitador.graficos.index');
+Route::get('/graficos/data', [ChartsController::class, 'dataChart'])->name('visitador.graficos.dataChart');
 
 //TERMINOS Y CONDICIONES
 Route::get('/preunicursos/terminos-y-condiciones', [ConditionController::class, 'index'])->name('visitador.condition.index');
@@ -139,13 +140,16 @@ Route::get('/post/comunidad/estudiantes', [PostController::class, 'index'])->nam
 Route::get('/post/comunidad/comment/{post}', [PostController::class, 'comment'])->name('visitador.post.comment');
 
 //RUTA PARA RESOLVER EL EXAMEN
-Route::get('/post/resolve/{post}', [SolveController::class , 'index'])->name('visitador.resolve.index');
+Route::get('/post/resolve/{post}', [SolveController::class, 'index'])->name('visitador.resolve.index');
 Route::post('/post/resolve/publish', [SolveController::class, 'firmar'])->name('visitador.solve.publish.save');
 
 
+//SIMULACROS
+Route::get('/simulacros-tipo-unfv/crear', [SimulacrumController::class, 'index'])->name('visitador.simulacrum.index');
+
 
 //RUTA DEL CHAT BOT
-Route::get('/bot/user/meesage', [BotController::class , 'index'])->name('visitador.bot.index');
+Route::get('/bot/user/meesage', [BotController::class, 'index'])->name('visitador.bot.index');
 
 
 //RUTAS PARA EL ADMIN

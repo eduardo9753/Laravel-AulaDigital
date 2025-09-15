@@ -21,6 +21,7 @@ class CreateExamsTable extends Migration
             $table->integer('duracion');
             $table->string('estado')->default(Exam::PENDIENTE);
             $table->dateTime('publicacion');
+            $table->string('type')->nullable();//simulacro
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('course_id');

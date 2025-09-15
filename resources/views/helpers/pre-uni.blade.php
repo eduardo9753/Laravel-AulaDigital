@@ -17,14 +17,7 @@
             </div>
         </a>
     </li>
-    <li class="item">
-        <a href="{{ route('visitador.examenes.index') }}">
-            <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-book-reader'></i>
-                <span>Mis Exámenes</span>
-            </div>
-        </a>
-    </li>
+
     <li class="item">
         <a href="{{ route('visitador.read.index') }}">
             <div class="d-flex align-items-center gap-1">
@@ -35,6 +28,15 @@
     </li>
 
     @canany(['viewSubscriptionSixMonth', 'viewSubscriptionYear'], auth()->user())
+        <li class="item">
+            <a href="{{ route('visitador.examenes.index') }}">
+                <div class="d-flex align-items-center gap-1">
+                    <i class='bx bxs-book-reader'></i>
+                    <span>Mis Exámenes</span>
+                </div>
+            </a>
+        </li>
+
         <li class="item">
             <a href="{{ route('visitador.compendio.index') }}">
                 <div class="d-flex align-items-center gap-1">
@@ -70,6 +72,15 @@
                 <div class="d-flex align-items-center gap-1">
                     <i class='bx bx-bot bx-burst'></i>
                     <span>Bot PreuniCursos</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="item">
+            <a href="{{ route('visitador.simulacrum.index') }}">
+                <div class="d-flex align-items-center gap-1">
+                    <i class='bx bx-bot bx-burst'></i>
+                    <span>Crear mi Simulacro</span>
                 </div>
             </a>
         </li>

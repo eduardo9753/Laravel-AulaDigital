@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
-@section('bosstrap.css')
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-@endsection
+
 
 @section('navegador')
     @include('template.nav-visitador')
@@ -85,14 +81,14 @@
                                         action="{{ route('visitador.examenes.reset', ['exam' => $exam, 'examUser' => $examUser]) }}"
                                         method="POST">
                                         @csrf
-                                        <input type="submit" class="mi-boton rojo w-100" value="Retomar">
+                                        <input type="submit" class="btn btn-primary w-100" value="Retomar">
                                     </form>
                                 @else
                                     <form
                                         action="{{ route('visitador.examenes.free.reset', ['exam' => $exam, 'examUser' => $examUser]) }}"
                                         method="POST">
                                         @csrf
-                                        <input type="submit" class="mi-boton rojo w-100" value="Retomar">
+                                        <input type="submit" class="btn btn-primary w-100" value="Retomar">
                                     </form>
                                 @endif
                             </div>
@@ -115,24 +111,28 @@
                                         <div class="message-widget contact-widget">
                                             <div class="accordion" id="accordionExample">
                                                 <div class="card">
-                                                    <div class="card-header" id="heading{{ $index }}">
-                                                        <h2 class="mb-0 d-flex align-items-center">
-                                                            <div>
-                                                                <button class="btn btn-outline-info btn-rounded"
-                                                                    type="button" data-toggle="collapse"
+                                                    <div class="card-header text-center" id="heading{{ $index }}">
+                                                        <h2 class="mb-0 d-flex flex-column align-items-center">
+
+                                                            <!-- Botón centrado -->
+                                                            <div class="w-100 mb-2">
+                                                                <button class="btn btn-outline-primary w-100" type="button"
+                                                                    data-toggle="collapse"
                                                                     data-target="#collapse{{ $index }}"
                                                                     aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
                                                                     aria-controls="collapse{{ $index }}">
-                                                                    Pregunta {{ $index + 1 }}:
+                                                                    Pregunta {{ $index + 1 }}
                                                                 </button>
                                                             </div>
 
-                                                            <div class="ml-2">
-                                                                <p class="">{!! $userExamAnswer->examQuestion->question->titulo !!}</p>
+                                                            <!-- Pregunta abajo -->
+                                                            <div class="mt-2 w-100 text-left">
+                                                                <p class="mb-0">{!! $userExamAnswer->examQuestion->question->titulo !!}</p>
                                                             </div>
                                                         </h2>
                                                     </div>
 
+                                                    <!-- Respuestas -->
                                                     <div id="collapse{{ $index }}"
                                                         class="collapse {{ $index == 0 ? 'show' : '' }}"
                                                         aria-labelledby="heading{{ $index }}"
@@ -141,13 +141,14 @@
                                                             <ul class="list-group">
                                                                 <li class="list-group-item">
                                                                     <strong>Respuestas:</strong>
-                                                                    <ul>
+                                                                    <ul class="mt-2">
                                                                         @foreach ($userExamAnswer->examQuestion->question->answers as $answer)
                                                                             <li>
                                                                                 <strong>{{ $answer->titulo }}</strong>
                                                                                 @if ($answer->es_correcta)
-                                                                                    <span
-                                                                                        class="text-success"><small>(Correcta)</small></span>
+                                                                                    <span class="text-success">
+                                                                                        <small>(Correcta)</small>
+                                                                                    </span>
                                                                                 @endif
 
                                                                                 @if ($userExamAnswer->answer->id == $answer->id)
@@ -163,6 +164,7 @@
                                                             </ul>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>

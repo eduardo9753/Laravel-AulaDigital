@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="PreuniCursos: Plataforma educativa para preuniversitarios que aspiran a la UNFV. Cursos completos, recursos PDF, compendios, exámenes y videos alineados con la malla curricular del examen.">
+        content="Plataforma preuniversitaria para la UNFV (Villarreal). Accede a cursos completos, simulacros tipo examen, PDFs descargables, compendios y videos alineados con el temario oficial.">
     <meta name="keywords"
         content="PreuniCursos, preunicursos, plataforma educativa, UNFV, ceprevi ,cursos preuniversitarios, álgebra, geometría, trigonometría, física, química, biología, literatura, razonamiento verbal, historia del Perú, malla curricular, exámenes, recursos PDF, compendios, publicaciones educativas, educación online, preparación universitaria, aprendizaje virtual">
     <meta name="author" content="PreuniCursos">
@@ -17,9 +17,10 @@
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
 
-    <title>PreuniCursos</title>
+    <title>PreuniCursos | Cursos y Simulacros UNFV (Villarreal) con PDFs y Videos</title>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- GOOGLE TAG (gtag.js) Y SEO GOOGLE -->
+    <link rel="canonical" href="https://preunicursos.com">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4R334WCQ6G"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -31,6 +32,35 @@
 
         gtag('config', 'G-4R334WCQ6G');
     </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "name": "PreuniCursos",
+            "url": "https://preunicursos.com",
+            "logo": "https://preunicursos.com/img/logo/logo.png",
+            "description": "Plataforma educativa para preuniversitarios que aspiran a la UNFV. Cursos, PDFs, simulacros y compendios.",
+            "sameAs": [
+                    "https://www.facebook.com/profile.php?id=61557637935578",
+                    "https://www.instagram.com/preunicursos/",
+                    "https://www.tiktok.com/@preunicursos?lang=es",
+            ]
+        }
+    </script>
+
+    <meta property="og:title" content="PreuniCursos | Cursos y Simulacros UNFV (Villarreal)">
+    <meta property="og:description"
+        content="Prepárate para la UNFV con cursos online, simulacros, PDFs y compendios. Todo alineado al examen de admisión.">
+    <meta property="og:image" content="{{ asset('img/logo/logo.png') }}">
+    <meta property="og:url" content="https://preunicursos.com">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PreuniCursos | Cursos y Simulacros UNFV (Villarreal)">
+    <meta name="twitter:description" content="Cursos, simulacros y PDFs para ingresar a la UNFV (Villarreal).">
+    <meta name="twitter:image" content="{{ asset('img/logo/logo.png') }}">
+
 
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"

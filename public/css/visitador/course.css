@@ -186,9 +186,10 @@ figure {text-align: center;}
 
 /*ESTILOS DEL CHECKOUT PARA PAGAR UN CURSO*/
 .header-pago-fondo{
-  padding-top: 90px;
+  padding-top: 6.5%;
+  padding-bottom: 2%;
   background-color: var(--general);
-  height: 32.5vh;
+ 
 }
 #header-pago h3 {font-size: 35px;}
 #header-pago p {font-size: 30px;}
