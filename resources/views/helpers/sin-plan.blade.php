@@ -2,75 +2,103 @@
     <li class="item">
         <a href="{{ route('visitador.course.index') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-slideshow'></i>
+                <i class='bx bxs-slideshow bx-sm'></i>
                 <span>Cursos Premium</span>
             </div>
         </a>
     </li>
+
     <li class="item">
         <a href="{{ route('visitador.course.free.index') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-slideshow'></i>
+                <i class='bx bxs-slideshow bx-sm'></i>
                 <span>Cursos Gratis</span>
             </div>
         </a>
     </li>
+
     <li class="item">
         <a href="{{ route('visitador.course.free.list') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-mouse-alt'></i>
+                <i class='bx bxs-mouse-alt bx-sm'></i>
                 <span>Mis Cursos Gratis</span>
             </div>
         </a>
     </li>
+
     <li class="item">
         <a href="{{ route('visitador.examenes.free.index') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-book-reader'></i>
+                <i class='bx bxs-book-reader bx-sm'></i>
                 <span>Exámenes Gratis</span>
             </div>
         </a>
     </li>
+
     <li class="item">
         <a href="{{ route('visitador.read.index') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-book-add'></i>
+                <i class='bx bxs-book-add bx-sm'></i>
                 <span>Mis recursos</span>
             </div>
         </a>
     </li>
+
     <li class="item">
         <a href="{{ route('visitador.compendio.index') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-book-bookmark'></i>
+                <i class='bx bxs-book-bookmark bx-sm'></i>
                 <span>Mis Compendios</span>
             </div>
         </a>
     </li>
+    
+    {{-- SOLO PARA PLAN 12 MESES --}}
     <li class="item">
         <a href="{{ route('visitador.post.index') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bx-message-dots bx-burst'></i>
+                <i class='bx bx-message-dots bx-burst bx-sm'></i>
                 <span>Publicaciones</span>
             </div>
         </a>
     </li>
+
+    <li class="item">
+        <a href="{{ route('visitador.bot.index') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bx-bot bx-burst bx-sm'></i>
+                <span>Bot PreuniCursos</span>
+            </div>
+        </a>
+    </li>
+
+    <li class="item">
+        <a href="{{ route('visitador.simulacrum.index') }}">
+            <div class="d-flex align-items-center gap-2">
+                <i class='bx bx-edit bx-sm'></i>
+                <span>Crear mi Simulacro</span>
+            </div>
+        </a>
+    </li>
+
     <li class="item">
         <a href="{{ route('mercadopago.suscription.subscribe') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-label bx-fade-left'></i>
+                <i class='bx bxs-label bx-fade-left bx-sm'></i>
                 <span>Suscribete</span>
             </div>
         </a>
     </li>
+
     <li class="item">
         <a href="{{ route('profile.index', ['user' => auth()->user()]) }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-user-rectangle'></i>
+                <i class='bx bxs-user-rectangle bx-sm'></i>
                 <span> {{ auth()->user()->name }}</span>
             </div>
         </a>
     </li>
+
     <li class="item">
         <form action="{{ route('admin.logout') }}" method="POST">
             @csrf

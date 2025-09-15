@@ -1,5 +1,24 @@
 <section class="our-process section-home" id="plans">
     <div class="container">
+
+        <div class="alert alert-info alert-dismissible fade show shadow-lg border-0" role="alert">
+            <h5 class="fw-bold mb-1">
+                <i class="bx bx-gift me-2"></i> ¡Desbloquea nuevas funcionalidades!
+            </h5>
+            <p class="mb-0">
+                Suscríbete a nuestro <strong>Plan Anual</strong> y desbloquea <strong>beneficios exclusivos</strong>
+                que transformarán tu preparación:
+                acceso a material premium, simulacros avanzados, estadísticas personalizadas ¡y mucho más! 🎯
+            </p>
+            <p class="mb-0 mt-2">
+                Una vez completado el pago, recuerda hacer clic en <strong>“Volver al sitio”</strong> para activar
+                tu acceso inmediato.
+            </p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
         <div class="row" data-aos="fade-up" data-aos-offset="-500">
             <div class="col-sm-12">
                 <div class="d-sm-flex justify-content-between align-items-center mb-2">
@@ -220,6 +239,15 @@
                                 <span style="color:yellow">Acceso a exámenes</span>
                             </div>
                         </li>
+
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-edit'style="padding-top: 4px; color:yellow"></i>
+
+                                <span style="color:yellow">Acceso a simulacros</span>
+                            </div>
+                        </li>
+
                         <li class="text-white">
                             <div class="d-flex">
                                 <i class='bx bxs-check-circle' style="padding-top: 4px"></i>

@@ -27,7 +27,7 @@ class ExamResponderController extends Controller
     {
         $user = auth()->user();
         //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES
-        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
+        if (Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
             $exams = Exam::where('estado', '=', 'activo')->get();
             $courses = Course::where('status', 3)->get();
             return view('visitador.examResponder.index', [
@@ -73,7 +73,7 @@ class ExamResponderController extends Controller
     {
         $user = auth()->user();
         //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES
-        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
+        if (Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
             $examUser = ExamUser::where('user_id', '=', auth()->user()->id)
                 ->where('exam_id', '=', $exam->id)
                 ->first();
@@ -98,7 +98,7 @@ class ExamResponderController extends Controller
     {
         $user = auth()->user();
         //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES Y  //METODO AUTORIZAR ENTRAR AL EXAMEN AL USUARIO AUTENTICADO
-        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
+        if (Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
             $examUser = ExamUser::where('user_id', auth()->user()->id)->where('exam_id', $exam->id)->first();
             $userExamAnswers = ExamUserAnswer::where('exam_user_id', $examUser->id)
                 ->with(['answer', 'examQuestion.question.answers'])->get();
@@ -121,7 +121,7 @@ class ExamResponderController extends Controller
     {
         $user = auth()->user();
         //SI TIENE SUSCRIPCION VA TENER ACCESO A LOS EXAMENES Y  //METODO AUTORIZAR ENTRAR AL EXAMEN AL USUARIO AUTENTICADO
-        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
+        if (Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
             try {
                 // Encuentra el usuario del examen o lanza una excepción si no existe
                 $deleteExmenUser = ExamUser::findOrFail($examUser->id);

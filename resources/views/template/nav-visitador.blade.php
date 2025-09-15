@@ -18,7 +18,7 @@
                         <li class="item">
                             <a href="{{ route('visitador.home.index') }}">
                                 <div class="d-flex align-items-center gap-1">
-                                    <i class='bx bxs-home'></i>
+                                    <i class='bx bxs-home bx-sm'></i>
                                     <span>Casa</span>
                                 </div>
                             </a>
@@ -26,7 +26,7 @@
                         <li class="item">
                             <a href="{{ route('visitador.course.index') }}">
                                 <div class="d-flex align-items-center gap-1">
-                                    <i class='bx bxs-slideshow'></i>
+                                    <i class='bx bxs-slideshow bx-sm'></i>
                                     <span>Cursos</span>
                                 </div>
                             </a>
@@ -34,7 +34,7 @@
                         <li class="item">
                             <a href="{{ route('visitador.contact.index') }}">
                                 <div class="d-flex align-items-center gap-1">
-                                    <i class='bx bxs-contact'></i>
+                                    <i class='bx bxs-contact bx-sm'></i>
                                     <span>Contacto</span>
                                 </div>
                             </a>
@@ -42,7 +42,7 @@
                         <li class="item">
                             <a href="{{ route('visitador.testimonial.index') }}">
                                 <div class="d-flex align-items-center gap-1">
-                                    <i class='bx bxs-user-pin'></i>
+                                    <i class='bx bxs-user-pin bx-sm'></i>
                                     <span>Testimoniales</span>
                                 </div>
                             </a>
@@ -50,7 +50,7 @@
                         <li class="item">
                             <a href="{{ route('visitador.plan.show') }}">
                                 <div class="d-flex align-items-center gap-1">
-                                    <i class='bx bxl-paypal'></i>
+                                    <i class='bx bxl-paypal bx-sm'></i>
                                     <span>Pasos Suscripción</span>
                                 </div>
                             </a>
@@ -58,7 +58,7 @@
                         <li class="item">
                             <a href="{{ route('login') }}">
                                 <div class="d-flex align-items-center gap-1">
-                                    <i class='bx bxs-log-in'></i>
+                                    <i class='bx bxs-log-in bx-sm'></i>
                                     <span>Ingresar</span>
                                 </div>
                             </a>
@@ -66,7 +66,7 @@
                         <li class="item">
                             <a href="{{ route('admin.register.index') }}">
                                 <div class="d-flex align-items-center gap-1">
-                                    <i class='bx bxs-registered'></i>
+                                    <i class='bx bxs-registered bx-sm'></i>
                                     <span>Registrarme</span>
                                 </div>
                             </a>
