@@ -30,14 +30,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        @foreach ($course->exams as $exam)
+                        @foreach ($course->exams->where('type', 'NORMAL') as $exam)
                             <div class="col-md-3 my-2">
                                 <div class="mi-card">
                                     <div class="mi-card-content">
                                         <h2 class="contenido-bloques-titulo">{{ $exam->nombre }}</h2>
                                         <div class="text-center">
-                                            <img class="img-fluid"
-                                                src="{{ asset('img/home/pruebas.png') }}"
+                                            <img class="img-fluid" src="{{ asset('img/home/pruebas.png') }}"
                                                 alt="Imagene de la prueba">
                                         </div>
                                         <p class="contenido-bloques-parrafo mt-2">Tiempo estimado : {{ $exam->duracion }}
@@ -90,8 +89,8 @@
                         educativo,
                         contenidos
                         académicos, <strong>al sistema de exámenes de todos los cursos</strong> y mucho más:<a
-                            class="btn btn-primary text-white"
-                            href="{{ route('mercadopago.suscription.subscribe') }}" title="suscripcion">
+                            class="btn btn-primary text-white" href="{{ route('mercadopago.suscription.subscribe') }}"
+                            title="suscripcion">
                             suscribirme
                         </a>
                     </p>
