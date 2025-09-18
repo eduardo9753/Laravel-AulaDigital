@@ -30,6 +30,7 @@ class WhatsAppWebHookController extends Controller
         $schedule = WhatsAppsSchedule::firstOrCreate(['phone' => $fromNumber]);
 
         $mensaje = "";
+        $urlImagen = null; // 🔑 centralizamos aquí
 
         // === PEDIR PREGUNTA ===
         if ($body === 'pregúntame' || $body === 'preguntame') {
@@ -45,7 +46,6 @@ class WhatsAppWebHookController extends Controller
 
                 // Buscar imagen en la pregunta
                 $titulo = $question->titulo;
-                $urlImagen = null;
 
                 preg_match('/<img.*?src=["\'](.*?)["\']/', $titulo, $matches);
                 if (!empty($matches[1])) {
@@ -61,7 +61,7 @@ class WhatsAppWebHookController extends Controller
                     $titulo = preg_replace('/<img.*?>/', '', $titulo);
                 }
 
-                // Construir mensaje solo con texto
+                // Construir mensaje con texto
                 $mensaje = "🧠 *Pregunta del día:*\n";
                 $mensaje .= $this->formatForWhatsapp($titulo) . "\n\n";
 
@@ -69,21 +69,6 @@ class WhatsAppWebHookController extends Controller
                     $mensaje .= ($index + 1) . ". " . $this->formatForWhatsapp($answer->titulo) . "\n";
                 }
                 $mensaje .= "\n📩 Responde con el número de la opción correcta (1-" . count($answers) . ")";
-
-                // Enviar texto + imagen en el mismo mensaje
-                $params = [
-                    'from' => $fromTwilio,
-                    'body' => $mensaje
-                ];
-
-                if ($urlImagen) {
-                    $params['mediaUrl'] = [$urlImagen];
-                    Log::info("Imagen de la pregunta $urlImagen");
-                }
-
-                $twilio->messages->create($from, $params);
-
-                return; // 🚀 salimos para no duplicar
             } else {
                 $mensaje = "⚠️ Antes de comenzar, por favor escribe *hola* para registrar tu día y hora preferidos.";
             }
@@ -143,7 +128,17 @@ class WhatsAppWebHookController extends Controller
             $mensaje = "⚠️ Por favor {$request->input('ProfileName')}! elije un número del 1 al 5.";
         }
 
-        // === ENVÍO MENSAJE GENERAL ===
+        // === ENVÍO MENSAJE ===
+        $params = [
+            'from' => $fromTwilio,
+            'body' => $mensaje
+        ];
+
+        if ($urlImagen) {
+            $params['mediaUrl'] = [$urlImagen];
+        }
+
+        // cortar en partes si es muy largo
         if (strlen($mensaje) > 1500) {
             $partes = str_split($mensaje, 1500);
             foreach ($partes as $parte) {
@@ -153,14 +148,12 @@ class WhatsAppWebHookController extends Controller
                 ]);
             }
         } else {
-            $twilio->messages->create($from, [
-                'from' => $fromTwilio,
-                'body' => $mensaje
-            ]);
+            $twilio->messages->create($from, $params);
         }
 
-        Log::info("Mensaje enviado a $from");
+        Log::info("Mensaje enviado a $from", $params);
     }
+
 
 
 
@@ -176,15 +169,23 @@ class WhatsAppWebHookController extends Controller
             $data = base64_decode($base64String);
             if ($data === false) return null;
 
+            // 📂 Ruta en public/preguntas
+            $directory = public_path('preguntas');
+            if (!file_exists($directory)) {
+                mkdir($directory, 0755, true);
+            }
+
             $fileName = $prefix . '.' . $extension;
-            $filePath = storage_path('app/public/' . $fileName);
+            $filePath = $directory . '/' . $fileName;
 
             file_put_contents($filePath, $data);
 
-            return asset('storage/' . $fileName);
+            // 🔗 URL accesible públicamente
+            return asset('preguntas/' . $fileName);
         }
         return null;
     }
+
 
 
     /**
@@ -192,11 +193,14 @@ class WhatsAppWebHookController extends Controller
      */
     private function deleteTempImage($prefix)
     {
-        $files = glob(storage_path("app/public/{$prefix}.*"));
+        $files = glob(public_path("preguntas/{$prefix}.*"));
         foreach ($files as $file) {
-            unlink($file);
+            if (file_exists($file)) {
+                unlink($file);
+            }
         }
     }
+
 
     /**
      * Limpia HTML de CKEditor y lo convierte a formato WhatsApp
