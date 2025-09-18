@@ -35,7 +35,7 @@ class WhatsAppWebHookController extends Controller
         // === PEDIR PREGUNTA ===
         if ($body === 'pregúntame' || $body === 'preguntame') {
             if ($schedule->day && $schedule->time) {
-                $question = Question::where('section_id', '59')->inRandomOrder()->first();
+                $question = Question::inRandomOrder()->first();
                 $answers = $question->answers;
 
                 // Guardar la pregunta enviada
