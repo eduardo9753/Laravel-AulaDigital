@@ -70,21 +70,19 @@ class WhatsAppWebHookController extends Controller
                 }
                 $mensaje .= "\n📩 Responde con el número de la opción correcta (1-" . count($answers) . ")";
 
-                // Enviar primero el texto
-                $twilio->messages->create($from, [
+                // Enviar texto + imagen en el mismo mensaje
+                $params = [
                     'from' => $fromTwilio,
                     'body' => $mensaje
-                ]);
+                ];
 
-                // Enviar la imagen (si existe)
                 if ($urlImagen) {
-                    $twilio->messages->create($from, [
-                        'from' => $fromTwilio,
-                        'mediaUrl' => [$urlImagen]
-                    ]);
+                    $params['mediaUrl'] = [$urlImagen];
                 }
 
-                return; // 🚀 Importante: salir aquí para no duplicar
+                $twilio->messages->create($from, $params);
+
+                return; // 🚀 salimos para no duplicar
             } else {
                 $mensaje = "⚠️ Antes de comenzar, por favor escribe *hola* para registrar tu día y hora preferidos.";
             }
@@ -141,7 +139,7 @@ class WhatsAppWebHookController extends Controller
 
             $mensaje = "✅ Listo. Te enviaremos tu formulario cada *{$schedule->day}* a las *{$schedule->time}*. ¡Gracias!";
         } else {
-            $mensaje = "⚠️ Por favor {$request->input('ProfileName')}! escribe 'hola' para comenzar, o sigue las instrucciones.";
+            $mensaje = "⚠️ Por favor {$request->input('ProfileName')}! elije un número del 1 al 5.";
         }
 
         // === ENVÍO MENSAJE GENERAL ===
