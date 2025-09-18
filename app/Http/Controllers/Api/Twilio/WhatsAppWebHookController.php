@@ -32,7 +32,6 @@ class WhatsAppWebHookController extends Controller
         $mensaje = "";
 
         // === PEDIR PREGUNTA ===
-        // === PEDIR PREGUNTA ===
         if ($body === 'pregúntame' || $body === 'preguntame') {
             if ($schedule->day && $schedule->time) {
                 $question = Question::inRandomOrder()->first();
@@ -58,7 +57,7 @@ class WhatsAppWebHookController extends Controller
                         $urlImagen = $srcImagen;
                     }
 
-                    // ❌ Eliminar la etiqueta <img> del texto para que no aparezca como basura
+                    // ❌ Eliminar la etiqueta <img> del texto
                     $titulo = preg_replace('/<img.*?>/', '', $titulo);
                 }
 
@@ -77,18 +76,21 @@ class WhatsAppWebHookController extends Controller
                     'body' => $mensaje
                 ]);
 
-                // Enviar la imagen (si existe) en mensaje aparte
+                // Enviar la imagen (si existe)
                 if ($urlImagen) {
                     $twilio->messages->create($from, [
                         'from' => $fromTwilio,
-                        'body' => "📷 Imagen asociada a la pregunta:",
                         'mediaUrl' => [$urlImagen]
                     ]);
                 }
+
+                return; // 🚀 Importante: salir aquí para no duplicar
             } else {
                 $mensaje = "⚠️ Antes de comenzar, por favor escribe *hola* para registrar tu día y hora preferidos.";
             }
-        } elseif (preg_match('/^[1-5]$/', $body)) {
+        }
+        // === RESPONDER OPCIONES ===
+        elseif (preg_match('/^[1-5]$/', $body)) {
             $registro = WhatsAppsUserQuestionSchedule::where('phone', $fromNumber)->first();
 
             if ($registro && $registro->question_id) {
@@ -108,7 +110,7 @@ class WhatsAppWebHookController extends Controller
                             $mensaje = "❌ Incorrecto.\nLa respuesta correcta era:\n{$indexCorrecto}. " . $this->formatForWhatsapp($respuestaCorrecta->titulo);
                         }
 
-                        // 🔥 Eliminar imagen temporal de la pregunta
+                        // 🔥 Eliminar imagen temporal
                         $this->deleteTempImage("pregunta_{$question->id}");
 
                         // Borrar registro de la pregunta
@@ -122,9 +124,9 @@ class WhatsAppWebHookController extends Controller
             } else {
                 $mensaje = "⚠️ No hay ninguna pregunta activa para ti. Escribe *pregúntame* para comenzar.";
             }
-
-            // === REGISTRO INICIAL ===
-        } elseif ($body === 'hola' && $schedule->day && $schedule->time) {
+        }
+        // === REGISTRO INICIAL ===
+        elseif ($body === 'hola' && $schedule->day && $schedule->time) {
             $mensaje = "👋 ¡Hola {$request->input('ProfileName')}! Bienvenido/a nuevamente al entrenamiento médico.\n\nTus datos ya están guardados. Escribe *pregúntame* para comenzar.";
         } elseif ($body === 'hola') {
             $mensaje = "👋 ¡Hola! {$request->input('ProfileName')}! Bienvenido/a al entrenamiento médico.\n\nPor favor responde con un *día de la semana* (ej: martes) en que desees recibir tus preguntas.";
@@ -142,7 +144,7 @@ class WhatsAppWebHookController extends Controller
             $mensaje = "⚠️ Por favor {$request->input('ProfileName')}! escribe 'hola' para comenzar, o sigue las instrucciones.";
         }
 
-        // === ENVÍO MENSAJE ===
+        // === ENVÍO MENSAJE GENERAL ===
         if (strlen($mensaje) > 1500) {
             $partes = str_split($mensaje, 1500);
             foreach ($partes as $parte) {
@@ -160,6 +162,7 @@ class WhatsAppWebHookController extends Controller
 
         Log::info("Mensaje enviado a $from");
     }
+
 
 
     /**
