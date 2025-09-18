@@ -32,6 +32,7 @@ class WhatsAppWebHookController extends Controller
         $mensaje = "";
 
         // === PEDIR PREGUNTA ===
+        // === PEDIR PREGUNTA ===
         if ($body === 'pregúntame' || $body === 'preguntame') {
             if ($schedule->day && $schedule->time) {
                 $question = Question::inRandomOrder()->first();
@@ -43,38 +44,50 @@ class WhatsAppWebHookController extends Controller
                     ['question_id' => $question->id]
                 );
 
-                $mensaje = "🧠 *Pregunta del día:*\n";
-                $mensaje .= $this->formatForWhatsapp($question->titulo) . "\n\n";
-
-                foreach ($answers as $index => $answer) {
-                    $mensaje .= ($index + 1) . ". " . $this->formatForWhatsapp($answer->titulo) . "\n";
-                }
-                $mensaje .= "\n📩 Responde con el número de la opción correcta (1-" . count($answers) . ")";
-
                 // Buscar imagen en la pregunta
-                preg_match('/<img.*?src=["\'](.*?)["\']/', $question->titulo, $matches);
+                $titulo = $question->titulo;
+                $urlImagen = null;
+
+                preg_match('/<img.*?src=["\'](.*?)["\']/', $titulo, $matches);
                 if (!empty($matches[1])) {
                     $srcImagen = $matches[1];
 
                     if (str_starts_with($srcImagen, 'data:image')) {
                         $urlImagen = $this->saveImageFromBase64($srcImagen, "pregunta_{$question->id}");
                     } else {
-                        $urlImagen = $srcImagen; // ya es URL
+                        $urlImagen = $srcImagen;
                     }
 
-                    if ($urlImagen) {
-                        $twilio->messages->create($from, [
-                            'from' => $fromTwilio,
-                            'body' => "📷 Imagen asociada a la pregunta:",
-                            'mediaUrl' => [$urlImagen]
-                        ]);
-                    }
+                    // ❌ Eliminar la etiqueta <img> del texto para que no aparezca como basura
+                    $titulo = preg_replace('/<img.*?>/', '', $titulo);
+                }
+
+                // Construir mensaje solo con texto
+                $mensaje = "🧠 *Pregunta del día:*\n";
+                $mensaje .= $this->formatForWhatsapp($titulo) . "\n\n";
+
+                foreach ($answers as $index => $answer) {
+                    $mensaje .= ($index + 1) . ". " . $this->formatForWhatsapp($answer->titulo) . "\n";
+                }
+                $mensaje .= "\n📩 Responde con el número de la opción correcta (1-" . count($answers) . ")";
+
+                // Enviar primero el texto
+                $twilio->messages->create($from, [
+                    'from' => $fromTwilio,
+                    'body' => $mensaje
+                ]);
+
+                // Enviar la imagen (si existe) en mensaje aparte
+                if ($urlImagen) {
+                    $twilio->messages->create($from, [
+                        'from' => $fromTwilio,
+                        'body' => "📷 Imagen asociada a la pregunta:",
+                        'mediaUrl' => [$urlImagen]
+                    ]);
                 }
             } else {
                 $mensaje = "⚠️ Antes de comenzar, por favor escribe *hola* para registrar tu día y hora preferidos.";
             }
-
-            // === RESPUESTA DEL USUARIO ===
         } elseif (preg_match('/^[1-5]$/', $body)) {
             $registro = WhatsAppsUserQuestionSchedule::where('phone', $fromNumber)->first();
 
