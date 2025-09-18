@@ -150,7 +150,7 @@ Route::get('/simulacros-tipo-unfv/crear', [SimulacrumController::class, 'index']
 
 //RUTA DEL CHAT BOT
 Route::get('/bot/user/meesage', [BotController::class, 'index'])->name('visitador.bot.index');
-
+Route::post('/preunicursos/chat-bot-man/conversation', [BotController::class, 'conversation'])->name('visitador.bot.conversation');
 
 //RUTAS PARA EL ADMIN
 require base_path('routes/admin.php');

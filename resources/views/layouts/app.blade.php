@@ -191,6 +191,8 @@
     <script src="{{ asset('js/home/jquery.flipster.min.js') }}"></script>
     <script src="{{ asset('js/home/template.js') }}"></script>
 
+    <script src="{{ asset('js/bot/chatBot.js') }}"></script>
+
 
     <script src="{{ asset('js/mercadopagoSuscripcion.js') }}"></script>
     <script src="{{ asset('js/mercadopagoSuscripcionSeisMeses.js') }}"></script>
