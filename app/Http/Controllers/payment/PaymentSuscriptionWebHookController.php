@@ -3,101 +3,138 @@
 namespace App\Http\Controllers\payment;
 
 use App\Http\Controllers\Controller;
-use App\Mail\EnviarCorreoSuscripcion;
 use App\Models\Pay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 use MercadoPago\Preapproval;
+use MercadoPago\Payment;
 use MercadoPago\SDK;
 
 class PaymentSuscriptionWebHookController extends Controller
 {
     public function index(Request $request)
     {
-        // Obtener el payload del webhook en formato JSON
-        $payloadRaw = $request->getContent();
+        // 1. Obtener el payload del webhook en formato JSON
+        $payloadRaw   = $request->getContent();
         $payloadArray = json_decode($payloadRaw, true);
 
-        Log::info('Webhook Received:', $payloadArray);
+        Log::info('🌐 Webhook recibido:', $payloadArray);
 
-        // Validar la estructura del webhook
+        // 2. Validar que tenga lo mínimo
         if (!isset($payloadArray['data']['id']) || !isset($payloadArray['type'])) {
-            Log::error('Datos incompletos o incorrectos recibidos del webhook: ' . $payloadRaw);
+            Log::error('❌ Datos incompletos o incorrectos recibidos del webhook: ' . $payloadRaw);
             return response()->json(['status' => 'error', 'message' => 'Invalid payload'], 400);
         }
 
-        $preapprovalId = $payloadArray['data']['id'];
+        $eventId   = $payloadArray['data']['id'];
         $eventType = $payloadArray['type'];
 
-        // Configura las credenciales de Mercado Pago
+        // 3. Configurar credenciales de Mercado Pago
         SDK::setAccessToken(config('mercadopago.token'));
 
-        // Consultar el estado de la suscripción desde la API de Mercado Pago
-        $paymentInfo = $this->obtenerDetallePago($preapprovalId);
+        switch ($eventType) {
+            /**
+             * 🚀 Caso 1: Suscripciones recurrentes (tarjeta cada mes)
+             */
+            case 'preapproval':
+                $preapproval = $this->obtenerDetalleSuscripcion($eventId);
 
-        // Consultar si existe el ID del pago en mi tabla
-        $payUser = $this->payUsuario($preapprovalId);
+                if (!$preapproval || !isset($preapproval->status)) {
+                    Log::error("❌ No se pudo obtener información de la suscripción $eventId");
+                    return response()->json(['status' => 'error', 'message' => 'Preapproval not found'], 404);
+                }
 
-        if (!$paymentInfo || !isset($paymentInfo->status)) {
-            Log::error('No se pudo obtener información del pago.');
-            return response()->json(['status' => 'error', 'message' => 'Payment information not found'], 404);
-        }
+                if ($preapproval->status === 'authorized') {
+                    // Crear o actualizar suscripción
+                    Pay::updateOrCreate(
+                        ['payment_id' => $eventId],
+                        [
+                            'user_id'           => $preapproval->external_reference ?? 1,
+                            'collection_id'     => $preapproval->id,
+                            'collection_status' => 'PLAN-PRE-UNI',
+                            'status'            => 'PAGO SUSCRIPCION',
+                            'external_reference' => $preapproval->external_reference ?? '',
+                            'payment_type'      => 'TARJETA',
+                            'merchant_order_id' => $preapproval->auto_recurring->transaction_amount ?? '',
+                            'preference_id'     => $eventId,
+                            'site_id'           => 'MPE',
+                            'processing_mode'   => 'ONLINE',
+                            'merchant_account_id' => '',
+                            'estado'            => 'POR ATENDER',
+                        ]
+                    );
 
-        if ($paymentInfo->status === 'authorized' || $preapprovalId) {
-            // Registro de primer pago o actualización de pago recurrente
-            $pay = Pay::updateOrCreate(
-                ['payment_id' => $preapprovalId],
-                [
-                    'user_id' => $payUser->user_id ?? '1', // Puedes ajustar el valor predeterminado
-                    'collection_id' => $paymentInfo->id ?? '',
-                    'collection_status' => $payUser->collection_status ?? 'PLAN-PRE-UNI',
-                    'status' => 'PAGO SUSCRIPCION',
-                    'external_reference' => $paymentInfo->external_reference ?? '',
-                    'payment_type' => 'TARJETA',
-                    'merchant_order_id' => $paymentInfo->order->id ?? '',
-                    'preference_id' => $preapprovalId,
-                    'site_id' => 'MPE',
-                    'processing_mode' => 'ONLINE',
-                    'merchant_account_id' => $paymentInfo->merchant_account_id ?? '',
-                    'estado' => 'POR ATENDER',
-                ]
-            );
+                    Log::info("✅ Suscripción recurrente autorizada: $eventId");
+                } elseif (in_array($preapproval->status, ['rejected', 'cancelled'])) {
+                    Pay::where('payment_id', $eventId)->update(['estado' => 'CANCELADO']);
+                    Log::warning("⚠️ Suscripción cancelada/rechazada: $eventId");
+                }
+                break;
 
-            if ($pay) {
-                Log::info('Pago recurrente registrado o actualizado correctamente.');
-            } else {
-                Log::error('Error al registrar el pago recurrente en la base de datos.');
-            }
-        } elseif ($paymentInfo->status === 'rejected' || $paymentInfo->status === 'cancelled') {
-            // Actualizar estado si el pago fue rechazado o cancelado
-            $suscripcion = Pay::where('payment_id', $preapprovalId)->first();
+            /**
+                 * 🚀 Caso 2: Pagos únicos (Yape, PagoEfectivo, Plin, tarjeta única, etc.)
+                 */
+            case 'payment':
+                $payment = $this->obtenerDetallePago($eventId);
 
-            if ($suscripcion) {
-                $suscripcion->update(['estado' => 'CANCELADO']);
-                Log::info('Suscripción actualizada a inactivo debido a pago fallido o cancelado.');
-            }
-        } else {
-            Log::error('No se encontro el estado solicitado.');
+                if (!$payment || !isset($payment->status)) {
+                    Log::error("❌ No se pudo obtener información del pago $eventId");
+                    return response()->json(['status' => 'error', 'message' => 'Payment not found'], 404);
+                }
+
+                if ($payment->status === 'approved') {
+                    Pay::updateOrCreate(
+                        ['payment_id' => $payment->id],
+                        [
+                            'user_id'           => $payment->external_reference ?? 1,
+                            'collection_id'     => $payment->id,
+                            'collection_status' => $payment->status,
+                            'status'            => 'PAGO UNICO',
+                            'external_reference' => $payment->external_reference ?? '',
+                            'payment_type'      => $payment->payment_type_id, // ej: yape, account_money, ticket, card
+                            'merchant_order_id' => $payment->order->id ?? '',
+                            'preference_id'     => $payment->additional_info->items[0]->id ?? '',
+                            'site_id'           => $payment->site_id ?? 'MPE',
+                            'processing_mode'   => $payment->processing_mode ?? 'ONLINE',
+                            'merchant_account_id' => $payment->merchant_account_id ?? '',
+                            'estado'            => 'POR ATENDER',
+                        ]
+                    );
+
+                    Log::info("✅ Pago único aprobado ({$payment->payment_type_id}): {$payment->id}");
+                } elseif (in_array($payment->status, ['rejected', 'cancelled'])) {
+                    Pay::where('payment_id', $payment->id)->update(['estado' => 'CANCELADO']);
+                    Log::warning("⚠️ Pago único rechazado/cancelado: {$payment->id}");
+                }
+                break;
+
+            default:
+                Log::notice("ℹ️ Evento no contemplado: $eventType");
+                break;
         }
 
         return response()->json(['status' => 'success'], 200);
     }
 
-    // Función para consultar el estado del pago de la suscripción
-    private function obtenerDetallePago($preapprovalId)
+    // 🔹 Función para consultar el estado de la suscripción
+    private function obtenerDetalleSuscripcion($preapprovalId)
     {
         try {
             return Preapproval::find_by_id($preapprovalId);
         } catch (\Throwable $th) {
-            Log::error("Error al obtener los detalles del pago: " . $th->getMessage());
+            Log::error("Error al obtener detalles de la suscripción $preapprovalId: " . $th->getMessage());
             return null;
         }
     }
 
-    // Obtener el usuario por medio del pago
-    private function payUsuario($preapprovalId)
+    // 🔹 Función para consultar el estado de un pago único
+    private function obtenerDetallePago($paymentId)
     {
-        return Pay::where('payment_id', $preapprovalId)->first();
+        try {
+            return Payment::find_by_id($paymentId);
+        } catch (\Throwable $th) {
+            Log::error("Error al obtener detalles del pago $paymentId: " . $th->getMessage());
+            return null;
+        }
     }
 }
