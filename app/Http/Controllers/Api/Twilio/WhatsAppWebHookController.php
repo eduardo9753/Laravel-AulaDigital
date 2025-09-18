@@ -34,7 +34,7 @@ class WhatsAppWebHookController extends Controller
         // === PEDIR PREGUNTA ===
         if ($body === 'pregúntame' || $body === 'preguntame') {
             if ($schedule->day && $schedule->time) {
-                $question = Question::inRandomOrder()->first();
+                $question = Question::where('section_id', '59')->inRandomOrder()->first();
                 $answers = $question->answers;
 
                 // Guardar la pregunta enviada
@@ -78,6 +78,7 @@ class WhatsAppWebHookController extends Controller
 
                 if ($urlImagen) {
                     $params['mediaUrl'] = [$urlImagen];
+                    Log::info("Imagen de la pregunta $urlImagen");
                 }
 
                 $twilio->messages->create($from, $params);
