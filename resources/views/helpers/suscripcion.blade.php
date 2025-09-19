@@ -15,6 +15,9 @@
             </button>
         </div>
 
+        {{-- QR PARA PODER INTERACTUAR CON EL BOT --}}
+        @include('helpers.qr-bot')
+
         <div class="row" data-aos="fade-up" data-aos-offset="-500">
             <div class="col-sm-12">
                 <div class="d-sm-flex justify-content-between align-items-center mb-2">

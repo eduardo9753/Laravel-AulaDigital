@@ -15,8 +15,6 @@
     <!-- Ahora incluimos la vista suscripcion.blade.php -->
     @include('helpers.suscripcion')
 
-   
-
     <!--video con los pasos de suscripcion-->
     <section class="our-process" id="plans">
         <div class="container">
