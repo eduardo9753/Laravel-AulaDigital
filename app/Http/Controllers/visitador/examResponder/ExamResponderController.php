@@ -10,9 +10,11 @@ use App\Models\ExamQuestion;
 use App\Models\ExamUser;
 use App\Models\ExamUserAnswer;
 use App\Models\Question;
+use App\Models\Section;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Http;
 
 class ExamResponderController extends Controller
 {
@@ -103,11 +105,13 @@ class ExamResponderController extends Controller
             $userExamAnswers = ExamUserAnswer::where('exam_user_id', $examUser->id)
                 ->with(['answer', 'examQuestion.question.answers'])->get();
 
+            $recomendacion = $this->generarRecomendacion($exam, $examUser, $userExamAnswers);
             //dd($questions);
             return view('visitador.examResponder.show', [
                 'exam' => $exam,
                 'examUser' => $examUser,
-                'userExamAnswers' => $userExamAnswers
+                'userExamAnswers' => $userExamAnswers,
+                'recomendacion' => $recomendacion
             ]);
         } else {
             // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
@@ -146,5 +150,106 @@ class ExamResponderController extends Controller
             // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
             return redirect()->route('mercadopago.suscription.subscribe');
         }
+    }
+
+    // GENERAR RECOMENDACIÓN PERSONALIZADA DEL SIMULACRO
+    public function generarRecomendacion($exam, $examUser, $userExamAnswers)
+    {
+        $seccionesFalladas = [];
+        $seccionesAcertadas = [];
+
+        // ✅ Recorrer respuestas del alumno
+        foreach ($userExamAnswers as $respuesta) {
+            $pregunta = $respuesta->examQuestion->question ?? null;
+            if (!$pregunta || !$pregunta->section || !$pregunta->section->course) {
+                continue; // evitar errores si falta alguna relación
+            }
+
+            $seccion = $pregunta->section;
+            $curso = $seccion->course;
+
+            // Clasificar la respuesta según si fue correcta o no
+            if (!$respuesta->answer->es_correcta) {
+                $seccionesFalladas[$curso->title][$seccion->name][] = $pregunta->titulo;
+            } else {
+                $seccionesAcertadas[$curso->title][$seccion->name][] = $pregunta->titulo;
+            }
+        }
+
+        // 🎬 Buscar lecciones (videos) de las secciones falladas
+        $videosRecomendados = collect();
+
+        foreach ($seccionesFalladas as $curso => $secciones) {
+            foreach ($secciones as $nombreSeccion => $preguntas) {
+                // Buscar la sección con sus lecciones
+                $sectionModel = Section::where('name', $nombreSeccion)
+                    ->with('lessons') // relación: Section hasMany Lesson
+                    ->first();
+
+                if ($sectionModel && $sectionModel->lessons->isNotEmpty()) {
+                    foreach ($sectionModel->lessons as $lesson) {
+                        $videosRecomendados->push([
+                            'curso' => $curso,
+                            'seccion' => $nombreSeccion,
+                            'titulo' => $lesson->name ?? 'Lección sin título',
+                            'url' => $lesson->url ?? null, // ✅ en tu tabla "lessons" el campo es "url"
+                        ]);
+                    }
+                }
+            }
+        }
+
+        // 🧾 Crear resumen textual del desempeño
+        $resumen = "📘 Examen: {$exam->nombre}\n";
+        $resumen .= "👤 Alumno: {$examUser->user->name}\n";
+        $resumen .= "📊 Puntaje: {$examUser->calificacion}\n\n";
+
+        if (count($seccionesFalladas) > 0) {
+            $resumen .= "❌ Secciones donde tuvo errores:\n";
+            foreach ($seccionesFalladas as $curso => $secciones) {
+                $resumen .= "Curso: $curso\n";
+                foreach ($secciones as $nombreSeccion => $preguntas) {
+                    $resumen .= "  - $nombreSeccion (" . count($preguntas) . " preguntas falladas)\n";
+                }
+            }
+        } else {
+            $resumen .= "✅ No tuvo errores significativos. ¡Excelente desempeño!\n";
+        }
+
+        if (count($seccionesAcertadas) > 0) {
+            $resumen .= "\n✅ Secciones dominadas:\n";
+            foreach ($seccionesAcertadas as $curso => $secciones) {
+                $resumen .= "Curso: $curso\n";
+                foreach ($secciones as $nombreSeccion => $preguntas) {
+                    $resumen .= "  - $nombreSeccion (" . count($preguntas) . " correctas)\n";
+                }
+            }
+        }
+
+        // 🧠 Prompt para IA (GPT)
+        $prompt = "
+                    Eres un tutor pedagógico especializado en preparación preuniversitaria (Perú).
+                    Analiza el rendimiento del alumno y genera una recomendación personalizada.
+
+                    Formato de respuesta: 
+                        1️⃣ Análisis general del desempeño.
+                        2️⃣ Temas y secciones que debe reforzar.
+                        3️⃣ Recomendaciones y motivación final.
+        $resumen
+          ";
+
+        // 🚀 Llamada a la API de OpenAI
+        $response = Http::withToken(env('OPENAI_API_KEY'))->post('https://api.openai.com/v1/chat/completions', [
+            'model' => 'gpt-4o-mini',
+            'messages' => [
+                ['role' => 'system', 'content' => 'Eres un tutor educativo experto de PreuniCursos.'],
+                ['role' => 'user', 'content' => $prompt],
+            ],
+        ]);
+
+        return [
+            'texto' => $response->json('choices.0.message.content'),
+            'videos' => $videosRecomendados,
+        ];
     }
 }

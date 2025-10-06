@@ -21,6 +21,45 @@
     <section class="" id="contenido-bloques">
         <div class="contenedor">
             <div class="row">
+
+                <div class="col-md-12">
+                    @if (!empty($recomendacion['texto']))
+                        <div class="mi-card mt-3">
+                            <div class="mi-card-content">
+                                <h2 class="contenido-bloques-titulo">🧠 Recomendación Personalizada</h2>
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <p class="contenido-bloques-parrafo">{!! nl2br(e($recomendacion['texto'])) !!}</p>
+                                    </div>
+                                </div>
+
+                                @if ($recomendacion['videos']->isNotEmpty())
+                                    <h3 class="mt-4 contenido-bloques-titulo">🎥 Videos recomendados para repasar</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                        @foreach ($recomendacion['videos'] as $video)
+                                            <div class="card shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="fw-bold text-primary">{{ $video['curso'] }} -
+                                                        {{ $video['seccion'] }}</h5>
+                                                    <p>{{ $video['titulo'] }}</p>
+                                                    @if ($video['url'])
+                                                        <iframe width="100%" height="200" src="{{ $video['url'] }}"
+                                                            frameborder="0" allowfullscreen></iframe>
+                                                    @else
+                                                        <small class="text-muted">Video no disponible.</small>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    @endif
+
+                </div>
+
+
                 @if (session('mensaje'))
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>¡Atención!</strong> {{ session('mensaje') }}
