@@ -105,13 +105,14 @@ class ExamResponderController extends Controller
             $userExamAnswers = ExamUserAnswer::where('exam_user_id', $examUser->id)
                 ->with(['answer', 'examQuestion.question.answers'])->get();
 
-            $recomendacion = $this->generarRecomendacion($exam, $examUser, $userExamAnswers);
+            //$recomendacion = $this->generarRecomendacion($exam, $examUser, $userExamAnswers);
             //dd($questions);
             return view('visitador.examResponder.show', [
                 'exam' => $exam,
                 'examUser' => $examUser,
                 'userExamAnswers' => $userExamAnswers,
-                'recomendacion' => $recomendacion
+                //  'recomendacion' => $recomendacion
+                'user' => $user
             ]);
         } else {
             // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
@@ -193,6 +194,7 @@ class ExamResponderController extends Controller
                             'seccion' => $nombreSeccion,
                             'titulo' => $lesson->name ?? 'Lección sin título',
                             'url' => $lesson->url ?? null, // ✅ en tu tabla "lessons" el campo es "url"
+                            'iframe' => $lesson->iframe ?? null, // ✅ en tu tabla "lessons" el campo es "url"
                         ]);
                     }
                 }
