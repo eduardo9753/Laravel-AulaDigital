@@ -62,7 +62,7 @@
                                 @endphp
 
                                 @if ($youtubeId)
-                                    <div id="player-recomendacion-{{ $loop->index }}" class="plyr__video-embed">
+                                    <div id="player-content-i-a-{{ $loop->index }}" class="plyr__video-embed">
                                         <iframe
                                             src="https://www.youtube.com/embed/{{ $youtubeId }}?rel=0&modestbranding=1"
                                             allowfullscreen allow="autoplay" style="width: 100%; height: 400px;">
@@ -125,4 +125,9 @@
             @endif
         </div>
     @endif
+
+    @section('scripts')
+        <!-- Plyr Initialization Script -->
+        <script src="{{ asset('js/visitador/plyr/plyr-content-i-a.js') }}"></script>
+    @endsection
 </div>
