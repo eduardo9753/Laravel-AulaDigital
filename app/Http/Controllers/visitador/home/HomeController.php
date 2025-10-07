@@ -59,8 +59,11 @@ class HomeController extends Controller
 
         $user =  auth()->user();
         $courses = Course::all();
-        $compendios = Archive::where('type','C')->get();
-        $archivos = Archive::where('type','<>','C')->get();
+        $compendios = Archive::where('type', 'C')->get();
+        $archivos = Archive::where(function ($q) {
+            $q->where('type', '<>', 'C')
+                ->orWhereNull('type');
+        })->get();
         $examenes = Exam::all();
         return view('visitador.home.panel', [
             'user' => $user,

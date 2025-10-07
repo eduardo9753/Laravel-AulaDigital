@@ -55,9 +55,22 @@
                     @foreach ($resultado['videos'] as $video)
                         <div class="col-md-6 mb-3">
                             <div class="card border-0 shadow-sm rounded-3 h-100">
-                                <div class="ratio ratio-16x9">
-                                    <iframe src="{{ $video->url }}" class="rounded-top" allowfullscreen></iframe>
-                                </div>
+                                @php
+                                    // Extraer el ID del video de YouTube desde la URL o iframe original
+                                    preg_match('/embed\/([a-zA-Z0-9_-]+)/', $video->iframe, $matches);
+                                    $youtubeId = $matches[1] ?? null;
+                                @endphp
+
+                                @if ($youtubeId)
+                                    <div id="player-recomendacion-{{ $loop->index }}" class="plyr__video-embed">
+                                        <iframe
+                                            src="https://www.youtube.com/embed/{{ $youtubeId }}?rel=0&modestbranding=1"
+                                            allowfullscreen allow="autoplay" style="width: 100%; height: 400px;">
+                                        </iframe>
+                                    </div>
+                                @else
+                                    <small class="text-muted">Video no disponible.</small>
+                                @endif
                                 <div class="card-body">
                                     <h6 class="fw-semibold text-dark">{{ $video->name }}</h6>
                                 </div>
