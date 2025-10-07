@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Http;
 class BotController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $user = auth()->user();
@@ -83,6 +88,15 @@ Aquí tienes contenido de referencia extraído de la plataforma PreuniCursos:\n\
 
         return response()->json([
             'extracto' => substr($text, 0, 500), // Solo para probar
+        ]);
+    }
+
+    //funcion para generar contenido con ia pora reforzar
+    public function contenidoIA()
+    {
+        $user = auth()->user();
+        return view('visitador.bot.contenido-i-a', [
+            'user' => $user
         ]);
     }
 }

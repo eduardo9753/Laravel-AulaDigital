@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\visitador\home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Archive;
 use App\Models\Course;
+use App\Models\Exam;
 use App\Models\Resource;
 use Illuminate\Http\Request;
 
@@ -48,6 +50,24 @@ class HomeController extends Controller
         return view('visitador.contenido.index', [
             'contenido' => $resource,
             'course' => $course
+        ]);
+    }
+
+    public function panel()
+    {
+        $this->middleware('auth');
+
+        $user =  auth()->user();
+        $courses = Course::all();
+        $compendios = Archive::where('type','C')->get();
+        $archivos = Archive::where('type','<>','C')->get();
+        $examenes = Exam::all();
+        return view('visitador.home.panel', [
+            'user' => $user,
+            'courses' => $courses,
+            'compendios' => $compendios,
+            'archivos' => $archivos,
+            'examenes' => $examenes
         ]);
     }
 }

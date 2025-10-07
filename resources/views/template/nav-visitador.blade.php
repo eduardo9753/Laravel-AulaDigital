@@ -9,9 +9,9 @@
                         @include('helpers.pre-uni')
 
                         {{-- PLAN ESCOLAR 
-                        @include('helpers.escolar')--}}
+                        @include('helpers.escolar') --}}
 
-                        
+
                     @endauth
 
                     @guest
@@ -102,11 +102,21 @@
                     </div>
                 </label>
 
-                <div class="caja-img">
-                    <a href="{{ route('visitador.home.index') }}">
-                        <img src="{{ asset('img/logo/logo.png') }}" alt="">
-                    </a>
-                </div>
+                @guest
+                    <div class="caja-img">
+                        <a href="{{ route('visitador.home.index') }}">
+                            <img src="{{ asset('img/logo/logo.png') }}" alt="">
+                        </a>
+                    </div>
+                @endguest
+
+                @auth
+                    <div class="caja-img">
+                        <a href="{{ route('visitador.panel') }}">
+                            <i class='bx bxs-slideshow' style="font-size: 52px; color: #f07613"></i>
+                        </a>
+                    </div>
+                @endauth
             </div>
         </div>
     </nav>

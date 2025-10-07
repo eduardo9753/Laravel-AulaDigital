@@ -46,6 +46,7 @@ use App\Http\Livewire\CourseStatus;
 
 Route::get('/', [HomeController::class, 'index'])->name('visitador.home.index');
 Route::get('/contenido/{resource}', [HomeController::class, 'contenido'])->name('visitador.contenido');
+Route::get('/panel', [HomeController::class, 'panel'])->name('visitador.panel');
 
 //AUTH CON GOOGLE 
 Route::get('/auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.auth.redirect');
@@ -151,6 +152,8 @@ Route::get('/simulacros-tipo-unfv/crear', [SimulacrumController::class, 'index']
 //RUTA DEL CHAT BOT
 Route::get('/bot/user/meesage', [BotController::class, 'index'])->name('visitador.bot.index');
 Route::post('/preunicursos/chat-bot-man/conversation', [BotController::class, 'conversation'])->name('visitador.bot.conversation');
+Route::get('/preunicursos/contenido-i-a/estudiante', [BotController::class , 'contenidoIA'])->name('visitador.bot.contenidoia');
+
 
 //RUTAS PARA EL ADMIN
 require base_path('routes/admin.php');
