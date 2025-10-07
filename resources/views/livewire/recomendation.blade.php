@@ -21,10 +21,10 @@
 
                 @if ($recomendacion['videos']->isNotEmpty())
                     <h3 class="mt-4 contenido-bloques-titulo">🎥 Videos recomendados para repasar</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                    <div class="row">
                         @foreach ($recomendacion['videos'] as $video)
-                            <div class="card shadow-sm">
-                                <div class="card-body">
+                            <div class="col-md-6 mb-3">
+                                <div class="card border-0 shadow-sm rounded-3 h-100">
                                     <h5 class="fw-bold text-primary">{{ $video['curso'] }} - {{ $video['seccion'] }}
                                     </h5>
                                     <p>{{ $video['titulo'] }}</p>

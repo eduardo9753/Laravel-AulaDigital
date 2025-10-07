@@ -1,5 +1,15 @@
 @can('notSubscription', auth()->user())
     <li class="item">
+        <a href="{{ route('visitador.panel') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bxs-slideshow bx-sm'></i>
+                <span>Mi Panel</span>
+            </div>
+        </a>
+    </li>
+
+
+    <li class="item">
         <a href="{{ route('visitador.course.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-slideshow bx-sm'></i>
@@ -35,6 +45,7 @@
         </a>
     </li>
 
+    {{--
     <li class="item">
         <a href="{{ route('visitador.read.index') }}">
             <div class="d-flex align-items-center gap-1">
@@ -43,7 +54,9 @@
             </div>
         </a>
     </li>
+    --}}
 
+    {{--
     <li class="item">
         <a href="{{ route('visitador.compendio.index') }}">
             <div class="d-flex align-items-center gap-1">
@@ -52,13 +65,13 @@
             </div>
         </a>
     </li>
-    
-    {{-- SOLO PARA PLAN 12 MESES --}}
+    --}}
+
     <li class="item">
-        <a href="{{ route('visitador.post.index') }}">
-            <div class="d-flex align-items-center gap-1">
-                <i class='bx bx-message-dots bx-burst bx-sm'></i>
-                <span>Publicaciones</span>
+        <a href="{{ route('visitador.simulacrum.index') }}">
+            <div class="d-flex align-items-center gap-2">
+                <i class='bx bx-edit bx-sm'></i>
+                <span>Crear mi Simulacro</span>
             </div>
         </a>
     </li>
@@ -72,14 +85,17 @@
         </a>
     </li>
 
+    {{-- SOLO PARA PLAN 12 MESES 
     <li class="item">
-        <a href="{{ route('visitador.simulacrum.index') }}">
-            <div class="d-flex align-items-center gap-2">
-                <i class='bx bx-edit bx-sm'></i>
-                <span>Crear mi Simulacro</span>
+        <a href="{{ route('visitador.post.index') }}">
+            <div class="d-flex align-items-center gap-1">
+                <i class='bx bx-message-dots bx-burst bx-sm'></i>
+                <span>Publicaciones</span>
             </div>
         </a>
     </li>
+    --}}
+
 
     <li class="item">
         <a href="{{ route('mercadopago.suscription.subscribe') }}">

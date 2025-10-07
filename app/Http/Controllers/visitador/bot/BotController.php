@@ -95,8 +95,13 @@ Aquí tienes contenido de referencia extraído de la plataforma PreuniCursos:\n\
     public function contenidoIA()
     {
         $user = auth()->user();
-        return view('visitador.bot.contenido-i-a', [
-            'user' => $user
-        ]);
+        if (Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
+            return view('visitador.bot.contenido-i-a', [
+                'user' => $user
+            ]);
+        } else {
+            // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
+            return redirect()->route('mercadopago.suscription.subscribe');
+        }
     }
 }
