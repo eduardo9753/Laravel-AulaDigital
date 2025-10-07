@@ -95,7 +95,7 @@ Aquí tienes contenido de referencia extraído de la plataforma PreuniCursos:\n\
     public function contenidoIA()
     {
         $user = auth()->user();
-        if (Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
+        if (Gate::allows('viewSubscriptionYear', $user)) {
             return view('visitador.bot.contenido-i-a', [
                 'user' => $user
             ]);

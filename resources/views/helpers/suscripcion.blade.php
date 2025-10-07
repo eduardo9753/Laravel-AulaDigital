@@ -67,6 +67,14 @@
                                 <span>Acceso a material educativo</span>
                             </div>
                         </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-brain bx-burst' style="padding-top: 4px; color:yellow"></i>
+                                <span style="color:yellow">
+                                    Recomendación IA tras cada examen con videos de refuerzo.
+                                </span>
+                            </div>
+                        </li>
 
                         <li class="text-white">
                             <div class="d-flex">
@@ -141,8 +149,16 @@
                         </li>
                         <li class="text-white">
                             <div class="d-flex">
-                                <i class='bx bx-check-circle' style="padding-top: 4px; color:yellow"></i>
+                                <i class='bx bx-check-circle bx-burst' style="padding-top: 4px; color:yellow"></i>
                                 <span style="color:yellow">Acceso a exámenes</span>
+                            </div>
+                        </li>
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-brain bx-burst' style="padding-top: 4px; color:yellow"></i>
+                                <span style="color:yellow">
+                                    Recomendación IA tras cada examen con videos de refuerzo.
+                                </span>
                             </div>
                         </li>
                         <li class="text-white">
@@ -227,23 +243,40 @@
                         </li>
                         <li class="text-white">
                             <div class="d-flex">
-                                <i class='bx bx-bot bx-burst' style="padding-top: 4px"></i>
-                                <span>Acceso a Bot PreuniCursos</span>
-                            </div>
-                        </li>
-
-                        <li class="text-white">
-                            <div class="d-flex">
-                                <i class='bx bx-check-circle' style="padding-top: 4px; color:yellow"></i>
+                                <i class='bx bx-check-circle bx-burst' style="padding-top: 4px; color:yellow"></i>
                                 <span style="color:yellow">Acceso a exámenes</span>
                             </div>
                         </li>
 
+                         <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-bot bx-burst' style="padding-top: 4px; color:yellow"></i>
+                                <span style="color:yellow">Acceso a Bot PreuniCursos</span>
+                            </div>
+                        </li>
+
                         <li class="text-white">
                             <div class="d-flex">
-                                <i class='bx bx-edit'style="padding-top: 4px; color:yellow"></i>
-
+                                <i class='bx bx-edit bx-burst'style="padding-top: 4px; color:yellow"></i>
                                 <span style="color:yellow">Acceso a simulacros</span>
+                            </div>
+                        </li>
+
+                        <li class="text-white">
+                            <div class="d-flex">
+                                <i class='bx bx-brain bx-burst' style="padding-top: 4px; color:yellow"></i>
+                                <span style="color:yellow">
+                                    Recomendación IA tras cada examen con videos de refuerzo.
+                                </span>
+                            </div>
+                        </li>
+
+                        <li class="text-white">
+                            <div class="d-flex align-items-center">
+                                <i class='bx bx-chip bx-tada bx-burst' style="padding-top: 4px; color:yellow"></i>
+                                <span style="color:yellow" class="ms-2">
+                                    Contenido educativo generado con IA para reforzar tus conocimientos.
+                                </span>
                             </div>
                         </li>
 
