@@ -60,18 +60,18 @@
                                 @if (auth()->check())
                                     @if ($url == 'gratis')
                                         <a href="{{ route('visitador.course.free.show', ['course' => $course]) }}"
-                                            class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                            class="btn-solid-sm p-4 mt-2 w-100 text-center">Detalles</a>
                                     @else
                                         <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
-                                            class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                            class="btn-solid-sm p-4 mt-2 w-100 text-center">Detalles</a>
                                     @endif
                                 @else
                                     @if ($url == 'gratis')
                                         <a href="{{ route('visitador.course.free.show', ['course' => $course]) }}"
-                                            class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                            class="btn-solid-sm p-4 mt-2 w-100  text-center">Detalles</a>
                                     @else
                                         <a href="{{ route('visitador.course.show', ['course' => $course]) }}"
-                                            class="btn-solid-sm p-4 mt-2 w-100">Detalles</a>
+                                            class="btn-solid-sm p-4 mt-2 w-100  text-center">Detalles</a>
                                     @endif
                                 @endif
 
