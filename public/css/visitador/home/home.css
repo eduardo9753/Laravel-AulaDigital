@@ -36,7 +36,5 @@
 #curso-elegir .curso-elegir-parrafo{ color: var(--blanco); font-size: 20px;} 
 
 
-
-#ultimos-cursos img {width: 100%;height: 220px;  object-fit: cover; }
 #ultimos-cursos .ultimos-cursos-titulo {margin-top: 65px; font-size: 45px;}
 #ultimos-cursos .ultimos-cursos-parrafo {padding-bottom: 35px; font-size: 22px;}
