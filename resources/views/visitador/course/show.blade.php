@@ -69,7 +69,7 @@
                                                         style='margin-right: 3px; margin-top:5px'></i>
                                                 </div>
 
-                                                <li class="">{{ $goal->name }}</li>
+                                                <li class=""><strong>{{ $goal->name }}</strong></li>
                                             </div>
                                         </div>
                                     @endforeach
@@ -104,7 +104,7 @@
                                             @foreach ($section->lessons as $lesson)
                                                 <li class="d-flex my-1">
                                                     <i class='bx bxs-videos' style='color:#f07613 ; font-size: 22px'></i>
-                                                    <p class="temario-parrafo">{{ $lesson->name }}</p>
+                                                    <p class="temario-parrafo font-weight-bold">{{ $lesson->name }}</p>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -126,7 +126,7 @@
                                         <div class="d-flex">
                                             <i class='bx bx-check'
                                                 style='color:#f07613;margin-right: 3px; margin-top:5px;'></i>
-                                            <li>{{ $requirement->name }}</li>
+                                            <li class="font-weight-bold">{{ $requirement->name }}</li>
                                         </div>
                                     @endforeach
                                 </ul>
@@ -143,7 +143,7 @@
                                 <h3 class="mb-3 color-general">Descripción</h3>
                                 <div class="d-flex align-items-center">
                                     <i class='bx bxs-hand-right' style='color:#f07613;margin-right: 3px'></i>
-                                    <p class="">{!! $course->description !!}</p>
+                                    <p class="font-weight-bold">{!! $course->description !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                                         <div class="d-flex">
                                             <i class='bx bxs-pin'
                                                 style='color:#f07613;margin-right: 3px; margin-top:5px'></i>
-                                            <li>{{ $audience->name }}</li>
+                                            <li class="font-weight-bold">{{ $audience->name }}</li>
                                         </div>
                                     @endforeach
                                 </ul>
