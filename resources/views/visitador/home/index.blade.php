@@ -89,8 +89,6 @@
                             <h3 class="font-weight-bold mb-5 color-general">PreuniCursos</h3>
                         </div>
 
-                    </div>
-                    <div class="row" data-aos="fade-up">
                         {{-- MENSAJE DE ALERTA CUANDO TE SUSCRIBES --}}
                         <div class="contenedor">
                             @if (session('mensaje'))
@@ -101,13 +99,11 @@
                                 </div>
                             @endif
                         </div>
-
-
-                        {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE --}}
-                        <x-course-card :courses="$coursesFree" url="gratis"></x-course-card>
-
                     </div>
                 </div>
+
+                {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE --}}
+                <x-course-card :courses="$coursesFree" url="gratis"></x-course-card>
             </section>
 
             <!-- Ahora incluimos la vista suscripcion.blade.php -->
