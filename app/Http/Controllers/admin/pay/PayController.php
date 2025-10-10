@@ -19,7 +19,10 @@ class PayController extends Controller
 
     public function index()
     {
-        return view('admin.pay.index');
+        $pays = Pay::all();
+        return view('admin.pay.index', [
+            'pays' => $pays
+        ]);
     }
 
     public function list()

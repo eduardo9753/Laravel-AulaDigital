@@ -53,7 +53,12 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="4">Sin pagos por atender por ahora</td>
+                                            <td>sin datos</td>
+                                            <td>sin datos</td>
+                                            <td>sin datos</td>
+                                            <td>
+                                                <a href="">sin datos</a>
+                                            </td>
                                         </tr>
                                     @endforelse
                                 </tbody>

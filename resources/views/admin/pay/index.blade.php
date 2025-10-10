@@ -14,8 +14,65 @@
 
 
 @section('main')
-    {{-- COMPONENTE LIVEWIRE --}}
+    {{-- COMPONENTE LIVEWIRE
     @livewire('admin.pays')
+     --}}
+
+
+
+
+    <section id="" class="">
+        <div class="container pt-5">
+            <h1 class="lead mt-5">lista de pagos por atender</h1>
+            <div class="row">
+                <div class="card">
+                    <div class="card-header fondo-general">
+                        <a class="text-white" href="#">#</a>
+                    </div>
+                    <div class="card-body">
+                        @if (session('exito'))
+                            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                <strong>Mensaje!</strong> {{ session('exito') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        <div class="table-responsive">
+                            <table class="table" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>USUARIO</th>
+                                        <th>PAGO</th>
+                                        <th>ESTADO</th>
+                                        <th>
+                                            DETALLES
+                                        </th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($pays as $pay)
+                                        <tr>
+                                            <td>{{ $pay->id }}</td>
+                                            <td>{{ $pay->name }}</td>
+                                            <td>{{ $pay->payment_id }}</td>
+                                            <td>{{ $pay->estado }}</td>
+                                            <td class="text-center">
+                                                <a href="" class="mi-boton rojo btn-sm">Ver</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @section('bosstrap.js')
     <!-- CDN JS BOOTSTRAP -->
