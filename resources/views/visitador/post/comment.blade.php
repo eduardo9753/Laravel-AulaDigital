@@ -35,7 +35,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small>Por:
                                         <strong
-                                            style="display: inline-block; width: 25px; height: 25px; background-color: orange; color: white; border-radius: 50%; text-align: center; line-height: 25px; font-weight: bold;">
+                                            style="display: inline-block; width: 25px; height: 25px; background-color: #1a1f71; color: white; border-radius: 50%; text-align: center; line-height: 25px; font-weight: bold;">
                                             {{ strtoupper(substr($post->user->name, 0, 1)) }}
                                         </strong>
                                     </small>

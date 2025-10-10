@@ -20,23 +20,23 @@
 
                                         <ul class="d-flex">
                                             <li wire:click="$set('rating',1)">
-                                                <i style='color:#da920f; font-size:30px'
+                                                <i style='color: #1a1f71; font-size:30px'
                                                     class='bx bx-star {{ $rating >= 1 ? 'bx bxs-star' : '' }}'></i>
                                             </li>
                                             <li wire:click="$set('rating',2)">
-                                                <i style='color:#da920f; font-size:30px'
+                                                <i style='color: #1a1f71; font-size:30px'
                                                     class='bx bx-star {{ $rating >= 2 ? 'bx bxs-star' : '' }}'></i>
                                             </li>
                                             <li wire:click="$set('rating',3)">
-                                                <i style='color:#da920f; font-size:30px'
+                                                <i style='color: #1a1f71; font-size:30px'
                                                     class='bx bx-star {{ $rating >= 3 ? 'bx bxs-star' : '' }}'></i>
                                             </li>
                                             <li wire:click="$set('rating',4)">
-                                                <i style='color:#da920f; font-size:30px'
+                                                <i style='color: #1a1f71; font-size:30px'
                                                     class='bx bx-star {{ $rating >= 4 ? 'bx bxs-star' : '' }}'></i>
                                             </li>
                                             <li wire:click="$set('rating',5)">
-                                                <i style='color:#da920f; font-size:30px'
+                                                <i style='color: #1a1f71; font-size:30px'
                                                     class='bx bx-star {{ $rating == 5 ? 'bx bxs-star' : '' }}'></i>
                                             </li>
                                         </ul>
@@ -79,7 +79,7 @@
                                 <div>{{ $review->created_at->diffForHumans() }}</div>
                             </div>
 
-                            <p class="pr-2">{{ $review->rating }}<i class='bx bxs-star' style='color:#da920f'></i>
+                            <p class="pr-2">{{ $review->rating }}<i class='bx bxs-star' style='color: #1a1f71'></i>
                             </p>
                         </figure>
 

@@ -34,42 +34,48 @@
                             <ol class="mt-3">
                                 <li>
                                     <div class="d-flex">
-                                        <i class='bx bx-check-circle' style='color:#da920f;margin-top:3px'></i>
+                                        <i class='bx bx-check-circle' style='color: #1a1f71;margin-top:3px'></i>
                                         <span>Videos educativos (alojados en YouTube).</span>
                                     </div>
                                 </li>
 
                                 <li>
                                     <div class="d-flex">
-                                        <i class='bx bx-check-circle' style='color:#da920f;margin-top:3px'></i>
+                                        <i class='bx bx-check-circle' style='color: #1a1f71;margin-top:3px'></i>
                                         <span>Archivos PDF con material de estudio.</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="d-flex">
-                                        <i class='bx bx-check-circle' style='color:#da920f;margin-top:3px'></i>
+                                        <i class='bx bx-check-circle' style='color: #1a1f71;margin-top:3px'></i>
                                         <span>Compendios académicos descargables.</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="d-flex">
-                                        <i class='bx bx-check-circle' style='color:#da920f;margin-top:3px'></i>
+                                        <i class='bx bx-check-circle' style='color: #1a1f71;margin-top:3px'></i>
                                         <span>Sistema de preguntas para repaso.</span>
                                     </div>
                                 </li>
                             </ol>
-                            <h4 class="mt-3">Planes de Suscripción:</h4>
+                            <h4 class="mt-3">Planes de Suscripción(sujeto a cambios):</h4>
                             <ol class="mt-3">
                                 <li>
                                     <div class="d-flex">
-                                        <i class='bx bx-user-check' style='color:#da920f;margin-top:3px'></i>
-                                        <span><strong>Escolar</strong>: S/ 25.00 al mes.</span>
+                                        <i class='bx bx-user-check' style='color: #1a1f71;margin-top:3px'></i>
+                                        <span><strong>Mensual</strong>: S/ 25.00 al mes.</span>
+                                    </div>
+                                </li>
+                                 <li>
+                                    <div class="d-flex">
+                                        <i class='bx bx-user-check' style='color: #1a1f71;margin-top:3px'></i>
+                                        <span><strong>Semestral</strong>: S/ 109.00 al mes.</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="d-flex">
-                                        <i class='bx bx-user-check' style='color:#da920f;margin-top:3px'></i>
-                                        <span><strong>Preuniversitario</strong>: S/ 35.00 al mes.</span>
+                                        <i class='bx bx-user-check' style='color: #1a1f71;margin-top:3px'></i>
+                                        <span><strong>Anual</strong>: S/ 209.00 al mes.</span>
                                     </div>
                                 </li>
                             </ol>
@@ -84,7 +90,7 @@
                             <ul class="mt-3">
                                 <li>
                                     <div class="d-flex">
-                                        <i class='bx bx-message-alt-check' style='color:#da920f;margin-top:3px'></i>
+                                        <i class='bx bx-message-alt-check' style='color: #1a1f71;margin-top:3px'></i>
                                         <span><strong>Registro:</strong> Regístrese en la Plataforma utilizando un correo
                                             electrónico
                                             válido.</span>
@@ -92,7 +98,7 @@
                                 </li>
                                 <li>
                                     <div class="d-flex">
-                                        <i class='bx bx-message-alt-check' style='color:#da920f;margin-top:3px'></i>
+                                        <i class='bx bx-message-alt-check' style='color: #1a1f71;margin-top:3px'></i>
                                         <span><strong>Selección de Plan:</strong> Al registrarse, podrá seleccionar un plan
                                             que
                                             se ajuste a sus necesidades: </span>
@@ -106,19 +112,19 @@
                                         <ul>
                                             <li>
                                                 <div class="d-flex">
-                                                    <i class='bx bx-badge-check' style='color:#da920f;margin-top:3px'></i>
+                                                    <i class='bx bx-badge-check' style='color: #1a1f71;margin-top:3px'></i>
                                                     <span>Acceso a todos los cursos.</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex">
-                                                    <i class='bx bx-badge-check' style='color:#da920f;margin-top:3px'></i>
+                                                    <i class='bx bx-badge-check' style='color: #1a1f71;margin-top:3px'></i>
                                                     <span>Acceso a los compendios.</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex">
-                                                    <i class='bx bx-badge-check' style='color:#da920f;margin-top:3px'></i>
+                                                    <i class='bx bx-badge-check' style='color: #1a1f71;margin-top:3px'></i>
                                                     <span>Acceso a los recursos descargables.</span>
                                                 </div>
                                             </li>
@@ -129,25 +135,25 @@
                                         <ul>
                                             <li>
                                                 <div class="d-flex">
-                                                    <i class='bx bxs-badge-check' style='color:#da920f;margin-top:3px'></i>
+                                                    <i class='bx bxs-badge-check' style='color: #1a1f71;margin-top:3px'></i>
                                                     <span>Acceso a todos los cursos.</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex">
-                                                    <i class='bx bxs-badge-check' style='color:#da920f;margin-top:3px'></i>
+                                                    <i class='bx bxs-badge-check' style='color: #1a1f71;margin-top:3px'></i>
                                                     <span>Acceso a los compendios.</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex">
-                                                    <i class='bx bxs-badge-check' style='color:#da920f;margin-top:3px'></i>
+                                                    <i class='bx bxs-badge-check' style='color: #1a1f71;margin-top:3px'></i>
                                                     <span>Acceso a los recursos descargables.</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex">
-                                                    <i class='bx bxs-badge-check' style='color:#da920f;margin-top:3px'></i>
+                                                    <i class='bx bxs-badge-check' style='color: #1a1f71;margin-top:3px'></i>
                                                     <span>Acceso a lista de exámenes y resultados.</span>
                                                 </div>
                                             </li>
@@ -174,7 +180,7 @@
                             <ul class="mt-2">
                                 <li class="text-justify"><strong>
                                         <div class="d-flex">
-                                            <i class='bx bxs-flag-checkered' style='color:#da920f;margin-top:3px'></i>
+                                            <i class='bx bxs-flag-checkered' style='color: #1a1f71;margin-top:3px'></i>
                                             <span>Fuentes Externas:</span>
                                         </div>
                                     </strong> Los <strong>videos y archivos PDF disponibles en la
@@ -185,7 +191,7 @@
 
                                 <li class="mt-1 text-justify"><strong>
                                         <div class="d-flex">
-                                            <i class='bx bxs-flag-checkered' style='color:#da920f;margin-top:3px'></i>
+                                            <i class='bx bxs-flag-checkered' style='color: #1a1f71;margin-top:3px'></i>
                                             <span>Responsabilidad de Uso:</span>
                                         </div>
                                     </strong> Es su responsabilidad asegurarse
@@ -197,7 +203,7 @@
 
                                 <li class="mt-1 text-justify"><strong>
                                         <div class="d-flex">
-                                            <i class='bx bxs-flag-checkered' style='color:#da920f;margin-top:3px'></i>
+                                            <i class='bx bxs-flag-checkered' style='color: #1a1f71;margin-top:3px'></i>
                                             <span>Permisos:</span>
                                         </div>
                                     </strong> En caso de ser necesario, usted debe obtener
@@ -222,7 +228,7 @@
                             <ul>
                                 <li class="mt-1 text-justify"><strong>
                                         <div class="d-flex">
-                                            <i class='bx bxs-flag-checkered' style='color:#da920f;margin-top:3px'></i>
+                                            <i class='bx bxs-flag-checkered' style='color: #1a1f71;margin-top:3px'></i>
                                             <span>Diseño de la Plataforma:</span>
                                         </div>
                                     </strong> La apariencia y la experiencia de usuario de
@@ -230,14 +236,14 @@
                                 </li>
                                 <li class="mt-1 text-justify"><strong>
                                         <div class="d-flex">
-                                            <i class='bx bxs-flag-checkered' style='color:#da920f;margin-top:3px'></i>
+                                            <i class='bx bxs-flag-checkered' style='color: #1a1f71;margin-top:3px'></i>
                                             <span>Textos creados por PreuniCursos:</span>
                                         </div>
                                     </strong> Todo el contenido escrito y producido
                                     por PreuniCursos, como lecciones, guías y descripciones de cursos.</li>
                                 <li class="mt-1 text-justify"><strong>
                                         <div class="d-flex">
-                                            <i class='bx bxs-flag-checkered' style='color:#da920f;margin-top:3px'></i>
+                                            <i class='bx bxs-flag-checkered' style='color: #1a1f71;margin-top:3px'></i>
                                             <span>Imágenes y elementos gráficos:</span>
                                         </div>
                                     </strong> El logotipo y otros elementos visuales
@@ -245,7 +251,7 @@
                                 </li>
                                 <li class="mt-1 text-justify"><strong>
                                         <div class="d-flex">
-                                            <i class='bx bxs-flag-checkered' style='color:#da920f;margin-top:3px'></i>
+                                            <i class='bx bxs-flag-checkered' style='color: #1a1f71;margin-top:3px'></i>
                                             <span>Códigos y software:</span>
                                         </div>
                                     </strong> Todos los programas informáticos y códigos

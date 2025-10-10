@@ -113,7 +113,7 @@
                 @auth
                     <div class="caja-img">
                         <a href="{{ route('visitador.panel') }}">
-                            <i class='bx bxs-slideshow' style="font-size: 52px; color: #f07613"></i>
+                            <i class='bx bxs-slideshow' style="font-size: 52px; color: #1a1f71"></i>
                         </a>
                     </div>
                 @endauth

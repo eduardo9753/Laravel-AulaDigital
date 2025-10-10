@@ -1,4 +1,4 @@
- <section class="our-services section-home" id="services">
+ <section class="our-services section-home" id="plans">
      <div class="container">
          <div class="row">
              <div class="col-sm-12">

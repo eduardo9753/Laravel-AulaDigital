@@ -18,7 +18,7 @@
 
         <!-- Bienvenida -->
         <div style="background-color: #ffffffd6; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
-            <h1 style="color: #f07613; font-size: 24px; margin-top: 0;">{{ $user->name }}</h1>
+            <h1 style="color: #1a1f71; font-size: 24px; margin-top: 0;">{{ $user->name }}</h1>
             <p style="font-size: 16px; line-height: 1.5; margin: 10px 0;">
                 ¡Correo registrado en nuestra base de datos, <strong>{{ $user->email }}</strong>!
             </p>
@@ -38,11 +38,11 @@
 
         <!-- Soporte -->
         <div style="background-color: #ffffffd6; border-radius: 10px; padding: 20px;">
-            <h2 style="color: #f07613; font-size: 20px; margin-top: 0;">Soporte</h2>
+            <h2 style="color: #1a1f71; font-size: 20px; margin-top: 0;">Soporte</h2>
             <ul style="list-style: none; padding: 0; margin: 0;">
                 <li style="margin-bottom: 10px; font-size: 16px;">
                     <a href="https://www.linkedin.com/in/anthony-eduardo-nu%C3%B1ez-canchari-05b1371a0/" target="_blank"
-                        style="color: #f07613; text-decoration: none;">
+                        style="color: #1a1f71; text-decoration: none;">
                         +51 924 080 517 (LinkedIn)
                     </a>
                 </li>

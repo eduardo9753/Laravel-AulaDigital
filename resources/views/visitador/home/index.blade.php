@@ -14,71 +14,41 @@
 
         <div class="page-body-wrapper">
 
-            <section id="home" class="home section-home">
+            <section id="home" class="home">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="main-banner">
-                                <div class="d-sm-flex justify-content-between">
-                                    <div data-aos="zoom-in-up">
-                                        <div class="banner-title">
-                                            <h3 class="font-weight-medium">🚀 ¡Prepárate para tu ingreso a la UNFV!</h3>
-                                        </div>
-                                        <p class="lead animate__animated animate__fadeInUp animate__delay-1s">
-                                            Únete a <strong>PreuniCursos</strong>, la plataforma educativa <span
-                                                class="text-warning">hecha para futuros ingresantes</span>.
-                                        </p>
-                                        <p class="my-3 animate__animated animate__fadeInUp animate__delay-2s">
-                                            Aprende con clases en video, material en PDF y exámenes por lección, todo basado
-                                            en el temario oficial para el <strong>Examen de Admisión UNFV</strong>.
-                                        </p>
+                    <div class="row align-items-center">
+                        <div class="col-lg-8" data-aos="fade-up">
+                            <h1 class="fw-bold text-white mb-3 mt-5">
+                                🚀 ¡Prepárate para tu ingreso a la <span class="text-warning">UNFV</span> y más!
+                            </h1>
 
+                            <p class="lead mb-3 text-white">
+                                Únete a <strong class="text-warning">PreuniCursos</strong>, la plataforma educativa
+                                impulsada por
+                                <span class="text-info">Inteligencia Artificial</span> que analiza tu rendimiento y te
+                                recomienda clases, materiales y videos ideales para ti.
+                            </p>
 
-                                        @guest
-                                            <div class="d-flex mt-1">
-                                                <a href="{{ route('admin.register.index') }}"
-                                                    class="btn btn-primary mt-3 ml-2 text-white mt-3">Registrarme</a>
+                            <p class="text-white mb-4">
+                                Aprende con clases en video, material PDF, simulacros y exámenes personalizados.
+                                ¡Todo diseñado para llevarte al siguiente nivel académico! 🎓
+                            </p>
 
-                                                <a href="#plans" class="btn btn-primary mt-3 ml-2 text-white">Suscribirse</a>
-                                            </div>
-                                        @endguest
+                            <div class="d-flex flex-wrap">
+                                <a href="{{ route('admin.register.index') }}" class="btn btn-gradient btn-lg fw-bold mr-3">
+                                    🚀 Registrarme Gratis
+                                </a>
 
-                                        @auth
-                                            @can('viewSubscription', auth()->user())
-                                                <div class="d-flex mt-1">
-                                                    <div>
-                                                        <a class="btn btn-primary mt-3">EresPremium</a>
-                                                    </div>
-
-                                                    <form action="{{ route('admin.logout') }}" method="POST">
-                                                        @csrf
-                                                        <input type="submit" class="btn btn-primary mt-3 ml-2" value="Salir">
-                                                    </form>
-                                                </div>
-                                            @else
-                                                <div class="d-flex mt-1">
-                                                    <div>
-                                                        <a href="#plans" class="btn btn-primary mt-3">Suscribirse</a>
-                                                    </div>
-
-                                                    <form action="{{ route('admin.logout') }}" method="POST">
-                                                        @csrf
-                                                        <input type="submit" class="btn btn-primary mt-3 ml-2" value="Salir">
-                                                    </form>
-                                                </div>
-                                            @endcan
-                                        @endauth
-                                    </div>
-                                    <div class="mt-5 mt-lg-0">
-                                        <img src="{{ asset('img/home/group.png') }}" alt="marsmello" class="img-fluid"
-                                            data-aos="zoom-in-up">
-                                    </div>
-                                </div>
+                                <a href="#plans" class="btn btn-glass btn-lg fw-bold text-white">
+                                    💎 Ver Planes Premium
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+
 
 
             <section class="our-services section-home" id="services">

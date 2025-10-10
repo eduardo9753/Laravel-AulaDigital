@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="d-flex align-items-center">
-                            <i class='bx bx-comment-dots bx-tada' style='color:#da920f'></i>
+                            <i class='bx bx-comment-dots bx-tada' style='color: #1a1f71'></i>
                             <p style="padding-left: 7px">
                                 @if (Str::startsWith($comment->content, 'data:image'))
                                     {{-- Mostrar como imagen --}}
@@ -87,7 +87,7 @@
                                     </div>
 
                                     <div class="d-flex align-items-center">
-                                        <i class='bx bx-message-rounded-dots bx-tada' style='color:#da920f'></i>
+                                        <i class='bx bx-message-rounded-dots bx-tada' style='color: #1a1f71'></i>
                                         <p><strong>{{ $reply->content }}</strong></p>
                                     </div>
 

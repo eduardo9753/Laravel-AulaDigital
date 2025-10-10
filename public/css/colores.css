@@ -2,10 +2,10 @@
     --blanco : #fff;
     --negro : #000;
     --gris : #f6fbff;
-    --general : #f07613;
+    --general : #1a1f71;
     --generalTransparente : rgba(240, 118, 19,0.2);
 
-    --naranja : #f07613;
+    --naranja : #1a1f71;
 
 
     --azul: #3c37f1 ;
@@ -20,7 +20,7 @@
     --celesteClaro: #accffe;
 
     /*colores gradiante curso show*/
-    --gradienteUno: #3c37f1;
-    --gradienteDos : #d66c42;
-    --gradienteTres: #e6884a;
+    --gradienteUno: #3c37f1; /* azul violeta brillante */
+    --gradienteDos: #0a84ff; /* azul vibrante */
+    --gradienteTres: #1a1f71; /* azul profundo */
 }

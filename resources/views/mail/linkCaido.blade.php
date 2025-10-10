@@ -22,7 +22,7 @@
                     <tr>
                         <td
                             style="background-color: rgba(255,255,255,0.842); border-radius: 10px; padding: 20px; margin-bottom: 20px;">
-                            <h1 style="color: #f07613; margin-top: 0;">Cod-Lección: {{ $lesson->id }}</h1>
+                            <h1 style="color: #1a1f71; margin-top: 0;">Cod-Lección: {{ $lesson->id }}</h1>
                             <p style="font-size: 18px; margin: 5px 0;">Nombre de la lección: {{ $lesson->name }}</p>
                             <p style="font-size: 18px; margin: 5px 0;">Nombre de la sección: {{ $section->name }}</p>
                             <p style="font-size: 18px; margin: 5px 0;">Nombre del Curso: {{ $course->title }}</p>
@@ -30,11 +30,11 @@
                     </tr>
                     <tr>
                         <td style="background-color: rgba(255,255,255,0.842); border-radius: 10px; padding: 20px;">
-                            <h2 style="color: #f07613; font-size: 20px; margin-top: 0;">Soporte</h2>
+                            <h2 style="color: #1a1f71; font-size: 20px; margin-top: 0;">Soporte</h2>
                             <ul style="list-style: none; padding: 0; margin: 0;">
                                 <li style="margin-bottom: 5px;">
                                     <a href="https://www.linkedin.com/in/anthony-eduardo-nu%C3%B1ez-canchari-05b1371a0/"
-                                        target="_blank" style="color: #f07613; text-decoration: none;">
+                                        target="_blank" style="color: #1a1f71; text-decoration: none;">
                                         +51 924 080 517
                                     </a>
                                 </li>
