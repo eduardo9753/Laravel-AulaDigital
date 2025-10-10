@@ -211,6 +211,16 @@
                                             <a href="{{ route('visitador.course.status', ['course' => $course]) }}"
                                                 class="btn-solid-sm p-4 text-center mt-3 w-100">CONTINUAR CURSO</a>
                                         @else
+                                            {{-- SI NO LO ESTA LLEVA EL CURSO POR SER PREMIUM --}}
+                                            <form id="matricularmeFrm"
+                                                action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
+                                                method="POST">
+                                                @csrf
+                                                <button class="btn-solid-sm p-4 text-center mt-3 w-100" type="submit">INGRESAR
+                                                    AHORA</button>
+                                            </form>
+
+                                            {{--
                                             @if ($course->price->value == 0)
                                                 <p style="font-size: 22px;font-weight: bold" class="color-general">
                                                     {{ $course->price->name }} S/.0</p>
@@ -222,7 +232,7 @@
                                                         AHORA</button>
                                                 </form>
                                             @else
-                                                {{-- SI NO LO ESTA LLEVA EL CURSO POR SER PREMIUM --}}
+                                                {{-- SI NO LO ESTA LLEVA EL CURSO POR SER PREMIUM 
                                                 <form id="matricularmeFrm"
                                                     action="{{ route('visitador.course.enrolled', ['course' => $course]) }}"
                                                     method="POST">
@@ -231,6 +241,7 @@
                                                         AHORA</button>
                                                 </form>
                                             @endif
+                                            --}}
                                         @endcan
                                     @else
                                         <a href="{{ route('mercadopago.suscription.subscribe') }}"
