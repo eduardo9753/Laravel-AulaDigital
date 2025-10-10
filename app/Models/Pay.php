@@ -27,4 +27,10 @@ class Pay extends Model
         'date_start',
         'date_end'
     ];
+
+    //cada pago pertenece a un usuario
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
