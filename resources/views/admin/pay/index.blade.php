@@ -56,7 +56,7 @@
                                     @foreach ($pays as $pay)
                                         <tr>
                                             <td>{{ $pay->id }}</td>
-                                            <td>{{ $pay->name }}</td>
+                                            <td>{{ $pay->user->name }}</td>
                                             <td>{{ $pay->payment_id }}</td>
                                             <td>{{ $pay->estado }}</td>
                                             <td class="text-center">
