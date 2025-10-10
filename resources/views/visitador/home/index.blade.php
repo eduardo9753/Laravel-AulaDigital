@@ -33,16 +33,46 @@
                                 Aprende con clases en video, material PDF, simulacros y exámenes personalizados.
                                 ¡Todo diseñado para llevarte al siguiente nivel académico! 🎓
                             </p>
+                            <div class="d-flex flex-wrap mt-4">
+                                @guest
+                                    <a href="{{ route('admin.register.index') }}" class="btn btn-accent btn-lg fw-bold mr-3">
+                                        🚀 Registrarme Gratis
+                                    </a>
 
-                            <div class="d-flex flex-wrap">
-                                <a href="{{ route('admin.register.index') }}" class="btn btn-gradient btn-lg fw-bold mr-3">
-                                    🚀 Registrarme Gratis
-                                </a>
+                                    <a href="#plans" class="btn btn-glass btn-lg fw-bold text-white mt-2 mt-sm-0">
+                                        💎 Ver Planes Premium
+                                    </a>
+                                @endguest
 
-                                <a href="#plans" class="btn btn-glass btn-lg fw-bold text-white">
-                                    💎 Ver Planes Premium
-                                </a>
+                                @auth
+                                    @can('viewSubscription', auth()->user())
+                                        <div class="d-flex flex-wrap">
+                                            <a class="btn btn-gradient btn-lg fw-bold mr-3 mt-2 mt-sm-0">
+                                                🌟 Eres Premium
+                                            </a>
+
+                                            <form action="{{ route('admin.logout') }}" method="POST">
+                                                @csrf
+                                                <input type="submit" class="btn btn-glass btn-lg fw-bold text-white mt-2 mt-sm-0"
+                                                    value="🚪 Salir">
+                                            </form>
+                                        </div>
+                                    @else
+                                        <div class="d-flex flex-wrap">
+                                            <a href="#plans" class="btn btn-gradient btn-lg fw-bold mr-3 mt-2 mt-sm-0">
+                                                💎 Suscribirme
+                                            </a>
+
+                                            <form action="{{ route('admin.logout') }}" method="POST">
+                                                @csrf
+                                                <input type="submit" class="btn btn-glass btn-lg fw-bold text-white mt-2 mt-sm-0"
+                                                    value="🚪 Salir">
+                                            </form>
+                                        </div>
+                                    @endcan
+                                @endauth
                             </div>
+
                         </div>
                     </div>
                 </div>
