@@ -9,7 +9,7 @@
 
     @if ($fileId)
         <a id="descargaArchivoCourseStatus" href="https://drive.google.com/uc?export=download&id={{ $fileId }}"
-            class="mi-boton verde btn-sm mt-3" download>Descargar Archivo</a>
+            class="mi-boton general mt-3" download>Descargar Archivo</a>
     @else
         <p class="mt-3">
             {{ $current->resource ? $current->resource->url : 'lección sin recurso' }}

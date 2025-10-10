@@ -68,7 +68,7 @@
                         </div>
                         <div class="progress mt-2" style="width: 100% !important;">
                             <div class="progress-bar" role="progressbar"
-                                style="width: {{ $this->advance . '%' }}; background-color: #f07613;"
+                                style="width: {{ $this->advance . '%' }}; background-color: color: #1a1f71;"
                                 aria-valuenow="{{ $this->advance }}" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                                                             @else
                                                                 @if ($current->id == $lesson->id)
                                                                     <i class='bx bx-play-circle bx-burst'
-                                                                        style='color:#da920f; font-size: 22px'></i>
+                                                                        style='color:#1a1f71; font-size: 22px'></i>
                                                                 @else
                                                                     <i class='bx bx-bolt-circle'
                                                                         style='color:#99a29b; font-size: 22px'></i>
@@ -123,7 +123,7 @@
                                                             wire:click="changeLesson({{ $lesson }})">{{ $lesson->name }}
                                                             @if ($lesson->resource)
                                                                 <i class='bx bxs-file-pdf bx-burst'
-                                                                    style='color:#da920f'></i>
+                                                                    style='color: #1a1f71'></i>
                                                             @endif
                                                         </a>
                                                     </li>

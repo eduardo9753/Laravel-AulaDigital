@@ -1,5 +1,5 @@
  <!-- Button trigger modal -->
- <button type="button" class="mi-boton azul btn-sm" data-bs-toggle="modal" data-bs-target="#MoldalReferenciaVideo">
+ <button type="button" class="mi-boton general" data-bs-toggle="modal" data-bs-target="#MoldalReferenciaVideo">
      Referencia del vídeo:
  </button>
 
@@ -49,11 +49,11 @@
                                  <a href="https://preunicursos.com/">PreuniCursos.com</a>.</strong>
                          </em>
                      </p>
-                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     <button type="button" class="mi-boton general" data-bs-dismiss="alert" aria-label="Close"></button>
                  </div>
              </div>
              <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                 <button type="button" class="mi-boton general" data-bs-dismiss="modal">Cerrar</button>
              </div>
          </div>
      </div>
