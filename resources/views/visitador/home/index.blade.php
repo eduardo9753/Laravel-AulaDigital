@@ -81,23 +81,32 @@
             </section>
 
 
-            <section id="ultimos-cursos" class="text-center">
-                <h3 class="ultimos-cursos-titulo color-general">Cursos gratis</h3>
-                <p class="ultimos-cursos-parrafo color-general"></p>
-
-                {{-- MENSAJE DE ALERTA CUANDO TE SUSCRIBES --}}
-                <div class="contenedor">
-                    @if (session('mensaje'))
-                        <div class="alert alert-info mt-2 alert-dismissible fade show" role="alert">
-                            <strong>Importante!:</strong> {{ session('mensaje') }}.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <section class="our-services section-home" id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5 class="text-dark font-weight-bold">Inscríbete en nuestros cursos gratuitos</h5>
+                            <h3 class="font-weight-bold mb-5 color-general">PreuniCursos</h3>
                         </div>
-                    @endif
-                </div>
 
-                <div class="">
-                    {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE --}}
-                    <x-course-card :courses="$coursesFree" url="gratis"></x-course-card>
+                    </div>
+                    <div class="row" data-aos="fade-up">
+                        {{-- MENSAJE DE ALERTA CUANDO TE SUSCRIBES --}}
+                        <div class="contenedor">
+                            @if (session('mensaje'))
+                                <div class="alert alert-info mt-2 alert-dismissible fade show" role="alert">
+                                    <strong>Importante!:</strong> {{ session('mensaje') }}.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+                        </div>
+
+
+                        {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE --}}
+                        <x-course-card :courses="$coursesFree" url="gratis"></x-course-card>
+
+                    </div>
                 </div>
             </section>
 
@@ -109,8 +118,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h5 class="text-dark color-general">Beneficios</h5>
-                            <h3 class="font-weight mb-5 color-general">en PreuniCursos</h3>
+                            <h5 class="text-dark font-weight-bold">Beneficios en</h5>
+                            <h3 class="font-weight mb-5 color-general">PreuniCursos</h3>
                         </div>
                     </div>
                     <div class="row" data-aos="fade-up">
@@ -151,68 +160,35 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
+
+            <!--video con contenidos de la plataforma-->
+            <section class="our-services section-home" id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5 class="text-dark font-weight-bold">Temario UNFV</h5>
+                            <h3 class="font-weight mb-5 color-general">Aprendizaje continuo con IA</h3>
+                        </div>
+                    </div>
                     <div class="row" data-aos="fade-up">
-                        <div class="col-sm-4 text-lg-left">
-                            <div class="services-box  pb-lg-0" data-aos="fade-down" data-aos-easing="linear"
-                                data-aos-duration="1500">
-                                <div class="text-center">
-                                    <img src="{{ asset('img/home/libros.png') }}" data-aos="zoom-in">
-                                </div>
-                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Material educativo</h6>
-                                <p>Dispondrás de material educativo al finalizar cada lección, correspondiente a la unidad
-                                    aprendida.</p>
-                            </div>
+                        <div class="col-md-6">
+                            @include('helpers.video', [
+                                'video' => asset('videos/Contenido.mp4'),
+                            ])
                         </div>
-
-                        <div class="col-sm-4 text-lg-left">
-                            <div class="services-box" data-aos="fade-down" data-aos-easing="linear"
-                                data-aos-duration="1500">
-                                <div class="text-center">
-                                    <img src="{{ asset('img/home/videos.png') }}" data-aos="zoom-in">
-                                </div>
-                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Lista de Videos</h6>
-                                <p>Una lista de 16 secciones con videos asociados al temario para el examen de la UNFV.</p>
-                            </div>
+                        <div class="col-md-6">
+                            @include('helpers.video', [
+                                'video' => asset('videos/IA.mp4'),
+                            ])
                         </div>
-
-                        <div class="col-sm-4 text-lg-left">
-                            <div class="services-box pb-0" data-aos="fade-down" data-aos-easing="linear"
-                                data-aos-duration="1500">
-                                <div class="text-center">
-                                    <img src="{{ asset('img/home/pago.png') }}" data-aos="zoom-in">
-                                </div>
-                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Suscripción(Mercadopago)</h6>
-                                <p>Las suscripciones se procesan de forma segura a través de la pasarela de pagos de Mercado
-                                    Pago.</p>
-                            </div>
+                        <div class="col-md-6 mt-3">
+                            @include('helpers.video', [
+                                'video' => asset('videos/suscripción_preunicursos.mp4'),
+                            ])
                         </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <!--video con contenidos de la plataforma-->
-            <section class="our-process section-home">
-                <div class="container">
-                    <div class="row mb-3" data-aos="fade-up" data-aos-offset="-500">
-                        <div class="col-sm-12">
-                            <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                                <div>
-                                    <h3 class="font-weight-medium color-general mb-3">Con
-                                        temario para el examen de admisión
-                                        UNFV</h3>
-                                    <h5 class="text-dark">Acceso ilimitado a cursos, exámenes y material educativo
-                                        las 24 horas del día</h5>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
-                        @include('helpers.video', [
-                            'video' => asset('videos/Contenido.mp4'),
-                        ])
                     </div>
                 </div>
             </section>
@@ -220,37 +196,7 @@
 
 
 
-            <!--video para contenido 04 de plataforma -->
-            <section class="our-process section-home" id="contenido-bloques">
-                <div class="container">
-                    <div class="row mb-3" data-aos="fade-up" data-aos-offset="-500">
-                        <div class="col-sm-12">
-                            <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                                <div>
-                                    <h3 class="font-weight-medium color-general mb-3">
-                                        Suscríbete ahora</h3>
-                                    <h5 class="text-dark">Acceso ilimitado a cursos, exámenes y material educativo
-                                        las 24 horas del día</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
-                        <div class="col-md-12 text-center"> {{-- Más pequeño que col-md-4 --}}
-                            <div class="ratio ratio-16x9">
-                                @include('helpers.video', [
-                                    'video' => asset('videos/IA.mp4'),
-                                ])
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--video para contenido 04 de plataforma -->
-
-
-
-            <!--video con los pasos de suscripcion-->
+            {{-- video con los pasos de suscripcion
             <section class="our-process section-home" id="">
                 <div class="container">
                     <div class="row mb-3" data-aos="fade-up" data-aos-offset="-500">
@@ -273,7 +219,7 @@
                     </div>
                 </div>
             </section>
-            <!--video con los pasos de suscripcion-->
+            video con los pasos de suscripcion --}}
 
 
 
@@ -284,26 +230,30 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6" data-aos="fade-up">
-                            <h5 class="text-dark">Únete a nuestra comunidad estudiantil</h5>
+                            <h5 class="text-dark font-weight-bold">Únete a nuestra comunidad estudiantil</h5>
                             <h3 class="font-weight-medium color-general">¡Descubre
                                 PreuniCursos!</h3>
-                            <h5 class="text-dark mb-3">y diviertete</h5>
+                            <h5 class="text-dark mb-3 font-weight-bold">y diviertete</h5>
                             <p class="font-weight-medium mb-4 text-dark"> Aprende en tus tiempos libres, <br>
                                 de una forma diferente en nuestra plataforma
                             </p>
                             <div class="d-flex justify-content-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="mb-0 text-dark">Material de estudio y exámenes</p>
+                                <p class="text-dark font-weight-bold">Material de estudio y exámenes</p>
                             </div>
                             <div class="d-flex justify-content-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="mb-0 text-dark">Acceso de por vida con soporte las 24 horas</p>
+                                <p class="mb-0 text-dark font-weight-bold">Acceso de por vida con soporte las 24 horas</p>
                             </div>
-                            <div class="d-flex justify-content-start">
-                                <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="mb-0 text-dark">Actualización constante de la plataforma para mejorar tus
-                                    estudios.</p>
+                            <div class="d-flex align-items-center">
+                                <img src="{{ asset('img/home/item.png') }}" alt="ícono de IA" class="mr-3 tick-icon">
+                                <p class="mb-0 text-dark font-weight-bold">
+                                    Integración con <span class="text-primary"><strong>Ineligencia
+                                            Artificial</strong></span> para
+                                    ofrecerte lo mejor en tus estudios.
+                                </p>
                             </div>
+
                         </div>
                         <div class="col-sm-6 text-right" data-aos="flip-left" data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000">
@@ -319,7 +269,7 @@
                     <div class="row mb-5">
                         <div class="col-sm-12">
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                                <h3 class="font-weight-medium color-general">Lista de
+                                <h3 class="text-dark mb-3 mt-4 font-weight-medium">Lista de
                                     Cursos</h3>
                                 <div><a href="{{ route('visitador.course.index') }}" class="btn btn-outline-primary">Ver
                                         todos los cursos</a></div>

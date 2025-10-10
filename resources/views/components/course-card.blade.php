@@ -6,7 +6,7 @@
                     <div class="col-md-3 my-2">
                         <div class="mi-card">
                             <div class="mi-card-content">
-                                <h2 class="contenido-bloques-titulo">{{ $course->title }}</h2>
+                                <h2 class="text-dark mb-3 font-weight-bold">{{ $course->title }}</h2>
                                 <div class="text-center">
                                     @if ($url === 'gratis')
                                         <a href="{{ route('visitador.course.free.show', ['course' => $course]) }}">
