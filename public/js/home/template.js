@@ -77,7 +77,7 @@
 		});
 
 		// counter Satisfied clients
-		var maxScVal = 45;
+		var maxScVal = 350;
 		var isc = parseInt($('.scVal').text());
 		var tim;
 		function run() {
@@ -93,7 +93,7 @@
 		//Counters
 
 		// counter finished Projects
-		var maxfPVal = 15;
+		var maxfPVal = 200;
 		var ifP = parseInt($('.fpVal').text());
 		var timfP;
 		function runfP() {
@@ -111,7 +111,7 @@
 		//finished Projects
 
 		//counter Team Members
-		var maxtMVal = 200;
+		var maxtMVal = 700;
 		var itm = parseInt($('.tMVal').text());
 		var timtM;
 		function runtM() {
@@ -127,7 +127,7 @@
 		//Team Members
 
 		//counter blog post
-		var maxbPVal = 50;
+		var maxbPVal = 300;
 		var ibP = parseInt($('.bPVal').text());
 		var timbP;
 		function runbP() {
