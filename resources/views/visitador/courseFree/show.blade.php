@@ -32,16 +32,19 @@
                     </figure>
                 </div>
                 <div class="col-md-6 curso-show-descripcion">
-                    <div>
+                    <div class="curso-detalle">
                         <h2 class="curso-show-titulo">{{ $course->title }}</h2>
                         <h3 class="curso-show-subtitulo">{{ $course->subtitle }}</h3>
-                        <p><i class='bx bx-signal-5'></i>Nivel: {{ $course->level->name }}</p>
-                        <p><i class='bx bxs-category-alt'></i>Categoria: {{ $course->category->name }}</p>
-                        <p><i class='bx bxs-user-plus'></i>Matriculados: {{ $course->students_count }}</p>
-                        <p><i class='bx bxs-star-half'></i>Calificación: {{ $course->rating }}</p>
-                        <p><i class='bx bx-infinite'></i>Acceso de por vida</p>
-                        <p><i class='bx bxs-file-pdf'></i>Recursos Descargables</p>
-                        <p><i class='bx bx-devices'></i>Disponible en móviles como en PC</p>
+
+                        <p><i class='bx bx-signal-5'></i> Nivel: <strong>{{ $course->level->name }}</strong></p>
+                        <p><i class='bx bxs-category-alt'></i> Categoría: <strong>{{ $course->category->name }}</strong></p>
+                        <p><i class='bx bxs-user-plus'></i> Curso inteligente con apoyo de <strong>IA</strong></p>
+                        <p><i class='bx bxs-star-half'></i> Calificación promedio: <strong>{{ $course->rating }}</strong>
+                        </p>
+                        <p><i class='bx bx-infinite'></i> Acceso <strong>ilimitado de por vida</strong></p>
+                        <p><i class='bx bxs-file-pdf'></i> Material descargable en <strong>PDF</strong> y videos</p>
+                        <p><i class='bx bx-brain'></i> Recomendaciones personalizadas con <strong>IA</strong></p>
+                        <p><i class='bx bx-devices'></i> Compatible con <strong>móvil, tablet y PC</strong></p>
                     </div>
                 </div>
             </div>

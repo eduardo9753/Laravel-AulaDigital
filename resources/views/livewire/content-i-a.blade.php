@@ -1,5 +1,4 @@
 <div class="card shadow-lg border-0 rounded-4 p-4">
-
     <div class="d-flex align-items-center mb-3">
         <div class="bg-opacity-10 p-3 rounded-circle me-3">
             <i class="bx bx-brain text-primary fs-3" style="font-size: 75px"></i>
@@ -15,18 +14,14 @@
 
     {{-- Input con autocompletado --}}
     <div class="input-group input-group-lg mb-4 position-relative">
-        <input type="text" wire:model.debounce.500ms="tema" class="form-control border-primary-subtle"
-            placeholder="Ejemplo: Ecología, Triángulos, Reacciones químicas">
+        <input type="text" wire:model.debounce.500ms="tema" wire:keydown.enter="generar"
+            class="form-control border-primary-subtle" placeholder="Ejemplo: Ecología, Triángulos, Reacciones químicas">
 
-        <button wire:click="generar" class="btn btn-primary">
-            <i class='bx bx-search-alt-2'></i> Buscar
-        </button>
-
-        {{-- Sugerencias --}}
+        {{-- Lista de sugerencias --}}
         @if (!empty($sugerencias))
             <ul class="list-group position-absolute w-100 shadow" style="z-index: 999; top: 100%;">
                 @foreach ($sugerencias as $s)
-                    <li class="list-group-item list-group-item-action" wire:click="generar({{ $s->id }})"
+                    <li class="list-group-item list-group-item-action" wire:click="seleccionarTema({{ $s->id }})"
                         style="cursor:pointer;">
                         {{ $s->name }}
                     </li>
@@ -48,14 +43,12 @@
         </div>
     @elseif(!empty($recomendacion))
         <div class="mt-4">
-            {{-- Texto generado --}}
+            {{-- Resumen IA --}}
             <h5 class="fw-bold text-primary mb-3 d-flex align-items-center">
                 <i class="bx bx-book-content me-2"></i> Resumen del tema
             </h5>
             <div class="border rounded-3 p-3 mb-4">
-                <p class="mb-0" style="white-space: pre-line;">
-                    {{ $recomendacion['texto'] }}
-                </p>
+                <p class="mb-0" style="white-space: pre-line;">{{ $recomendacion['texto'] }}</p>
             </div>
 
             {{-- VIDEOS --}}
@@ -72,9 +65,8 @@
                                     preg_match('/embed\/([a-zA-Z0-9_-]+)/', $video->iframe, $matches);
                                     $youtubeId = $matches[1] ?? null;
                                 @endphp
-
                                 @if ($youtubeId)
-                                    <div id="player-content-i-a-{{ $loop->index }}" class="plyr__video-embed">
+                                    <div class="plyr__video-embed">
                                         <iframe
                                             src="https://www.youtube.com/embed/{{ $youtubeId }}?rel=0&modestbranding=1"
                                             allowfullscreen allow="autoplay" style="width: 100%; height: 400px;">
@@ -120,9 +112,7 @@
                     @foreach ($recomendacion['preguntas'] as $pregunta)
                         <div class="mb-4 p-3 border rounded shadow-sm bg-white">
                             <div class="fw-semibold text-dark mb-2">🧩 Pregunta</div>
-                            <div class="fs-5" style="line-height: 1.6;">
-                                {!! $pregunta->titulo !!}
-                            </div>
+                            <div class="fs-5" style="line-height: 1.6;">{!! $pregunta->titulo !!}</div>
                             @if ($pregunta->comentario)
                                 <div class="mt-2 text-muted fst-italic small">
                                     💬 {{ $pregunta->comentario }}
@@ -137,5 +127,19 @@
 
     @section('scripts')
         <script src="{{ asset('js/visitador/plyr/plyr-content-i-a.js') }}"></script>
+
+        <script>
+            // Quitar foco del input
+            window.addEventListener('blurInput', () => {
+                const input = document.querySelector('input[wire\\:model]');
+                if (input) input.blur();
+            });
+
+            // Ejecutar generación en segundo plano SIN esperar a Livewire
+            window.addEventListener('runGenerar', e => {
+                Livewire.find(document.querySelector('[wire\\:id]').getAttribute('wire:id'))
+                    .call('generar', e.detail.id);
+            });
+        </script>
     @endsection
 </div>
