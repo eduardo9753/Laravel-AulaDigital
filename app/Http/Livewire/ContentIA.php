@@ -10,15 +10,14 @@ use Illuminate\Support\Facades\Http;
 
 class ContentIA extends Component
 {
-    public $tema = '';                // Texto del input
-    public $recomendacion = null;     // Resultado generado
-    public $loading = false;          // Estado de carga
-    public $sugerencias = [];         // Lista de sugerencias
+    public $tema = '';
+    public $recomendacion = null;
+    public $loading = false;
+    public $sugerencias = [];
 
-    // Actualizar sugerencias al escribir
     public function updatedTema()
     {
-        // No borrar la info si limpia el input
+        // Si el texto es corto, solo limpiamos sugerencias (NO tocamos la info generada)
         if (strlen($this->tema) < 2) {
             $this->sugerencias = [];
             return;
@@ -30,27 +29,20 @@ class ContentIA extends Component
             ->get();
     }
 
-    // ✅ Método que Livewire no encontraba antes
     public function seleccionarTema($id)
     {
         $seccion = Section::find($id);
 
         if (!$seccion) return;
 
-        // Mostrar el nombre en el input
         $this->tema = $seccion->name;
-
-        // Ocultar sugerencias
         $this->sugerencias = [];
 
-        // Ejecutar automáticamente la generación
+        // Llama al generador desde JS
         $this->dispatchBrowserEvent('runGenerar', ['id' => $id]);
-
-        // Quitar el foco del input
         $this->dispatchBrowserEvent('blurInput');
     }
 
-    // Generar contenido
     public function generar($seccionId = null)
     {
         $this->loading = true;
@@ -71,7 +63,6 @@ class ContentIA extends Component
             return;
         }
 
-        // Obtener datos relacionados
         $videos = $seccion->lessons()->limit(5)->get();
         $pdfs = Resource::where('resourceable_type', 'App\\Models\\Lesson')
             ->whereIn('resourceable_id', $videos->pluck('id'))
@@ -81,7 +72,6 @@ class ContentIA extends Component
 
         $descripcion = $seccion->description ?? 'Sin descripción disponible';
 
-        // Prompt IA
         $prompt = "
 Eres un tutor educativo experto de la plataforma PreuniCursos.
 Genera un resumen motivador y didáctico con emojis y listas claras.
@@ -94,7 +84,6 @@ PDFs: " . implode(', ', $pdfs->pluck('titulo')->toArray()) . "
 Preguntas: " . implode(', ', $preguntas->pluck('titulo')->toArray()) . "
 ";
 
-        // Llamada a OpenAI
         $response = Http::withToken(env('OPENAI_API_KEY'))->post('https://api.openai.com/v1/chat/completions', [
             'model' => 'gpt-4o-mini',
             'messages' => [
@@ -105,13 +94,13 @@ Preguntas: " . implode(', ', $preguntas->pluck('titulo')->toArray()) . "
 
         $textoIA = $response->json('choices.0.message.content') ?? 'No se pudo generar la recomendación.';
 
-        // Guardar todo
+        // Convertimos todo a arrays seguros
         $this->recomendacion = [
             'texto' => $textoIA,
-            'seccion' => $seccion,
-            'videos' => $videos,
-            'pdfs' => $pdfs,
-            'preguntas' => $preguntas,
+            'seccion' => $seccion->toArray(),
+            'videos' => $videos->toArray(),
+            'pdfs' => $pdfs->toArray(),
+            'preguntas' => $preguntas->toArray(),
         ];
 
         $this->loading = false;

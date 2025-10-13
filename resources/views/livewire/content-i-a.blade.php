@@ -55,28 +55,30 @@
             @if (!empty($recomendacion['videos']) && count($recomendacion['videos']) > 0)
                 <h6 class="fw-bold text-dark d-flex align-items-center mb-2">
                     <i class="bx bx-play-circle text-danger me-2"></i> Videos recomendados
-                    <span class="badge bg-danger-subtle text-danger ms-2">{{ $recomendacion['videos']->count() }}</span>
+                    <span class="badge bg-danger-subtle text-danger ms-2">{{ count($recomendacion['videos']) }}</span>
                 </h6>
                 <div class="row">
                     @foreach ($recomendacion['videos'] as $video)
                         <div class="col-md-6 mb-3">
                             <div class="card border-0 shadow-sm rounded-3 h-100">
                                 @php
-                                    preg_match('/embed\/([a-zA-Z0-9_-]+)/', $video->iframe, $matches);
+                                    $iframe = $video['iframe'] ?? '';
+                                    preg_match('/embed\/([a-zA-Z0-9_-]+)/', $iframe, $matches);
                                     $youtubeId = $matches[1] ?? null;
                                 @endphp
                                 @if ($youtubeId)
                                     <div class="plyr__video-embed">
                                         <iframe
                                             src="https://www.youtube.com/embed/{{ $youtubeId }}?rel=0&modestbranding=1"
-                                            allowfullscreen allow="autoplay" style="width: 100%; height: 400px;">
-                                        </iframe>
+                                            allowfullscreen allow="autoplay"
+                                            style="width: 100%; height: 400px;"></iframe>
                                     </div>
                                 @else
                                     <small class="text-muted">Video no disponible.</small>
                                 @endif
                                 <div class="card-body">
-                                    <h6 class="fw-semibold text-dark">{{ $video->name }} - {{ $video->section->name }}
+                                    <h6 class="fw-semibold text-dark">
+                                        {{ $video['name'] ?? '' }} - {{ $video['section']['name'] ?? '' }}
                                     </h6>
                                 </div>
                             </div>
@@ -89,14 +91,14 @@
             @if (!empty($recomendacion['pdfs']) && count($recomendacion['pdfs']) > 0)
                 <h6 class="fw-bold text-dark d-flex align-items-center mt-4 mb-2">
                     <i class="bx bx-file text-success me-2"></i> Material en PDF
-                    <span class="badge bg-success-subtle text-success ms-2">{{ $recomendacion['pdfs']->count() }}</span>
+                    <span class="badge bg-success-subtle text-success ms-2">{{ count($recomendacion['pdfs']) }}</span>
                 </h6>
                 <div class="list-group mb-3">
                     @foreach ($recomendacion['pdfs'] as $pdf)
-                        <a href="{{ $pdf->url }}" target="_blank"
+                        <a href="{{ $pdf['url'] ?? '#' }}" target="_blank"
                             class="list-group-item list-group-item-action d-flex align-items-center">
                             <i class="bx bx-file-blank fs-4 text-success me-2"></i>
-                            <span>{{ $pdf->titulo ?? 'Ver PDF' }}</span>
+                            <span>{{ $pdf['titulo'] ?? 'Ver PDF' }}</span>
                         </a>
                     @endforeach
                 </div>
@@ -106,16 +108,16 @@
             @if (!empty($recomendacion['preguntas']) && count($recomendacion['preguntas']) > 0)
                 <h6 class="fw-bold text-dark d-flex align-items-center mt-4 mb-2">
                     <i class="bx bx-help-circle text-info me-2"></i> Preguntas de práctica
-                    <span class="badge bg-info-subtle text-info ms-2">{{ $recomendacion['preguntas']->count() }}</span>
+                    <span class="badge bg-info-subtle text-info ms-2">{{ count($recomendacion['preguntas']) }}</span>
                 </h6>
                 <ul class="list-group">
                     @foreach ($recomendacion['preguntas'] as $pregunta)
                         <div class="mb-4 p-3 border rounded shadow-sm bg-white">
                             <div class="fw-semibold text-dark mb-2">🧩 Pregunta</div>
-                            <div class="fs-5" style="line-height: 1.6;">{!! $pregunta->titulo !!}</div>
-                            @if ($pregunta->comentario)
+                            <div class="fs-5" style="line-height: 1.6;">{!! $pregunta['titulo'] ?? '' !!}</div>
+                            @if (!empty($pregunta['comentario']))
                                 <div class="mt-2 text-muted fst-italic small">
-                                    💬 {{ $pregunta->comentario }}
+                                    💬 {{ $pregunta['comentario'] }}
                                 </div>
                             @endif
                         </div>
@@ -129,13 +131,11 @@
         <script src="{{ asset('js/visitador/plyr/plyr-content-i-a.js') }}"></script>
 
         <script>
-            // Quitar foco del input
             window.addEventListener('blurInput', () => {
                 const input = document.querySelector('input[wire\\:model]');
                 if (input) input.blur();
             });
 
-            // Ejecutar generación en segundo plano SIN esperar a Livewire
             window.addEventListener('runGenerar', e => {
                 Livewire.find(document.querySelector('[wire\\:id]').getAttribute('wire:id'))
                     .call('generar', e.detail.id);
