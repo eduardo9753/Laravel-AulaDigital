@@ -52,7 +52,7 @@
             </div>
 
             {{-- VIDEOS --}}
-            @if ($recomendacion['videos']->count())
+            @if (!empty($recomendacion['videos']) && count($recomendacion['videos']) > 0)
                 <h6 class="fw-bold text-dark d-flex align-items-center mb-2">
                     <i class="bx bx-play-circle text-danger me-2"></i> Videos recomendados
                     <span class="badge bg-danger-subtle text-danger ms-2">{{ $recomendacion['videos']->count() }}</span>
@@ -86,7 +86,7 @@
             @endif
 
             {{-- PDFs --}}
-            @if ($recomendacion['pdfs']->count())
+            @if (!empty($recomendacion['pdfs']) && count($recomendacion['pdfs']) > 0)
                 <h6 class="fw-bold text-dark d-flex align-items-center mt-4 mb-2">
                     <i class="bx bx-file text-success me-2"></i> Material en PDF
                     <span class="badge bg-success-subtle text-success ms-2">{{ $recomendacion['pdfs']->count() }}</span>
@@ -103,7 +103,7 @@
             @endif
 
             {{-- PREGUNTAS --}}
-            @if ($recomendacion['preguntas']->count())
+            @if (!empty($recomendacion['preguntas']) && count($recomendacion['preguntas']) > 0)
                 <h6 class="fw-bold text-dark d-flex align-items-center mt-4 mb-2">
                     <i class="bx bx-help-circle text-info me-2"></i> Preguntas de práctica
                     <span class="badge bg-info-subtle text-info ms-2">{{ $recomendacion['preguntas']->count() }}</span>
