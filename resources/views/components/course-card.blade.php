@@ -24,7 +24,7 @@
                                 <div class="d-flex justify-content-between align-items-center mt-3 mb-2">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <i class='bx bxs-user-plus' style="font-size: 24px"></i>
-                                        <p>({{ $course->students_count }})0</p>
+                                        <p>({{ $course->students_count }}0)</p>
                                     </div>
 
                                     <ul class="d-flex justify-content-between align-items-center">
