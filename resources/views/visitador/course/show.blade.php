@@ -41,7 +41,7 @@
                         <p><i class='bx bxs-user-plus'></i> Curso inteligente con apoyo de <strong>IA</strong></p>
                         <p><i class='bx bxs-star-half'></i> Calificación promedio: <strong>{{ $course->rating }}</strong>
                         </p>
-                        <p><i class="bx bx-infinite text-success"></i> Disfruta de acceso <strong>ilimitado 24/7</strong> a todo el contenido</p>
+                        <p><i class="bx bx-infinite"></i> Disfruta de acceso <strong>ilimitado 24/7</strong> a todo el contenido</p>
                         <p><i class='bx bxs-file-pdf'></i> Material descargable en <strong>PDF</strong> y videos</p>
                         <p><i class='bx bx-brain'></i> Recomendaciones personalizadas con <strong>IA</strong></p>
                         <p><i class='bx bx-devices'></i> Compatible con <strong>móvil, tablet y PC</strong></p>
