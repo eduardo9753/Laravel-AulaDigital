@@ -67,7 +67,7 @@
                                     $youtubeId = $matches[1] ?? null;
                                 @endphp
                                 @if ($youtubeId)
-                                    <div class="plyr__video-embed">
+                                    <div id="player-content-i-a-{{ $loop->index }}" class="plyr__video-embed">
                                         <iframe
                                             src="https://www.youtube.com/embed/{{ $youtubeId }}?rel=0&modestbranding=1"
                                             allowfullscreen allow="autoplay"
