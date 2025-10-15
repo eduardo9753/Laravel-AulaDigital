@@ -16,7 +16,7 @@ class CompendiumController extends Controller
     {
         $user = auth()->user();
 
-        if (Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
+        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
             // Cargar los cursos y filtrar archivos por type "C"
             $courses = Course::with(['archives' => function ($query) {
                 $query->where('type', 'C');
@@ -35,7 +35,7 @@ class CompendiumController extends Controller
     {
         $user = auth()->user();
         // Verifica si el usuario tiene acceso a la suscripción pre-universitaria o universitaria
-        if (Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
+        if (Gate::allows('viewSubscription', $user) || Gate::allows('viewSubscriptionSixMonth', $user) || Gate::allows('viewSubscriptionYear', $user)) {
             $course = Course::find($archive->course_id);
 
             return view('visitador.compendio.show', [

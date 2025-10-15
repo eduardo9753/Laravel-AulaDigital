@@ -27,7 +27,7 @@
                 method="POST" class="form-suscription">
                 @csrf
                 <div class="popup">
-                    <h2>🎃 Oferta Halloween 🎃</h2>
+                    <h2 class="text-white">🎃 Oferta Halloween 🎃</h2>
                     <p class="text-white">
                         ¡Aprovecha un <strong>{{ $plan->percentage }}% de descuento</strong>
                         en el plan <b>{{ $plan->name }}</b>!

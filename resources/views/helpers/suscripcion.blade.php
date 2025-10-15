@@ -45,6 +45,12 @@
                          </li>
                          <li class="text-white">
                              <div class="d-flex">
+                                 <i class='bx bx-check-circle' style="padding-top: 4px"></i>
+                                 <span>Acceso a compendios</span>
+                             </div>
+                         </li>
+                         <li class="text-white">
+                             <div class="d-flex">
                                  <i class='bx bx-brain bx-burst' style="padding-top: 4px; color:yellow"></i>
                                  <span style="color:yellow">
                                      Recomendación IA tras cada examen con videos de refuerzo.
@@ -55,7 +61,7 @@
                          <li class="text-white">
                              <div class="d-flex">
                                  <i class='bx bxs-check-circle' style="padding-top: 4px"></i>
-                                 <span><strong>Renovación automática 02 de cada mes</strong></span>
+                                 <span><strong>1 mes de acceso total</strong></span>
                              </div>
                          </li>
                      </ul>

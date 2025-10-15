@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Mail\EnviarCorreoSuscripcion;
 use App\Models\Pay;
 use App\Models\Plan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use MercadoPago\Item;
 use Illuminate\Support\Facades\Mail;
 use MercadoPago\SDK;
 use MercadoPago\Preapproval;
@@ -24,6 +26,65 @@ class PaymentSuscriptionController extends Controller
 
     //pago de suscripcion recurrente
     public function suscription()
+    {
+        // Agrega credenciales
+        SDK::setAccessToken(config('mercadopago.token'));
+        $public_key = config('mercadopago.public_key');
+        $preference = new Preference();
+        $curso = [];
+
+        // Crea un ítem en la preferencia
+        $count = 1;
+        while ($count <= 1) {
+            $item = new Item();
+            $item->title = 'PLAN-PRE-UNI';
+            $item->description = 'Pago suscripción preunicursos 1 mes';
+            $item->quantity = $count;
+            $item->unit_price = config('mercadopago.plan_mensual'); //24.00
+            $count = $count + 1;
+
+            $curso[] = $item;
+        }
+
+        //dd($curso);
+        $preference->items = $curso;
+
+        $preference->back_urls = [
+            'success' => route('mercadopago.suscription.success'),
+            'failure' => route('mercadopago.suscription.failure'),
+            'pending' => route('mercadopago.suscription.pending'),
+        ];
+        $preference->auto_return = 'approved'; // Redirige automáticamente al usuario después de un pago aprobado
+
+
+        // Guarda la preferencia
+        $save = $preference->save();
+
+        // Obtiene el link de pago
+        $paymentLink = $preference->init_point;
+
+        //dd($paymentLink);
+
+        if ($save) {
+            $dato = [
+                'public_key' => $public_key,
+                'preference_id' =>  $preference->id,
+                'url' => $preference->back_urls,
+                'init_point' => $paymentLink
+            ];
+            return response()->json([
+                'code' => 1,
+                'msg' => $dato
+            ]);
+        } else {
+            return response()->json([
+                'code' => 0,
+                'msg' => 'Error de Datos'
+            ]);
+        }
+    }
+
+    /*public function suscription()
     {
         // Configura las credenciales de Mercado Pago
         SDK::setAccessToken(config('mercadopago.token'));
@@ -69,14 +130,14 @@ class PaymentSuscriptionController extends Controller
                 'msg' => 'No se Guardo la preferencia correctamente'
             ]);
         }
-    }
+    } */
 
     public function success(Request $request)
     {
         Log::info('payment Received:', $request->all());
 
         if (isset($request->preapproval_id)) {
-            $pay = Pay::create([
+            /*$pay = Pay::create([
                 'user_id' => auth()->user()->id,
                 'collection_id' => '',
                 'collection_status' => 'PLAN-PRE-UNI',
@@ -90,6 +151,24 @@ class PaymentSuscriptionController extends Controller
                 'processing_mode' => 'ONLINE',
                 'merchant_account_id' => '',
                 'estado' => 'SUSCRITO',
+            ]);*/
+
+            $pay = Pay::create([
+                'user_id' => auth()->user()->id,
+                'collection_id' => $request->collection_id ?? '',
+                'collection_status' => 'PLAN-PRE-UNI',
+                'payment_id' => $request->payment_id ?? '',
+                'status' => 'PAGO SUSCRIPCION',
+                'external_reference' =>  $request->external_reference ?? '',
+                'payment_type' => $request->payment_type ?? '',
+                'merchant_order_id' => $request->merchant_order_id ?? '',
+                'preference_id' => $request->preference_id ?? '',
+                'site_id' => 'MPE',
+                'processing_mode' => 'ONLINE',
+                'merchant_account_id' => $request->merchant_account_id ?? '',
+                'estado' => 'SUSCRITO',
+                'date_start' => Carbon::now()->toDateString(),
+                'date_end' => Carbon::now()->addMonths(1)->toDateString(),
             ]);
 
             if ($pay) {
