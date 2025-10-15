@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Redirige al enlace después de 1 segundo
                     setTimeout(() => {
-                        window.location.href = data.msg; // Redirige a la URL proporcionada.
+                       window.location.href = data.msg.init_point; // Redirige a la URL proporcionada.
                     }, 1000);
 
                     // Reactiva el botón después de 6 segundos para permitir otro intento
