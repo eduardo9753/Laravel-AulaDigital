@@ -85,7 +85,7 @@ Preguntas: " . implode(', ', $preguntas->pluck('titulo')->toArray()) . "
 ";
 
         $response = Http::withToken(env('OPENAI_API_KEY'))->post('https://api.openai.com/v1/chat/completions', [
-            'model' => 'gpt-4o-mini',
+            'model' => 'gpt-3.5-turbo',
             'messages' => [
                 ['role' => 'system', 'content' => 'Eres un tutor educativo experto de PreuniCursos.'],
                 ['role' => 'user', 'content' => $prompt],

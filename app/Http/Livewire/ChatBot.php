@@ -33,7 +33,7 @@ class ChatBot extends Component
         ];
 
         $response = Http::withToken(env('OPENAI_API_KEY'))->post('https://api.openai.com/v1/chat/completions', [
-            'model' => 'gpt-3.5-turbo',
+            'model' => 'gpt-4o-mini',
             'messages' => $messages,
         ]);
 
