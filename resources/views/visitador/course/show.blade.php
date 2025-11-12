@@ -37,16 +37,22 @@
                         <h3 class="curso-show-subtitulo">{{ $course->subtitle }}</h3>
 
                         <p><i class='bx bx-signal-5'></i> Nivel: <strong>{{ $course->level->name }}</strong></p>
-                        <p><i class='bx bxs-category-alt'></i> Categoría: <strong>{{ $course->category->name }}</strong></p>
-                        <p><i class='bx bxs-user-plus'></i> Curso inteligente con apoyo de <strong>IA</strong></p>
+                        <p><i class='bx bxs-category-alt'></i> Área: <strong>{{ $course->category->name }}</strong></p>
+                        <p><i class='bx bxs-user-plus'></i> Curso inteligente con apoyo de <strong>Inteligencia
+                                Artificial</strong> 🤖</p>
                         <p><i class='bx bxs-star-half'></i> Calificación promedio: <strong>{{ $course->rating }}</strong>
                         </p>
-                        <p><i class="bx bx-infinite"></i> Disfruta de acceso <strong>ilimitado 24/7</strong> a todo el contenido</p>
-                        <p><i class='bx bxs-file-pdf'></i> Material descargable en <strong>PDF</strong> y videos</p>
-                        <p><i class='bx bx-brain'></i> Recomendaciones personalizadas con <strong>IA</strong></p>
-                        <p><i class='bx bx-devices'></i> Compatible con <strong>móvil, tablet y PC</strong></p>
+                        <p><i class="bx bx-infinite"></i> Acceso <strong>ilimitado 24/7</strong> a todas las clases y
+                            materiales</p>
+                        <p><i class='bx bxs-file-pdf'></i> Incluye material descargable en <strong>PDF</strong> y recursos
+                            complementarios</p>
+                        <p><i class='bx bx-brain'></i> Recomendaciones personalizadas para reforzar tus conocimientos</p>
+                        <p><i class='bx bx-devices'></i> Compatible con <strong>computadora, tablet y celular</strong></p>
+                        <p><i class='bx bx-happy-beaming'></i> Ideal para estudiantes de <strong>secundaria y
+                                preuniversitario</strong> que buscan mejorar su aprendizaje</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

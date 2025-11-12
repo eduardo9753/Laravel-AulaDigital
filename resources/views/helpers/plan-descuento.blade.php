@@ -3,12 +3,12 @@
     <span class="close" id="closePopup">&times;</span>
 
     <!-- Murciélagos -->
-    <img src="https://cdn-icons-png.flaticon.com/512/4188/4188316.png" class="bat">
-    <img src="https://cdn-icons-png.flaticon.com/512/685/685842.png" class="bat">
-    <img src="https://cdn-icons-png.flaticon.com/512/3560/3560915.png" class="bat">
+    <img src="https://cdn-icons-png.flaticon.com/512/6262/6262233.png" class="bat">
+    <img src="https://cdn-icons-png.flaticon.com/512/6334/6334628.png" class="bat">
+    <img src="https://cdn-icons-png.flaticon.com/512/9115/9115405.png" class="bat">
 
     <!-- Bruja volando -->
-    <img src="https://cdn-icons-png.flaticon.com/512/12/12249.png" alt="witch" class="witch">
+    <img src="https://cdn-icons-png.flaticon.com/512/9103/9103941.png" alt="witch" class="witch">
 
 
     <div class="popup-container">
@@ -26,16 +26,23 @@
             <form action="{{ route('mercadopago.descuento.suscription.year.index', ['plan' => $plan->id]) }}"
                 method="POST" class="form-suscription">
                 @csrf
-                <div class="popup">
-                    <h2 class="text-white">🎃 Oferta Halloween 🎃</h2>
-                    <p class="text-white">
-                        ¡Aprovecha un <strong>{{ $plan->percentage }}% de descuento</strong>
-                        en el plan <b>{{ $plan->name }}</b>!
+                <div
+                    class="popup bg-gradient-to-b from-red-600 to-green-700 p-4 rounded-3xl shadow-lg border-2 border-white">
+                    <h2 class="text-white text-center mb-2">
+                        🎄 ¡Oferta Navideña! 🎅
+                    </h2>
+                    <p class="text-white text-center">
+                        Celebra con nosotros y disfruta de un
+                        <strong>{{ $plan->percentage }}% de descuento</strong>
+                        en el plan <b>{{ $plan->name }}</b> 🎁
                     </p>
-                    <p class="text-white">Usa el cupón:</p>
+                    <p class="text-white text-center mt-2">
+                        Usa tu cupón especial navideño:
+                    </p>
 
-                    <input type="submit" class="btn-solid-sm p-4 mt-3 w-100 text-white"
-                        value="S/ {{ $precioDescuento }} ({{ strtoupper($plan->promo_code) }})">
+                    <input type="submit"
+                        class="btn-solid-sm p-4 mt-3 w-100 text-white bg-red-500 hover:bg-green-600 transition-all rounded-lg shadow"
+                        value="🎅 S/ {{ $precioDescuento }} ({{ strtoupper($plan->promo_code) }}) 🎄">
                 </div>
             </form>
         @endforeach

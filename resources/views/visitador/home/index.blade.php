@@ -19,28 +19,29 @@
                     <div class="row align-items-center">
                         <div class="col-lg-8" data-aos="fade-up">
                             <h1 class="fw-bold text-white mb-3 mt-5">
-                                🚀 ¡Prepárate para tu ingreso a la <span class="text-warning">UNFV</span> y más!
+                                🚀 Plataforma de refuerzo escolar inteligente para estudiantes y docentes.
                             </h1>
 
-                            <p class="lead mb-3 text-white">
-                                Únete a <strong class="text-warning">PreuniCursos</strong>, la plataforma educativa
-                                impulsada por
-                                <span class="text-info">Inteligencia Artificial</span> que analiza tu rendimiento y te
-                                recomienda clases, materiales y videos ideales para ti.
+                            <p class="lead mb-3 text-white" style="text-align: justify;">
+                                <strong class="text-warning">PreuniCursos</strong> utiliza
+                                <span class="text-info">Inteligencia Artificial</span> para fortalecer el aprendizaje de los
+                                estudiantes de secundaria.
+                                Brinda herramientas interactivas, evaluaciones automáticas y material educativo que mejora
+                                el rendimiento académico.
                             </p>
 
-                            <p class="text-white mb-4">
-                                Aprende con clases en video, material PDF, simulacros y exámenes personalizados.
-                                ¡Todo diseñado para llevarte al siguiente nivel académico! 🎓
+                            <p class="text-white mb-4" style="text-align: justify;">
+                                Un aliado para colegios, profesores y alumnos comprometidos con una educación de calidad. 💪
                             </p>
+
                             <div class="d-flex flex-wrap mt-4">
                                 @guest
                                     <a href="{{ route('admin.register.index') }}" class="btn btn-accent btn-lg fw-bold mr-3">
-                                        🚀 Registrarme Gratis
+                                        🚀 Empezar Gratis
                                     </a>
 
                                     <a href="#plans" class="btn btn-glass btn-lg fw-bold text-white mt-2 mt-sm-0">
-                                        💎 Ver Planes Premium
+                                        💎 Ver Planes Escolares
                                     </a>
                                 @endguest
 
@@ -72,9 +73,10 @@
                                     @endcan
                                 @endauth
                             </div>
-
                         </div>
                     </div>
+
+
                 </div>
             </section>
 
@@ -125,9 +127,9 @@
                                 <div class="text-center">
                                     <img src="{{ asset('img/home/ilimitado.png') }}" data-aos="zoom-in">
                                 </div>
-                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Acceso Ilimitado</h6>
-                                <p>Como usuario premium, disfrutarás de acceso ilimitado a nuestra plataforma y podrás
-                                    cancelar tu suscripción en cualquier momento que desees.</p>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Aprendizaje Ilimitado</h6>
+                                <p>Accede sin límites a clases, videos, guías y evaluaciones diseñadas para reforzar tus
+                                    conocimientos y mejorar tu rendimiento escolar.</p>
                             </div>
                         </div>
 
@@ -137,12 +139,11 @@
                                 <div class="text-center">
                                     <img src="{{ asset('img/home/pdf.png') }}" data-aos="zoom-in">
                                 </div>
-                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Recursos en PDF</h6>
-                                <p>Accederás de manera ilimitada a material de estudio en formato PDF y podrás descargarlo
-                                    en cualquier momento.</p>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Material de Estudio Interactivo</h6>
+                                <p>Descarga guías, resúmenes y ejercicios en formato PDF para practicar en casa o en el
+                                    colegio. Ideal para reforzar tus clases y prepararte mejor.</p>
                             </div>
                         </div>
-
 
                         <div class="col-sm-4 text-lg-left">
                             <div class="services-box" data-aos="fade-down" data-aos-easing="linear"
@@ -150,12 +151,13 @@
                                 <div class="text-center">
                                     <img src="{{ asset('img/home/examen.png') }}" data-aos="zoom-in">
                                 </div>
-                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Exámenes por área</h6>
-                                <p>Contarás con acceso a una lista de exámenes por área para complementar tu proceso de
-                                    aprendizaje.</p>
+                                <h6 class="text-dark mb-3 mt-4 font-weight-medium">Evaluaciones Inteligentes</h6>
+                                <p>Practica con exámenes por curso y nivel. Nuestro sistema analiza tus resultados y te
+                                    recomienda los temas que debes reforzar. 📊</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
 
@@ -180,11 +182,12 @@
                                 'video' => asset('videos/IA.mp4'),
                             ])
                         </div>
-                        <div class="col-md-6 mt-3">
+                        {{-- <div class="col-md-6 mt-3">
                             @include('helpers.video', [
                                 'video' => asset('videos/suscripción_preunicursos.mp4'),
                             ])
                         </div>
+                        --}}
                     </div>
                 </div>
             </section>
@@ -224,38 +227,52 @@
 
             <section class="our-process section-home" id="about">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6" data-aos="fade-up">
-                            <h5 class="text-dark font-weight-bold">Únete a nuestra comunidad estudiantil</h5>
-                            <h3 class="font-weight-medium color-general">¡Descubre
-                                PreuniCursos!</h3>
-                            <h5 class="text-dark mb-3 font-weight-bold">y diviertete</h5>
-                            <p class="font-weight-medium mb-4 text-dark"> Aprende en tus tiempos libres, <br>
-                                de una forma diferente en nuestra plataforma
+                    <div class="row align-items-center" data-aos="fade-up">
+                        <div class="col-sm-6">
+                            <h5 class="text-dark font-weight-bold">Únete a nuestra comunidad educativa</h5>
+                            <h3 class="font-weight-medium color-general">🎓 ¡Descubre PreuniCursos!</h3>
+                            <h5 class="text-dark mb-3 font-weight-bold">Tu aliado académico para reforzar y aprender mejor
+                            </h5>
+
+                            <p class="font-weight-medium mb-4 text-dark">
+                                Aprende a tu ritmo, refuerza tus conocimientos y alcanza tus metas con nuestra
+                                plataforma de acompañamiento escolar. 🌟
                             </p>
+
                             <div class="d-flex justify-content-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="text-dark font-weight-bold">Material de estudio y exámenes</p>
+                                <p class="text-dark font-weight-bold mb-0">Materiales interactivos y guías en PDF</p>
                             </div>
+
                             <div class="d-flex justify-content-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="mb-0 text-dark font-weight-bold">Acceso de por vida con soporte las 24 horas</p>
+                                <p class="text-dark font-weight-bold mb-0">Evaluaciones por áreas y simulacros
+                                    preuniversitarios</p>
                             </div>
-                            <div class="d-flex align-items-center">
+
+                            <div class="d-flex align-items-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="ícono de IA" class="mr-3 tick-icon">
-                                <p class="mb-0 text-dark font-weight-bold">
-                                    Integración con <span class="text-primary"><strong>Ineligencia
-                                            Artificial</strong></span> para
-                                    ofrecerte lo mejor en tus estudios.
+                                <p class="text-dark font-weight-bold mb-0">
+                                    Asistencia personalizada con <span class="text-primary"><strong>Inteligencia
+                                            Artificial</strong></span> 🤖
+                                    para ayudarte a resolver tus dudas y mejorar tu rendimiento.
                                 </p>
                             </div>
 
+                            <div class="d-flex justify-content-start">
+                                <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
+                                <p class="text-dark font-weight-bold mb-0">Acceso de por vida y soporte continuo para
+                                    estudiantes</p>
+                            </div>
                         </div>
+
                         <div class="col-sm-6 text-right" data-aos="flip-left" data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000">
-                            <img src="{{ asset('img/home/idea.png') }}" alt="idea" class="img-fluid">
+                            <img src="{{ asset('img/home/idea.png') }}" alt="idea"
+                                class="img-fluid ">
                         </div>
                     </div>
+
                 </div>
             </section>
 

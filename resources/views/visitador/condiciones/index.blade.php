@@ -108,7 +108,7 @@
 
                             <ol class="mt-3">
                                 <ul>
-                                    <li><strong>Plan Escolar (S/ 25.00 al mes):</strong>
+                                    <li><strong>Plan Mensual : {{ env('PLAN_MENSUAL') }}</strong>
                                         <ul>
                                             <li>
                                                 <div class="d-flex">
@@ -131,7 +131,7 @@
                                         </ul>
                                     </li>
 
-                                    <li class="mt-2"><strong>Plan Preuniversitario (S/ 35.00 al mes):</strong>
+                                    <li class="mt-2"><strong>Plan Semestral : {{ env('PLAN_SEIS_MES') }}</strong>
                                         <ul>
                                             <li>
                                                 <div class="d-flex">
