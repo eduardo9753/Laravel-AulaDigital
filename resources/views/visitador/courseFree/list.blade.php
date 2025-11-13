@@ -51,6 +51,11 @@
             <div class="">
                 {{-- LLAMADA DEL COMPONENTE COURSE CARD --}}
                 @if (auth()->check())
+                    <x-course-card :courses="$courses" url="gratis"></x-course-card>
+                @else
+                    <x-course-card :courses="$courses" url="premium"></x-course-card>
+                @endif
+                {{-- @if (auth()->check())
                     @if (auth()->user()->userSuscriptionUrl())
                         <x-course-card :courses="$courses" url="premium"></x-course-card>
                     @else
@@ -59,6 +64,7 @@
                 @else
                     <x-course-card :courses="$courses" url="premium"></x-course-card>
                 @endif
+                --}}
             </div>
         </section>
 
@@ -71,8 +77,8 @@
                             Suscríbete a nuestros planes y obtén acceso ilimitado a todos los cursos, material
                             educativo,
                             contenidos
-                            académicos, al sistema de exámenes y mucho más:<a class="btn btn-primary text-white" href="{{ route('mercadopago.suscription.subscribe') }}"
-                                title="suscripcion">
+                            académicos, al sistema de exámenes y mucho más:<a class="btn btn-primary text-white"
+                                href="{{ route('mercadopago.suscription.subscribe') }}" title="suscripcion">
                                 suscribirme
                             </a>
                         </p>
