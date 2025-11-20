@@ -291,11 +291,11 @@ class PreguntadosController extends Controller
 
         return response()->json([
             'id' => $nextQuestion->id,
-            'question' => $nextQuestion->text,
+            'question' => $nextQuestion->titulo,
             'answers' => $nextQuestion->answers->map(fn($a) => [
                 'id' => $a->id,
-                'text' => $a->text,
-                'correct' => $a->correct,
+                'titulo' => $a->titulo,
+                'correct' => $a->es_correcta,
             ]),
         ]);
     }
