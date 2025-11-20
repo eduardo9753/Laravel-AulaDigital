@@ -121,4 +121,9 @@ class User extends Authenticatable
             return redirect()->route('visitador.course.list');
         }
     }
+
+    public function avatar()
+    {
+        return $this->hasOne(Avatar::class);
+    }
 }
