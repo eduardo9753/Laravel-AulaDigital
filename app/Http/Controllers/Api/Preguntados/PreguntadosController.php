@@ -36,8 +36,8 @@ class PreguntadosController extends Controller
 
         $input = trim($request->study_id);
         $usuario = User::where(function ($q) use ($input) {
-            $q->where('study_id', $input)
-                ->orWhere('email', $input);
+            $q->where('email', $input);
+                //->orWhere('email', $input);
         })->with('avatar')->first();
 
         if ($usuario) {
