@@ -295,7 +295,7 @@ class PreguntadosController extends Controller
             'answers' => $nextQuestion->answers->map(fn($a) => [
                 'id' => $a->id,
                 'titulo' => $a->titulo,
-                'correct' => $a->es_correcta,
+                'es_correcta' => $a->es_correcta,
             ]),
         ]);
     }
