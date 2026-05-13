@@ -18886,37 +18886,6 @@ html {
   box-shadow: 0 0 25px rgba(42, 150, 255, 0.6);
 }
 
-/* 🔶 Botón secundario (contraste naranja) */
-.btn-accent {
-  background: linear-gradient(135deg, #ffb300, #ff7b00);
-  color: #000;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 28px;
-  transition: all 0.3s ease;
-}
-
-.btn-accent:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, #ff7b00, #ffb300);
-}
-
-/* 🧊 Botón transparente / vidrio */
-.btn-glass {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(6px);
-  border-radius: 12px;
-  padding: 12px 28px;
-  color: #e6e8ff;
-  transition: all 0.3s ease;
-}
-
-.btn-glass:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: translateY(-3px);
-}
 
 
 

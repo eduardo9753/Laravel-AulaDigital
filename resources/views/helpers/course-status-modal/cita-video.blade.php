@@ -32,24 +32,37 @@
                      }
                  @endphp
 
-                 <div class="alert alert-info alert-dismissible fade show" role="alert">
-                     <strong>Referencia del vídeo:</strong>
-                     <p>Material extraído de la Web - {{ $current->name }} [Video].
-                         YouTube. Publicado
-                         por el
-                         canal
-                         <strong>{{ $channelName }}</strong>. Disponible en: <a target="_blank"
-                             href="{{ $current->url }}" title="{{ $channelName }}">{{ $url }}</a>
+                 <div class="alert alert-info alert-dismissible fade show shadow-sm" role="alert">
+
+                     <strong class="d-block mb-2">🎥 Referencia audiovisual académica</strong>
+
+                     <p class="mb-2">
+                         <strong>{{ $current->name }}</strong><br>
+                         Recurso publicado por el canal <strong>{{ $channelName }}</strong> en YouTube.
                      </p>
+
+                     <p class="mb-2">
+                         <strong>Fuente original:</strong>
+                         <a target="_blank" href="{{ $current->url }}" title="{{ $channelName }}">
+                             Ver recurso original
+                         </a>
+                     </p>
+
                      <p class="mb-0">
                          <em>
-                             <strong>Este material no es de propiedad de esta plataforma. Se cita la fuente para
-                                 reconocer la veracidad y autenticidad del documento, con fines exclusivamente
-                                 educativos y en beneficio de la comunidad estudiantil de
-                                 <a href="https://preunicursos.com/">PreuniCursos.com</a>.</strong>
+                             <strong>
+                                 Este recurso pertenece a su fuente original y es referenciado dentro de la plataforma
+                                 con fines exclusivamente educativos. EdPerú reconoce y respeta la autoría
+                                 correspondiente,
+                                 promoviendo el acceso responsable al conocimiento mediante la debida citación de la
+                                 fuente.
+                             </strong>
                          </em>
                      </p>
-                     <button type="button" class="mi-boton general" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar">
+                     </button>
+
                  </div>
              </div>
              <div class="modal-footer">

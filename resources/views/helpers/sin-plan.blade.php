@@ -9,6 +9,7 @@
     </li>
 
 
+    {{--
     <li class="item">
         <a href="{{ route('visitador.course.index') }}">
             <div class="d-flex align-items-center gap-1">
@@ -17,12 +18,13 @@
             </div>
         </a>
     </li>
+    --}}
 
     <li class="item">
         <a href="{{ route('visitador.course.free.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-slideshow bx-sm'></i>
-                <span>Cursos Gratis</span>
+                <span>Cursos</span>
             </div>
         </a>
     </li>
@@ -31,7 +33,7 @@
         <a href="{{ route('visitador.course.free.list') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-mouse-alt bx-sm'></i>
-                <span>Mis Cursos Gratis</span>
+                <span>Mis Cursos</span>
             </div>
         </a>
     </li>
@@ -40,7 +42,7 @@
         <a href="{{ route('visitador.examenes.free.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bxs-book-reader bx-sm'></i>
-                <span>Exámenes Gratis</span>
+                <span>Exámenes</span>
             </div>
         </a>
     </li>
@@ -71,7 +73,7 @@
         <a href="{{ route('visitador.simulacrum.index') }}">
             <div class="d-flex align-items-center gap-2">
                 <i class='bx bx-edit bx-sm'></i>
-                <span>Crear mi Simulacro</span>
+                <span>Crear mi Simulacro</span> <i class='bx bxs-star bx-tada' style='color:#e2d92b'></i>
             </div>
         </a>
     </li>
@@ -80,7 +82,7 @@
         <a href="{{ route('visitador.bot.index') }}">
             <div class="d-flex align-items-center gap-1">
                 <i class='bx bx-bot bx-burst bx-sm'></i>
-                <span>Bot PreuniCursos</span>
+                <span>Bot PreuniCursos</span><i class='bx bxs-star bx-tada' style='color:#e2d92b'></i>
             </div>
         </a>
     </li>
@@ -100,8 +102,8 @@
     <li class="item">
         <a href="{{ route('mercadopago.suscription.subscribe') }}">
             <div class="d-flex align-items-center gap-1">
-                <i class='bx bxs-label bx-fade-left bx-sm'></i>
-                <span>Suscribete</span>
+                <i class='bx bxs-label bx-fade-left bx-sm' style='color:#e2d92b'></i>
+                <span>Potenciar mi aprendizaje</span>
             </div>
         </a>
     </li>

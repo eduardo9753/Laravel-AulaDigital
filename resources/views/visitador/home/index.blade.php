@@ -18,30 +18,33 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-8" data-aos="fade-up">
+
                             <h1 class="fw-bold text-white mb-3 mt-5">
-                                🚀 Plataforma de refuerzo escolar inteligente para estudiantes y docentes.
+                                📚 La plataforma inteligente que fortalece el aprendizaje escolar
                             </h1>
 
                             <p class="lead mb-3 text-white" style="text-align: justify;">
-                                <strong class="text-warning">PreuniCursos</strong> utiliza
-                                <span class="text-info">Inteligencia Artificial</span> para fortalecer el aprendizaje de los
-                                estudiantes de secundaria.
-                                Brinda herramientas interactivas, evaluaciones automáticas y material educativo que mejora
-                                el rendimiento académico.
+                                <strong class="text-warning">EdPerú</strong> ayuda a estudiantes, docentes y familias
+                                a reforzar conocimientos mediante herramientas educativas impulsadas por
+                                <span class="text-info">Inteligencia Artificial</span>,
+                                diseñadas para complementar lo aprendido en clase y potenciar el progreso académico.
                             </p>
 
                             <p class="text-white mb-4" style="text-align: justify;">
-                                Un aliado para colegios, profesores y alumnos comprometidos con una educación de calidad. 💪
+                                Aprende a tu ritmo, practica por temas, resuelve evaluaciones, recibe retroalimentación
+                                inmediata
+                                y convierte cada momento de estudio en una oportunidad real para seguir avanzando. 🚀
                             </p>
 
                             <div class="d-flex flex-wrap mt-4">
+
                                 @guest
-                                    <a href="{{ route('admin.register.index') }}" class="btn btn-accent btn-lg fw-bold mr-3">
-                                        🚀 Empezar Gratis
+                                    <a href="{{ route('admin.register.index') }}" class="btn-solid-sm p-4 text-center mt-1">
+                                        🚀 Comenzar mi progreso
                                     </a>
 
-                                    <a href="#plans" class="btn btn-glass btn-lg fw-bold text-white mt-2 mt-sm-0">
-                                        💎 Ver Planes Escolares
+                                    <a href="#how-it-works" class="ml-4 btn-solid-sm p-4 text-center mt-1">
+                                        📖 Descubrir cómo funciona
                                     </a>
                                 @endguest
 
@@ -49,40 +52,39 @@
                                     @can('viewSubscription', auth()->user())
                                         <div class="d-flex flex-wrap">
                                             <a class="btn btn-gradient btn-lg fw-bold mr-3 mt-2 mt-sm-0">
-                                                🌟 Eres Premium
+                                                🌟 Continuar aprendiendo
                                             </a>
 
                                             <form action="{{ route('admin.logout') }}" method="POST">
                                                 @csrf
-                                                <input type="submit" class="btn btn-glass btn-lg fw-bold text-white mt-2 mt-sm-0"
+                                                <input type="submit" class="btn-solid-sm p-4 text-center"
                                                     value="🚪 Salir">
                                             </form>
                                         </div>
                                     @else
                                         <div class="d-flex flex-wrap">
-                                            <a href="#plans" class="btn btn-gradient btn-lg fw-bold mr-3 mt-2 mt-sm-0">
-                                                💎 Suscribirme
+                                            <a href="#plans" class="btn-solid-sm p-4 text-center">
+                                                💎 Potenciar mi aprendizaje
                                             </a>
 
                                             <form action="{{ route('admin.logout') }}" method="POST">
                                                 @csrf
-                                                <input type="submit" class="btn btn-glass btn-lg fw-bold text-white mt-2 mt-sm-0"
+                                                <input type="submit" class="btn-solid-sm p-4 ml-3 text-center"
                                                     value="🚪 Salir">
                                             </form>
                                         </div>
                                     @endcan
                                 @endauth
+
                             </div>
+
                         </div>
                     </div>
-
-
                 </div>
             </section>
 
 
-
-
+            {{-- CURSOS GRATIS 
             <section class="our-services section-home" id="services">
                 <div class="container">
                     <div class="row">
@@ -91,7 +93,7 @@
                             <h3 class="font-weight-bold mb-5 color-general">PreuniCursos</h3>
                         </div>
 
-                        {{-- MENSAJE DE ALERTA CUANDO TE SUSCRIBES --}}
+                        {{-- MENSAJE DE ALERTA CUANDO TE SUSCRIBES
                         <div class="contenedor">
                             @if (session('mensaje'))
                                 <div class="alert alert-info mt-2 alert-dismissible fade show" role="alert">
@@ -104,14 +106,54 @@
                     </div>
                 </div>
 
-                {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE --}}
+                {{-- LLAMADA DEL COMPONENTE COURSE CARD FREE 
                 <x-course-card :courses="$coursesFree" url="gratis"></x-course-card>
             </section>
+            --}}
+
+
+
+            {{-- video con contenidos de la plataforma --}}
+            <section class="our-services section-home" id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5 class="text-dark font-weight-bold">Temario UNFV</h5>
+                            <h3 class="font-weight mb-5 color-general">Aprendizaje continuo con IA</h3>
+                        </div>
+                    </div>
+                    <div class="row" data-aos="fade-up">
+                        <div class="col-md-12">
+                            @include('helpers.video', [
+                                'video' => asset('videos/Contenido.mp4'),
+                            ])
+                        </div>
+
+                        {{--
+                        <div class="col-md-6">
+                            @include('helpers.video', [
+                                'video' => asset('videos/IA.mp4'),
+                            ])
+                        </div>
+
+                        <div class="col-md-6 mt-3">
+                            @include('helpers.video', [
+                                'video' => asset('videos/suscripción_preunicursos.mp4'),
+                            ])
+                        </div>
+                        --}}
+
+                    </div>
+                </div>
+            </section>
+
+
 
             <!-- Ahora incluimos la vista suscripcion.blade.php -->
             @include('helpers.suscripcion')
 
 
+            {{-- BENEFICIOS 
             <section class="our-services section-home" id="services">
                 <div class="container">
                     <div class="row">
@@ -160,38 +202,10 @@
 
                 </div>
             </section>
+            --}}
 
 
-            <!--video con contenidos de la plataforma-->
-            <section class="our-services section-home" id="services">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h5 class="text-dark font-weight-bold">Temario UNFV</h5>
-                            <h3 class="font-weight mb-5 color-general">Aprendizaje continuo con IA</h3>
-                        </div>
-                    </div>
-                    <div class="row" data-aos="fade-up">
-                        <div class="col-md-6">
-                            @include('helpers.video', [
-                                'video' => asset('videos/Contenido.mp4'),
-                            ])
-                        </div>
-                        <div class="col-md-6">
-                            @include('helpers.video', [
-                                'video' => asset('videos/IA.mp4'),
-                            ])
-                        </div>
-                        {{-- <div class="col-md-6 mt-3">
-                            @include('helpers.video', [
-                                'video' => asset('videos/suscripción_preunicursos.mp4'),
-                            ])
-                        </div>
-                        --}}
-                    </div>
-                </div>
-            </section>
-            <!--video con contenidos de la plataforma-->
+
 
 
 
@@ -231,7 +245,8 @@
                         <div class="col-sm-6">
                             <h5 class="text-dark font-weight-bold">Únete a nuestra comunidad educativa</h5>
                             <h3 class="font-weight-medium color-general">🎓 ¡Descubre PreuniCursos!</h3>
-                            <h5 class="text-dark mb-3 font-weight-bold">Tu aliado académico para reforzar y aprender mejor
+                            <h5 class="text-dark mb-3 font-weight-bold">Tu aliado académico para reforzar y
+                                aprender mejor
                             </h5>
 
                             <p class="font-weight-medium mb-4 text-dark">
@@ -241,7 +256,8 @@
 
                             <div class="d-flex justify-content-start mb-3">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="text-dark font-weight-bold mb-0">Materiales interactivos y guías en PDF</p>
+                                <p class="text-dark font-weight-bold mb-0">Materiales interactivos y guías en
+                                    PDF</p>
                             </div>
 
                             <div class="d-flex justify-content-start mb-3">
@@ -261,15 +277,15 @@
 
                             <div class="d-flex justify-content-start">
                                 <img src="{{ asset('img/home/item.png') }}" alt="tick" class="mr-3 tick-icon">
-                                <p class="text-dark font-weight-bold mb-0">Acceso de por vida y soporte continuo para
+                                <p class="text-dark font-weight-bold mb-0">Acceso de por vida y soporte continuo
+                                    para
                                     estudiantes</p>
                             </div>
                         </div>
 
                         <div class="col-sm-6 text-right" data-aos="flip-left" data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000">
-                            <img src="{{ asset('img/home/idea.png') }}" alt="idea"
-                                class="img-fluid ">
+                            <img src="{{ asset('img/home/idea.png') }}" alt="idea" class="img-fluid ">
                         </div>
                     </div>
 
@@ -284,7 +300,7 @@
                             <div class="d-sm-flex justify-content-between align-items-center mb-2">
                                 <h3 class="text-dark mb-3 mt-4 font-weight-medium">Lista de
                                     Cursos</h3>
-                                <div><a href="{{ route('visitador.course.index') }}" class="btn btn-outline-primary">Ver
+                                <div><a href="{{ route('visitador.course.index') }}" class="btn btn-primary">Ver
                                         todos los cursos</a></div>
                             </div>
                         </div>
@@ -307,7 +323,8 @@
                             <div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-down">
                                 <img src="{{ asset('img/home/usuarios.png') }}" alt="satisfied-client" class="mr-3">
                                 <div>
-                                    <h4 class="font-weight-bold text-dark mb-0"><span class="scVal">0</span>+</h4>
+                                    <h4 class="font-weight-bold text-dark mb-0"><span class="scVal">0</span>+
+                                    </h4>
                                     <h5 class="text-dark mb-0">Estudiantes</h5>
                                 </div>
                             </div>
@@ -316,7 +333,8 @@
                             <div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-up">
                                 <img src="{{ asset('img/home/pruebas.png') }}" alt="satisfied-client" class="mr-3">
                                 <div>
-                                    <h4 class="font-weight-bold text-dark mb-0"><span class="fpVal">0</span>+</h4>
+                                    <h4 class="font-weight-bold text-dark mb-0"><span class="fpVal">0</span>+
+                                    </h4>
                                     <h5 class="text-dark mb-0">Exámenes</h5>
                                 </div>
                             </div>
@@ -325,7 +343,8 @@
                             <div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-down">
                                 <img src="{{ asset('img/home/videos.png') }}" alt="Team Members" class="mr-3">
                                 <div>
-                                    <h4 class="font-weight-bold text-dark mb-0"><span class="tMVal">0</span>+</h4>
+                                    <h4 class="font-weight-bold text-dark mb-0"><span class="tMVal">0</span>+
+                                    </h4>
                                     <h5 class="text-dark mb-0">Lista de Videos</h5>
                                 </div>
                             </div>
@@ -334,7 +353,8 @@
                             <div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-up">
                                 <img src="{{ asset('img/home/recursos.png') }}" alt="Our Blog Posts" class="mr-3">
                                 <div>
-                                    <h4 class="font-weight-bold text-dark mb-0"><span class="bPVal">0</span>+</h4>
+                                    <h4 class="font-weight-bold text-dark mb-0"><span class="bPVal">0</span>+
+                                    </h4>
                                     <h5 class="text-dark mb-0">Recursos PDF</h5>
                                 </div>
                             </div>

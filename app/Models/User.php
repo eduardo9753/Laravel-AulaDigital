@@ -118,7 +118,7 @@ class User extends Authenticatable
         } else if ($roles->contains('Instructor')) {
             return redirect()->route('admin.instructor.course.index');
         } else {
-            return redirect()->route('visitador.course.list');
+            return redirect()->route('visitador.panel');
         }
     }
 

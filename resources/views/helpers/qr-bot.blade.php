@@ -8,7 +8,7 @@
                 <img src="{{ asset('img/visitador/bot/qr_bot.png') }}" alt="QR Bot PreuniCursos" class="img-fluid w-75">
                 <p class="mt-3 text-white fw-semibold">Escanea el QR o haz clic en el botón 👇</p>
                 <a href="https://wa.me/14155238886?text=join%20fly-standard" target="_blank"
-                    class="btn btn-outline-primary btn-lg mt-2">
+                    class="btn btn-primary w-100">
                     <i class="bx bxl-whatsapp"></i> Iniciar Bot en WhatsApp
                 </a>
             </div>

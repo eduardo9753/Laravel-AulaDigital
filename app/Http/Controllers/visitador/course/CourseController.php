@@ -94,7 +94,9 @@ class CourseController extends Controller
       ]);
     } else {
       // Si el usuario no tiene acceso a ninguna de las suscripciones, redirige con un mensaje de alerta
-      return redirect()->route('mercadopago.suscription.subscribe');
+      //return redirect()->route('mercadopago.suscription.subscribe');
+
+      return redirect()-route('visitador.course.free.index');
     }
   }
 
@@ -109,7 +111,7 @@ class CourseController extends Controller
       $section = Section::find($lesson->section_id);
       $course = Course::find($section->course_id);
 
-      $administradores = ['richardanthonyalama@gmail.com', 'anthony.anec@gmail.com'];
+      $administradores = ['anthony.anec@gmail.com'];
 
       Mail::to($administradores)->send(new EnviarCorreoLinkCaido($lesson, $section, $course));
 

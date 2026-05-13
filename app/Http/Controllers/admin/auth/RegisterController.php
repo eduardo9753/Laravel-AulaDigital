@@ -34,6 +34,7 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'imagen' => '',
+            'google_id' => 999999999,
             'password' => Hash::make($request->password) //encriptando
         ]);
 
